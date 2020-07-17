@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 keyboardDirection;
     public float maxVelocity;
     private float prevKeyboardY;
+    private float armLockPositionUp = 1.7f;
+    private float armLockPositionDown = 0.3f;
+    private float walkArmDelta = 1.296f;
+    private float crouchArmDelta = 1.06f;
     private Rigidbody2D playerRb2D;
     private bool isFacingLeft;
     private Animator animator;
@@ -19,22 +23,40 @@ public class PlayerController : MonoBehaviour
     private bool run;
     private bool walk;
     private bool isGround;
+    private bool crouchButtonDown;
+    private bool fire;
     [SerializeField] Joystick viewJoystick;
     [SerializeField] Button jumpButton;
     [SerializeField] Button crouchButton;
     [SerializeField] Button fireButton;
+    [SerializeField] GameObject rightArm;
+    [SerializeField] GameObject leftArm;
+     private GameObject leftArmPointer;
+    private GameObject weapon;
+    private astroGun astrogun;
+    [SerializeField] GameObject initialWeapon;
+    [SerializeField] GameObject weaponPoint;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        force = new Vector2(50.0f, 3.0f);
+        force = new Vector2(70.0f, 5.0f);
         maxVelocity = 2.0f;
         isFacingLeft = false;
         crouch = false;
+        crouchButtonDown = false;
         run = false;
         walk = false;
         playerRb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
+        Instantiate(initialWeapon, weaponPoint.transform);
+        leftArmPointer = GameObject.Find("leftArmPoint");
+        weapon = GameObject.FindGameObjectWithTag("weapon");
+        astrogun = weapon.GetComponent<astroGun>();
+
+        //Debug.Log("rightArm " + rightArm);
     }
 
     // Update is called once per frame
@@ -42,6 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         joysticDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+
 
         if(joysticDirection.x != 0 || keyboardDirection.x != 0)
         {
@@ -81,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
         
         run = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0;
-        walk = direction.x != 0 || viewJoystick.Horizontal != 0;
+        walk = ((int) playerRb2D.velocity.x) != 0;
 
         if ((direction.x > 0) && isFacingLeft)
             //отражаем персонажа вправо
@@ -93,12 +116,16 @@ public class PlayerController : MonoBehaviour
         VelocityControl();
         RunOneHandGun(run);
         WalkOneHandGun(walk);
+        MovingRightArm();
 
         IdleControl();
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            astrogun.Shoot();
+        }
 
-
-       // Debug.Log("Horizontal " + viewJoystick.Horizontal.ToString() + " Vertical " + viewJoystick.Horizontal.ToString());
+        //Debug.Log("Horizontal " + viewJoystick.Horizontal.ToString() + " Vertical " + viewJoystick.Vertical.ToString());
     }
 
     private void FixedUpdate()
@@ -106,6 +133,9 @@ public class PlayerController : MonoBehaviour
         KeyboardJump();
         Crouch();
         Move();
+        
+
+        //print("position " + (rightArm.transform.localPosition.y + joysticDirection.y));
     }
 
     private void Flip()
@@ -118,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if ((direction.x !=0) && !crouch)
+        if (direction.x != 0 && !crouch)
         {
            //WalkOneHandGun(true);
           /* if(viewJoystick.Horizontal > 0)
@@ -154,19 +184,21 @@ public class PlayerController : MonoBehaviour
 
             animator.SetBool("jumpOneArm", true);
             playerRb2D.AddForce(new Vector2(0.0f, force.y * jump), ForceMode2D.Impulse);
+            animator.SetBool("jumpOneArm", false);
         }
         else
         {
-            animator.SetBool("jumpOneArm", false);
+            
         }
     }
 
-    private void Crouch()
+    public void Crouch()
     {
-        if(direction.y < 0)
+        if(direction.y < 0 || crouchButtonDown)
         {
             animator.SetBool("crouchOneArm", true);
             crouch = true;
+            //SetCrouchButtonDown(false);
         }
         else
         {
@@ -203,8 +235,13 @@ public class PlayerController : MonoBehaviour
 
     private void RunOneHandGun(bool run)
     {
+
+        if (run)
+        {
             animator.SetBool("runOneArm", run);
             maxVelocity = 5.0f;
+        }
+        
             //print("run " + run);
     }
 
@@ -248,4 +285,48 @@ public class PlayerController : MonoBehaviour
         direction.y = prevKeyboardY = 0;
     }
 
+    public void SetCrouchButtonDown(bool down)
+    {
+        this.crouchButtonDown = down;
+    }
+
+    public bool GetCrouchButtonDown()
+    {
+        return crouchButtonDown;
+    }
+
+    private void MovingRightArm()
+    {
+        Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
+
+        float armDelta;
+
+        if (crouchButtonDown)
+        {
+            armDelta = crouchArmDelta;
+        }
+        else
+        {
+            armDelta = walkArmDelta;
+        }
+
+        
+          Vector3 currentPosition = new Vector3(rightArmLocalPosition.x,
+                joysticDirection.y + armDelta,
+                rightArmLocalPosition.z);
+        
+        
+
+        if (currentPosition.y >= armLockPositionDown
+            && currentPosition.y <= armLockPositionUp)
+        {
+            rightArm.transform.localPosition = currentPosition;
+            leftArm.transform.position = leftArmPointer.transform.position;
+            //print("current rightArm Position " + currentPosition + "RightArm local rot " + rightArm.transform.localRotation + " RA glo rot" + rightArm.transform.rotation);
+            //print(Camera.main.ScreenToWorldPoint(currentPosition));
+        }
+
+        
+
+    }
 }

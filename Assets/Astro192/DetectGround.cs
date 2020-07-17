@@ -4,7 +4,7 @@ public class DetectGround : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "ground")
+        if (collision.gameObject.tag == "ground")
         {
             GetComponentInParent<PlayerController>().SetGround(true);
         }
@@ -12,7 +12,7 @@ public class DetectGround : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "ground")
+        if(collision.gameObject.tag == "ground")
         {
             GetComponentInParent<PlayerController>().SetGround(false);
         }
