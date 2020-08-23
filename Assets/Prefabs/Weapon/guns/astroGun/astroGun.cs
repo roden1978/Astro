@@ -6,34 +6,30 @@ public class astroGun : MonoBehaviour
 {
     private int type = 0;
     [SerializeField] Transform firePoint; // shoot point
+    [SerializeField] Transform targetPoint; // shoot point
     [SerializeField] GameObject bullet;
+    //[SerializeField] GameObject rightArm;
     private GameObject armBone;
+    //private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         armBone = GameObject.Find("bone_5");
+       // rightArm = GameObject.Find("RightArmSolver_Target");
         transform.Rotate(0, 0, armBone.transform.rotation.eulerAngles.z);
+        //rb = rightArm.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //print(Camera.main.ScreenToWorldPoint(firePoint.transform.position));
-        //transform.Rotate(0, 0, GameObject.Find("bone_5").transform.rotation.eulerAngles.z);
-        //Debug.DrawRay(transform.TransformPoint(firePoint.transform.position), new Vector3(0,1,0), Color.red);
-
-        /* var mousePosition = Input.mousePosition;
-         //mousePosition.z = transform.position.z - Camera.main.transform.position.z; // это только для перспективной камеры необходимо
-         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition); //положение мыши из экранных в мировые координаты
-         var angle = Vector2.Angle(Vector2.right, mousePosition - transform.position);//угол между вектором от объекта к мыше и осью х
-         transform.eulerAngles = new Vector3(0f, 0f, transform.position.y < mousePosition.y ? angle : -angle);//немного магии на последок*/
-
+        Debug.DrawRay(firePoint.transform.position, targetPoint.transform.position - firePoint.transform.position, Color.red);
     }
 
     public void Shoot()
     {
         Instantiate(bullet, firePoint.position, armBone.transform.rotation);
+       // rb.AddForce(new Vector2(transform.position.x * -0.2f, 0), ForceMode2D.Impulse);
         //print("PRot" + player.transform.rotation + "FP rot" + firePoint.rotation);
     }
 }

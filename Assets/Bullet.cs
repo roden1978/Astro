@@ -7,15 +7,20 @@ public class Bullet : MonoBehaviour
     //[SerializeField] Vector2 speed;
     [SerializeField] Rigidbody2D rb;
     Transform firePoint;
+    Transform targetPoint;
+    private IEnumerator coroutine;
     // Start is called before the first frame update
 void Start()
     {
         firePoint = GameObject.Find("shootPoint").transform;
-        //print(Camera.main.ScreenToWorldPoint(firePoint.transform.posi));
-        //speed = new Vector2(0.5f, 0.5f);
-        //print(firePoint.transform.eulerAngles);
-        rb.velocity = Camera.main.ScreenToWorldPoint(firePoint.transform.position);
-        //rb.AddForce(new Vector2 (transform.localPosition.x, 0) * 0.1f, ForceMode2D.Impulse);
+        targetPoint = GameObject.Find("targetPoint").transform;
+        //rb.velocity = (targetPoint.transform.position - firePoint.transform.position) * 200f;
+        rb.AddForce((targetPoint.transform.position - firePoint.transform.position) * 2f, ForceMode2D.Impulse);
+
+        coroutine = Die();
+        StartCoroutine(coroutine);
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)
@@ -24,5 +29,14 @@ void Start()
         Destroy(gameObject);
     }
 
-    
+    private void Update()
+    {
+       
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(0.2f);
+    }
+
 }
