@@ -17,10 +17,10 @@ void Start()
         //rb.velocity = (targetPoint.transform.position - firePoint.transform.position) * 200f;
         rb.AddForce((targetPoint.transform.position - firePoint.transform.position) * 2f, ForceMode2D.Impulse);
 
-        coroutine = Die();
+        coroutine = Die(0.2f);
         StartCoroutine(coroutine);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)
@@ -34,9 +34,10 @@ void Start()
        
     }
 
-    private IEnumerator Die()
+    private IEnumerator Die(float time)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 
 }
