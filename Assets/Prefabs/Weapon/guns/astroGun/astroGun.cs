@@ -16,7 +16,8 @@ public class astroGun : MonoBehaviour
     {
         armBone = GameObject.Find("bone_5");
        // rightArm = GameObject.Find("RightArmSolver_Target");
-        transform.Rotate(0, 0, armBone.transform.rotation.eulerAngles.z);
+        //transform.Rotate(0, 0, armBone.transform.rotation.eulerAngles.z);
+        transform.Rotate(0, 0, 0);
         //rb = rightArm.GetComponent<Rigidbody2D>();
     }
 

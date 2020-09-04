@@ -3,10 +3,9 @@
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    private Vector3 prevPosition;
+    //private Vector3 prevPosition;
     public float smoothSpeed;
     public Vector3 offset;
-    private bool isFacingLeft = false;
 
     private void FixedUpdate()
     {
@@ -68,7 +67,7 @@ public class CameraFollow : MonoBehaviour
         //меняем направление движения камеры
         //isFacingLeft = !isFacingLeft;
         offset.x = offset.x * -1;
-        prevPosition = Vector3.zero;
+        //prevPosition = Vector3.zero;
         //print("offset " + isFacingLeft);
     }
 }

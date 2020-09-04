@@ -9,15 +9,19 @@ public class Bullet : MonoBehaviour
     Transform firePoint;
     Transform targetPoint;
     private IEnumerator coroutine;
+    Vector3 shootDirection;
     // Start is called before the first frame update
 void Start()
     {
         firePoint = GameObject.Find("shootPoint").transform;
         targetPoint = GameObject.Find("targetPoint").transform;
         //rb.velocity = (targetPoint.transform.position - firePoint.transform.position) * 200f;
-        rb.AddForce((targetPoint.transform.position - firePoint.transform.position) * 2f, ForceMode2D.Impulse);
+        shootDirection = targetPoint.transform.position - firePoint.transform.position;
+        rb.AddForce(shootDirection * 2.0f, ForceMode2D.Impulse);
 
-        coroutine = Die(0.2f);
+        print(shootDirection);
+
+        coroutine = Die(0.5f);
         StartCoroutine(coroutine);
 
         //Destroy(gameObject);
@@ -26,7 +30,7 @@ void Start()
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
         Debug.Log(hitObject.name);
-        Destroy(gameObject);
+        Destroy(gameObject);    
     }
 
     private void Update()
