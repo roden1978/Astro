@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class astroGun : MonoBehaviour
 {
-    private int type = 0;
+    //private int type = 0;
     [SerializeField] Transform firePoint; // shoot point
     [SerializeField] Transform targetPoint; // shoot point
     [SerializeField] GameObject bullet;

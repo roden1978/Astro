@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -16,26 +13,33 @@ public class PlayerController : MonoBehaviour
     private float armLockPositionDown = 0.3f;
     private float walkArmDelta = 1.296f;
     private float crouchArmDelta = 1.06f;
+    [SerializeField] float jumpForce;
     private Rigidbody2D playerRb2D;
-    private bool isFacingLeft;
+    //private bool isFacingLeft;
     private Animator animator;
     private bool crouch;
     private bool run;
     private bool walk;
     private bool isGround;
     private bool crouchButtonDown;
-    private bool fire;
+    private bool isRunning;
+    private bool isIdle;
     [SerializeField] Joystick viewJoystick;
     [SerializeField] Button jumpButton;
     [SerializeField] Button crouchButton;
     [SerializeField] Button fireButton;
+    [SerializeField] Button runButton;
     [SerializeField] GameObject rightArm;
     [SerializeField] GameObject leftArm;
-     private GameObject leftArmPointer;
+    private GameObject leftArmPointer;
     private GameObject weapon;
     private astroGun astrogun;
     [SerializeField] GameObject initialWeapon;
     [SerializeField] GameObject weaponPoint;
+
+    [SerializeField] bool keyboardController;
+    [SerializeField] bool uiController;
+
 
 
     // Start is called before the first frame update
@@ -43,14 +47,15 @@ public class PlayerController : MonoBehaviour
     {
         force = new Vector2(70.0f, 5.0f);
         maxVelocity = 2.0f;
-        isFacingLeft = false;
         crouch = false;
         crouchButtonDown = false;
         run = false;
         walk = false;
+        isRunning = false;
+        isIdle = true;
         playerRb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
         Instantiate(initialWeapon, weaponPoint.transform);
         leftArmPointer = GameObject.Find("leftArmPoint");
         weapon = GameObject.FindGameObjectWithTag("weapon");
@@ -59,66 +64,45 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("rightArm " + rightArm);
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        joysticDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+        ReadDeviceDirections();
 
-
-        if(joysticDirection.x != 0 || keyboardDirection.x != 0)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
         {
-            if(joysticDirection.x != 0)
-            {
-                direction.x = joysticDirection.x;
-            }
-
-            if (keyboardDirection.x != 0)
-            {
-                direction.x = keyboardDirection.x;
-            }
-
+            run = true;
+            walk = false;
+            isIdle = false;
+            print("run");
+        }else if (((int)playerRb2D.velocity.x) != 0)
+        {
+            walk = true;
+            run = false;
+            isRunning = false;
+            isIdle = false;
+            
+            print("walk " + walk);
+            print("run " + run);
+            print("isRunning " + isRunning);
         } else
         {
-            ResetX();
+            walk = false;
+            run = false;
+            isRunning = false;
+            isIdle = true;
+            print("idle");
         }
-
-        if (joysticDirection.y != 0 || keyboardDirection.y != 0)
-        {
-            if(joysticDirection.y != 0)
-            {
-                //direction.y = joysticDirection.y;
-            }
-
-            if(keyboardDirection.y != 0)
-            {
-                direction.y = keyboardDirection.y;
-
-            }
             
-        }
-        else
-        {
-            ResetY();
-        }
 
-        
-        run = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0;
-        walk = ((int) playerRb2D.velocity.x) != 0;
+        /*if ()
+            walk = true;
+        else walk = false;*/
 
-        if ((direction.x > 0) && isFacingLeft)
-            //отражаем персонажа вправо
-            Flip();
-        //обратная ситуация. отражаем персонажа влево
-        else if ((direction.x < 0) && !isFacingLeft)
-            Flip();
-
-        VelocityControl();
-        RunOneHandGun(run);
-        WalkOneHandGun(walk);
         MovingRightArm();
 
-        IdleControl();
+        //IdleControl();
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -128,43 +112,105 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Horizontal " + viewJoystick.Horizontal.ToString() + " Vertical " + viewJoystick.Vertical.ToString());
     }
 
+    private void RunOneHandGun()
+    {
+
+        if (run && !isRunning)
+        {
+            animator.SetBool("walkOneArm", false);
+            animator.SetBool("runOneArm", true);
+            maxVelocity = 5.0f;
+
+           /* print("running");
+            print("Run " + run);
+            print("isRunning " + isRunning);*/
+        }
+
+        if (!run && !isRunning && !isIdle)
+        {
+            animator.SetBool("runOneArm", false);
+            animator.SetBool("walkOneArm", true);
+            maxVelocity = 2.0f;
+
+           /* print("walking");
+            print("walk " + walk);*/
+
+        }
+
+        if (!run && !isRunning && !walk && isIdle)
+        {
+            animator.SetBool("runOneArm", false);
+            animator.SetBool("walkOneArm", false);
+            
+            print("Idling");
+
+        }
+
+        //print("run " + run);
+    }
+
+    private void ReadDeviceDirections()
+    {
+        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        joysticDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+
+        if (joysticDirection.x != 0 || keyboardDirection.x != 0)
+        {
+
+            if (keyboardDirection.x != 0)
+            {
+                direction.x = keyboardDirection.x;
+            }
+
+            if (joysticDirection.x != 0)
+            {
+                direction.x = joysticDirection.x;
+            }
+        }
+        else
+        {
+            ResetX();
+        }
+
+        if (keyboardDirection.y != 0)
+        {
+
+            if (keyboardDirection.y != 0)
+            {
+                direction.y = keyboardDirection.y;
+            }
+
+            if (keyboardDirection.y < 0 && !crouch)
+            {
+                crouchButtonDown = !crouchButtonDown;
+                crouch = true;
+            }
+
+        }
+        else
+        {
+            ResetY();
+        }
+    }
+
     private void FixedUpdate()
     {
         KeyboardJump();
         Crouch();
         Move();
-        
-
-        //print("position " + (rightArm.transform.localPosition.y + joysticDirection.y));
+        VelocityControl();
+        RunOneHandGun();
+        //WalkOneHandGun(walk);
     }
 
-    private void Flip()
-    {
-        //меняем направление движения персонажа
-        isFacingLeft = !isFacingLeft;
-
-        transform.Rotate(0f, 180f, 0f);
-    }
 
     private void Move()
     {
-        if (direction.x != 0 && !crouch)
+        if (direction.x != 0 && !crouchButtonDown)
         {
-           //WalkOneHandGun(true);
-          /* if(viewJoystick.Horizontal > 0)
-            {
-                direction.x = viewJoystick.Horizontal; //(float) Math.Ceiling((double)viewJoystick.Horizontal);
-
-            }
-
-           if(viewJoystick.Horizontal < 0)
-            {
-                direction.x = viewJoystick.Horizontal; //(float)Math.Floor((double)viewJoystick.Horizontal);
-            }*/
-            
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
         }
-        
+
     }
 
     private void KeyboardJump()
@@ -172,33 +218,33 @@ public class PlayerController : MonoBehaviour
         if (direction.y > 0 && prevKeyboardY != 1)
         {
             prevKeyboardY = direction.y;
-            Jump(1.0f);
+            Jump(jumpForce);
         }
 
     }
 
     public void Jump(float jump)
     {
-        if (isGround)
+        if (isGround && !crouchButtonDown)
         {
-
             animator.SetBool("jumpOneArm", true);
             playerRb2D.AddForce(new Vector2(0.0f, force.y * jump), ForceMode2D.Impulse);
             animator.SetBool("jumpOneArm", false);
         }
         else
         {
-            
+            crouchButtonDown = false;
+            crouch = false;
         }
     }
 
     public void Crouch()
     {
-        if(direction.y < 0 || crouchButtonDown)
+        if (crouchButtonDown)
         {
             animator.SetBool("crouchOneArm", true);
             crouch = true;
-            //SetCrouchButtonDown(false);
+            //crouchButtonDown = !crouchButtonDown;
         }
         else
         {
@@ -207,72 +253,66 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void WalkOneHandGun(bool walk)
-    {
-        if(!run)
-        {
-            animator.SetBool("walkOneArm", walk);
-            maxVelocity = 2.0f;
-            //print("walk " + walk);
-        }
-        
-    }
+    /* private void WalkOneHandGun(bool walk)
+     {
+         if (!run)
+         {
+             animator.SetBool("runOneArm", run);
+             animator.SetBool("walkOneArm", walk);
+             maxVelocity = 2.0f;
+             //print("walk " + walk);
+         }
+
+     }*/
+
+   
 
     private void VelocityControl()
     {
-        if ((direction.x > 0 || viewJoystick.Horizontal != 0) && playerRb2D.velocity.x > maxVelocity)
+        if ((direction.x > 0) && playerRb2D.velocity.x > maxVelocity)
         {
             playerRb2D.velocity = new Vector2(maxVelocity, playerRb2D.velocity.y);
         }
         else
         {
-            if((direction.x < 0 || viewJoystick.Horizontal != 0) && playerRb2D.velocity.x < -maxVelocity)
+            if ((direction.x < 0) && playerRb2D.velocity.x < -maxVelocity)
             {
                 playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
             }
         }
     }
 
-    private void RunOneHandGun(bool run)
-    {
 
-        if (run)
-        {
-            animator.SetBool("runOneArm", run);
-            maxVelocity = 5.0f;
-        }
-        
-            //print("run " + run);
-    }
 
     private void IdleControl()
     {
-        if (direction.x == 0 || viewJoystick.Horizontal == 0)
+        if (direction.x == 0)
         {
             walk = false;
             run = false;
+            isRunning = false;
         }
     }
 
-    public void SetGround(bool isGround)
+
+    public bool Ground
     {
-        this.isGround = isGround;
+        get { return isGround; }
+        set { isGround = value; }
     }
 
-    public void SetDirection(Vector2 direction)
-    {
-        this.direction = direction;
-    }
 
-    public void SetDirection(float x, float y)
+    public Vector2 Direction
     {
-        direction.x = x;
-        direction.y = y;
-    }
+        get
+        {
+            return direction;
+        }
 
-    public Vector2 GetDirection()
-    {
-        return direction;
+        set
+        {
+            direction = value;
+        }
     }
 
     private void ResetX()
@@ -285,15 +325,20 @@ public class PlayerController : MonoBehaviour
         direction.y = prevKeyboardY = 0;
     }
 
-    public void SetCrouchButtonDown(bool down)
+
+    public bool CrouchButtonDown
     {
-        this.crouchButtonDown = down;
+        get
+        {
+            return crouchButtonDown;
+        }
+
+        set
+        {
+            crouchButtonDown = value;
+        }
     }
 
-    public bool GetCrouchButtonDown()
-    {
-        return crouchButtonDown;
-    }
 
     private void MovingRightArm()
     {
@@ -301,7 +346,7 @@ public class PlayerController : MonoBehaviour
 
         float armDelta;
 
-        if (crouchButtonDown)
+        if (crouch)
         {
             armDelta = crouchArmDelta;
         }
@@ -310,12 +355,12 @@ public class PlayerController : MonoBehaviour
             armDelta = walkArmDelta;
         }
 
-        
-          Vector3 currentPosition = new Vector3(rightArmLocalPosition.x,
-                joysticDirection.y + armDelta,
-                rightArmLocalPosition.z);
-        
-        
+
+        Vector3 currentPosition = new Vector3(rightArmLocalPosition.x,
+              joysticDirection.y + armDelta,
+              rightArmLocalPosition.z);
+
+
 
         if (currentPosition.y >= armLockPositionDown
             && currentPosition.y <= armLockPositionUp)
@@ -326,7 +371,7 @@ public class PlayerController : MonoBehaviour
             //print(Camera.main.ScreenToWorldPoint(currentPosition));
         }
 
-        
+
 
     }
 }

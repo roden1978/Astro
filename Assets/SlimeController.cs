@@ -8,6 +8,8 @@ public class SlimeController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float moveSpeed;
     private Transform player;
     private Vector3 playerPos;
     private Vector2 attackPos;
@@ -35,7 +37,6 @@ public class SlimeController : MonoBehaviour
     {
         if (isCollision && isGround)
         {
-            playerPos.Normalize();
             rb.AddForce(playerPos * speed, ForceMode2D.Impulse);
             //rb.AddForceAtPosition(playerPos, transform.position, ForceMode2D.Impulse);
             print("Attack " + playerPos * speed);
@@ -44,7 +45,7 @@ public class SlimeController : MonoBehaviour
         if (isCollision)
             Debug.DrawRay(transform.position, player.position - transform.position, Color.red);
 
-       
+        rb.AddForce(new Vector2(moveSpeed, 0));
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -56,10 +57,15 @@ public class SlimeController : MonoBehaviour
             if (!player)
             {
                 player = GameObject.Find("HeadPoint").GetComponent<Transform>();
-                playerPos = player.position - transform.position;
+
                 //playerPos = transform.position - player.transform.position;
                 //attackPos = new Vector2(playerPos.x, playerPos.y);
             }
+            else
+            {
+                playerPos = player.position - transform.position;
+            }
+
             
         }
             

@@ -11,7 +11,7 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
         {
             if (gameObject.name == "CrouchButton")
             {
-                playerController.SetCrouchButtonDown(!playerController.GetCrouchButtonDown());
+                playerController.CrouchButtonDown = !playerController.CrouchButtonDown;
                 playerController.Crouch();
             }
         } else

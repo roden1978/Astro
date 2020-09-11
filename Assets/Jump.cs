@@ -20,7 +20,7 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (gameObject.name == "JumpButton")
         {
-            playerController.SetDirection(new Vector2(playerController.GetDirection().x, 0));
+            playerController.Direction = new Vector2(playerController.Direction.x, 0);
         }
     }
 

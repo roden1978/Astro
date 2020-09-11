@@ -19,7 +19,7 @@ void Start()
         shootDirection = targetPoint.transform.position - firePoint.transform.position;
         rb.AddForce(shootDirection * 2.0f, ForceMode2D.Impulse);
 
-        print(shootDirection);
+        //print(shootDirection);
 
         coroutine = Die(0.5f);
         StartCoroutine(coroutine);
