@@ -58,10 +58,10 @@ public class PlayerController : MonoBehaviour
 
         Instantiate(initialWeapon, weaponPoint.transform);
         leftArmPointer = GameObject.Find("leftArmPoint");
-        weapon = GameObject.FindGameObjectWithTag("weapon");
-        astrogun = weapon.GetComponent<astroGun>();
+	    weapon = GameObject.FindGameObjectWithTag("weapon");
+	    astrogun = weapon.GetComponent<astroGun>();
 
-        //Debug.Log("rightArm " + rightArm);
+	    Debug.Log("astrogun " + weapon);
     }
 
 
@@ -366,7 +366,7 @@ public class PlayerController : MonoBehaviour
             && currentPosition.y <= armLockPositionUp)
         {
             rightArm.transform.localPosition = currentPosition;
-            leftArm.transform.position = leftArmPointer.transform.position;
+	        leftArm.transform.position = weaponPoint.transform.position;//leftArmPointer.transform.position;
             //print("current rightArm Position " + currentPosition + "RightArm local rot " + rightArm.transform.localRotation + " RA glo rot" + rightArm.transform.rotation);
             //print(Camera.main.ScreenToWorldPoint(currentPosition));
         }
