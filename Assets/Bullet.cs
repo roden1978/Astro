@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] Vector2 speed;
+	//[SerializeField] Vector2 speed;
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] float power;
-	Transform firePoint;
-	Transform targetPoint;
+	private GameObject gun;
+	//private Transform firePoint;
+	//private Transform targetPoint;
     private IEnumerator coroutine;
-	Vector3 shootDirection;
+	private Vector3 shootDirection;
     // Start is called before the first frame update
 void Start()
     {
-        //firePoint = GameObject.Find("shootPoint").transform;
-        //targetPoint = GameObject.Find("targetPoint").transform;
-        ////rb.velocity = (targetPoint.transform.position - firePoint.transform.position) * 200f;
-        shootDirection = targetPoint.transform.position - firePoint.transform.position;
-        rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-
-        //print(shootDirection);
-
-	    coroutine = Die(1.5f);
-        StartCoroutine(coroutine);
-
-        //Destroy(gameObject);
+	    gun = GameObject.Find("gun(Clone)");
+	    if (gun != null){
+		    shootDirection = gun.GetComponent<astroGun>().TargetPoint.position - gun.GetComponent<astroGun>().ShootPoint.position;
+		    rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
+		    
+		    Debug.Log("shootDirection " + shootDirection);
+		    
+		    coroutine = Die(1.5f);
+		    StartCoroutine(coroutine);
+	    }
+	   
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)

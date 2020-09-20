@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Button fireButton;
     [SerializeField] Button runButton;
     [SerializeField] GameObject rightArm;
-    [SerializeField] GameObject leftArm;
+	[SerializeField] GameObject leftArm;
+	[SerializeField] GameObject currentWeapon;
     private GameObject leftArmPointer;
     private GameObject weapon;
     private astroGun astrogun;
@@ -70,30 +71,30 @@ public class PlayerController : MonoBehaviour
     {
         ReadDeviceDirections();
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
-        {
-            run = true;
-            walk = false;
-            isIdle = false;
-            print("run");
-        }else if (((int)playerRb2D.velocity.x) != 0)
-        {
-            walk = true;
-            run = false;
-            isRunning = false;
-            isIdle = false;
+        //if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
+        //{
+        //    run = true;
+        //    walk = false;
+        //    isIdle = false;
+        //    print("run");
+        //}else if (((int)playerRb2D.velocity.x) != 0)
+        //{
+        //    walk = true;
+        //    run = false;
+        //    isRunning = false;
+        //    isIdle = false;
             
-            print("walk " + walk);
-            print("run " + run);
-            print("isRunning " + isRunning);
-        } else
-        {
-            walk = false;
-            run = false;
-            isRunning = false;
-            isIdle = true;
-            print("idle");
-        }
+        //    print("walk " + walk);
+        //    print("run " + run);
+        //    print("isRunning " + isRunning);
+        //} else
+        //{
+        //    walk = false;
+        //    run = false;
+        //    isRunning = false;
+        //    isIdle = true;
+        //    print("idle");
+        //}
             
 
         /*if ()
@@ -104,10 +105,10 @@ public class PlayerController : MonoBehaviour
 
         //IdleControl();
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            astrogun.Shoot();
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //    astrogun.Shoot();
+        //}
 
         //Debug.Log("Horizontal " + viewJoystick.Horizontal.ToString() + " Vertical " + viewJoystick.Vertical.ToString());
     }
@@ -151,7 +152,8 @@ public class PlayerController : MonoBehaviour
 
     private void ReadDeviceDirections()
     {
-        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+	    //Считываем нажатие клавиш управления на клавиатуре и изменение положения джойстика
+	    keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         joysticDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
 
         if (joysticDirection.x != 0 || keyboardDirection.x != 0)
@@ -191,6 +193,38 @@ public class PlayerController : MonoBehaviour
         {
             ResetY();
         }
+        
+	    //Считываем нажатие клавиши Shift для бега
+	    if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
+	    {
+		    run = true;
+		    walk = false;
+		    isIdle = false;
+		    print("run");
+	    }else if (((int)playerRb2D.velocity.x) != 0)
+	    {
+		    walk = true;
+		    run = false;
+		    isRunning = false;
+		    isIdle = false;
+            
+		    print("walk " + walk);
+		    print("run " + run);
+		    print("isRunning " + isRunning);
+	    } else
+	    {
+		    walk = false;
+		    run = false;
+		    isRunning = false;
+		    isIdle = true;
+		    print("idle");
+	    }
+	    
+	    //Считываем нажатие Ctrl для выстрела
+	    if (Input.GetKeyDown(KeyCode.LeftControl))
+	    {
+		    astrogun.Shoot();
+	    }
     }
 
     private void FixedUpdate()
