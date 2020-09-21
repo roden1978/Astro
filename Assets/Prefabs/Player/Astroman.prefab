@@ -1094,8 +1094,10 @@ MonoBehaviour:
   jumpButton: {fileID: 0}
   crouchButton: {fileID: 0}
   fireButton: {fileID: 0}
+  runButton: {fileID: 0}
   rightArm: {fileID: 8175587518397118139}
   leftArm: {fileID: 8175587518554777952}
+  currentWeapon: {fileID: 0}
   initialWeapon: {fileID: 8167248049189029295, guid: 2f8ff5f65959ca94ea515dd84abbe363,
     type: 3}
   weaponPoint: {fileID: 8175587518793335513}
