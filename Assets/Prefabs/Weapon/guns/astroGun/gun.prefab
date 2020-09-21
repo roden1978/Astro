@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5465044280669962634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.074, z: 0}
+  m_LocalPosition: {x: 0.381, y: 0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8167248049189029294}
@@ -114,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6932857914676510589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.195, y: 0.074, z: 0}
+  m_LocalPosition: {x: 0.17, y: 0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8167248049189029294}
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 553993089
   m_SortingLayer: 1
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: f0f711bf80a0b2f47abb07ccd6a22be2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e2445cd2b62e8c4798cb29b31a92999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -221,4 +221,3 @@ MonoBehaviour:
   shootPoint: {fileID: 652586133178464877}
   targetPoint: {fileID: 332944615662405213}
   bullet: {fileID: 1642875657553581448, guid: 024c153f89f17ba49a55474f97a609dc, type: 3}
-  power: 3
