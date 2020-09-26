@@ -17,11 +17,16 @@ public class SlimeController : MonoBehaviour
 	private Vector3 startPosition;
 	[SerializeField]
 	private float stopAngryDistance;
+	[SerializeField]
+	private float maxJumpVelocity;
+	[SerializeField]
+	private float jumpForce;
 	//[SerializeField]
 	//private float rayDistance;
 	//private Vector2 rayStartPosition;
 	private GameObject player;
-    private Vector3 playerPos;
+	private Vector3 playerPos;
+	private Vector3 lastPosition;
 	//private Vector2 attackPos;
 	
 	private bool movingRight = true;
@@ -59,27 +64,17 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	   
-	    //rayStartPosition = new Vector2(transform.position.x, transform.position.y + 0.4f);
-	    //RaycastHit2D hit = Physics2D.Raycast(rayStartPosition, transform.localScale.x * Vector2.right, rayDistance);
-	    //// print(Ground);
-       
-	    //if(hit.collider != null){
-	    //	Debug.Log("collider " + hit.collider.name);
-	    //}
 	    StartMoveAnimation();
-	    
-	    //Debug.Log("startPosition " + startPosition);
+	    JumpVelocityControll();
+	    MovingDirectionControll();
     }
     
-	//private void OnDrawGizmos(){
-	//	Gizmos.color = Color.red;
-	//	Gizmos.DrawRay(rayStartPosition, transform.localScale.x * Vector2.right * rayDistance);
-	//}
+
 
     private void FixedUpdate()
     {
-        
+	    lastPosition = transform.position;
+	    
 	    if(Vector2.Distance(startPosition, transform.position) < patrolDistance && !angry && !chill)  //chill 
 	    {
 	    	chill = true;
@@ -127,52 +122,22 @@ public class SlimeController : MonoBehaviour
 	    	
 	    	GoBack();
 	    }
-	    //if (isGround)
-        //{
-        //    rb.AddForce(playerPos * speed, ForceMode2D.Impulse);
-        //    //rb.AddForceAtPosition(playerPos, transform.position, ForceMode2D.Impulse);
-        //    print("Attack " + playerPos * speed);
-        //}
-
-        //if (isCollision)
-        //    Debug.DrawRay(transform.position, player.position - transform.position, Color.red);
-
-        //rb.AddForce(new Vector2(moveSpeed, 0));
+	  
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //if (collision.tag == "Player")
-        //{
-        //    print(collision.name);
-        //    isCollision = true;
-        //    if (!player)
-        //    {
-        //        player = GameObject.Find("HeadPoint").GetComponent<Transform>();
-
-        //        //playerPos = transform.position - player.transform.position;
-        //        //attackPos = new Vector2(playerPos.x, playerPos.y);
-        //    }
-        //    else
-        //    {
-        //        playerPos = player.position - transform.position;
-        //    }
-
-            
-        //}
+        
          
 	    if (collision.gameObject.tag == "ground")
 	    {
 		    GetComponentInParent<SlimeController>().isGround = true;
-		    //isOnAnimationMove = true;
 	    }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-	    //isCollision = false;
-	    //isGround = false;
-	    
+	   
 	    if(collision.gameObject.tag == "ground")
 	    {
 		    GetComponentInParent<SlimeController>().isGround = false;
@@ -237,17 +202,19 @@ public class SlimeController : MonoBehaviour
 			Flip();
 			
 		if(isGround)
-			rb.AddForce(Vector2.up * attackSpeed, ForceMode2D.Impulse);
+			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 	}
 	
 	private void StartMoveAnimation(){
 		if(isGround && !isOnAnimationMove){
 			animator.SetBool("isSliming", true);
 			isOnAnimationMove = true;
+			Debug.Log("Start Moving Animation");
 		}
 		
 		if (!isGround && isOnAnimationMove){
 			animator.SetBool("isSliming", false);
+			Debug.Log("Stop Moving Animation");
 		}
 	}
 	
@@ -258,7 +225,7 @@ public class SlimeController : MonoBehaviour
 		movingRight = !movingRight;
 		transform.Rotate(0f, 180f, 0f);
 			
-		Debug.Log("flip");
+		//Debug.Log("flip");
 		
 	}
 	
@@ -267,6 +234,20 @@ public class SlimeController : MonoBehaviour
 		//right side true, left side false
 		
 		return player.transform.position.x > transform.position.x ? true: false;
+	}
+	
+	private void JumpVelocityControll()
+	{
+		if (rb.velocity.y > maxJumpVelocity)
+			rb.velocity = new Vector2(0, maxJumpVelocity);
+	}
+	
+	private void MovingDirectionControll()
+	{
+		if (lastPosition.x < transform.position.x && !movingRight)
+			Flip();
+		else if (lastPosition.x > transform.position.x && movingRight)
+			Flip();
 	}
 		
 }
