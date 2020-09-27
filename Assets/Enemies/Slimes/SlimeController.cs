@@ -6,40 +6,41 @@ public class SlimeController : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody2D rb;
-    [SerializeField]
+    
+	[SerializeField]
     private float speed;
-    [SerializeField]
+    
+	[SerializeField]
 	private float attackSpeed;
+	
 	[SerializeField]
 	private float patrolDistance;
+	
 	[SerializeField]
 	private float attackDistance;
-	private Vector3 startPosition;
+	
 	[SerializeField]
 	private float stopAngryDistance;
+	
 	[SerializeField]
 	private float maxJumpVelocity;
+	
 	[SerializeField]
 	private float jumpForce;
-	//[SerializeField]
-	//private float rayDistance;
-	//private Vector2 rayStartPosition;
+	
 	private GameObject player;
 	private Vector3 playerPos;
 	private Vector3 lastPosition;
-	//private Vector2 attackPos;
+	private Animator animator;
+	private Vector3 startPosition;
 	
 	private bool movingRight = true;
-	
 	private bool chill = false;
 	private bool angry;
 	private bool goBack;
-	
-	
-	
-    private Animator animator;
 	private bool isOnAnimationMove;
     private bool isGround;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -51,8 +52,6 @@ public class SlimeController : MonoBehaviour
 	    
 	    isOnAnimationMove = false;
 	    startPosition = transform.position;
-	    
-	    //Debug.Log("startPosition " + startPosition);
     }
     
 	private void OnDrawGizmos() 
@@ -80,8 +79,6 @@ public class SlimeController : MonoBehaviour
 	    	chill = true;
 	    	angry = false;
 	    	goBack = false;
-	    	
-	    	Debug.Log("chill");
 	    }
 	    else if (Vector2.Distance(transform.position, player.transform.position) > stopAngryDistance && !goBack && !chill) //goBack
 	    {
@@ -173,11 +170,11 @@ public class SlimeController : MonoBehaviour
 		
 		if (movingRight)
 		{
-			transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+			transform.position = new Vector2(transform.position.x + speed * Time.fixedDeltaTime, transform.position.y);
 		}
 		else 
 		{
-			transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);	
+			transform.position = new Vector2(transform.position.x - speed * Time.fixedDeltaTime, transform.position.y);	
 		}
 		
 	}
@@ -187,13 +184,13 @@ public class SlimeController : MonoBehaviour
 		if (PlayerSideDetect() != movingRight)
 			Flip();
 			
-		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, attackSpeed * Time.deltaTime);	
+		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, attackSpeed * Time.fixedDeltaTime);	
 	}
 	
 	private void GoBack()
 	{
 		
-		transform.position = Vector2.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);		
+		transform.position = Vector2.MoveTowards(transform.position, startPosition, speed * Time.fixedDeltaTime);
 	}
 	
 	private void Attack()
@@ -210,10 +207,10 @@ public class SlimeController : MonoBehaviour
 			animator.SetBool("isSliming", true);
 			isOnAnimationMove = true;
 			Debug.Log("Start Moving Animation");
-		}
-		
-		if (!isGround && isOnAnimationMove){
+		} else 
+			if (!isGround && isOnAnimationMove){
 			animator.SetBool("isSliming", false);
+			isOnAnimationMove = false;
 			Debug.Log("Stop Moving Animation");
 		}
 	}
