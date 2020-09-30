@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 135402804034927863}
   - component: {fileID: 378511948290113178}
   m_Layer: 0
-  m_Name: "\u0421\u043B\u043E\u0439 1"
+  m_Name: slimeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,8 +257,8 @@ MonoBehaviour:
   - {fileID: 2040611252984640210}
   - {fileID: 206193544568953790}
   m_Bounds:
-    m_Center: {x: 0.00019353628, y: -0.001555115, z: 0}
-    m_Extent: {x: 0.59791386, y: 0.16844499, z: 0}
+    m_Center: {x: 0.00019341707, y: -0.0015551299, z: 0}
+    m_Extent: {x: 0.59791374, y: 0.16844499, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3931784714143289803
@@ -395,8 +395,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014850755, y: 0.15152055}
-  m_Size: {x: 1.0019894, y: 0.16031335}
+  m_Offset: {x: 0.014850749, y: 0.0943686}
+  m_Size: {x: 1.0019896, y: 0.08810798}
   m_Direction: 1
 --- !u!61 &2127105383330730711
 BoxCollider2D:
@@ -475,12 +475,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2127105383330730709}
   speed: 1
-  attackSpeed: 2.5
-  patrolDistance: 2
-  attackDistance: 1.5
+  attackSpeed: 2
+  patrolDistance: 3
+  attackDistance: 1
   stopAngryDistance: 3
-  maxJumpVelocity: 6
-  jumpForce: 4
+  maxJumpVelocity: 5
+  maxBackVelocity: 5
+  jumpForce: 3
+  rayDistance: 0.6
+  backForce: 2
 --- !u!1 &6109176792740855927
 GameObject:
   m_ObjectHideFlags: 0
