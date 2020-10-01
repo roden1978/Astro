@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector2 force;
+	//public Vector2 force;
     private Vector2 direction;
     private Vector2 joysticDirection;
     private Vector2 keyboardDirection;
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float walkArmDelta = 1.296f;
     private float crouchArmDelta = 1.06f;
     [SerializeField] float jumpForce;
+    [SerializeField] Vector2 force;
     private Rigidbody2D playerRb2D;
     //private bool isFacingLeft;
     private Animator animator;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        force = new Vector2(70.0f, 5.0f);
+	    //force = new Vector2(70.0f, 0.0f);  //проверить нужен ли Vector2
         maxVelocity = 2.0f;
         crouch = false;
         crouchButtonDown = false;
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
 	    weapon = GameObject.FindGameObjectWithTag("weapon");
 	    astrogun = weapon.GetComponent<astroGun>();
 
-	    Debug.Log("astrogun " + weapon);
+	    // Debug.Log("astrogun " + weapon);
     }
 
 
@@ -143,7 +144,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("runOneArm", false);
             animator.SetBool("walkOneArm", false);
             
-            print("Idling");
+	        //print("Idling");
 
         }
 
@@ -200,7 +201,7 @@ public class PlayerController : MonoBehaviour
 		    run = true;
 		    walk = false;
 		    isIdle = false;
-		    print("run");
+		    //print("run");
 	    }else if (((int)playerRb2D.velocity.x) != 0)
 	    {
 		    walk = true;
@@ -208,16 +209,16 @@ public class PlayerController : MonoBehaviour
 		    isRunning = false;
 		    isIdle = false;
             
-		    print("walk " + walk);
-		    print("run " + run);
-		    print("isRunning " + isRunning);
+		    //print("walk " + walk);
+		    //print("run " + run);
+		    //print("isRunning " + isRunning);
 	    } else
 	    {
 		    walk = false;
 		    run = false;
 		    isRunning = false;
 		    isIdle = true;
-		    print("idle");
+		    //print("idle");
 	    }
 	    
 	    //Считываем нажатие Ctrl для выстрела
@@ -262,7 +263,7 @@ public class PlayerController : MonoBehaviour
         if (isGround && !crouchButtonDown)
         {
             animator.SetBool("jumpOneArm", true);
-            playerRb2D.AddForce(new Vector2(0.0f, force.y * jump), ForceMode2D.Impulse);
+            playerRb2D.AddForce(new Vector2(0.0f, jump), ForceMode2D.Impulse);
             animator.SetBool("jumpOneArm", false);
         }
         else
