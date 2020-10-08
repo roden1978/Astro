@@ -4,7 +4,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour, IPointerDownHandler
 {
     // Start is called before the first frame update
-    private PlayerController playerController;
+    private PController playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (playerController != null)
@@ -25,7 +25,7 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GameObject.Find("Astroman").GetComponent<PlayerController>();
+	    playerController = GameObject.FindWithTag("Player").GetComponent<PController>();
     }
 
  }

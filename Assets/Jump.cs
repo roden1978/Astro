@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
-    private PlayerController playerController;
+    private PController playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
         if(gameObject.name == "JumpButton")
         {
-            playerController.Jump(1.0f); //SetDirection(new Vector2(playerController.GetDirection().x, 1));
+            playerController.Jump(); //SetDirection(new Vector2(playerController.GetDirection().x, 1));
 
             //print("jump" + playerController.GetDirection());
         }
@@ -27,7 +27,13 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GameObject.Find("Astroman").GetComponent<PlayerController>();
+	    playerController = GameObject.FindWithTag("Player").GetComponent<PController>();
+	    
+	    if (!playerController){
+	    	print ("Jump script Player not found");
+	    } else {
+	    	print ("Jump script Player found");
+	    }
     }
 
     // Update is called once per frame
