@@ -51,6 +51,7 @@ public class SlimeController : MonoBehaviour
 	private bool chill = false;
 	private bool angry;
 	private bool goBack;
+	private bool attack;
 	private bool isOnAnimationMove;
 	private bool isGround;
     
@@ -113,46 +114,43 @@ public class SlimeController : MonoBehaviour
 	    	chill = true;
 	    	angry = false;
 	    	goBack = false;
+	    	attack = false;
 	    }
-	    else if (Vector2.Distance(transform.position, player.transform.position) > stopAngryDistance && !goBack && !chill) //goBack
+	    else if (Vector2.Distance(transform.position, new Vector2 (player.transform.position.x ,0)) > stopAngryDistance && !goBack && !chill) //goBack
 	    {
 	    	goBack = true;
 	    	angry = false;
 	    	chill = false;
+	    	attack = false;
 	    	
 	    	Flip();
 	    	
-	    	Debug.Log("goBack " + Vector2.Distance(transform.position, player.transform.position));
+	    	//Debug.Log("goBack " + Vector2.Distance(transform.position, player.transform.position));
 	    	
-	    } else if (Vector2.Distance(transform.position, player.transform.position) < stopAngryDistance && !angry) //Angry
+	    } else if (Vector2.Distance(transform.position, 
+		    new Vector2(player.transform.position.x, 0)) < stopAngryDistance && !angry) //Angry
 	    {
 	    	angry = true;
 	    	chill = false;
 	    	goBack = false;
+	    	attack = false;
 	    	
 	    	Debug.Log("angry");
 	    } 
 	    
-	    if(Vector2.Distance(transform.position, player.transform.position) <= attackDistance)
+	    if(Vector2.Distance(transform.position, new Vector2(player.transform.position.x,0)) <= attackDistance)
 	    {
-	    	Attack();
+	    
+	    	attack = true;
 	    }
 	    
-	    if (chill)
-	    {
-	    	Chill();
-	    }
+	    if (chill) Chill();
 	    
-	    if (angry)
-	    {
-	    	Angry();
-	    }
+	    if (angry) Angry();
 	    
-	    if(goBack)
-	    {
-	    	
-	    	GoBack();
-	    }
+	    if (goBack) GoBack();
+	    
+	    if (attack) Attack();
 	  
     }
 
@@ -193,12 +191,10 @@ public class SlimeController : MonoBehaviour
 	{
 		if(transform.position.x > startPosition.x + patrolDistance)
 		{
-			//movingRight = false;
 			Flip();
 		}
 		else if (transform.position.x < startPosition.x - patrolDistance)
 		{
-			//movingRight = true;
 			Flip();
 		}
 		
@@ -218,13 +214,13 @@ public class SlimeController : MonoBehaviour
 		if (PlayerSideDetect() != movingRight)
 			Flip();
 			
-		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, attackSpeed * Time.fixedDeltaTime);	
+		transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, 0), attackSpeed * Time.fixedDeltaTime);	
 	}
 	
 	private void GoBack()
 	{
 		
-		transform.position = Vector2.MoveTowards(transform.position, startPosition, speed * Time.fixedDeltaTime);
+		transform.position = Vector2.MoveTowards(transform.position, new Vector2(startPosition.x, 0), speed * Time.fixedDeltaTime);
 	}
 	
 	private void Attack()
@@ -233,7 +229,13 @@ public class SlimeController : MonoBehaviour
 			Flip();
 			
 		if(isGround)
+		{
 			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+			Debug.Log("attack");
+		}
+			
+			
+		
 			
 		isOnAnimationMove = true;
 	}
@@ -243,12 +245,12 @@ public class SlimeController : MonoBehaviour
 			animator.SetBool("isSliming", true);
 			animator.SetBool("isAttack", false);
 			isOnAnimationMove = true;
-			Debug.Log("Start Moving Animation");
+			//Debug.Log("Start Moving Animation");
 		} else 
 			if (!isGround && isOnAnimationMove){
 				animator.SetBool("isAttack", true);
 			isOnAnimationMove = false;
-			Debug.Log("Stop Moving Animation");
+				//Debug.Log("Stop Moving Animation");
 		}
 	}
 	
@@ -259,14 +261,14 @@ public class SlimeController : MonoBehaviour
 			//hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector2.right, rayDistance);
 			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x + 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
-			Debug.Log("ray collider " + hit.collider);
+			//Debug.Log("ray collider " + hit.collider);
 		}
 		else 
 		{
 			//hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector2.left, rayDistance);
 			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x - 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
-			Debug.Log("ray collider " + hit.collider);
+			//Debug.Log("ray collider " + hit.collider);
 		}
 	}
 	

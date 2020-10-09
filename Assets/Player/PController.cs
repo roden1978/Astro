@@ -58,6 +58,7 @@ public class PController : MonoBehaviour
 		walk = false;
 		isRunning = false;
 		isIdle = true;
+		isGround = true;
 		playerRb2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 
@@ -143,13 +144,14 @@ public class PController : MonoBehaviour
 		//Debug.Log("Horizontal " + viewJoystick.Horizontal.ToString() + " Vertical " + viewJoystick.Vertical.ToString());
 	}
 
-	private void RunOneHandGun()
+	private void Run()
 	{
 
-		if (run && !isRunning)
+		if (run && !isRunning && isGround)
 		{
 			animator.SetBool("walk", false);
 			animator.SetBool("run", true);
+			//animator.SetBool("jump", false);
 			maxVelocity = 5.0f;
 
 			//	print("running");
@@ -157,10 +159,11 @@ public class PController : MonoBehaviour
 			//	print("isRunning " + isRunning);
 		}
 
-		if (!run && !isRunning && !isIdle)
+		if (!run && !isRunning && !isIdle && isGround)
 		{
 			animator.SetBool("run", false);
 			animator.SetBool("walk", true);
+			//animator.SetBool("jump", false);
 			maxVelocity = 2.0f;
 
 			//	 print("walking");
@@ -168,10 +171,11 @@ public class PController : MonoBehaviour
 
 		}
 
-		if (!run && !isRunning && !walk && isIdle)
+		if (!run && !isRunning && !walk && isIdle && isGround)
 		{
 			animator.SetBool("run", false);
 			animator.SetBool("walk", false);
+			//animator.SetBool("jump", false);
             
 			//print("Idling");
 
@@ -263,8 +267,19 @@ public class PController : MonoBehaviour
 		Crouch();
 		Move();
 		VelocityControl();
-		RunOneHandGun();
-		//WalkOneHandGun(walk);
+		Run();
+		
+		if(isGround)
+		{
+			animator.SetBool("jump", false);
+			Debug.Log("jump off");
+		}
+		else 
+		{
+			animator.SetBool("jump", true);
+			Debug.Log("jump");
+		}
+			
 	}
 
 
@@ -291,10 +306,10 @@ public class PController : MonoBehaviour
 	{
 		if (isGround && !crouchButtonDown)
 		{
-			//animator.SetBool("jumpOneArm", true);
+			//animator.SetBool("jump", true);
 			playerRb2D.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
-			//animator.SetBool("jumpOneArm", false);
-			//print("jump");
+			//animator.SetBool("jump", false);
+			Debug.Log("jump");
 		}
 		else
 		{
