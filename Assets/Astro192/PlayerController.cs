@@ -3,7 +3,22 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-	//public Vector2 force;
+	#pragma warning disable 0649
+	[SerializeField] float jumpForce;
+	[SerializeField] Vector2 force;
+	[SerializeField] Joystick viewJoystick;
+	[SerializeField] Button jumpButton;
+	[SerializeField] Button crouchButton;
+	[SerializeField] Button fireButton;
+	[SerializeField] Button runButton;
+	[SerializeField] GameObject rightArm;
+	[SerializeField] GameObject leftArm;
+	[SerializeField] GameObject currentWeapon;
+	[SerializeField] GameObject initialWeapon;
+	[SerializeField] GameObject weaponPoint;
+	[SerializeField] bool keyboardController;
+	[SerializeField] bool uiController;
+	#pragma warning restore 0649
     private Vector2 direction;
     private Vector2 joysticDirection;
     private Vector2 keyboardDirection;
@@ -13,8 +28,7 @@ public class PlayerController : MonoBehaviour
     private float armLockPositionDown = 0.3f;
     private float walkArmDelta = 1.296f;
     private float crouchArmDelta = 1.06f;
-    [SerializeField] float jumpForce;
-    [SerializeField] Vector2 force;
+    
     private Rigidbody2D playerRb2D;
     //private bool isFacingLeft;
     private Animator animator;
@@ -25,22 +39,11 @@ public class PlayerController : MonoBehaviour
     private bool crouchButtonDown;
     private bool isRunning;
     private bool isIdle;
-    [SerializeField] Joystick viewJoystick;
-    [SerializeField] Button jumpButton;
-    [SerializeField] Button crouchButton;
-    [SerializeField] Button fireButton;
-    [SerializeField] Button runButton;
-    [SerializeField] GameObject rightArm;
-	[SerializeField] GameObject leftArm;
-	[SerializeField] GameObject currentWeapon;
+    
     private GameObject leftArmPointer;
     private GameObject weapon;
     private astroGun astrogun;
-    [SerializeField] GameObject initialWeapon;
-    [SerializeField] GameObject weaponPoint;
-
-    [SerializeField] bool keyboardController;
-    [SerializeField] bool uiController;
+    
 
 
 

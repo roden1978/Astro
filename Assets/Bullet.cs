@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	//[SerializeField] Vector2 speed;
+	#pragma warning disable 0649
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] float power;
+	#pragma warning restore 0649
+	
 	private GameObject gun;
-	//private Transform firePoint;
-	//private Transform targetPoint;
     private IEnumerator coroutine;
 	private Vector3 shootDirection;
     // Start is called before the first frame update

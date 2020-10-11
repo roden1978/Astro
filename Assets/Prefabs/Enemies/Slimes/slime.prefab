@@ -257,8 +257,8 @@ MonoBehaviour:
   - {fileID: 2040611252984640210}
   - {fileID: 206193544568953790}
   m_Bounds:
-    m_Center: {x: 0.00019341707, y: -0.0015551299, z: 0}
-    m_Extent: {x: 0.59791374, y: 0.16844499, z: 0}
+    m_Center: {x: 0.00019347668, y: -0.0015551299, z: 0}
+    m_Extent: {x: 0.5979136, y: 0.16844499, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3931784714143289803
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 2127105383330730710}
   m_Layer: 0
   m_Name: slime
-  m_TagString: Untagged
+  m_TagString: enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: b40dc4fc9aad7cd45b696f1624e48b24, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -391,7 +391,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5831863479158633813}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b40dc4fc9aad7cd45b696f1624e48b24, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -475,13 +475,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2127105383330730709}
   speed: 1
-  attackSpeed: 2
+  attackSpeed: 2.5
   patrolDistance: 3
   attackDistance: 1
   stopAngryDistance: 3
   maxJumpVelocity: 5
   maxBackVelocity: 5
-  jumpForce: 3
+  jumpForce: 5
   rayDistance: 0.6
   backForce: 2
 --- !u!1 &6109176792740855927
