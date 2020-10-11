@@ -1,0 +1,1268 @@
+fileFormatVersion: 2
+guid: 35d9b0f91cac6eb4ebffde86ab2945af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -291020068026164138
+    second: shuttleParticles_0
+  - first:
+      213: -5435834575270841152
+    second: shuttleParticles_1
+  - first:
+      213: 6219433162635860836
+    second: shuttleParticles_2
+  - first:
+      213: -3849971748993443932
+    second: shuttleParticles_3
+  - first:
+      213: 8385825603725102802
+    second: shuttleParticles_4
+  - first:
+      213: -7659654306876117886
+    second: shuttleParticles_5
+  - first:
+      213: 3619154115440542757
+    second: shuttleParticles_6
+  - first:
+      213: -1784579828775422320
+    second: shuttleParticles_7
+  - first:
+      213: 7026633221477341340
+    second: shuttleParticles_8
+  - first:
+      213: 8682407369418174288
+    second: shuttleParticles_9
+  - first:
+      213: 1725275482155579829
+    second: shuttleParticles_10
+  - first:
+      213: 4678492317316585022
+    second: shuttleParticles_11
+  - first:
+      213: -5957204036209083704
+    second: shuttleParticles_12
+  - first:
+      213: 8767688740055654953
+    second: shuttleParticles_13
+  - first:
+      213: 9072839095139544309
+    second: shuttleParticles_14
+  - first:
+      213: 3817647644040351434
+    second: shuttleParticles_15
+  - first:
+      213: -7535944448889017996
+    second: shuttleParticles_16
+  - first:
+      213: 6900809113635539509
+    second: shuttleParticles_17
+  - first:
+      213: 2017257277426293370
+    second: shuttleParticles_18
+  - first:
+      213: 5881188610671312271
+    second: shuttleParticles_19
+  - first:
+      213: 2924854184786877328
+    second: shuttleParticles_20
+  - first:
+      213: 7492902238278803493
+    second: shuttleParticles_21
+  - first:
+      213: 6153410294441982391
+    second: shuttleParticles_22
+  - first:
+      213: -6135434554556369452
+    second: shuttleParticles_23
+  - first:
+      213: 6820341801670499428
+    second: shuttleParticles_24
+  - first:
+      213: -8979672505664458110
+    second: shuttleParticles_25
+  - first:
+      213: -6610181103255369088
+    second: shuttleParticles_26
+  - first:
+      213: 7540986623052463334
+    second: shuttleParticles_27
+  - first:
+      213: 7413856858400428203
+    second: shuttleParticles_28
+  - first:
+      213: -3961083211332743078
+    second: shuttleParticles_29
+  - first:
+      213: -6390373429472911441
+    second: shuttleParticles_30
+  - first:
+      213: 6154202427731087623
+    second: shuttleParticles_31
+  - first:
+      213: 4438004915501560
+    second: shuttleParticles_32
+  - first:
+      213: 8438119222295336185
+    second: shuttleParticles_33
+  - first:
+      213: -1885549748276419271
+    second: shuttleParticles_34
+  - first:
+      213: -8553799699484743334
+    second: shuttleParticles_35
+  - first:
+      213: -5675161798780306764
+    second: shuttleParticles_36
+  - first:
+      213: 4391460163475847528
+    second: shuttleParticles_37
+  - first:
+      213: -5529639003155974702
+    second: shuttleParticles_38
+  - first:
+      213: 8886143207403619928
+    second: shuttleParticles_39
+  - first:
+      213: 8423402519503150969
+    second: shuttleParticles_40
+  - first:
+      213: 6368738878536062283
+    second: shuttleParticles_41
+  - first:
+      213: 1667433614209611806
+    second: shuttleParticles_42
+  - first:
+      213: 8622911045928592842
+    second: shuttleParticles_43
+  - first:
+      213: 5620696772508447267
+    second: shuttleParticles_44
+  - first:
+      213: 379195616336485504
+    second: shuttleParticles_45
+  - first:
+      213: 839461991717971379
+    second: shuttleParticles_46
+  - first:
+      213: -5265410070352803240
+    second: shuttleParticles_47
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shuttleParticles_0
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 1182
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c5ace3ac616fbf0800000000000000
+      internalID: -291020068026164138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_1
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1182
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4f13b01490094b0800000000000000
+      internalID: -5435834575270841152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_2
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1123
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bd13b628ddf4650800000000000000
+      internalID: 6219433162635860836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_3
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1128
+        width: 53
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7d4f1a717229ac0800000000000000
+      internalID: -3849971748993443932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1032
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de0962e4ff606470800000000000000
+      internalID: 8385825603725102802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_5
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1060
+        width: 63
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28cab509df073b590800000000000000
+      internalID: -7659654306876117886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_6
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1060
+        width: 69
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5240a3e2e71d93230800000000000000
+      internalID: 3619154115440542757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_7
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 947
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0967380d916eb37e0800000000000000
+      internalID: -1784579828775422320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 991
+        width: 67
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c989d1dafad938160800000000000000
+      internalID: 7026633221477341340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_9
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 996
+        width: 78
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f6769408b1e7870800000000000000
+      internalID: 8682407369418174288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_10
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 951
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9f29df8e861f710800000000000000
+      internalID: 1725275482155579829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_11
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 922
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e369c0299f75de040800000000000000
+      internalID: 4678492317316585022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_12
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 926
+        width: 81
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cafb3fdd72c35da0800000000000000
+      internalID: -5957204036209083704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_13
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 866
+        width: 58
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922a534b4761da970800000000000000
+      internalID: 8767688740055654953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_14
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 842
+        width: 62
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fca11a461339ed70800000000000000
+      internalID: 9072839095139544309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_15
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 820
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acec1a43e420bf430800000000000000
+      internalID: 3817647644040351434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_16
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 866
+        width: 82
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479a4ec6372fa6790800000000000000
+      internalID: -7535944448889017996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_17
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 776
+        width: 65
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a4609a35994cf50800000000000000
+      internalID: 6900809113635539509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_18
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 760
+        width: 62
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ad0915eccbefb10800000000000000
+      internalID: 2017257277426293370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_19
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 801
+        width: 82
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8df22ca1ed2e9150800000000000000
+      internalID: 5881188610671312271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_20
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 689
+        width: 71
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b5900726b279820800000000000000
+      internalID: 2924854184786877328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_21
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 603
+        width: 104
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5206659f2e22cf760800000000000000
+      internalID: 7492902238278803493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_22
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 664
+        width: 100
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b932758f0e456550800000000000000
+      internalID: 6153410294441982391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_23
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 720
+        width: 87
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5b20197ce8adaa0800000000000000
+      internalID: -6135434554556369452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_24
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 603
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c515f9bb8b6ae50800000000000000
+      internalID: 6820341801670499428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_25
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 580
+        width: 93
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2823784be6bc16380800000000000000
+      internalID: -8979672505664458110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_26
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 617
+        width: 30
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ac67f0f4be344a0800000000000000
+      internalID: -6610181103255369088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_27
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 328
+        width: 102
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ecb30b3167f6a860800000000000000
+      internalID: 7540986623052463334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_28
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 327
+        width: 85
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba01d8c488f43e660800000000000000
+      internalID: 7413856858400428203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_29
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 328
+        width: 68
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a509fb65ec76709c0800000000000000
+      internalID: -3961083211332743078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_30
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 313
+        width: 88
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf1c2a3935d057a0800000000000000
+      internalID: -6390373429472911441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_31
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 283
+        width: 85
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70112cc608e186550800000000000000
+      internalID: 6154202427731087623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_32
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 316
+        width: 220
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9ff7a8754cf0000800000000000000
+      internalID: 4438004915501560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 219
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f41f41c9b83a1570800000000000000
+      internalID: 8438119222295336185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_34
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 219
+        width: 84
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93528a77e7e25d5e0800000000000000
+      internalID: -1885549748276419271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_35
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 219
+        width: 69
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a596e584e7cca4980800000000000000
+      internalID: -8553799699484743334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_36
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 213
+        width: 63
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba35dc8966cd31b0800000000000000
+      internalID: -5675161798780306764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_37
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 213
+        width: 86
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869b14170c991fc30800000000000000
+      internalID: 4391460163475847528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_38
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 3
+        width: 82
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d53eb8bf96c243b0800000000000000
+      internalID: -5529639003155974702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_39
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 22
+        width: 69
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8560b849a2ce15b70800000000000000
+      internalID: 8886143207403619928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_40
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 16
+        width: 110
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f9d1f56ffe5e470800000000000000
+      internalID: 8423402519503150969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_41
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 24
+        width: 91
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b459c5a544e426850800000000000000
+      internalID: 6368738878536062283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_42
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 28
+        width: 297
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e187285a90ae32710800000000000000
+      internalID: 1667433614209611806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_43
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 139
+        width: 227
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5ad5ef8ebbaa770800000000000000
+      internalID: 8622911045928592842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_44
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 8
+        width: 20
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322fc835fe9b00e40800000000000000
+      internalID: 5620696772508447267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_45
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 60
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c1f1c676c234500800000000000000
+      internalID: 379195616336485504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_46
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 33
+        width: 31
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5aacadb3e56ab00800000000000000
+      internalID: 839461991717971379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shuttleParticles_47
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a4bd730718de6b0800000000000000
+      internalID: -5265410070352803240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

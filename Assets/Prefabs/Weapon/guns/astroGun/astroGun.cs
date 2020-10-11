@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class astroGun : MonoBehaviour
 {
-    //private int type = 0;
+    #pragma warning disable 0649
 	[SerializeField] Transform shootPoint; // shoot point
-	//private Transform shootPoint;
     [SerializeField] Transform targetPoint; // shoot point
 	[SerializeField] GameObject bullet;
-	//private Vector3 shootDirection;
-    //[SerializeField] GameObject rightArm;
-	//private GameObject armBone;
-    //private Rigidbody2D rb;
+	#pragma warning restore 0649
     // Start is called before the first frame update
     void Start()
     {

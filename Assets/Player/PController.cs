@@ -3,19 +3,35 @@ using UnityEngine.UI;
 
 public class PController : MonoBehaviour
 {
+	#pragma warning disable 0649
+	[SerializeField] private float maxVelocity;
+	[SerializeField] float jumpForce;
+	[SerializeField] Vector2 force;
+	[SerializeField] Joystick viewJoystick;
+	[SerializeField] Button jumpButton;
+	[SerializeField] Button crouchButton;
+	[SerializeField] Button fireButton;
+	[SerializeField] Button runButton;
+	[SerializeField] GameObject rightArm;
+	[SerializeField] GameObject leftArm;
+	[SerializeField] GameObject currentWeapon;
+	[SerializeField] GameObject initialWeapon;
+	[SerializeField] GameObject weaponPoint;
+	[SerializeField] bool keyboardController;
+	[SerializeField] bool uiController;
+	#pragma warning restore 0649
+	
 	//public Vector2 force;
 	private Vector2 direction;
 	private Vector2 joysticDirection;
 	private Vector2 keyboardDirection;
-	[SerializeField]
-	private float maxVelocity;
+	
 	private float prevKeyboardY;
 	private float armLockPositionUp = 0.3f;
 	private float armLockPositionDown = -0.3f;
 	private float walkArmDelta = 1.296f;
 	private float crouchArmDelta = 1.06f;
-	[SerializeField] float jumpForce;
-	[SerializeField] Vector2 force;
+	
 	private Rigidbody2D playerRb2D;
 	//private bool isFacingLeft;
 	private Animator animator;
@@ -26,23 +42,14 @@ public class PController : MonoBehaviour
 	private bool crouchButtonDown;
 	private bool isRunning;
 	private bool isIdle;
-	[SerializeField] Joystick viewJoystick;
-	[SerializeField] Button jumpButton;
-	[SerializeField] Button crouchButton;
-	[SerializeField] Button fireButton;
-	[SerializeField] Button runButton;
-	[SerializeField] GameObject rightArm;
-	[SerializeField] GameObject leftArm;
-	[SerializeField] GameObject currentWeapon;
+	
 	//private GameObject leftArmPointer;
 	private GameObject weapon;
 	private astroGun astrogun;
-	[SerializeField] GameObject initialWeapon;
-	[SerializeField] GameObject weaponPoint;
+	
 	//[SerializeField] GameObject target;
 
-	[SerializeField] bool keyboardController;
-	[SerializeField] bool uiController;
+	
 	private Transform rightArmWeaponPoint;
 
 
@@ -271,13 +278,13 @@ public class PController : MonoBehaviour
 		
 		if(isGround)
 		{
-			animator.SetBool("jump", false);
-			Debug.Log("jump off");
+			animator.SetBool("jump", false);//////////////////////////////////////
+			//Debug.Log("jump off");
 		}
 		else 
 		{
 			animator.SetBool("jump", true);
-			Debug.Log("jump");
+			//Debug.Log("jump");
 		}
 			
 	}
@@ -309,7 +316,7 @@ public class PController : MonoBehaviour
 			//animator.SetBool("jump", true);
 			playerRb2D.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
 			//animator.SetBool("jump", false);
-			Debug.Log("jump");
+			//Debug.Log("jump");
 		}
 		else
 		{
@@ -453,7 +460,7 @@ public class PController : MonoBehaviour
 		//print("current lefttArm Position " + currentPosition);
 			//print(Camera.main.ScreenToWorldPoint(currentPosition));
 		}
-		Debug.Log("currentPosition " + currentPosition);
+		//Debug.Log("currentPosition " + currentPosition);
 		//leftArm.transform.position = currentPosition;
 		//rightArm.transform.position = weaponPoint.transform.position;
 		//print("current lefttArm Position " + currentPosition + "RightArm local rot " + rightArm.transform.localRotation + " RA glo rot " + rightArm.transform.rotation);
