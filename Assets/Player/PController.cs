@@ -17,6 +17,7 @@ public class PController : MonoBehaviour
 	[SerializeField] GameObject currentWeapon;
 	[SerializeField] GameObject initialWeapon;
 	[SerializeField] GameObject weaponPoint;
+	[SerializeField] GameObject rightWristBone;
 	[SerializeField] bool keyboardController;
 	[SerializeField] bool uiController;
 	#pragma warning restore 0649
@@ -73,7 +74,12 @@ public class PController : MonoBehaviour
 		//leftArmPointer = GameObject.Find("leftArmPoint");
 		//weapon = GameObject.FindGameObjectWithTag("weapon");
 		astrogun = weapon.GetComponent<astroGun>();
-		//rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
+		rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
+		if(rightArmWeaponPoint){
+			rightWristBone.transform.localPosition = rightArmWeaponPoint.transform.localPosition;
+			Debug.Log("Pos " + rightArmWeaponPoint.transform.position + " local " + rightArmWeaponPoint.transform.localPosition);
+		}
+		else Debug.Log("rightArmWeaponPoint not found");
 		
 		//target.transform.localPosition = new Vector3(rightArmWeaponPoint.localPosition.x, rightArmWeaponPoint.localPosition.y,rightArmWeaponPoint.localPosition.z);
 		
@@ -101,7 +107,7 @@ public class PController : MonoBehaviour
 	void Update()
 	{
 		ReadDeviceDirections();
-		
+		Debug.Log(rightWristBone.transform.position + "  " + "local " + rightWristBone.transform.localPosition);
 		//	rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
 		
 		
@@ -276,16 +282,16 @@ public class PController : MonoBehaviour
 		VelocityControl();
 		Run();
 		
-		if(isGround)
-		{
-			animator.SetBool("jump", false);//////////////////////////////////////
-			//Debug.Log("jump off");
-		}
-		else 
-		{
-			animator.SetBool("jump", true);
-			//Debug.Log("jump");
-		}
+		//if(isGround)
+		//{
+		//	animator.SetBool("jump", false);//////////////////////////////////////
+		//	//Debug.Log("jump off");
+		//}
+		//else 
+		//{
+		//	animator.SetBool("jump", true);
+		//	//Debug.Log("jump");
+		//}
 			
 	}
 
@@ -313,7 +319,7 @@ public class PController : MonoBehaviour
 	{
 		if (isGround && !crouchButtonDown)
 		{
-			//animator.SetBool("jump", true);
+			animator.SetTrigger("jump");
 			playerRb2D.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
 			//animator.SetBool("jump", false);
 			//Debug.Log("jump");

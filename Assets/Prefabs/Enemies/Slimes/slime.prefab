@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127105383487201883}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlimeCCDSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 2127105384356468313}
   - component: {fileID: 2127105384356468315}
   - component: {fileID: 2127105384356468314}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SlimeCCDSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040611252984640210}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6031598514203680381}
   - component: {fileID: 135402804034927863}
   - component: {fileID: 378511948290113178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slimeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206193544568953790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227227808833819265}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 2127105383330730708}
   - component: {fileID: 2127105383330730713}
   - component: {fileID: 2127105383330730710}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slime
   m_TagString: enemie
   m_Icon: {fileID: 0}
@@ -474,8 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2127105383330730709}
-  speed: 1
-  attackSpeed: 2.5
+  speed: 2
+  attackSpeed: 4
   patrolDistance: 3
   attackDistance: 1
   stopAngryDistance: 3
@@ -483,7 +483,7 @@ MonoBehaviour:
   maxBackVelocity: 5
   jumpForce: 5
   rayDistance: 0.6
-  backForce: 2
+  backForce: 1
 --- !u!1 &6109176792740855927
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7098095963174088634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3289353644650037040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518390672363461348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
