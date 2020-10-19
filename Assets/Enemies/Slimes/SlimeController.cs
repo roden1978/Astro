@@ -282,17 +282,13 @@ public class SlimeController : MonoBehaviour
 	{
 		if(movingRight)
 		{
-			//hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector2.right, rayDistance);
 			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x + 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
-			//Debug.Log("ray collider " + hit.collider);
 		}
 		else 
 		{
-			//hit = Physics2D.Raycast(transform.position, transform.localScale.x * Vector2.left, rayDistance);
 			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x - 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
-			//Debug.Log("ray collider " + hit.collider);
 		}
 	}
 	
