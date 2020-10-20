@@ -28,12 +28,17 @@ public class PController : MonoBehaviour
 	private Vector2 keyboardDirection;
 	
 	private float prevKeyboardY;
-	private float armLockPositionUp = 0.3f;
-	private float armLockPositionDown = -0.3f;
+	private float leftArmLockPositionUp = 0.15f;
+	private float leftArmLockPositionDown = -0.15f;
+	
+	private float rightArmLockPositionUp = 0.15f;
+	private float rightArmLockPositionDown = -0.15f;
+	
 	private float walkArmDelta = 1.296f;
 	private float crouchArmDelta = 1.06f;
 	
 	private Rigidbody2D playerRb2D;
+	//private FixedJoint2D fxJ2D;
 	//private bool isFacingLeft;
 	private Animator animator;
 	private bool crouch;
@@ -52,6 +57,7 @@ public class PController : MonoBehaviour
 
 	
 	private Transform rightArmWeaponPoint;
+	private Transform rightWeaponPoint;
 
 
 
@@ -74,10 +80,36 @@ public class PController : MonoBehaviour
 		//leftArmPointer = GameObject.Find("leftArmPoint");
 		//weapon = GameObject.FindGameObjectWithTag("weapon");
 		astrogun = weapon.GetComponent<astroGun>();
+		
 		rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
-		if(rightArmWeaponPoint){
-			rightWristBone.transform.localPosition = rightArmWeaponPoint.transform.localPosition;
-			Debug.Log("Pos " + rightArmWeaponPoint.transform.position + " local " + rightArmWeaponPoint.transform.localPosition);
+		
+		if(rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok"); else Debug.Log("rightArmWeaponPoint false");
+		
+		rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20").Find("boneRightWrist").Find("right");
+		//rightWeaponPoint = transform.Find("RightArmLimbSolver2D").Find("RightArmLimbSolver2D_Target");
+		
+		//if(rightWeaponPoint)
+		//{
+		//	Debug.Log("RightWeaponPoint ok");
+		//	//fxJ2D = rightArmWeaponPoint.GetComponent<FixedJoint2D>();
+		//	//	fxJ2D.connectedBody = rightWeaponPoint.GetComponent<Rigidbody2D>();
+		//	rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+			
+		//}else Debug.Log("RightWeaponPoint false");
+		
+		
+		/*
+		for (int i = 0; i < transform.childCount; i++){
+			Transform tr = transform.GetChild(i);
+			Debug.Log(tr.name);
+		}
+		*/
+		//Debug.Log("delta" + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+		
+		if(rightWeaponPoint && rightArmWeaponPoint){
+			rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+			Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " + rightWeaponPoint.position);
+			Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
 		}
 		else Debug.Log("rightArmWeaponPoint not found");
 		
@@ -107,7 +139,7 @@ public class PController : MonoBehaviour
 	void Update()
 	{
 		ReadDeviceDirections();
-		Debug.Log(rightWristBone.transform.position + "  " + "local " + rightWristBone.transform.localPosition);
+		//Debug.Log(rightWristBone.transform.position + "  " + "local " + rightWristBone.transform.localPosition);
 		//	rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
 		
 		
@@ -438,6 +470,7 @@ public class PController : MonoBehaviour
 	private void MovingRightArm()
 	{
 		Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
+		Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
 
 		float armDelta;
 
@@ -451,21 +484,40 @@ public class PController : MonoBehaviour
 		}
 
 
-		Vector3 currentPosition = new Vector3(leftArmLocalPosition.x,
+		Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,
 			joysticDirection.y * .5f,
 			leftArmLocalPosition.z);
 
-
-
-		if (currentPosition.y >= armLockPositionDown
-			&& currentPosition.y <= armLockPositionUp)
-		{
-		leftArm.transform.localPosition = rightArm.transform.localPosition = currentPosition;
+		//Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x  + rightArmWeaponPoint.localPosition.x,
+		//	joysticDirection.y * .5f + rightArmWeaponPoint.localPosition.y,
+		//	rightArmLocalPosition.z);
 		
-		//rightArm.transform.position = new Vector3(rightArm.transform.position.x, weapon.transform.Find("rightArmPoint").position.y, rightArm.transform.position.z);//weaponPoint.transform.position;//leftArmPointer.transform.position;
+		Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
+			joysticDirection.y * .5f - 0.1f,
+			rightArmLocalPosition.z);
+
+
+		if (currentPositionLeftArm.y >= leftArmLockPositionDown
+			&& currentPositionLeftArm.y <= leftArmLockPositionUp)
+		{
+		leftArm.transform.localPosition  = currentPositionLeftArm;
+			//= rightArm.transform.localPosition
+			//rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x, currentPositionLeftArm.y, rightArm.transform.localPosition.z);//weaponPoint.transform.position;//leftArmPointer.transform.position;
 		//print("current lefttArm Position " + currentPosition);
 			//print(Camera.main.ScreenToWorldPoint(currentPosition));
 		}
+		
+		
+		if (currentPositionRightArm.y >= rightArmLockPositionDown
+			&& currentPositionRightArm.y <= rightArmLockPositionUp)
+		{
+			//leftArm.transform.localPosition  = currentPositionLeftArm;
+			//= rightArm.transform.localPosition
+			rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x, currentPositionRightArm.y, rightArm.transform.localPosition.z);//weaponPoint.transform.position;//leftArmPointer.transform.position;
+			//print("current lefttArm Position " + currentPosition);
+			//print(Camera.main.ScreenToWorldPoint(currentPosition));
+		}
+		
 		//Debug.Log("currentPosition " + currentPosition);
 		//leftArm.transform.position = currentPosition;
 		//rightArm.transform.position = weaponPoint.transform.position;
