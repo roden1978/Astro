@@ -28,11 +28,19 @@ public class PController : MonoBehaviour
 	private Vector2 keyboardDirection;
 	
 	private float prevKeyboardY;
+	
 	private float leftArmLockPositionUp = 0.15f;
 	private float leftArmLockPositionDown = -0.15f;
 	
+	//gun
 	private float rightArmLockPositionUp = 0.15f;
 	private float rightArmLockPositionDown = -0.15f;
+	
+	/*
+	//agressor
+	private float rightArmLockPositionUp = 0.01f;
+	private float rightArmLockPositionDown = -0.07f;
+	*/
 	
 	private float walkArmDelta = 1.296f;
 	private float crouchArmDelta = 1.06f;
@@ -365,6 +373,7 @@ public class PController : MonoBehaviour
 
 	public void Crouch()
 	{
+		
 		if (crouchButtonDown)
 		{
 			animator.SetBool("crouch", true);
@@ -493,9 +502,9 @@ public class PController : MonoBehaviour
 		//	rightArmLocalPosition.z);
 		
 		Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
-			joysticDirection.y * .5f - 0.1f,
+			joysticDirection.y * .5f ,
 			rightArmLocalPosition.z);
-
+		// коэффициент смещения руки - 0.1f
 
 		if (currentPositionLeftArm.y >= leftArmLockPositionDown
 			&& currentPositionLeftArm.y <= leftArmLockPositionUp)
@@ -513,7 +522,7 @@ public class PController : MonoBehaviour
 		{
 			//leftArm.transform.localPosition  = currentPositionLeftArm;
 			//= rightArm.transform.localPosition
-			rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x, currentPositionRightArm.y, rightArm.transform.localPosition.z);//weaponPoint.transform.position;//leftArmPointer.transform.position;
+				rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x, currentPositionRightArm.y, rightArm.transform.localPosition.z);//weaponPoint.transform.position;//leftArmPointer.transform.position;
 			//print("current lefttArm Position " + currentPosition);
 			//print(Camera.main.ScreenToWorldPoint(currentPosition));
 		}
