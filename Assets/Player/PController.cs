@@ -32,15 +32,16 @@ public class PController : MonoBehaviour
 	private float leftArmLockPositionUp = 0.15f;
 	private float leftArmLockPositionDown = -0.15f;
 	
+	/*
 	//gun
 	private float rightArmLockPositionUp = 0.15f;
 	private float rightArmLockPositionDown = -0.15f;
+	*/
 	
-	/*
 	//agressor
 	private float rightArmLockPositionUp = 0.01f;
 	private float rightArmLockPositionDown = -0.07f;
-	*/
+	
 	
 	private float walkArmDelta = 1.296f;
 	private float crouchArmDelta = 1.06f;

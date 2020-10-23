@@ -19,4 +19,4 @@ MonoBehaviour:
   force: 200
   distance: 0
   damageDistance: 10
-  delay: 0
+  delay: 2

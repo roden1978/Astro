@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2636f9ced41ffca42a3ecc93a76d4fd6, type: 3}
-  m_Name: ElectroGrenade
+  m_Name: NuclearGrenade
   m_EditorClassIdentifier: 
   device: 0
-  type: 1
-  image: {fileID: 21300000, guid: 2136aff8d663e564f9faaafa04587a2e, type: 3}
-  name: ElectroGrenade
-  force: 150
+  type: 0
+  image: {fileID: 0}
+  name: NuclearGrenade
+  force: 500
   distance: 0
-  damageDistance: 8
+  damageDistance: 15
   delay: 2
