@@ -39,12 +39,12 @@ public class PController : MonoBehaviour
 	*/
 	
 	//agressor
-	private float rightArmLockPositionUp = 0.01f;
-	private float rightArmLockPositionDown = -0.07f;
+	private float rightArmLockPositionUp;// = 0.01f;
+	private float rightArmLockPositionDown;// = -0.07f;
 	
 	
-	private float walkArmDelta = 1.296f;
-	private float crouchArmDelta = 1.06f;
+	//private float walkArmDelta = 1.296f;
+	//private float crouchArmDelta = 1.06f;
 	
 	private Rigidbody2D playerRb2D;
 	//private FixedJoint2D fxJ2D;
@@ -59,7 +59,7 @@ public class PController : MonoBehaviour
 	private bool isIdle;
 	
 	//private GameObject leftArmPointer;
-	private GameObject weapon;
+	//private GameObject weapon;
 	private astroGun astrogun;
 	
 	//[SerializeField] GameObject target;
@@ -84,17 +84,35 @@ public class PController : MonoBehaviour
 		isGround = true;
 		playerRb2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		
+		
+		//if (weapon.WeaponItem)
+		//	currentWeapon = weapon.WeaponItem;
+		
+		//if(!currentWeapon){
+		//	currentWeapon = initialWeapon;
+		//}else{
+		//	initialWeapon = currentWeapon;
+		//}
 
-		weapon = Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
+		
+		//if (currentWeapon)
+		currentWeapon = Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
+		
+		astrogun = currentWeapon.GetComponent<astroGun>();
+		
 		//leftArmPointer = GameObject.Find("leftArmPoint");
 		//weapon = GameObject.FindGameObjectWithTag("weapon");
-		astrogun = weapon.GetComponent<astroGun>();
+		//astrogun = weapon.GetComponent<astroGun>();
 		
-		rightArmWeaponPoint = weapon.transform.Find("rightArmPoint");
+		rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 		
 		if(rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok"); else Debug.Log("rightArmWeaponPoint false");
 		
 		rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20").Find("boneRightWrist").Find("right");
+		
+		rightArmLockPositionUp = astrogun.Weapon.RightArmLockPositionUp;
+		rightArmLockPositionDown = astrogun.Weapon.RightArmLockPositionDown;
 		//rightWeaponPoint = transform.Find("RightArmLimbSolver2D").Find("RightArmLimbSolver2D_Target");
 		
 		//if(rightWeaponPoint)
@@ -476,6 +494,16 @@ public class PController : MonoBehaviour
 		}
 	}
 
+	public GameObject CurrentWeapon 
+	{
+		get {
+			return currentWeapon;
+		}
+		
+		private set {
+			currentWeapon = value;
+		}
+	}
 
 	private void MovingRightArm()
 	{
@@ -484,14 +512,14 @@ public class PController : MonoBehaviour
 
 		float armDelta;
 
-		if (crouch)
-		{
-			armDelta = crouchArmDelta;
-		}
-		else
-		{
-			armDelta = walkArmDelta;
-		}
+		//if (crouch)
+		//{
+		//	armDelta = crouchArmDelta;
+		//}
+		//else
+		//{
+		//	armDelta = walkArmDelta;
+		//}
 
 
 		Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,

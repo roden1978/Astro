@@ -190,3 +190,4 @@ MonoBehaviour:
   shootPoint: {fileID: 652586133178464877}
   targetPoint: {fileID: 332944615662405213}
   bullet: {fileID: 1642875657553581448, guid: 024c153f89f17ba49a55474f97a609dc, type: 3}
+  weapon: {fileID: 11400000, guid: 0c8cc8f1a4b4ec2478279841549f3dcf, type: 2}
