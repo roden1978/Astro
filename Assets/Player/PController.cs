@@ -17,7 +17,6 @@ public class PController : MonoBehaviour
 	[SerializeField] GameObject currentWeapon;
 	[SerializeField] GameObject initialWeapon;
 	[SerializeField] GameObject weaponPoint;
-	[SerializeField] GameObject rightWristBone;
 	[SerializeField] bool keyboardController;
 	[SerializeField] bool uiController;
 	#pragma warning restore 0649
@@ -60,7 +59,7 @@ public class PController : MonoBehaviour
 	
 	//private GameObject leftArmPointer;
 	//private GameObject weapon;
-	private astroGun astrogun;
+	private WeaponController wc;
 	
 	//[SerializeField] GameObject target;
 
@@ -99,7 +98,7 @@ public class PController : MonoBehaviour
 		//if (currentWeapon)
 		currentWeapon = Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
 		
-		astrogun = currentWeapon.GetComponent<astroGun>();
+		wc = currentWeapon.GetComponent<WeaponController>();
 		
 		//leftArmPointer = GameObject.Find("leftArmPoint");
 		//weapon = GameObject.FindGameObjectWithTag("weapon");
@@ -111,8 +110,8 @@ public class PController : MonoBehaviour
 		
 		rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20").Find("boneRightWrist").Find("right");
 		
-		rightArmLockPositionUp = astrogun.Weapon.RightArmLockPositionUp;
-		rightArmLockPositionDown = astrogun.Weapon.RightArmLockPositionDown;
+		rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
+		rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
 		//rightWeaponPoint = transform.Find("RightArmLimbSolver2D").Find("RightArmLimbSolver2D_Target");
 		
 		//if(rightWeaponPoint)
@@ -329,7 +328,7 @@ public class PController : MonoBehaviour
 		//Считываем нажатие Ctrl для выстрела
 		if (Input.GetKeyDown(KeyCode.LeftControl))
 		{
-			astrogun.Shoot();
+			wc.Shoot();
 		}
 	}
 
@@ -510,7 +509,7 @@ public class PController : MonoBehaviour
 		Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
 		Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
 
-		float armDelta;
+		//float armDelta;
 
 		//if (crouch)
 		//{

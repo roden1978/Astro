@@ -2,6 +2,7 @@
 
 public class FlipController : MonoBehaviour
 {
+	/*
     private bool isFacingLeft;
     private PlayerController pc;
     // Start is called before the first frame update
@@ -32,5 +33,6 @@ public class FlipController : MonoBehaviour
         //обратная ситуация. отражаем персонажа влево
         else if ((pc.Direction.x < 0) && !isFacingLeft)
             Flip();
-    }
+	}
+	*/
 }
