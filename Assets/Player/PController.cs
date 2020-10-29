@@ -4,19 +4,12 @@ using UnityEngine.UI;
 public class PController : MonoBehaviour
 {
 	#pragma warning disable 0649
+	[SerializeField] private Player player;
 	[SerializeField] private float maxVelocity;
 	[SerializeField] float jumpForce;
 	[SerializeField] Vector2 force;
-	[SerializeField] Joystick viewJoystick;
-	[SerializeField] Button jumpButton;
-	[SerializeField] Button crouchButton;
-	[SerializeField] Button fireButton;
-	[SerializeField] Button runButton;
 	[SerializeField] GameObject rightArm;
 	[SerializeField] GameObject leftArm;
-	[SerializeField] GameObject currentWeapon;
-	[SerializeField] GameObject initialWeapon;
-	[SerializeField] GameObject weaponPoint;
 	[SerializeField] bool keyboardController;
 	[SerializeField] bool uiController;
 	#pragma warning restore 0649
@@ -96,7 +89,8 @@ public class PController : MonoBehaviour
 
 		
 		//if (currentWeapon)
-		currentWeapon = Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
+		player.CurrentWeapon= Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
+		currentWeapon.name.Replace("(Clone)", "");
 		
 		wc = currentWeapon.GetComponent<WeaponController>();
 		

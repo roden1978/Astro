@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,8 +102,8 @@ MonoBehaviour:
   - {fileID: 1876576944066500504}
   - {fileID: 7117957579703233595}
   m_Bounds:
-    m_Center: {x: 0.004110396, y: -0.0008325577, z: 0}
-    m_Extent: {x: 0.32898277, y: 0.54533887, z: 0}
+    m_Center: {x: 0.004110396, y: -0.0008324981, z: 0}
+    m_Extent: {x: 0.32898277, y: 0.5453389, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &454600745110590686
@@ -152,6 +153,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -206,8 +208,8 @@ MonoBehaviour:
   - {fileID: 5015580847657491736}
   - {fileID: 4821769209934899135}
   m_Bounds:
-    m_Center: {x: -0.15306251, y: -0.008015901, z: 0}
-    m_Extent: {x: 0.18366016, y: 0.14183052, z: 0}
+    m_Center: {x: -0.15306252, y: -0.008015722, z: 0}
+    m_Extent: {x: 0.18366015, y: 0.14183047, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &459421033954011562
@@ -257,6 +259,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -311,8 +314,8 @@ MonoBehaviour:
   - {fileID: 4712355473196354922}
   - {fileID: 1046732895796453965}
   m_Bounds:
-    m_Center: {x: -0.0046966076, y: -0.20100448, z: 0}
-    m_Extent: {x: 0.15870696, y: 0.30507818, z: 0}
+    m_Center: {x: -0.0046966523, y: -0.20100436, z: 0}
+    m_Extent: {x: 0.15870696, y: 0.30507812, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1126005212329525747
@@ -924,6 +927,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -978,7 +982,7 @@ MonoBehaviour:
   - {fileID: 3310914101301047115}
   - {fileID: 3738263098879515253}
   m_Bounds:
-    m_Center: {x: -0.18199314, y: -0.20160662, z: 0}
+    m_Center: {x: -0.18199314, y: -0.2016065, z: 0}
     m_Extent: {x: 0.19606213, y: 0.15050383, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1062,6 +1066,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1167,6 +1172,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1221,8 +1227,8 @@ MonoBehaviour:
   - {fileID: 8009404569124049941}
   - {fileID: 1876576944066500504}
   m_Bounds:
-    m_Center: {x: 0.19589356, y: -0.08706476, z: 0}
-    m_Extent: {x: 0.23806882, y: 0.20127438, z: 0}
+    m_Center: {x: 0.19589357, y: -0.08706465, z: 0}
+    m_Extent: {x: 0.23806885, y: 0.20127442, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3111722936552995432
@@ -1272,6 +1278,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1501,6 +1508,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1555,8 +1563,8 @@ MonoBehaviour:
   - {fileID: 6040382174490250327}
   - {fileID: 5679299064525664634}
   m_Bounds:
-    m_Center: {x: 0.7801335, y: -0.18963064, z: 0}
-    m_Extent: {x: 0.1966852, y: 0.12836246, z: 0}
+    m_Center: {x: 0.7801335, y: -0.18963057, z: 0}
+    m_Extent: {x: 0.19668522, y: 0.12836248, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4408593005579401525
@@ -1606,6 +1614,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1659,8 +1668,8 @@ MonoBehaviour:
   - {fileID: 5679299064525664634}
   - {fileID: 8009404569124049941}
   m_Bounds:
-    m_Center: {x: 1.2464125, y: -0.1668013, z: 0}
-    m_Extent: {x: 0.12471408, y: 0.09607818, z: 0}
+    m_Center: {x: 1.2464125, y: -0.1668016, z: 0}
+    m_Extent: {x: 0.12471408, y: 0.09607824, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &4531863659672684675
@@ -1710,6 +1719,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1763,7 +1773,7 @@ MonoBehaviour:
   - {fileID: 3738263098879515253}
   - {fileID: 6521302400943559645}
   m_Bounds:
-    m_Center: {x: 0.006059289, y: -0.1372119, z: 0}
+    m_Center: {x: 0.006059289, y: -0.13721178, z: 0}
     m_Extent: {x: 0.11725196, y: 0.22125162, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1785,7 +1795,7 @@ GameObject:
   - component: {fileID: 1355233939751362767}
   - component: {fileID: 1355233939751362764}
   m_Layer: 8
-  m_Name: astronaut13piece_small
+  m_Name: Astronaut
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1986,7 +1996,6 @@ MonoBehaviour:
   initialWeapon: {fileID: 7724273436936203643, guid: 121a4522b77b5a441aa5f4c26ebef27d,
     type: 3}
   weaponPoint: {fileID: 1355233938519310352}
-  rightWristBone: {fileID: 0}
   keyboardController: 0
   uiController: 0
 --- !u!1 &5686710566827852679
@@ -2097,6 +2106,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2233,6 +2243,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2286,7 +2297,7 @@ MonoBehaviour:
   - {fileID: 3310914101301047115}
   - {fileID: 6521302400943559645}
   m_Bounds:
-    m_Center: {x: -0.24859913, y: -0.1623399, z: 0}
+    m_Center: {x: -0.24859913, y: -0.16234002, z: 0}
     m_Extent: {x: 0.11205749, y: 0.08462784, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -2313,7 +2324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7291861597499276082}
-  m_LocalRotation: {x: 0, y: 0, z: 0.8449718, w: -0.5348109}
+  m_LocalRotation: {x: 0, y: 0, z: 0.84497184, w: -0.5348109}
   m_LocalPosition: {x: 0.262826, y: 0.222545, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2344,7 +2355,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7622735242779094518}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2812304, w: 0.9596403}
+  m_LocalRotation: {x: 0, y: 0, z: 0.28123042, w: 0.95964026}
   m_LocalPosition: {x: 0.3914856, y: 0.00000004650873, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2375,7 +2386,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7793809478624117317}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9993625, w: 0.03570291}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99936247, w: 0.035703048}
   m_LocalPosition: {x: -0.11504491, y: 0.12086111, z: 0}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_Children:
@@ -2467,7 +2478,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727676029010108718}
-  m_LocalRotation: {x: 0, y: 0, z: -0.22327396, w: 0.97475576}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2232738, w: 0.9747558}
   m_LocalPosition: {x: 0.39520895, y: 0.0000006920244, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2552,6 +2563,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2606,8 +2618,8 @@ MonoBehaviour:
   - {fileID: 4821769209934899135}
   - {fileID: 4712355473196354922}
   m_Bounds:
-    m_Center: {x: -0.10919604, y: -0.13068858, z: 0}
-    m_Extent: {x: 0.21442017, y: 0.24565, z: 0}
+    m_Center: {x: -0.10919602, y: -0.13068835, z: 0}
+    m_Extent: {x: 0.21442012, y: 0.24565001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8976142103040071171
