@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class fire : MonoBehaviour, IPointerDownHandler
 {
-    private astroGun astrogun;
+	private WeaponController wc;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        astrogun = GameObject.FindGameObjectWithTag("weapon").GetComponent<astroGun>();
+	    wc = GameObject.FindGameObjectWithTag("weapon").GetComponent<WeaponController>();
 
-        if (astrogun != null)
+	    if (wc != null)
         {
             if (gameObject.name == "FireButton")
             {
-                astrogun.Shoot();
+	            wc.Shoot();
                 //print("Fire");
             }
         } else

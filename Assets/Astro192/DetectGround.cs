@@ -2,7 +2,7 @@
 
 public class DetectGround : MonoBehaviour
 {
-	
+	/*
 	private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ground")
@@ -19,5 +19,6 @@ public class DetectGround : MonoBehaviour
         }
         
         
-    }
+	}
+	*/
 }

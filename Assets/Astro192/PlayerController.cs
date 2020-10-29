@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+	
+	/*
 	#pragma warning disable 0649
 	[SerializeField] float jumpForce;
 	[SerializeField] Vector2 force;
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     
     private GameObject leftArmPointer;
     private GameObject weapon;
-    private astroGun astrogun;
+	private WeaponController wc;
     
 
 
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(initialWeapon, weaponPoint.transform);
         leftArmPointer = GameObject.Find("leftArmPoint");
 	    weapon = GameObject.FindGameObjectWithTag("weapon");
-	    astrogun = weapon.GetComponent<astroGun>();
+	    wc = weapon.GetComponent<WeaponController>();
 
 	    // Debug.Log("astrogun " + weapon);
     }
@@ -101,9 +103,7 @@ public class PlayerController : MonoBehaviour
         //}
             
 
-        /*if ()
-            walk = true;
-        else walk = false;*/
+        
 
         MovingRightArm();
 
@@ -126,9 +126,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("runOneArm", true);
             maxVelocity = 5.0f;
 
-           /* print("running");
-            print("Run " + run);
-            print("isRunning " + isRunning);*/
         }
 
         if (!run && !isRunning && !isIdle)
@@ -137,8 +134,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("walkOneArm", true);
             maxVelocity = 2.0f;
 
-           /* print("walking");
-            print("walk " + walk);*/
 
         }
 
@@ -227,7 +222,7 @@ public class PlayerController : MonoBehaviour
 	    //Считываем нажатие Ctrl для выстрела
 	    if (Input.GetKeyDown(KeyCode.LeftControl))
 	    {
-		    astrogun.Shoot();
+		    wc.Shoot();
 	    }
     }
 
@@ -291,19 +286,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /* private void WalkOneHandGun(bool walk)
-     {
-         if (!run)
-         {
-             animator.SetBool("runOneArm", run);
-             animator.SetBool("walkOneArm", walk);
-             maxVelocity = 2.0f;
-             //print("walk " + walk);
-         }
 
-     }*/
-
-   
 
     private void VelocityControl()
     {
@@ -412,4 +395,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    
+    */
 }
