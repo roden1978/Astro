@@ -10,8 +10,25 @@ public class PController : MonoBehaviour
 	[SerializeField] Vector2 force;
 	[SerializeField] GameObject rightArm;
 	[SerializeField] GameObject leftArm;
+	[SerializeField]
+	[Tooltip("Точка крепления оружия")]
+	private GameObject weaponPoint;
+	
+	[SerializeField]
+	[Tooltip("Текущее оружие")]
+	private GameObject currentWeapon;
+	
+	[SerializeField]
+	[Tooltip("Стартовое оружие")]
+	private GameObject initialWeapon;
+	
+	[SerializeField] 
+	[Tooltip("Джойстик для управления игроком")]
+	private Joystick viewJoystick;
+	
 	[SerializeField] bool keyboardController;
 	[SerializeField] bool uiController;
+	
 	#pragma warning restore 0649
 	
 	//public Vector2 force;
@@ -51,7 +68,7 @@ public class PController : MonoBehaviour
 	private bool isIdle;
 	
 	//private GameObject leftArmPointer;
-	//private GameObject weapon;
+	//private GameObject[] weapons;
 	private WeaponController wc;
 	
 	//[SerializeField] GameObject target;
@@ -60,6 +77,7 @@ public class PController : MonoBehaviour
 	private Transform rightArmWeaponPoint;
 	private Transform rightWeaponPoint;
 
+	private int weaponIndex;
 
 
 	// Start is called before the first frame update
@@ -76,7 +94,7 @@ public class PController : MonoBehaviour
 		isGround = true;
 		playerRb2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
-		
+		weaponIndex = 0;
 		
 		//if (weapon.WeaponItem)
 		//	currentWeapon = weapon.WeaponItem;
@@ -89,9 +107,9 @@ public class PController : MonoBehaviour
 
 		
 		//if (currentWeapon)
-		player.CurrentWeapon= Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
-		currentWeapon.name.Replace("(Clone)", "");
-		
+		//player.CurrentWeapon = Instantiate(player.InitialWeapon, weaponPoint.transform) as GameObject;
+		//currentWeapon.name.Replace("(Clone)", "");
+		InitWeapon();
 		wc = currentWeapon.GetComponent<WeaponController>();
 		
 		//leftArmPointer = GameObject.Find("leftArmPoint");
@@ -324,6 +342,11 @@ public class PController : MonoBehaviour
 		{
 			wc.Shoot();
 		}
+		
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			ChangeWeapon();
+		}
 	}
 
 	private void FixedUpdate()
@@ -347,6 +370,37 @@ public class PController : MonoBehaviour
 			
 	}
 
+	private void ChangeWeapon()
+	{
+		int weaponCount = player.Weapons.Count;
+		Destroy(currentWeapon);
+		weaponIndex++;
+		currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+		wc = currentWeapon.GetComponent<WeaponController>();
+		currentWeapon.name = player.Weapons[weaponIndex].name; //Replace("(Clone)", "");
+		
+		rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+		
+		if(rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok"); else Debug.Log("rightArmWeaponPoint false");
+		
+		rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20").Find("boneRightWrist").Find("right");
+		
+		if(rightWeaponPoint && rightArmWeaponPoint){
+			rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+			Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " + rightWeaponPoint.position);
+			Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+		}
+		else Debug.Log("rightArmWeaponPoint not found");
+		
+		rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
+		rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+		
+		Debug.Log(currentWeapon);
+		if (weaponIndex == weaponCount - 1)
+		{
+			weaponIndex = 0;
+		}
+	}
 
 	private void Move()
 	{
@@ -397,6 +451,12 @@ public class PController : MonoBehaviour
 			animator.SetBool("crouch", false);
 			crouch = false;
 		}
+	}
+	
+	public void InitWeapon ()
+	{
+		currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+		currentWeapon.name = player.Weapons[weaponIndex].name;
 	}
 
 	/* private void WalkOneHandGun(bool walk)
@@ -487,14 +547,14 @@ public class PController : MonoBehaviour
 		}
 	}
 
-	public GameObject CurrentWeapon 
+	public GameObject WeaponPoint 
 	{
 		get {
-			return currentWeapon;
+			return weaponPoint;
 		}
 		
 		private set {
-			currentWeapon = value;
+			weaponPoint = value;
 		}
 	}
 

@@ -38,21 +38,11 @@ public class Player : ScriptableObject
 	[Tooltip("Максимальная энергия оружия")]
 	private int maxWeaponPoints;
 	
-	[SerializeField]
-	[Tooltip("Текущее оружие")]
-	private GameObject currentWeapon;
-	
-	[SerializeField]
-	[Tooltip("Стартовое оружие")]
-	private GameObject initialWeapon;
 	
 	[SerializeField]
 	[Tooltip("Список оружия у игрока")]
 	private List<GameObject> weapons;
 	
-	[SerializeField] 
-	[Tooltip("Джойстик для управления игроком")]
-	public Joystick viewJoystick;
 	
 	[SerializeField]
 	[Tooltip("Кнопка прыжка")]
@@ -70,9 +60,7 @@ public class Player : ScriptableObject
 	[Tooltip("Кнопка бега")]
 	public Button runButton;
 	
-	[SerializeField]
-	[Tooltip("Точка крепления оружия")]
-	private GameObject weaponPoint;
+	
 	
 	[SerializeField]
 	[Tooltip("Верхняя точка движения левой руки вверх (по умолчанию 0.15)")]
@@ -83,13 +71,7 @@ public class Player : ScriptableObject
 	private float leftArmLockPositionDown; // dfault -0.15f;
 	#pragma warning restore 0649
 	
-	public GameObject InitWeapon ()
-	{
-		currentWeapon = Instantiate(initialWeapon, weaponPoint.transform) as GameObject;
-		currentWeapon.name.Replace("(Clone)", "");
-	}
-	
-	
+
 	private bool alive = true;
 	
 	public void IncrementHealth(int healthValue)
@@ -126,9 +108,14 @@ public class Player : ScriptableObject
 	
 	
 	
-	public GameObject CurrentWeapon
+	public List<GameObject> Weapons
 	{
-		get {return currentWeapon;}
-		set {currentWeapon = value;}
+		get {return weapons;}
+	}
+	
+	public bool Alive
+	{
+		get {return alive;}
+		set {alive = value;}
 	}
 }

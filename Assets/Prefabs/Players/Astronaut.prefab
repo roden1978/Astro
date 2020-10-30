@@ -1638,7 +1638,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 553993089
   m_SortingLayer: 1
-  m_SortingOrder: 11
+  m_SortingOrder: 12
   m_Sprite: {fileID: -6577676437756417072, guid: 506626029ddeb8b45a514ea6a17e3468,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1982,20 +1982,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a49aa11f2ca3ca43872b8b6d4492370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: 7a520c1fbfe5980438668805e4fee9d7, type: 2}
   maxVelocity: 2
   jumpForce: 8
   force: {x: 50, y: 0}
-  viewJoystick: {fileID: 0}
-  jumpButton: {fileID: 0}
-  crouchButton: {fileID: 0}
-  fireButton: {fileID: 0}
-  runButton: {fileID: 0}
   rightArm: {fileID: 1355233938665848327}
   leftArm: {fileID: 1355233938647813895}
-  currentWeapon: {fileID: 0}
-  initialWeapon: {fileID: 7724273436936203643, guid: 121a4522b77b5a441aa5f4c26ebef27d,
-    type: 3}
   weaponPoint: {fileID: 1355233938519310352}
+  currentWeapon: {fileID: 0}
+  initialWeapon: {fileID: 8167248049189029295, guid: 2f8ff5f65959ca94ea515dd84abbe363,
+    type: 3}
+  viewJoystick: {fileID: 0}
   keyboardController: 0
   uiController: 0
 --- !u!1 &5686710566827852679
@@ -2418,7 +2415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8043429490425420228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5679299064525664634}
