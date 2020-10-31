@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6412117964946485037}
   - component: {fileID: 6412117964946485038}
   - component: {fileID: 6412117964946485039}
+  - component: {fileID: 82705934}
   m_Layer: 5
   m_Name: RunButton
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 812, y: -303.5}
-  m_SizeDelta: {x: 231.45038, y: 97.16623}
+  m_SizeDelta: {x: 231.45044, y: 97.16623}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6412117964946485037
 CanvasRenderer:
@@ -131,3 +132,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &82705934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6412117964946485033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d6cda94f298c34fb89c2dfee35ba68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
