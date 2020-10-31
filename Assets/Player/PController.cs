@@ -370,7 +370,7 @@ public class PController : MonoBehaviour
 			
 	}
 
-	private void ChangeWeapon()
+	public void ChangeWeapon()
 	{
 		int weaponCount = player.Weapons.Count;
 		Destroy(currentWeapon);
