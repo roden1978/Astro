@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb3807e3b850a04b9c17355114c923e, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  name: Astronaut
+  imagePlayer: {fileID: 0}
+  maxHealthPoints: 100
+  currentHealthPoints: 100
+  currentSuitPoints: 100
+  currentWeaponPoints: 100
+  maxSuitPoints: 100
+  maxWeaponPoints: 100
+  weapons:
+  - {fileID: 8167248049189029295, guid: 2f8ff5f65959ca94ea515dd84abbe363, type: 3}
+  - {fileID: 6407564511296287400, guid: 3d54c42707e73c14aa980ed92c52b752, type: 3}
+  - {fileID: 2488357485653283505, guid: bd666928e150c2d4491af52de6a9a6d9, type: 3}
+  - {fileID: 4468041516035633065, guid: a05018b0750341646b0848b0837809c5, type: 3}
+  - {fileID: 5803739190493572592, guid: d1fc2cd24e48a824fb78fb559cbd91da, type: 3}
+  - {fileID: 1096634945651135198, guid: 556bc22b07995f242870662af5b93d32, type: 3}
+  - {fileID: 6058099390675889288, guid: c6bbc2bc047825846ab5ddf9c52a738b, type: 3}
+  - {fileID: 8189842988503263001, guid: b499fb25e2768f546bd509b2a71f9165, type: 3}
+  - {fileID: 7724273436936203643, guid: 121a4522b77b5a441aa5f4c26ebef27d, type: 3}
+  - {fileID: 2844874290443249779, guid: f61ae715344402f4bbfcfc62795ffe6b, type: 3}
+  jumpButton: {fileID: 395307187950563157, guid: 33a36c3401501e647ae029c1d9793f58,
+    type: 3}
+  crouchButton: {fileID: 8716844014535294174, guid: 39c6c59a80c05984b8b76b5d6d55e05c,
+    type: 3}
+  fireButton: {fileID: 3270602032277955591, guid: 1340dc2b05c927241a291d71d2c0ca98,
+    type: 3}
+  runButton: {fileID: 6412117964946485039, guid: 03da4a4044a4d1c4687130c73f858c77,
+    type: 3}
+  leftArmLockPositionUp: 0.15
+  leftArmLockPositionDown: -0.15

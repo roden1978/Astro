@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670060819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.207, y: 0, z: 0}
+  m_LocalPosition: {x: -0.122, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8167248049189029294}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8167248049189029293}
   - component: {fileID: 850543953870428396}
   m_Layer: 8
-  m_Name: gun
+  m_Name: DesertEagle
   m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,6 +140,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -189,5 +190,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 652586133178464877}
   targetPoint: {fileID: 332944615662405213}
-  bullet: {fileID: 1642875657553581448, guid: 024c153f89f17ba49a55474f97a609dc, type: 3}
   weapon: {fileID: 11400000, guid: 0c8cc8f1a4b4ec2478279841549f3dcf, type: 2}

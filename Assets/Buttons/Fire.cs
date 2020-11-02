@@ -1,7 +1,7 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class fire : MonoBehaviour, IPointerDownHandler
+public class Fire : MonoBehaviour, IPointerDownHandler
 {
 	private WeaponController wc;
 
