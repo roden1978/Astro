@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class PController : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField] private Player player;
-    [SerializeField] private float maxVelocity;
-    [SerializeField] float jumpForce;
-    [SerializeField] Vector2 force;
-    [SerializeField] GameObject rightArm;
-    [SerializeField] GameObject leftArm;
+    [SerializeField][Tooltip("Ссылка на SO игрока")] 
+    private Player player;
+    
+    [SerializeField][Tooltip("Максимальноу ускорение при хотьбе")] 
+    private float maxVelocity;
+    
+    [SerializeField][Tooltip("Сила прыжка")] 
+    float jumpForce;
+    
+    [SerializeField][Tooltip("Сила используемая для движения игрока")] 
+    Vector2 force;
+    
+    [SerializeField][Tooltip("Объект используемый для упарвления правой рукой")]
+    GameObject rightArm;
+    
+    [SerializeField][Tooltip("Объект используемый для управления левой рукой")] 
+    GameObject leftArm;
 
     [SerializeField] [Tooltip("Точка крепления оружия")]
     private GameObject weaponPoint;
@@ -28,9 +38,8 @@ public class PController : MonoBehaviour
 
 #pragma warning restore 0649
 
-    //public Vector2 force;
     private Vector2 direction;
-    private Vector2 joysticDirection;
+    private Vector2 joystickDirection;
     private Vector2 keyboardDirection;
 
     private float prevKeyboardY;
@@ -38,24 +47,11 @@ public class PController : MonoBehaviour
     private float leftArmLockPositionUp = 0.15f;
     private float leftArmLockPositionDown = -0.15f;
 
-    /*
-    //gun
-    private float rightArmLockPositionUp = 0.15f;
-    private float rightArmLockPositionDown = -0.15f;
-    */
-
-    //agressor
-    private float rightArmLockPositionUp; // = 0.01f;
-    private float rightArmLockPositionDown; // = -0.07f;
-
-
-    //private float walkArmDelta = 1.296f;
-    //private float crouchArmDelta = 1.06f;
+    private float rightArmLockPositionUp;
+    private float rightArmLockPositionDown;
 
     private Rigidbody2D playerRb2D;
 
-    //private FixedJoint2D fxJ2D;
-    //private bool isFacingLeft;
     private Animator animator;
     private bool crouch;
     private bool run;
@@ -65,12 +61,7 @@ public class PController : MonoBehaviour
     private bool isRunning;
     private bool isIdle;
 
-    //private GameObject leftArmPointer;
-    //private GameObject[] weapons;
     private WeaponController wc;
-
-    //[SerializeField] GameObject target;
-
 
     private Transform rightArmWeaponPoint;
     private Transform rightWeaponPoint;
@@ -122,10 +113,8 @@ public class PController : MonoBehaviour
     void Update()
     {
         ReadDeviceDirections();
-
-
+        
         MovingRightArm();
-
     }
 
     private void Run()
@@ -157,18 +146,18 @@ public class PController : MonoBehaviour
     {
         //Считываем нажатие клавиш управления на клавиатуре и изменение положения джойстика
         keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        joysticDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+        joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
 
-        if (joysticDirection.x != 0 || keyboardDirection.x != 0)
+        if (joystickDirection.x != 0 || keyboardDirection.x != 0)
         {
             if (keyboardDirection.x != 0)
             {
                 direction.x = keyboardDirection.x;
             }
 
-            if (joysticDirection.x != 0)
+            if (joystickDirection.x != 0)
             {
-                direction.x = joysticDirection.x;
+                direction.x = joystickDirection.x;
             }
         }
         else
@@ -200,7 +189,6 @@ public class PController : MonoBehaviour
             run = true;
             walk = false;
             isIdle = false;
-           
         }
         else if (((int) playerRb2D.velocity.x) != 0)
         {
@@ -208,7 +196,6 @@ public class PController : MonoBehaviour
             run = false;
             isRunning = false;
             isIdle = false;
-
         }
         else
         {
@@ -216,7 +203,6 @@ public class PController : MonoBehaviour
             run = false;
             isRunning = false;
             isIdle = true;
-            //print("idle");
         }
 
         //Считываем нажатие Ctrl для выстрела
@@ -239,41 +225,76 @@ public class PController : MonoBehaviour
         VelocityControl();
         Run();
     }
-
+    public void InitWeapon()
+    {
+        int count = 0;
+        if (player.CurrentWeaponName != "")
+        {
+            foreach (var weapon in player.Weapons)
+            {
+                count++;
+                if (weapon.name == player.CurrentWeaponName)
+                {
+                    currentWeapon = Instantiate(weapon, weaponPoint.transform) as GameObject;
+                    player.CurrentWeaponName = weapon.name;
+                    weaponIndex = count;
+                }
+                else
+                {
+                    Debug.Log("Error weapon Init");
+                }
+            }
+        }
+        else
+        {
+            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+            player.CurrentWeaponName = player.Weapons[weaponIndex].name;
+            weaponIndex++;
+        }
+      
+    }
     public void ChangeWeapon()
     {
         int weaponCount = player.Weapons.Count;
-        Destroy(currentWeapon);
-        weaponIndex++;
+        if (currentWeapon) Destroy(currentWeapon);
+        
         currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
-        wc = currentWeapon.GetComponent<WeaponController>();
-        currentWeapon.name = player.Weapons[weaponIndex].name;
-
-        rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
-
-        if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
-        else Debug.Log("rightArmWeaponPoint false");
-
-        rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
-            .Find("boneRightWrist").Find("right");
-
-        if (rightWeaponPoint && rightArmWeaponPoint)
+        if (currentWeapon)
         {
-            rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-            Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
-                      rightWeaponPoint.position);
-            Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+            wc = currentWeapon.GetComponent<WeaponController>();
+            currentWeapon.name = player.Weapons[weaponIndex].name;
+            player.CurrentWeaponName = currentWeapon.name;
+            rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+
+            if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
+            else Debug.Log("rightArmWeaponPoint false");
+
+            rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
+                .Find("boneRightWrist").Find("right");
+
+            if (rightWeaponPoint && rightArmWeaponPoint)
+            {
+                rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+                Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
+                          rightWeaponPoint.position);
+                Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+            }
+            else Debug.Log("rightArmWeaponPoint not found");
+
+            rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
+            rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+            weaponIndex++;
+            Debug.Log(currentWeapon);
+            if (weaponIndex == weaponCount - 1)
+            {
+                weaponIndex = 0;
+            }
         }
-        else Debug.Log("rightArmWeaponPoint not found");
-
-        rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-        rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
-
-        Debug.Log(currentWeapon);
-        if (weaponIndex == weaponCount - 1)
+        else
         {
-            weaponIndex = 0;
+            Debug.Log("Weapon not change, weapon not found");
         }
+        
     }
 
     private void Move()
@@ -313,7 +334,6 @@ public class PController : MonoBehaviour
         {
             animator.SetBool("crouch", true);
             crouch = true;
-            //crouchButtonDown = !crouchButtonDown;
         }
         else
         {
@@ -321,14 +341,7 @@ public class PController : MonoBehaviour
             crouch = false;
         }
     }
-
-    public void InitWeapon()
-    {
-        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
-        currentWeapon.name = player.Weapons[weaponIndex].name;
-    }
-
-
+    
     private void VelocityControl()
     {
         if ((direction.x > 0) && playerRb2D.velocity.x > maxVelocity)
@@ -358,17 +371,15 @@ public class PController : MonoBehaviour
 
     public bool Ground
     {
-        get { return isGround; }
-
-        set { isGround = value; }
+        get => isGround;
+        set => isGround = value;
     }
 
 
     public Vector2 Direction
     {
-        get { return direction; }
-
-        set { direction = value; }
+        get => direction;
+        set => direction = value;
     }
 
     private void ResetX()
@@ -384,16 +395,14 @@ public class PController : MonoBehaviour
 
     public bool CrouchButtonDown
     {
-        get { return crouchButtonDown; }
-
-        set { crouchButtonDown = value; }
+        get => crouchButtonDown;
+        set => crouchButtonDown = value;
     }
 
     public GameObject WeaponPoint
     {
-        get { return weaponPoint; }
-
-        private set { weaponPoint = value; }
+        get => weaponPoint;
+        private set => weaponPoint = value; 
     }
 
     private void MovingRightArm()
@@ -402,12 +411,12 @@ public class PController : MonoBehaviour
         Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
 
         Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,
-            joysticDirection.y * .5f,
+            joystickDirection.y * .5f,
             leftArmLocalPosition.z);
 
 
         Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
-            joysticDirection.y * .5f,
+            joystickDirection.y * .5f,
             rightArmLocalPosition.z);
 
         if (currentPositionLeftArm.y >= leftArmLockPositionDown
@@ -421,9 +430,7 @@ public class PController : MonoBehaviour
             && currentPositionRightArm.y <= rightArmLockPositionUp)
         {
            rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x,
-                currentPositionRightArm.y,
-                rightArm.transform.localPosition
-                    .z);
+                currentPositionRightArm.y, rightArm.transform.localPosition.z);
         }
 
     }
