@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/Bullets/bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/Bullets/bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerAnimation/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerAnimation/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerAnimation/astronaut13piece_small.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerAnimation/astronaut13piece_small.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/DesertEagle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/DesertEagle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bloodthorn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bloodthorn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Widowmaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Widowmaker.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/StardustShoot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/StardustShoot.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +26,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
       </list>
     </option>
   </component>
@@ -75,7 +75,8 @@
       <updated>1604248472333</updated>
       <workItem from="1604248490161" duration="665000" />
       <workItem from="1604249286460" duration="1866000" />
-      <workItem from="1604302865543" duration="7669000" />
+      <workItem from="1604302865543" duration="8272000" />
+      <workItem from="1604378072411" duration="11200000" />
     </task>
     <servers />
   </component>
