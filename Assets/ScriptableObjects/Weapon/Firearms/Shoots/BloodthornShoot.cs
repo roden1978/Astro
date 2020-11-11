@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Bloodthorn Shoot", menuName = "Weapons/Firearms/Shoot/Bloodthorn Shoot")]
 public class BloodthornShoot : AWeaponShoot
 {
-	public override GameObject Shoot(Vector3 shootPoint)
+	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		Debug.Log("Bloodthorn shoot");
 		return null;

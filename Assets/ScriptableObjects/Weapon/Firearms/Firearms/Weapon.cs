@@ -27,12 +27,13 @@ public class Weapon : ScriptableObject
 	#pragma warning restore 0649
 	
 	private Vector3 shootPoint; //точка вылета пули
+	private Quaternion shootPointRotation;
 	private Vector3 targetPoint; // направление вылета пули
 	
 
 	public void Shoot()
 	{
-		weaponShoot.Shoot(shootPoint);
+		weaponShoot.Shoot(shootPoint, shootPointRotation);
 	}
 	
 	
@@ -60,7 +61,13 @@ public class Weapon : ScriptableObject
 			shootPoint = value;
 		}
 	}
-	
+
+	public Quaternion ShootPointRotation
+	{
+		get => shootPointRotation;
+		set => shootPointRotation = value;
+	}
+
 	public Vector3 TargetPoint 
 	{
 		get {

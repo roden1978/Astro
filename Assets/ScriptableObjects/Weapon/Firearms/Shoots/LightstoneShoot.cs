@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Lightstone Shoot", menuName = "Weapons/Firearms/Shoot/Lightstone Shoot")]
 public class LightstoneShoot : AWeaponShoot
 {
-	public override GameObject Shoot(Vector3 shootPoint)
+	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		Debug.Log("Lightstone shoot");
 		return null;
