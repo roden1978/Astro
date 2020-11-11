@@ -65,6 +65,7 @@ public class PController : MonoBehaviour
 
     private Transform rightArmWeaponPoint;
     private Transform rightWeaponPoint;
+    private Vector3 Rarm;
 
     private int weaponIndex;
     private static readonly int Walk = Animator.StringToHash("walk");
@@ -102,8 +103,9 @@ public class PController : MonoBehaviour
 
         if (rightWeaponPoint && rightArmWeaponPoint)
         {
-            var position = rightWeaponPoint.position;
-            rightArm.transform.position += rightArmWeaponPoint.position - position;
+           
+            rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+           
         }
         else Debug.Log("rightArmWeaponPoint not found");
     }
@@ -215,6 +217,11 @@ public class PController : MonoBehaviour
         {
             ChangeWeapon();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //GrenadeThrow();
+        }
     }
 
     private void FixedUpdate()
@@ -232,17 +239,19 @@ public class PController : MonoBehaviour
         {
             foreach (var weapon in player.Weapons)
             {
-                count++;
+                
                 if (weapon.name == player.CurrentWeaponName)
                 {
                     currentWeapon = Instantiate(weapon, weaponPoint.transform) as GameObject;
                     player.CurrentWeaponName = weapon.name;
-                    weaponIndex = count;
+                    weaponIndex = count == player.Weapons.Count - 1 ? 0 : count + 1;
+                    Debug.Log($"weaponIndex {player.Weapons.Count} count {count}");
                 }
                 else
                 {
                     Debug.Log("Error weapon Init");
                 }
+                count++;
             }
         }
         else
@@ -283,12 +292,13 @@ public class PController : MonoBehaviour
 
             rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
             rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
-            weaponIndex++;
-            Debug.Log(currentWeapon);
+            
+            Debug.Log($"{currentWeapon.name} index {weaponIndex}");
             if (weaponIndex == weaponCount - 1)
             {
-                weaponIndex = 0;
+                weaponIndex = -1;
             }
+            weaponIndex++;
         }
         else
         {
@@ -326,6 +336,20 @@ public class PController : MonoBehaviour
             crouchButtonDown = false;
             crouch = false;
         }
+    }
+
+    public void GrenadeThrow()
+    {
+        rightArm.transform.localPosition = new Vector3(0,
+            rightArm.transform.localPosition.y, rightArm.transform.localPosition.z);
+        animator.SetTrigger("throw");
+    }
+
+    public void RestoreArmPosition()
+    {
+       
+        //rightArm.transform.localPosition = new Vector3(Rarm.x, leftArm.transform.position.y, Rarm.z);
+        Debug.Log($"LarmY {leftArm.transform.position.y}");
     }
 
     public void Crouch()
