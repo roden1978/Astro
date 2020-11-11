@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Loudcricket Shoot", menuName = "Weapons/Firearms/Shoot/Loudcricket Shoot")]
 public class LoudcricketShoot : AWeaponShoot
 {
-	public override GameObject Shoot(Vector3 shootPoint)
+	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		Debug.Log("Loudcricket shoot");
 		return null;

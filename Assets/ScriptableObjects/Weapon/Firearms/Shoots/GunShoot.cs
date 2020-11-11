@@ -16,7 +16,7 @@ public class GunShoot : AWeaponShoot
 	#pragma warning restore 0649
 	
 
-	public override GameObject Shoot(Vector3 shootPoint)
+	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		if (weapon && bullet) {
 			return Instantiate(bullet, shootPoint, Quaternion.identity) as GameObject;

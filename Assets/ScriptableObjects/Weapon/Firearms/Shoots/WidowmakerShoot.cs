@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Widowmaker Shoot", menuName = "Weapons/Firearms/Shoot/Widowmaker Shoot")]
 public class WidowmakerShoot : AWeaponShoot
 {
-	public override GameObject Shoot(Vector3 shootPoint)
+	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		Debug.Log("Widowmaker shoot");
 		return null;

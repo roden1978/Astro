@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponController: MonoBehaviour
 {
     #pragma warning disable 0649
-	[SerializeField] Transform shootPoint; // shoot point
+	[SerializeField] [Tooltip("Точка выстрела")] Transform shootPoint; // shoot point
 	
-	[SerializeField] Transform targetPoint; // target point
+	[SerializeField] [Tooltip("Точка направления стрельбы")]Transform targetPoint; // target point
 
-	//[SerializeField] GameObject bullet;
-	
 	[SerializeField] Weapon weapon;
 	#pragma warning restore 0649
 	
@@ -20,6 +16,7 @@ public class WeaponController: MonoBehaviour
     {
 	    weapon.ShootPoint = shootPoint.position;
 	    weapon.TargetPoint = targetPoint.position;
+	    weapon.ShootPointRotation = shootPoint.rotation;
     }
 
     // Update is called once per frame
@@ -27,9 +24,15 @@ public class WeaponController: MonoBehaviour
     {
 	    weapon.ShootPoint = shootPoint.position;
 	    weapon.TargetPoint = targetPoint.position;
+	    weapon.ShootPointRotation = shootPoint.rotation;
+	    //Debug.Log($"ShootPoint rotation {shootPoint.rotation}");
 	    
-	    if(shootPoint != null)
-	    Debug.DrawRay(shootPoint.position, targetPoint.position - shootPoint.position, Color.red);
+	    if(shootPoint)
+	    {
+		    var position = shootPoint.position;
+		    Debug.DrawRay(position, targetPoint.position - position, Color.red);
+	    }
+
 	    //shootDirection = targetPoint.transform.position - firePoint.transform.position;
     }
 
@@ -38,7 +41,7 @@ public class WeaponController: MonoBehaviour
 	    weapon.Shoot();
     }
     
-	public Transform ShootPoint {
+	/*public Transform ShootPoint {
 		get {
 			return shootPoint;
 		}
@@ -49,11 +52,7 @@ public class WeaponController: MonoBehaviour
 		{
 			return targetPoint;
 		}
-	}
+	}*/
 	
-	public Weapon Weapon {
-		get {
-			return weapon;
-		}
-	}
+	public Weapon Weapon => weapon;
 }
