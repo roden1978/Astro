@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2499095146054216917}
   - component: {fileID: 4703937403112038160}
   - component: {fileID: 1214985462692919389}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StardustBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
