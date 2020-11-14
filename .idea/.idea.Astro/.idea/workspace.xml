@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Renderer.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Renderer.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/URPAsset.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/URPAsset.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/URPAsset_Renderer.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/URPAsset_Renderer.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +116,7 @@
       <workItem from="1604302865543" duration="8272000" />
       <workItem from="1604378072411" duration="11200000" />
       <workItem from="1605073082365" duration="4991000" />
-      <workItem from="1605153793121" duration="1873000" />
+      <workItem from="1605153793121" duration="3706000" />
     </task>
     <servers />
   </component>
