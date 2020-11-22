@@ -2,72 +2,56 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
-    //private Vector3 prevPosition;
-    public float smoothSpeed;
-    public Vector3 offset;
+    [SerializeField]
+    [Tooltip("Объект за которым следит камера")]
+    private Transform target;
+    [SerializeField]
+    [Tooltip("Скорость перемещения камеры")]
+    private float smoothSpeed;
+    [SerializeField]
+    [Tooltip("Смещение камеры")]
+    private Vector3 offset;
+    [SerializeField]
+    [Tooltip("Дистанция на которую должен сметиться объект для переворота камеры")]
+    private float playerOffset;
+    
+    private Vector3 currentPosition;
+    private Flip flip;
+    private bool playerFlip;
+
+    private void Start()
+    {
+        flip = target.GetComponent<Flip>();
+        playerFlip = false;
+    }
 
     private void FixedUpdate()
     {
-       /* if((int)target.rotation.eulerAngles.y == 180 && !isFacingLeft)
+        if (flip.IsFacingLeft && offset.x > 0 && !playerFlip)
         {
-            prevPosition = target.position;
-            isFacingLeft = !isFacingLeft;
-
-            print("prevPosition" + prevPosition);
-        } 
-        if ((int)target.rotation.eulerAngles.y == 0 && isFacingLeft)
-        {
-            //FlipCamera();
-            prevPosition = target.position;
-            isFacingLeft = !isFacingLeft;
-            print("prevPosition" + prevPosition);
+            currentPosition = target.position;
+            playerFlip = true;
         }
-
-        if (prevPosition.x < 0 && (int)target.rotation.eulerAngles.y == 180)
+        if (!flip.IsFacingLeft && offset.x < 0  && !playerFlip)
         {
-            if(target.position.x < prevPosition.x - 2)
-            {
-            FlipCamera();
-            }
-        } else if(prevPosition.x < 0 && (int)target.rotation.eulerAngles.y == 0)
-        {
-            if (target.position.x > prevPosition.x + 2)
-            {
-                FlipCamera();
-            }
+            currentPosition = target.position;
+            playerFlip = true;
         }
-
-        if (prevPosition.x > 0 && (int)target.rotation.eulerAngles.y == 180)
-        {
-            if (target.position.x < prevPosition.x - 2)
-            {
-                FlipCamera();
-            }
-        }
-        else if (prevPosition.x > 0 && (int)target.rotation.eulerAngles.y == 0)
-        {
-            if (target.position.x > prevPosition.x + 2)
-            {
-                FlipCamera();
-            }
-        }*/
-        //
+        float distance = Vector3.Distance(currentPosition, target.position);
         
-            Vector3 desiredPosition = target.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition;
+        if (flip.IsFacingLeft && offset.x > 0 && distance >= playerOffset) FlipCamera();
+        if (!flip.IsFacingLeft && offset.x < 0 && distance >= playerOffset) FlipCamera();
         
-
-        //print((int)target.rotation.eulerAngles.y);
+        
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
     }
 
     private void FlipCamera()
     {
         //меняем направление движения камеры
-        //isFacingLeft = !isFacingLeft;
+        playerFlip = false;
         offset.x = offset.x * -1;
-        //prevPosition = Vector3.zero;
-        //print("offset " + isFacingLeft);
     }
 }

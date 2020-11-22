@@ -64,6 +64,8 @@
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
       </list>
     </option>
   </component>
@@ -80,7 +82,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -117,6 +119,9 @@
       <workItem from="1604378072411" duration="11200000" />
       <workItem from="1605073082365" duration="4991000" />
       <workItem from="1605153793121" duration="3706000" />
+      <workItem from="1605933532432" duration="260000" />
+      <workItem from="1605935568916" duration="4060000" />
+      <workItem from="1605977888918" duration="1961000" />
     </task>
     <servers />
   </component>
@@ -142,11 +147,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="384" y="186" key="SettingsEditor" timestamp="1605081641086">
-      <screen x="0" y="0" width="1600" height="1170" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="384" y="186" key="SettingsEditor/0.0.1600.1170@0.0.1600.1170" timestamp="1605081641086" />
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604249322966" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605936607839" />
     <state x="392" y="317" key="Vcs.Push.Dialog.v2" timestamp="1605154442009">
       <screen x="0" y="0" width="1600" height="1170" />
     </state>

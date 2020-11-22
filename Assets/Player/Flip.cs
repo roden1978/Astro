@@ -35,4 +35,6 @@ public class Flip : MonoBehaviour
 		else if ((pc.Direction.x < 0) && !isFacingLeft)
 			FlipPlayer();
 	}
+
+	public bool IsFacingLeft => isFacingLeft;
 }
