@@ -1,13 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+    [SerializeField]
+    [Tooltip("Объект за которым следит камера")]
+    private Transform target;
+    [SerializeField]
+    [Tooltip("Скорость перемещения камеры")]
+    private float smoothSpeed;
+    [SerializeField]
+    [Tooltip("Смещение камеры")]
+    private Vector3 offset;
+    [SerializeField]
+    [Tooltip("Дистанция на которую должен сметиться объект для переворота камеры")]
+    private float playerOffset;
+    
     private Vector3 currentPosition;
-    public float smoothSpeed;
-    public Vector3 offset;
-    public float playerOffset;
     private Flip flip;
     private bool playerFlip;
 
@@ -24,30 +32,26 @@ public class CameraFollow : MonoBehaviour
             currentPosition = target.position;
             playerFlip = true;
         }
-        if (flip.IsFacingLeft && offset.x > 0 && currentPosition.x - target.position.x >= playerOffset) FlipCamera();
-        
         if (!flip.IsFacingLeft && offset.x < 0  && !playerFlip)
         {
             currentPosition = target.position;
             playerFlip = true;
         }
-        if(!flip.IsFacingLeft && offset.x < 0 && target.position.x - currentPosition.x >= playerOffset) FlipCamera();
+        float distance = Vector3.Distance(currentPosition, target.position);
+        
+        if (flip.IsFacingLeft && offset.x > 0 && distance >= playerOffset) FlipCamera();
+        if (!flip.IsFacingLeft && offset.x < 0 && distance >= playerOffset) FlipCamera();
+        
         
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
-        
-
-        //print((int)target.rotation.eulerAngles.y);
     }
 
     private void FlipCamera()
     {
         //меняем направление движения камеры
-        //currentPosition = target.position;
         playerFlip = false;
         offset.x = offset.x * -1;
-        //prevPosition = Vector3.zero;
-        //print("offset " + isFacingLeft);
     }
 }
