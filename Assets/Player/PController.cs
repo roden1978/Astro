@@ -58,8 +58,8 @@ public class PController : MonoBehaviour
     private bool walk;
     private bool isGround;
     private bool crouchButtonDown;
-    private bool isRunning;
     private bool isIdle;
+    private bool UiRunKey;
 
     private WeaponController wc;
 
@@ -78,12 +78,12 @@ public class PController : MonoBehaviour
         crouchButtonDown = false;
         run = false;
         walk = false;
-        isRunning = false;
         isIdle = true;
         isGround = true;
         playerRb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weaponIndex = 0;
+        UiRunKey = false;
 
 
         InitWeapon();
@@ -121,7 +121,7 @@ public class PController : MonoBehaviour
 
     private void Run()
     {
-        if (run && !isRunning && isGround)
+        if (run && isGround) //&& !isRunning
         {
             animator.SetBool(Walk, false);
             animator.SetBool("run", true);
@@ -129,7 +129,7 @@ public class PController : MonoBehaviour
             maxVelocity = 5.0f;
         }
 
-        if (!run && !isRunning && !isIdle && isGround)
+        if (!run && walk && !isIdle && isGround) // && !isRunning
         {
             animator.SetBool("run", false);
             animator.SetBool("walk", true);
@@ -137,7 +137,7 @@ public class PController : MonoBehaviour
             maxVelocity = 2.0f;
         }
 
-        if (!run && !isRunning && !walk && isIdle && isGround)
+        if (!run && !walk && isIdle && isGround) // && !isRunning
         {
             animator.SetBool("run", false);
             animator.SetBool("walk", false);
@@ -186,27 +186,35 @@ public class PController : MonoBehaviour
         }
 
         //Считываем нажатие клавиши Shift для бега
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
+        /*if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
         {
-            run = true;
+            if (!run) RunStart();
+        }
+        else
+        {
+            if (!UiRunKey) RunStop();
+        }*/
+        /*if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
+        {
+            /*run = true;
             walk = false;
-            isIdle = false;
+            isIdle = false;#1#
+            if (!run) RunStart();
         }
         else if (((int) playerRb2D.velocity.x) != 0)
         {
             walk = true;
             run = false;
-            isRunning = false;
             isIdle = false;
         }
         else
         {
             walk = false;
             run = false;
-            isRunning = false;
             isIdle = true;
-        }
+        }*/
 
+       
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -223,14 +231,49 @@ public class PController : MonoBehaviour
             //GrenadeThrow();
         }
     }
+    
+    public void RunStart()
+    {
+        run = true;
+        walk = false;
+        isIdle = false;
+    }
 
+    private void RunStop()
+    {
+        if (direction.x != 0)
+        {
+            playerRb2D.velocity = Vector2.zero;
+            walk = true;
+            run = false;
+            isIdle = false;
+        }
+        else
+        {
+            walk = false;
+            run = false;
+            isIdle = true;
+        }
+    }
+
+    public void Shoot()
+    {
+        wc.Shoot();
+    }
     private void FixedUpdate()
     {
         KeyboardJump();
         Crouch();
         Move();
         VelocityControl();
+        IdleControl();
         Run();
+        if(UiRunKey && !run && (int) playerRb2D.velocity.x != 0)
+            RunStart();
+        else if (!UiRunKey && run)
+        {
+           RunStop(); 
+        }
     }
     public void InitWeapon()
     {
@@ -379,16 +422,25 @@ public class PController : MonoBehaviour
                 playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
             }
         }
+        
+        if (direction.x == 0) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
     }
 
 
     private void IdleControl()
     {
-        if (direction.x == 0)
+        if ((int) playerRb2D.velocity.x == 0)
         {
             walk = false;
             run = false;
-            isRunning = false;
+            isIdle = true;
+        } 
+        
+        if (!run && (int) playerRb2D.velocity.x != 0)
+        {
+            walk = true;
+            run = false;
+            isIdle = false;
         }
     }
 
@@ -427,6 +479,12 @@ public class PController : MonoBehaviour
     {
         get => weaponPoint;
         private set => weaponPoint = value; 
+    }
+
+    public bool UIRunKey
+    {
+        get => UiRunKey;
+        set => UiRunKey = value;
     }
 
     private void MovingRightArm()

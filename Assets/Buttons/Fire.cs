@@ -1,27 +1,26 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Fire : MonoBehaviour, IPointerDownHandler
+public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	private WeaponController wc;
+	[SerializeField]
+    private GameObject player;
 
+    private PController pController;
     public void OnPointerDown(PointerEventData eventData)
     {
-	    wc = GameObject.FindGameObjectWithTag("weapon").GetComponent<WeaponController>();
-
-	    if (wc != null)
-        {
-            if (gameObject.name == "FireButton")
-            {
-	            wc.Shoot();
-                //print("Fire");
-            }
-        } else
-        {
-            print("gun not found");
-        }
-        
+	    if (!pController) pController = player.GetComponent<PController>();
+	    else InvokeRepeating("Shoot", 0.1f, 0.1f);
+	    
     }
 
-   
+    private void Shoot()
+    {
+	    pController.Shoot();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+	    CancelInvoke("Shoot");
+    }
 }

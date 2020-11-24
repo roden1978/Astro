@@ -947,6 +947,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &660642975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5055538608133943192, guid: 824b9bdacdeedd94299bbd06d7002f83,
+    type: 3}
+  m_PrefabInstance: {fileID: 1100578323097642263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &722557788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3434,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3270602032277955592, guid: 1340dc2b05c927241a291d71d2c0ca98,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 660642975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1340dc2b05c927241a291d71d2c0ca98, type: 3}
 --- !u!1001 &6412117964926008787

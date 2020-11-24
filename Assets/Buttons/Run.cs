@@ -8,7 +8,8 @@ public class Run : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{
 		if(gameObject.name == "RunButton")
 		{
-			playerController.ChangeWeapon();
+			//playerController.ChangeWeapon();
+			playerController.UIRunKey = !playerController.UIRunKey;
 		}
 		Debug.Log("name" + gameObject.name);
 
@@ -16,6 +17,7 @@ public class Run : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
+		//playerController.UIRunKey = false;
 		Debug.Log("Run button up");
 	}
 
