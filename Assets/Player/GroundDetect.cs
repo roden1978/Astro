@@ -8,7 +8,7 @@ public class GroundDetect : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "ground")
 		{
-			GetComponentInParent<PController>().Ground = true;
+			GetComponentInParent<PlayerController>().Ground = true;
 		}
 	}
 
@@ -16,7 +16,7 @@ public class GroundDetect : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "ground")
 		{
-			GetComponentInParent<PController>().Ground = false;
+			GetComponentInParent<PlayerController>().Ground = false;
 		}
         
         

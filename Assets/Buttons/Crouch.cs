@@ -4,14 +4,14 @@ using UnityEngine;
 public class Crouch : MonoBehaviour, IPointerDownHandler
 {
     // Start is called before the first frame update
-    private PController playerController;
+    private PlayerController playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (playerController != null)
         {
             if (gameObject.name == "CrouchButton")
             {
-                playerController.CrouchButtonDown = !playerController.CrouchButtonDown;
+                playerController.UICrouchButton = !playerController.UICrouchButton;
                 playerController.Crouch();
             }
         } else
@@ -25,7 +25,7 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
     // Start is called before the first frame update
     void Start()
     {
-	    playerController = GameObject.FindWithTag("Player").GetComponent<PController>();
+	    playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
  }

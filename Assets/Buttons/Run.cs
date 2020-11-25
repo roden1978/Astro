@@ -3,13 +3,13 @@ using UnityEngine.EventSystems;
 
 public class Run : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	private PController playerController;
+	private PlayerController playerController;
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		if(gameObject.name == "RunButton")
 		{
 			//playerController.ChangeWeapon();
-			playerController.UIRunKey = !playerController.UIRunKey;
+			playerController.UIRunButton = !playerController.UIRunButton;
 		}
 		Debug.Log("name" + gameObject.name);
 
@@ -24,7 +24,7 @@ public class Run : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	// Start is called before the first frame update
 	void Start()
 	{
-		playerController = GameObject.FindWithTag("Player").GetComponent<PController>();
+		playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 	    
 		if (!playerController){
 			print ("Run script Player not found");

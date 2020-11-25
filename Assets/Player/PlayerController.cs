@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 
-public class PController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField][Tooltip("Ссылка на SO игрока")] 
+    [SerializeField] [Tooltip("Ссылка на SO игрока")]
     private Player player;
-    
-    [SerializeField][Tooltip("Максимальноу ускорение при хотьбе")] 
+
+    [SerializeField] [Tooltip("Максимальноу ускорение при хотьбе")]
     private float maxVelocity;
-    
-    [SerializeField][Tooltip("Сила прыжка")] 
+
+    [SerializeField] [Tooltip("Сила прыжка")]
     float jumpForce;
-    
-    [SerializeField][Tooltip("Сила используемая для движения игрока")] 
+
+    [SerializeField] [Tooltip("Сила используемая для движения игрока")]
     Vector2 force;
-    
-    [SerializeField][Tooltip("Объект используемый для упарвления правой рукой")]
+
+    [SerializeField] [Tooltip("Объект используемый для упарвления правой рукой")]
     GameObject rightArm;
-    
-    [SerializeField][Tooltip("Объект используемый для управления левой рукой")] 
+
+    [SerializeField] [Tooltip("Объект используемый для управления левой рукой")]
     GameObject leftArm;
 
     [SerializeField] [Tooltip("Точка крепления оружия")]
@@ -55,12 +55,14 @@ public class PController : MonoBehaviour
     private Animator animator;
     private bool crouch;
     private bool run;
+    private bool isRunningAnimation;
     private bool walk;
+    private bool isWalkingAnimation;
     private bool isGround;
-    private bool crouchButtonDown;
     private bool isIdle;
-    private bool UiRunKey;
-
+    private bool uiRunButton;
+    private bool uiCrouchButton;
+    
     private WeaponController wc;
 
     private Transform rightArmWeaponPoint;
@@ -68,22 +70,23 @@ public class PController : MonoBehaviour
     private Vector3 Rarm;
 
     private int weaponIndex;
-    private static readonly int Walk = Animator.StringToHash("walk");
+    //private static readonly int Walk = Animator.StringToHash("walk");
 
 
     // Start is called before the first frame update
     void Start()
     {
         crouch = false;
-        crouchButtonDown = false;
+        uiCrouchButton = false;
         run = false;
         walk = false;
+        isWalkingAnimation = false;
         isIdle = true;
         isGround = true;
         playerRb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weaponIndex = 0;
-        UiRunKey = false;
+        uiRunButton = false;
 
 
         InitWeapon();
@@ -103,9 +106,7 @@ public class PController : MonoBehaviour
 
         if (rightWeaponPoint && rightArmWeaponPoint)
         {
-           
             rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-           
         }
         else Debug.Log("rightArmWeaponPoint not found");
     }
@@ -115,15 +116,17 @@ public class PController : MonoBehaviour
     void Update()
     {
         ReadDeviceDirections();
-        
+        VelocityControl();
         MovingRightArm();
+        Walk();
+        Run();
     }
 
-    private void Run()
+    /*private void Run()
     {
         if (run && isGround) //&& !isRunning
         {
-            animator.SetBool(Walk, false);
+            animator.SetBool("walk", false);
             animator.SetBool("run", true);
 
             maxVelocity = 5.0f;
@@ -142,7 +145,7 @@ public class PController : MonoBehaviour
             animator.SetBool("run", false);
             animator.SetBool("walk", false);
         }
-    }
+    }*/
 
     private void ReadDeviceDirections()
     {
@@ -161,9 +164,20 @@ public class PController : MonoBehaviour
             {
                 direction.x = joystickDirection.x;
             }
+
+            if (!walk)
+            {
+                walk = true;
+                Debug.Log($"walk on= {walk}");
+            }
         }
         else
         {
+            if (walk)
+            {
+                walk = false;
+                Debug.Log($"walk on= {walk}");
+            }
             ResetX();
         }
 
@@ -176,7 +190,7 @@ public class PController : MonoBehaviour
 
             if (keyboardDirection.y < 0 && !crouch)
             {
-                crouchButtonDown = !crouchButtonDown;
+                uiCrouchButton = !uiCrouchButton;
                 crouch = true;
             }
         }
@@ -185,36 +199,6 @@ public class PController : MonoBehaviour
             ResetY();
         }
 
-        //Считываем нажатие клавиши Shift для бега
-        /*if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
-        {
-            if (!run) RunStart();
-        }
-        else
-        {
-            if (!UiRunKey) RunStop();
-        }*/
-        /*if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && direction.x != 0)
-        {
-            /*run = true;
-            walk = false;
-            isIdle = false;#1#
-            if (!run) RunStart();
-        }
-        else if (((int) playerRb2D.velocity.x) != 0)
-        {
-            walk = true;
-            run = false;
-            isIdle = false;
-        }
-        else
-        {
-            walk = false;
-            run = false;
-            isIdle = true;
-        }*/
-
-       
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -230,8 +214,62 @@ public class PController : MonoBehaviour
         {
             //GrenadeThrow();
         }
+
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || uiRunButton)
+        {
+            if (!run)
+            {
+                run = true;
+                walk = false;
+            }
+        }
+        else if (run) run = false;
     }
     
+    private void Walk()
+    {
+        if (walk && !isWalkingAnimation && direction.x != 0)
+        {
+            maxVelocity = 2.0f;
+            animator.SetBool("walk", true);
+            isWalkingAnimation = true;
+        }
+        if (!walk && isWalkingAnimation)
+        {
+            animator.SetBool("walk", false);
+            isWalkingAnimation = false;
+        }
+    }
+
+    private void Run()
+    {
+        if (run && !isRunningAnimation && direction.x != 0)
+        {
+            maxVelocity = 5.0f;
+            animator.SetBool("run", true);
+            isRunningAnimation = true;
+        }
+
+        if (!run && isRunningAnimation)
+        {
+            animator.SetBool("run", false);
+            isRunningAnimation = false;
+        }
+
+        if (run && isRunningAnimation && direction.x == 0)
+        {
+            animator.SetBool("run", false);
+            isRunningAnimation = false;
+        }
+
+    }
+    
+
+    private void Idle()
+    {
+        
+    }
+
     public void RunStart()
     {
         run = true;
@@ -260,21 +298,23 @@ public class PController : MonoBehaviour
     {
         wc.Shoot();
     }
+
     private void FixedUpdate()
     {
         KeyboardJump();
         Crouch();
         Move();
-        VelocityControl();
-        IdleControl();
-        Run();
-        if(UiRunKey && !run && (int) playerRb2D.velocity.x != 0)
+
+        //IdleControl();
+        /*Run();
+        if (UiRunKey && !run && (int) playerRb2D.velocity.x != 0)
             RunStart();
         else if (!UiRunKey && run)
         {
-           RunStop(); 
-        }
+            RunStop();
+        }*/
     }
+
     public void InitWeapon()
     {
         int count = 0;
@@ -282,7 +322,6 @@ public class PController : MonoBehaviour
         {
             foreach (var weapon in player.Weapons)
             {
-                
                 if (weapon.name == player.CurrentWeaponName)
                 {
                     currentWeapon = Instantiate(weapon, weaponPoint.transform) as GameObject;
@@ -294,6 +333,7 @@ public class PController : MonoBehaviour
                 {
                     Debug.Log("Error weapon Init");
                 }
+
                 count++;
             }
         }
@@ -303,13 +343,13 @@ public class PController : MonoBehaviour
             player.CurrentWeaponName = player.Weapons[weaponIndex].name;
             weaponIndex++;
         }
-      
     }
+
     public void ChangeWeapon()
     {
         int weaponCount = player.Weapons.Count;
         if (currentWeapon) Destroy(currentWeapon);
-        
+
         currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
         if (currentWeapon)
         {
@@ -335,24 +375,24 @@ public class PController : MonoBehaviour
 
             rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
             rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
-            
+
             Debug.Log($"{currentWeapon.name} index {weaponIndex}");
             if (weaponIndex == weaponCount - 1)
             {
                 weaponIndex = -1;
             }
+
             weaponIndex++;
         }
         else
         {
             Debug.Log("Weapon not change, weapon not found");
         }
-        
     }
 
     private void Move()
     {
-        if (direction.x != 0 && !crouchButtonDown)
+        if (walk || run && !crouch) // 
         {
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
         }
@@ -369,14 +409,14 @@ public class PController : MonoBehaviour
 
     public void Jump()
     {
-        if (isGround && !crouchButtonDown)
+        if (isGround && !uiCrouchButton)
         {
             animator.SetTrigger("jump");
             playerRb2D.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
         }
         else
         {
-            crouchButtonDown = false;
+            uiCrouchButton = false;
             crouch = false;
         }
     }
@@ -390,14 +430,13 @@ public class PController : MonoBehaviour
 
     public void RestoreArmPosition()
     {
-       
         //rightArm.transform.localPosition = new Vector3(Rarm.x, leftArm.transform.position.y, Rarm.z);
         Debug.Log($"LarmY {leftArm.transform.position.y}");
     }
 
     public void Crouch()
     {
-        if (crouchButtonDown)
+        if (uiCrouchButton)
         {
             animator.SetBool("crouch", true);
             crouch = true;
@@ -408,46 +447,43 @@ public class PController : MonoBehaviour
             crouch = false;
         }
     }
-    
+
     private void VelocityControl()
     {
         if ((direction.x > 0) && playerRb2D.velocity.x > maxVelocity)
         {
             playerRb2D.velocity = new Vector2(maxVelocity, playerRb2D.velocity.y);
         }
-        else
+
+        if ((direction.x < 0) && playerRb2D.velocity.x < -maxVelocity)
         {
-            if ((direction.x < 0) && playerRb2D.velocity.x < -maxVelocity)
-            {
-                playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
-            }
+            playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
         }
-        
+
         if (direction.x == 0) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
     }
 
 
     private void IdleControl()
     {
-        if ((int) playerRb2D.velocity.x == 0)
+        if (playerRb2D.velocity.x == 0)
         {
-            walk = false;
-            run = false;
+            //walk = false;
+            //run = false;
             isIdle = true;
-        } 
-        
-        if (!run && (int) playerRb2D.velocity.x != 0)
+        }
+
+        /*if (!run && (int) playerRb2D.velocity.x != 0)
         {
             walk = true;
             run = false;
             isIdle = false;
-        }
+        }*/
     }
 
 
     public bool Ground
     {
-        get => isGround;
         set => isGround = value;
     }
 
@@ -469,22 +505,21 @@ public class PController : MonoBehaviour
     }
 
 
-    public bool CrouchButtonDown
+    public bool UICrouchButton
     {
-        get => crouchButtonDown;
-        set => crouchButtonDown = value;
+        get => uiCrouchButton;
+        set => uiCrouchButton = value;
     }
 
     public GameObject WeaponPoint
     {
         get => weaponPoint;
-        private set => weaponPoint = value; 
     }
 
-    public bool UIRunKey
+    public bool UIRunButton
     {
-        get => UiRunKey;
-        set => UiRunKey = value;
+        get => uiRunButton;
+        set => uiRunButton = value;
     }
 
     private void MovingRightArm()
@@ -511,9 +546,8 @@ public class PController : MonoBehaviour
         if (currentPositionRightArm.y >= rightArmLockPositionDown
             && currentPositionRightArm.y <= rightArmLockPositionUp)
         {
-           rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x,
+            rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x,
                 currentPositionRightArm.y, rightArm.transform.localPosition.z);
         }
-
     }
 }
