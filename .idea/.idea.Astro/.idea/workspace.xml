@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/2D Renderer.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/2D Renderer.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/URPAsset.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/URPAsset.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/URPAsset_Renderer.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/URPAsset_Renderer.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Run.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Run.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +63,15 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -126,6 +130,8 @@
       <workItem from="1605977888918" duration="1961000" />
       <workItem from="1606148453322" duration="2106000" />
       <workItem from="1606193270321" duration="5585000" />
+      <workItem from="1606283328752" duration="15065000" />
+      <workItem from="1606363111625" duration="11663000" />
     </task>
     <servers />
   </component>

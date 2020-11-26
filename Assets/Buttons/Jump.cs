@@ -3,8 +3,9 @@ using UnityEngine.EventSystems;
 
 public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
-    private PController playerController;
+    [SerializeField]
+    private GameObject player;
+    private PlayerController playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
         if(gameObject.name == "JumpButton")
@@ -27,7 +28,7 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Start is called before the first frame update
     void Start()
     {
-	    playerController = GameObject.FindWithTag("Player").GetComponent<PController>();
+	    playerController = player.GetComponent<PlayerController>();
 	    
 	    if (!playerController){
 	    	print ("Jump script Player not found");

@@ -5,12 +5,12 @@ using UnityEngine;
 public class Flip : MonoBehaviour
 {
 	private bool isFacingLeft;
-	private PController pc;
+	private PlayerController playerController;
 	// Start is called before the first frame update
 	void Start()
 	{
 		isFacingLeft = false;
-		pc = GetComponent<PController>();
+		playerController = GetComponent<PlayerController>();
 	}
 
 	// Update is called once per frame
@@ -28,11 +28,11 @@ public class Flip : MonoBehaviour
 
 	public void Fliping()
 	{
-		if ((pc.Direction.x > 0) && isFacingLeft)
+		if ((playerController.Direction.x > 0) && isFacingLeft)
 			//отражаем персонажа вправо
 			FlipPlayer();
 		//обратная ситуация. отражаем персонажа влево
-		else if ((pc.Direction.x < 0) && !isFacingLeft)
+		else if ((playerController.Direction.x < 0) && !isFacingLeft)
 			FlipPlayer();
 	}
 

@@ -1,26 +1,31 @@
-﻿using UnityEngine.EventSystems;
+﻿using System;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField]
     private GameObject player;
-
-    private PController pController;
+    private PlayerController playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
-	    if (!pController) pController = player.GetComponent<PController>();
-	    else InvokeRepeating("Shoot", 0.1f, 0.1f);
+	    if (playerController) InvokeRepeating("Shoot", 0.1f, 0.1f);
 	    
     }
 
     private void Shoot()
     {
-	    pController.Shoot();
+	    playerController.Shoot();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
 	    CancelInvoke("Shoot");
     }
+
+    private void Start()
+    {
+	    playerController = player.GetComponent<PlayerController>();
+    }
+
 }
