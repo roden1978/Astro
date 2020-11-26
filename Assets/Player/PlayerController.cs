@@ -59,10 +59,9 @@ public class PlayerController : MonoBehaviour
     private bool walk;
     private bool isWalkingAnimation;
     private bool isGround;
-    private bool isIdle;
     private bool uiRunButton;
     private bool uiCrouchButton;
-    
+
     private WeaponController wc;
 
     private Transform rightArmWeaponPoint;
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 Rarm;
 
     private int weaponIndex;
-    //private static readonly int Walk = Animator.StringToHash("walk");
 
 
     // Start is called before the first frame update
@@ -81,7 +79,6 @@ public class PlayerController : MonoBehaviour
         run = false;
         walk = false;
         isWalkingAnimation = false;
-        isIdle = true;
         isGround = true;
         playerRb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -122,31 +119,6 @@ public class PlayerController : MonoBehaviour
         Run();
     }
 
-    /*private void Run()
-    {
-        if (run && isGround) //&& !isRunning
-        {
-            animator.SetBool("walk", false);
-            animator.SetBool("run", true);
-
-            maxVelocity = 5.0f;
-        }
-
-        if (!run && walk && !isIdle && isGround) // && !isRunning
-        {
-            animator.SetBool("run", false);
-            animator.SetBool("walk", true);
-
-            maxVelocity = 2.0f;
-        }
-
-        if (!run && !walk && isIdle && isGround) // && !isRunning
-        {
-            animator.SetBool("run", false);
-            animator.SetBool("walk", false);
-        }
-    }*/
-
     private void ReadDeviceDirections()
     {
         //Считываем нажатие клавиш управления на клавиатуре и изменение положения джойстика
@@ -165,10 +137,10 @@ public class PlayerController : MonoBehaviour
                 direction.x = joystickDirection.x;
             }
 
-            if (!walk)
+            if (!walk && !run)
             {
                 walk = true;
-                Debug.Log($"walk on= {walk}");
+                Debug.Log($"walk = {walk}");
             }
         }
         else
@@ -176,8 +148,16 @@ public class PlayerController : MonoBehaviour
             if (walk)
             {
                 walk = false;
-                Debug.Log($"walk on= {walk}");
+                
+                Debug.Log($"walk = {walk}");
             }
+
+            if (run)
+            {
+                run = false;
+                Debug.Log($"run = {run}");
+            }
+
             ResetX();
         }
 
@@ -215,84 +195,68 @@ public class PlayerController : MonoBehaviour
             //GrenadeThrow();
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || uiRunButton)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || uiRunButton) && direction.x != 0)
         {
             if (!run)
             {
                 run = true;
                 walk = false;
+                Debug.Log($"run = {run}");
             }
         }
         else if (run) run = false;
     }
-    
+
     private void Walk()
     {
-        if (walk && !isWalkingAnimation && direction.x != 0)
+        if (walk)
         {
-            maxVelocity = 2.0f;
-            animator.SetBool("walk", true);
-            isWalkingAnimation = true;
+            if (!isWalkingAnimation)
+            {
+                maxVelocity = 2.0f;
+                animator.SetBool("walk", true);
+                isWalkingAnimation = true;
+                Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
+            }
         }
-        if (!walk && isWalkingAnimation)
+        else
         {
-            animator.SetBool("walk", false);
-            isWalkingAnimation = false;
+            if (isWalkingAnimation)
+            {
+                animator.SetBool("walk", false);
+                isWalkingAnimation = false;
+                Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
+            }
+            
         }
     }
 
     private void Run()
     {
-        if (run && !isRunningAnimation && direction.x != 0)
+        if (run)
         {
-            maxVelocity = 5.0f;
-            animator.SetBool("run", true);
-            isRunningAnimation = true;
-        }
+            if (!isRunningAnimation)
+            {
+                maxVelocity = 5.0f;
+                animator.SetBool("run", true);
+                isRunningAnimation = true;
+                Debug.Log($"isRunningAnimation = {isRunningAnimation}");
+            }
 
-        if (!run && isRunningAnimation)
-        {
-            animator.SetBool("run", false);
-            isRunningAnimation = false;
-        }
-
-        if (run && isRunningAnimation && direction.x == 0)
-        {
-            animator.SetBool("run", false);
-            isRunningAnimation = false;
-        }
-
-    }
-    
-
-    private void Idle()
-    {
-        
-    }
-
-    public void RunStart()
-    {
-        run = true;
-        walk = false;
-        isIdle = false;
-    }
-
-    private void RunStop()
-    {
-        if (direction.x != 0)
-        {
-            playerRb2D.velocity = Vector2.zero;
-            walk = true;
-            run = false;
-            isIdle = false;
         }
         else
         {
-            walk = false;
-            run = false;
-            isIdle = true;
+            if (isRunningAnimation)
+            {
+                animator.SetBool("run", false);
+                            isRunningAnimation = false;
+                            Debug.Log($"isRunningAnimation = {isRunningAnimation}");
+            }
         }
     }
+
+
+   
 
     public void Shoot()
     {
@@ -304,15 +268,6 @@ public class PlayerController : MonoBehaviour
         KeyboardJump();
         Crouch();
         Move();
-
-        //IdleControl();
-        /*Run();
-        if (UiRunKey && !run && (int) playerRb2D.velocity.x != 0)
-            RunStart();
-        else if (!UiRunKey && run)
-        {
-            RunStop();
-        }*/
     }
 
     public void InitWeapon()
@@ -324,7 +279,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (weapon.name == player.CurrentWeaponName)
                 {
-                    currentWeapon = Instantiate(weapon, weaponPoint.transform) as GameObject;
+                    currentWeapon = Instantiate(weapon, weaponPoint.transform);
                     player.CurrentWeaponName = weapon.name;
                     weaponIndex = count == player.Weapons.Count - 1 ? 0 : count + 1;
                     Debug.Log($"weaponIndex {player.Weapons.Count} count {count}");
@@ -392,7 +347,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (walk || run && !crouch) // 
+        //if ((walk || run) && !crouch) //
+        if(direction.x != 0 && !crouch)
         {
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
         }
@@ -464,24 +420,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void IdleControl()
-    {
-        if (playerRb2D.velocity.x == 0)
-        {
-            //walk = false;
-            //run = false;
-            isIdle = true;
-        }
-
-        /*if (!run && (int) playerRb2D.velocity.x != 0)
-        {
-            walk = true;
-            run = false;
-            isIdle = false;
-        }*/
-    }
-
-
+   
     public bool Ground
     {
         set => isGround = value;
