@@ -72,6 +72,7 @@
         <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
       </list>
     </option>
   </component>
@@ -132,6 +133,7 @@
       <workItem from="1606193270321" duration="5585000" />
       <workItem from="1606283328752" duration="15065000" />
       <workItem from="1606363111625" duration="11663000" />
+      <workItem from="1606627979336" duration="7909000" />
     </task>
     <servers />
   </component>
