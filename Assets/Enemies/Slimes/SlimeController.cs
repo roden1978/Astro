@@ -82,6 +82,8 @@ public class SlimeController : MonoBehaviour
 	    isOnAnimationMove = false;
 	    startPosition = transform.position;
 	    
+	    hit = new RaycastHit2D();
+	    
 	    Physics2D.queriesStartInColliders = false;
 	    
 	    SpriteRendererFind();
@@ -93,12 +95,14 @@ public class SlimeController : MonoBehaviour
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(startPosition, new Vector3(startPosition.x, startPosition.y + 3, 0));
 		
-		
-		Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + spriteSizeY / 2, 0), 
-			new Vector3(transform.position.x + 1 * rayDistance, transform.position.y + spriteSizeY / 2, 0));
-		//Gizmos.DrawLine(transform.position, transform.position + Vector3.left * rayDistance);
-		Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + spriteSizeY / 2, 0), 
-			new Vector3(transform.position.x - 1 * rayDistance, transform.position.y + spriteSizeY / 2, 0));
+		if (movingRight)
+			Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + spriteSizeY / 2, 0), 
+				new Vector3(transform.position.x + 1 * rayDistance, transform.position.y + spriteSizeY / 2, 0));
+			//Gizmos.DrawLine(transform.localPosition * 0.5f, Vector3.right);
+		else
+			Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + spriteSizeY / 2, 0), 
+				new Vector3(transform.position.x - 1 * rayDistance, transform.position.y + spriteSizeY / 2, 0));
+			//Gizmos.DrawLine(transform.localPosition * 0.5f, Vector3.left);
 	}
 
     // Update is called once per frame
@@ -108,7 +112,7 @@ public class SlimeController : MonoBehaviour
 	    JumpVelocityControll();
 	    MovingDirectionControll();
 	    
-	    HitCollisionDetect();
+	    //HitCollisionDetect();
 	    
 	    ObstacleJumpControll();
 	    CheckAttackSuccess();
@@ -116,8 +120,6 @@ public class SlimeController : MonoBehaviour
 	    JumpBackVelocityControll();
 	}
     
-
-
     private void FixedUpdate()
     {
 	    lastPosition = transform.position;
@@ -128,7 +130,7 @@ public class SlimeController : MonoBehaviour
 	    	angry = false;
 	    	goBack = false;
 	    	attack = false;
-	    	Debug.Log("chill ");
+	    	//Debug.Log("chill ");
 	    }
 		    
 	    if (Vector2.Distance(transform.position, player.transform.position) > stopAngryDistance && !goBack && !chill) //goBack
@@ -140,7 +142,7 @@ public class SlimeController : MonoBehaviour
 	    	
 	    	Flip();
 	    	
-	    	Debug.Log("goBack ");
+	    	//Debug.Log("goBack ");
 	    	
 	    } 
 	    
@@ -152,7 +154,7 @@ public class SlimeController : MonoBehaviour
 	    	goBack = false;
 	    	attack = false;
 	    	
-	    	Debug.Log("angry");
+	    	//Debug.Log("angry");
 	    } 
 	    
 	    if(Vector2.Distance(transform.position, new Vector2(player.transform.position.x,0)) <= attackDistance)
@@ -167,14 +169,14 @@ public class SlimeController : MonoBehaviour
 	    if (goBack) GoBack();
 	    
 	    if (attack) Attack();
-	  
+	    	  
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         
          
-	    if (collision.gameObject.tag == "ground")
+	    if (collision.gameObject.CompareTag("ground"))
 	    {
 		    GetComponentInParent<SlimeController>().isGround = true;
 	    }
@@ -183,7 +185,7 @@ public class SlimeController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 	   
-	    if(collision.gameObject.tag == "ground")
+	    if(collision.gameObject.CompareTag("ground"))
 	    {
 		    GetComponentInParent<SlimeController>().isGround = false;
 		    isOnAnimationMove = false;
@@ -208,12 +210,12 @@ public class SlimeController : MonoBehaviour
 		if(transform.position.x > startPosition.x + patrolDistance && movingRight)
 		{
 			Flip();
-			Debug.Log("patrol +");
+			//Debug.Log("patrol +");
 		}
 		else if (transform.position.x < startPosition.x - patrolDistance && !movingRight)
 		{
 			Flip();
-			Debug.Log("patrol -");
+			//Debug.Log("patrol -");
 		}
 		
 		if (movingRight)
@@ -278,34 +280,43 @@ public class SlimeController : MonoBehaviour
 		}
 	}
 	
-	private void HitCollisionDetect()
+	private RaycastHit2D HitCollisionDetect()
 	{
 		if(movingRight)
 		{
-			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
+			//Debug.Log($"Moving right = {movingRight}");
+			return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x + 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
+			///return Physics2D.Raycast(transform.position,Vector2.right, rayDistance);
+			
 		}
 		else 
 		{
-			hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
+			//Debug.Log($"Moving right = {movingRight}");
+			return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + spriteSizeY / 2), 
 				new Vector2(transform.position.x - 1 * rayDistance, transform.position.y + spriteSizeY / 2), rayDistance);
+			
+			//return Physics2D.Raycast(transform.position,Vector2.left, rayDistance);
 		}
 	}
 	
 	private void ObstacleJumpControll()
 	{
-		
-	    
-		if (hit && hit.collider.gameObject.tag == "ground")
+		hit = HitCollisionDetect();
+	   Debug.Log(hit.collider);
+		if (hit.collider && hit.collider.CompareTag("ground"))
 		{
 			if(isGround)
 				rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+			Debug.Log($"Collider tag = {hit.collider.gameObject.tag}"); 
+			
 		}
 	}
 	
 	private void CheckAttackSuccess()
 	{
-		if (hit && hit.collider.gameObject.tag == "Player" && !isGround)
+		hit = HitCollisionDetect();
+		if (hit.collider && hit.collider.CompareTag("Player") && !isGround)
 		{
 			//Debug.Log("Player damage");
 			if(movingRight)
@@ -334,7 +345,7 @@ public class SlimeController : MonoBehaviour
 	{
 		//right side true, left side false
 		
-		return player.transform.position.x > transform.position.x ? true: false;
+		return player.transform.position.x > transform.position.x;
 		//Debug.Log("player side detect");
 	}
 	
