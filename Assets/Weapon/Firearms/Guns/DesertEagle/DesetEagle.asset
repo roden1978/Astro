@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6489c3129c51a945acd4cab59a5005a, type: 3}
   m_Name: DesetEagle
   m_EditorClassIdentifier: 
+  name: 5
+  image: {fileID: 21300000, guid: 4e2445cd2b62e8c4798cb29b31a92999, type: 3}
   rightArmLockPositionUp: 0.15
   rightArmLockPositionDown: -0.15
   weaponShoot: {fileID: 11400000, guid: 1b1daaaac6c1eed468c48e142298056f, type: 2}
+  vfxShoot: {fileID: 3066600329688807935, guid: e0e2d269ae5d0a84eb8c4e946a50f4b5,
+    type: 3}

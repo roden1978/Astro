@@ -157,6 +157,13 @@
             </e>
           </e>
         </e>
+        <e p="Prefabs" t="Include">
+          <e p="ParticleEffects" t="Include">
+            <e p="Firearms" t="Include">
+              <e p="DestroyVFX.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="ScriptableObjects" t="Include">
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
