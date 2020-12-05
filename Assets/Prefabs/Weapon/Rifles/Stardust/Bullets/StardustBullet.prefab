@@ -220,3 +220,5 @@ MonoBehaviour:
   rb: {fileID: 2499095146054216917}
   power: 0.23
   gun: {fileID: 11400000, guid: 9552dc9571253d045b6d3f465a6356b6, type: 2}
+  vfxCollision: {fileID: 3066600329688807935, guid: 38bfc34b4a22ff84e9bea45a1b2be9bc,
+    type: 3}

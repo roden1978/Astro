@@ -8,15 +8,18 @@ public class StardustBullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float power;
     [SerializeField] Weapon gun;
+    [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 	
     //private GameObject gun;
     private IEnumerator coroutine;
     private Vector3 shootDirection;
+
+    private BoxCollider2D bc;
     // Start is called before the first frame update
     void Start()
     {
-	    
+        bc = transform.GetComponent<BoxCollider2D>();
         if (gun){
             shootDirection = gun.TargetPoint - gun.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
@@ -31,7 +34,8 @@ public class StardustBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        Debug.Log(hitObject.name); 
+        Instantiate(vfxCollision, bc.transform.position, Quaternion.identity);
+        //Debug.Log(hitObject.name); 
         //rb.velocity = Vector2.zero;
         Destroy(gameObject);    
     }
