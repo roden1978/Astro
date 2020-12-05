@@ -19,6 +19,7 @@ namespace ScriptableObjects.Weapon.Firearms.Shoots
 		public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 		{
 			if (weapon && bullet) {
+				Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
 				return Instantiate(bullet, shootPoint, rotation);
 			}
 

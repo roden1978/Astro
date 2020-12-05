@@ -23,7 +23,7 @@ public class StardustBullet : MonoBehaviour
 		    
             Debug.Log("shootDirection " + shootDirection);
 		    
-            coroutine = Die(1.5f);
+            coroutine = Die(1.0f);
             StartCoroutine(coroutine);
         }
 	    
