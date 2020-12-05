@@ -31,7 +31,8 @@ public class StardustBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        Debug.Log(hitObject.name);
+        Debug.Log(hitObject.name); 
+        //rb.velocity = Vector2.zero;
         Destroy(gameObject);    
     }
 

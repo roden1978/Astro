@@ -73,8 +73,8 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
       </list>
     </option>
   </component>
@@ -137,7 +137,7 @@
       <workItem from="1606363111625" duration="11663000" />
       <workItem from="1606627979336" duration="7909000" />
       <workItem from="1606971937509" duration="5002000" />
-      <workItem from="1607144898951" duration="1039000" />
+      <workItem from="1607144898951" duration="1696000" />
     </task>
     <servers />
   </component>
