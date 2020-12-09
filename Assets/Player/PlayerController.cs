@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private bool crouch;
+    private bool isCrouchAnimation;
     private bool run;
     private bool isRunningAnimation;
     private bool walk;
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         crouch = false;
+        isCrouchAnimation = false;
         uiCrouchButton = false;
         run = false;
         walk = false;
@@ -347,7 +349,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //if ((walk || run) && !crouch) //
+        
         if(direction.x != 0 && !crouch)
         {
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
@@ -394,13 +396,23 @@ public class PlayerController : MonoBehaviour
     {
         if (uiCrouchButton)
         {
-            animator.SetBool("crouch", true);
-            crouch = true;
+            if (!isCrouchAnimation)
+            {
+                animator.SetBool("crouch", true);
+                crouch = true;
+                isCrouchAnimation = true;
+            }
+            
         }
         else
         {
-            animator.SetBool("crouch", false);
-            crouch = false;
+            if (isCrouchAnimation)
+            {
+                animator.SetBool("crouch", false);
+                crouch = false;
+                isCrouchAnimation = false;
+            }
+            
         }
     }
 
@@ -417,6 +429,11 @@ public class PlayerController : MonoBehaviour
         }
 
         if (direction.x == 0) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
+
+        if (Mathf.Abs(playerRb2D.velocity.y) >= 12)
+        {
+            Debug.Log("Player is dead");
+        }
     }
 
 

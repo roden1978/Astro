@@ -23,6 +23,7 @@ public class CameraFollow : MonoBehaviour
     {
         flip = target.GetComponent<Flip>();
         playerFlip = false;
+        currentPosition = transform.position;
     }
 
     private void FixedUpdate()
