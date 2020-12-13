@@ -28,6 +28,10 @@ public class Weapon : ScriptableObject
 	[Tooltip("Визуальный эффект выстрела")]
 	private GameObject vfxShoot;
 	
+	[SerializeField]
+	[Tooltip("Задержка перед следующим выстрелом (одиночные выстрелы 0)")]
+	private float shootDelay;
+	
 	#pragma warning restore 0649
 	
 	private Vector3 shootPoint; //точка вылета пули
@@ -73,6 +77,12 @@ public class Weapon : ScriptableObject
 	public GameObject VFXShoot
 	{
 		get => vfxShoot;
+	}
+
+	public float ShootDelay
+	{
+		get => shootDelay;
+		set => shootDelay = value;
 	}
 }
 

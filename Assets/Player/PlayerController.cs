@@ -478,6 +478,11 @@ public class PlayerController : MonoBehaviour
         set => uiRunButton = value;
     }
 
+    public WeaponController getWC
+    {
+        get => wc;
+    }
+
     private void MovingRightArm()
     {
         Vector3 leftArmLocalPosition = leftArm.transform.localPosition;

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e527064dcfd04f458cd1c66267e415b, type: 3}
   m_Name: BloodthornShoot
   m_EditorClassIdentifier: 
+  bullet: {fileID: 6276581132515821955, guid: 92c9feae1c665104fb8232b4d2ee443e, type: 3}
+  weapon: {fileID: 11400000, guid: a875867966c08b74ebfd9ac437e74286, type: 2}

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8256faa5391f7a24798d600dbc7551ef, type: 3}
   m_Name: AxeShoot
   m_EditorClassIdentifier: 
+  bullet: {fileID: 6276581132515821955, guid: 97406a757745e2b408fadc0a786d47db, type: 3}
+  weapon: {fileID: 11400000, guid: 57eacad6c8f198249a0ba8167211b07a, type: 2}

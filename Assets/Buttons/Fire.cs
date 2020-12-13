@@ -6,10 +6,16 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField]
     private GameObject player;
+    
     private PlayerController playerController;
+    
     public void OnPointerDown(PointerEventData eventData)
     {
-	    if (playerController) InvokeRepeating("Shoot", 0.1f, 0.1f);
+	    if (playerController)
+	    {
+		    float shootDelay = playerController.getWC.Weapon.ShootDelay;
+		    InvokeRepeating("Shoot", shootDelay, shootDelay);
+	    }
 	    
     }
 

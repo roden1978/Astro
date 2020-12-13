@@ -15,18 +15,18 @@ public class StardustBullet : MonoBehaviour
     private IEnumerator coroutine;
     private Vector3 shootDirection;
 
-    private BoxCollider2D bc;
+    private CapsuleCollider2D cc;
     // Start is called before the first frame update
     void Start()
     {
-        bc = transform.GetComponent<BoxCollider2D>();
+        cc = transform.GetComponent<CapsuleCollider2D>();
         if (gun){
             shootDirection = gun.TargetPoint - gun.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
 		    
             Debug.Log("shootDirection " + shootDirection);
 		    
-            coroutine = Die(1.0f);
+            coroutine = Die(0.5f);
             StartCoroutine(coroutine);
         }
 	    
@@ -34,17 +34,9 @@ public class StardustBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        Instantiate(vfxCollision, bc.transform.position, Quaternion.identity);
-        //Debug.Log(hitObject.name); 
-        //rb.velocity = Vector2.zero;
+        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
         Destroy(gameObject);    
     }
-
-    private void Update()
-    {
-       
-    }
-
     private IEnumerator Die(float time)
     {
         yield return new WaitForSeconds(time);
