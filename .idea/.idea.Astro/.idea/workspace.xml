@@ -20,26 +20,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Flame01.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Flame01.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/LightstoneBullet.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/LightstoneBullet.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_LightstoneBullets_Collision.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_LightstoneBullets_Collision.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Lightstone.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Lightstone.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Lightstone/Bullets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Lightstone/Bullets/LightstoneBullet.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Lightstone/Bullets/LightstoneBullet.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShader.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShader.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShaderMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShaderMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/flame001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/flame001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapon/lightstone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapon/lightstone.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Slimes/slime.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Slimes/slime.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Fall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Fall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/AsteroidPS.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/AsteroidPS.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bullets/BloodthornBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bullets/BloodthornBullet.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/asteroid01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/asteroid01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/drops01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/drops01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/drops02.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/drops02.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticles.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticles.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticles.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticlesBig.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/shuttleParticlesBig.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/smoke01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/smoke01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/spark01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ParticleEffectsTextures/spark01.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tilemaps/OutsideShip/ship.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tilemaps/OutsideShip/ship.psd.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/SoulbreakerShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/SoulbreakerShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/Bloodthorn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/Bloodthorn.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/Lightstone.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/Lightstone.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneShoot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneShoot.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +73,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -67,7 +82,6 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AgressorShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LoudcricketShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
@@ -86,11 +100,13 @@
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AxeShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/SoulbreakerShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" />
       </list>
@@ -160,6 +176,7 @@
       <workItem from="1607498131569" duration="2813000" />
       <workItem from="1607749885413" duration="5780000" />
       <workItem from="1607781830213" duration="8988000" />
+      <workItem from="1607918780941" duration="8012000" />
     </task>
     <servers />
   </component>

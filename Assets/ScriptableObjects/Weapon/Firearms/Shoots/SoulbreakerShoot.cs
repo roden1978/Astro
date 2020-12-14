@@ -21,7 +21,7 @@ public class SoulbreakerShoot : AWeaponShoot
 			Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
 			for (int i = 0; i <= 2; i++)
 			{
-				Instantiate(bullet, shootPoint, rotation * Quaternion.Euler(0,0,Random.Range(-5f ,5f)));
+				Instantiate(bullet, shootPoint, rotation );
 			}
 		}
 

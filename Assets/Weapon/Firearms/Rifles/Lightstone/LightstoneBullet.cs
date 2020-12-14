@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BloodthornBullet : MonoBehaviour
+public class LightstoneBullet : MonoBehaviour
 {
 #pragma warning disable 0649
-    //[SerializeField] Rigidbody2D rb;
-    //[SerializeField] float power;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] float power;
     [SerializeField] Weapon gun;
-    //[SerializeField] GameObject vfxCollision;
+    [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 	
     //private GameObject gun;
-    //private IEnumerator coroutine;
-    //private Vector3 shootDirection;
+    private IEnumerator coroutine;
+    private Vector3 shootDirection;
 
-    //private CapsuleCollider2D cc;
+    private CapsuleCollider2D cc;
     // Start is called before the first frame update
-    /*void Start()
+    void Start()
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
         if (gun){
@@ -27,19 +26,13 @@ public class BloodthornBullet : MonoBehaviour
 		    
             Debug.Log("shootDirection " + shootDirection);
 		    
-            //coroutine = Die(0.8f);
-            //StartCoroutine(coroutine);
+            coroutine = Die(1.0f);
+            StartCoroutine(coroutine);
         }
 	    
-    }*/
-
-    private void FixedUpdate()
-    {
-        transform.position = gun.ShootPoint;
-        transform.rotation = gun.ShootPointRotation;
     }
 
-    /*private void OnTriggerEnter2D(Collider2D hitObject)
+    private void OnTriggerEnter2D(Collider2D hitObject)
     {
         Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
         Destroy(gameObject);    
@@ -48,5 +41,5 @@ public class BloodthornBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
-    }*/
+    }
 }

@@ -8,13 +8,16 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private GameObject player;
     
     private PlayerController playerController;
+    private float shootDelay;
     
     public void OnPointerDown(PointerEventData eventData)
     {
 	    if (playerController)
 	    {
-		    float shootDelay = playerController.getWC.Weapon.ShootDelay;
-		    InvokeRepeating("Shoot", shootDelay, shootDelay);
+		    shootDelay = playerController.getWC.Weapon.ShootDelay <= 0 ? 0 : playerController.getWC.Weapon.ShootDelay; 
+		    if (shootDelay > 0)
+				InvokeRepeating("Shoot", shootDelay, shootDelay);
+		    else Shoot();
 	    }
 	    
     }
@@ -26,7 +29,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-	    CancelInvoke("Shoot");
+	    if(shootDelay > 0) CancelInvoke("Shoot");
     }
 
     private void Start()

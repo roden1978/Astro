@@ -22,7 +22,7 @@ public class SoulbreakerBullet : MonoBehaviour
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
         if (gun){
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
+            shootDirection = gun.TargetPoint - (new Vector3(gun.ShootPoint.x, gun.ShootPoint.y + Random.Range(-0.05f, 0.05f), gun.ShootPoint.z));
             rb.AddForce(shootDirection * (power + Random.Range(-0.1f, 0.1f)), ForceMode2D.Impulse);
 		    
             Debug.Log("shootDirection " + shootDirection);
