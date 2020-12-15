@@ -215,6 +215,9 @@
               <e p="Lightstone" t="Include">
                 <e p="LightstoneBullet.cs" t="Include" />
               </e>
+              <e p="Loudcricket" t="Include">
+                <e p="LoudcricketBullet.cs" t="Include" />
+              </e>
               <e p="Soulbreaker" t="Include">
                 <e p="SoulbreakerBullet.cs" t="Include" />
               </e>
