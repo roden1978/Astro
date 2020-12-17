@@ -73,7 +73,7 @@ public class BloodthornBullet : MonoBehaviour
         if (hit.collider)
         {
             flameMain.startLifetime = smokeMain.startLifetime = hit.distance / speed;
-            if (!isCollision && !Vector2.Equals(lastHitPoint.point, hit.point))
+            if (lastHitPoint.point != hit.point) //!isCollision && !Vector2.Equals(lastHitPoint.point, hit.point)
             {
                 
                 lastHitPoint.point = hit.point;
@@ -96,6 +96,7 @@ public class BloodthornBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         lastHitPoint.point = Vector2.zero;
+        isCollision = false;
         Debug.Log(lastHitPoint.point);
     }
 }
