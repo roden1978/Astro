@@ -26,10 +26,12 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 	    playerController.Shoot();
     }
+    
 
     public void OnPointerUp(PointerEventData eventData)
     {
-	    if(shootDelay > 0) CancelInvoke("Shoot");
+	    if (shootDelay > 0) CancelInvoke("Shoot");
+	    else playerController.StopShoot();
     }
 
     private void Start()

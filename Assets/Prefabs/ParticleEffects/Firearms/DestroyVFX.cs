@@ -21,4 +21,9 @@ public class DestroyVFX : MonoBehaviour
         yield return new WaitForSeconds(_delay);
         Destroy(gameObject);
     }
+
+    public float Delay
+    {
+        get => delay;
+    }
 }

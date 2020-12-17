@@ -25,34 +25,23 @@ public class WeaponController: MonoBehaviour
 	    weapon.ShootPoint = shootPoint.position;
 	    weapon.TargetPoint = targetPoint.position;
 	    weapon.ShootPointRotation = shootPoint.rotation;
-	    //Debug.Log($"ShootPoint rotation {shootPoint.rotation}");
-	    
+	  
 	    if(shootPoint)
 	    {
 		    var position = shootPoint.position;
 		    Debug.DrawRay(position, targetPoint.position - position, Color.red);
 	    }
-
-	    //shootDirection = targetPoint.transform.position - firePoint.transform.position;
+	    
     }
 
     public void Shoot()
     {
 	    weapon.Shoot();
     }
-    
-	/*public Transform ShootPoint {
-		get {
-			return shootPoint;
-		}
-	}
-	
-	public Transform TargetPoint {
-		get 
-		{
-			return targetPoint;
-		}
-	}*/
-	
+    public void StopShoot()
+    {
+	    weapon.StopShoot();
+    }
+   
 	public Weapon Weapon => weapon;
 }

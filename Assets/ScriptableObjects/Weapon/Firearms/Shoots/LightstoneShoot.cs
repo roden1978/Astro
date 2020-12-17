@@ -25,4 +25,9 @@ public class LightstoneShoot : AWeaponShoot
     
     			return null;
     		}
+            
+            public override void StopShoot()
+            {
+	            throw new System.NotImplementedException();
+            }
 }

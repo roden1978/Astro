@@ -43,6 +43,10 @@ public class Weapon : ScriptableObject
 	{
 		weaponShoot.Shoot(shootPoint, shootPointRotation);
 	}
+	public void StopShoot()
+	{
+		weaponShoot.StopShoot();
+	}
 	
 	
 	public float RightArmLockPositionUp {

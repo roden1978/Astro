@@ -23,4 +23,9 @@ public class LoudcricketShoot : AWeaponShoot
 
         return null;
     }
+    
+    public override void StopShoot()
+    {
+        throw new System.NotImplementedException();
+    }
 }

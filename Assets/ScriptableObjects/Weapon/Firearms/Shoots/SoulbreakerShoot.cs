@@ -30,4 +30,9 @@ public class SoulbreakerShoot : AWeaponShoot
 		return null;
 	}
 	
+	public override void StopShoot()
+	{
+		throw new System.NotImplementedException();
+	}
+	
 }

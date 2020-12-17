@@ -11,4 +11,9 @@ public class WidowmakerShoot : AWeaponShoot
 		return null;
 		//throw new System.NotImplementedException();
 	}
+	
+	public override void StopShoot()
+	{
+		throw new System.NotImplementedException();
+	}
 }

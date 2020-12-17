@@ -184,7 +184,15 @@ public class PlayerController : MonoBehaviour
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            wc.Shoot();
+            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay; 
+            if (shootDelay > 0)
+                InvokeRepeating("Shoot", shootDelay, shootDelay);
+            else Shoot();
+        } else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
+            if (shootDelay > 0) CancelInvoke("Shoot");
+            else StopShoot();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -265,6 +273,11 @@ public class PlayerController : MonoBehaviour
         wc.Shoot();
     }
 
+    public void StopShoot()
+    {
+        wc.StopShoot();
+    }
+
     private void FixedUpdate()
     {
         KeyboardJump();
@@ -272,7 +285,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    public void InitWeapon()
+    private void InitWeapon()
     {
         int count = 0;
         if (player.CurrentWeaponName != "")
@@ -296,7 +309,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
             player.CurrentWeaponName = player.Weapons[weaponIndex].name;
             weaponIndex++;
         }
@@ -307,7 +320,7 @@ public class PlayerController : MonoBehaviour
         int weaponCount = player.Weapons.Count;
         if (currentWeapon) Destroy(currentWeapon);
 
-        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
         if (currentWeapon)
         {
             wc = currentWeapon.GetComponent<WeaponController>();

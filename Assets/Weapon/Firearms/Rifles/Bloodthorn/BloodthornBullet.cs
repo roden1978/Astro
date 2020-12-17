@@ -2,51 +2,100 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BloodthornBullet : MonoBehaviour
 {
 #pragma warning disable 0649
-    //[SerializeField] Rigidbody2D rb;
-    //[SerializeField] float power;
     [SerializeField] Weapon gun;
-    //[SerializeField] GameObject vfxCollision;
+    [SerializeField] float minSpeed;
+    [SerializeField] float maxSpeed;
+    [SerializeField] float maxFlameLifeTime;
+    [SerializeField] float minFlameLifeTime;
+    [SerializeField] float maxSmokeLifeTime;
+    [SerializeField] float minSmokeLifeTime;
+    [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
-	
-    //private GameObject gun;
-    //private IEnumerator coroutine;
-    //private Vector3 shootDirection;
+    
+    private Transform flameBeam;
+    private Transform smoke;
+    private ParticleSystem flameBeamParticleSystem;
+    private ParticleSystem smokeParticleSystem;
+    private ParticleSystem.MainModule flameMain;
+    private ParticleSystem.MainModule smokeMain;
+    private RaycastHit2D hit;
+    private RaycastHit2D lastHitPoint;
+    //private GameObject collisionEffect;
 
-    //private CapsuleCollider2D cc;
-    // Start is called before the first frame update
-    /*void Start()
+    private bool isCollision;
+
+    private float flameLifeTime;
+    private float smokeLifeTime;
+    private float speed;
+    private float collisionEffectTime;
+    
+    private IEnumerator coroutine;
+
+    private void Start()
     {
-        cc = transform.GetComponent<CapsuleCollider2D>();
-        if (gun){
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
-            rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-		    
-            Debug.Log("shootDirection " + shootDirection);
-		    
-            //coroutine = Die(0.8f);
-            //StartCoroutine(coroutine);
-        }
-	    
-    }*/
+        isCollision = false;
+        
+        flameBeam = transform.GetChild(0);
+        smoke = transform.GetChild(1);
+        
+        flameBeamParticleSystem = flameBeam.GetComponent<ParticleSystem>();
+        smokeParticleSystem = smoke.GetComponent<ParticleSystem>();
+        
+        flameMain = flameBeamParticleSystem.main;
+        smokeMain = smokeParticleSystem.main;
+
+        collisionEffectTime = vfxCollision.GetComponent<DestroyVFX>().Delay;
+
+        coroutine = HitPointReset(collisionEffectTime);
+    }
 
     private void FixedUpdate()
     {
         transform.position = gun.ShootPoint;
         transform.rotation = gun.ShootPointRotation;
+
+        flameLifeTime = Random.Range(minFlameLifeTime, maxFlameLifeTime);
+        smokeLifeTime = Random.Range(minSmokeLifeTime, maxSmokeLifeTime);
+
+        speed = Random.Range(minSpeed, maxSpeed);
+
+        float flameDistance = flameLifeTime * speed;
+        float smokeDistance = smokeLifeTime * speed;
+        
+        Vector3 direction = gun.TargetPoint - gun.ShootPoint;
+        hit = Physics2D.Raycast(gun.ShootPoint, direction, flameDistance);
+        
+        if (hit.collider)
+        {
+            flameMain.startLifetime = smokeMain.startLifetime = hit.distance / speed;
+            if (!isCollision && !Vector2.Equals(lastHitPoint.point, hit.point))
+            {
+                
+                lastHitPoint.point = hit.point;
+                Instantiate(vfxCollision, hit.point, Quaternion.identity);
+                isCollision = true;
+                StartCoroutine(coroutine);
+            }
+            
+        }
+        else
+        {
+            flameLifeTime = Random.Range(minFlameLifeTime, maxFlameLifeTime);
+            smokeLifeTime = Random.Range(minSmokeLifeTime, maxSmokeLifeTime);
+            isCollision = false;
+        }
+
     }
 
-    /*private void OnTriggerEnter2D(Collider2D hitObject)
+    private IEnumerator HitPointReset(float delay)
     {
-        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-        Destroy(gameObject);    
+        yield return new WaitForSeconds(delay);
+        lastHitPoint.point = Vector2.zero;
+        Debug.Log(lastHitPoint.point);
     }
-    private IEnumerator Die(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
-    }*/
 }

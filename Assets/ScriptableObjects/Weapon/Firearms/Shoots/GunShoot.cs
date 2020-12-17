@@ -32,5 +32,10 @@ public class GunShoot : AWeaponShoot
 		
 	}
 	
+	public override void StopShoot()
+	{
+		throw new System.NotImplementedException();
+	}
+	
 	
 }
