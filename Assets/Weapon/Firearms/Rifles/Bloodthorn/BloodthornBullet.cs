@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BloodthornBullet : MonoBehaviour
@@ -12,30 +9,27 @@ public class BloodthornBullet : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float maxFlameLifeTime;
     [SerializeField] float minFlameLifeTime;
-    [SerializeField] float maxSmokeLifeTime;
-    [SerializeField] float minSmokeLifeTime;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
     
     private Transform flameBeam;
     private Transform smoke;
+    
     private ParticleSystem flameBeamParticleSystem;
     private ParticleSystem smokeParticleSystem;
     private ParticleSystem.MainModule flameMain;
     private ParticleSystem.MainModule smokeMain;
+    
     private RaycastHit2D hit;
     private RaycastHit2D lastHitPoint;
-    //private GameObject collisionEffect;
 
     private bool isCollision;
 
     private float flameLifeTime;
-    private float smokeLifeTime;
     private float speed;
     private float collisionEffectTime;
+    private float time;
     
-    private IEnumerator coroutine;
-
     private void Start()
     {
         isCollision = false;
@@ -49,9 +43,8 @@ public class BloodthornBullet : MonoBehaviour
         flameMain = flameBeamParticleSystem.main;
         smokeMain = smokeParticleSystem.main;
 
-        collisionEffectTime = vfxCollision.GetComponent<DestroyVFX>().Delay;
+        collisionEffectTime = vfxCollision.GetComponent<DestroyVFX>().Delay / 3;
 
-        coroutine = HitPointReset(collisionEffectTime);
     }
 
     private void FixedUpdate()
@@ -60,43 +53,35 @@ public class BloodthornBullet : MonoBehaviour
         transform.rotation = gun.ShootPointRotation;
 
         flameLifeTime = Random.Range(minFlameLifeTime, maxFlameLifeTime);
-        smokeLifeTime = Random.Range(minSmokeLifeTime, maxSmokeLifeTime);
 
         speed = Random.Range(minSpeed, maxSpeed);
 
-        float flameDistance = flameLifeTime * speed;
-        float smokeDistance = smokeLifeTime * speed;
+        float distance = flameLifeTime * speed;
         
         Vector3 direction = gun.TargetPoint - gun.ShootPoint;
-        hit = Physics2D.Raycast(gun.ShootPoint, direction, flameDistance);
+        hit = Physics2D.Raycast(gun.ShootPoint, direction, distance + 0.1f);
         
         if (hit.collider)
         {
             flameMain.startLifetime = smokeMain.startLifetime = hit.distance / speed;
-            if (lastHitPoint.point != hit.point) //!isCollision && !Vector2.Equals(lastHitPoint.point, hit.point)
+            if (!isCollision) 
             {
-                
-                lastHitPoint.point = hit.point;
                 Instantiate(vfxCollision, hit.point, Quaternion.identity);
                 isCollision = true;
-                StartCoroutine(coroutine);
+                time = Time.time;
             }
-            
         }
         else
         {
             flameLifeTime = Random.Range(minFlameLifeTime, maxFlameLifeTime);
-            smokeLifeTime = Random.Range(minSmokeLifeTime, maxSmokeLifeTime);
             isCollision = false;
         }
 
-    }
+        if (isCollision && Time.time > time + collisionEffectTime)
+        {
+            isCollision = false;
+            time = 0;
+        }
 
-    private IEnumerator HitPointReset(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        lastHitPoint.point = Vector2.zero;
-        isCollision = false;
-        Debug.Log(lastHitPoint.point);
     }
 }
