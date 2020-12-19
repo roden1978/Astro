@@ -4950,7 +4950,7 @@ GameObject:
   - component: {fileID: 3963592308082429139}
   - component: {fileID: -7061915703341309164}
   m_Layer: 8
-  m_Name: vfx_Muzzle_Stardust
+  m_Name: vfx_Muzzle_Widowmaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4997,4 +4997,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb9fe4cfd68cb549be46df4dc093d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 9552dc9571253d045b6d3f465a6356b6, type: 2}
+  gun: {fileID: 11400000, guid: 9a5a593282aa52a408dc995061072054, type: 2}

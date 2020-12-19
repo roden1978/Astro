@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3289610664929576573}
   - component: {fileID: 5704341750503904907}
   - component: {fileID: 8205045868325325014}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: FlameBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 814131651781854683}
   - component: {fileID: 5672792412121713684}
   - component: {fileID: 4843389490644401591}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: BloodthornBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,8 +4884,6 @@ MonoBehaviour:
   maxSpeed: 6
   maxFlameLifeTime: 1.5
   minFlameLifeTime: 2
-  maxSmokeLifeTime: 1.5
-  minSmokeLifeTime: 2
   vfxCollision: {fileID: 3066600329688807935, guid: eab11148bae37204a9065ac5830a07fa,
     type: 3}
 --- !u!1 &6666849928504354847
@@ -4899,7 +4897,7 @@ GameObject:
   - component: {fileID: 9048676871730677388}
   - component: {fileID: 3889736147867979546}
   - component: {fileID: 1442177691567519826}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

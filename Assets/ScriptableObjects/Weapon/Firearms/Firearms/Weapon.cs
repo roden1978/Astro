@@ -37,7 +37,8 @@ public class Weapon : ScriptableObject
 	private Vector3 shootPoint; //точка вылета пули
 	private Quaternion shootPointRotation;
 	private Vector3 targetPoint; // направление вылета пули
-	
+
+	private bool isReady = true;
 
 	public void Shoot()
 	{
@@ -87,6 +88,12 @@ public class Weapon : ScriptableObject
 	{
 		get => shootDelay;
 		set => shootDelay = value;
+	}
+
+	public bool IsReady
+	{
+		get => isReady;
+		set => isReady = value;
 	}
 }
 

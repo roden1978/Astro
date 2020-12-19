@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5377763815999680661}
   - component: {fileID: 899857205479715649}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: AgressorBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5377763816166171734}
   - component: {fileID: 5377763816166171735}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}

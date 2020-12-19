@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2499095146054216917}
   - component: {fileID: 1214985462692919389}
   - component: {fileID: 4048550982568828265}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: StardustBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1040204295
-  m_SortingLayer: 3
+  m_SortingLayer: -1
   m_SortingOrder: 100
   m_Sprite: {fileID: 3656481783356544310, guid: ab1db338b941c464e9dfbfbfbde439af,
     type: 3}

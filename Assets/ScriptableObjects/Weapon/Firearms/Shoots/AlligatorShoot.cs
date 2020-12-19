@@ -19,8 +19,6 @@ public class AlligatorShoot : AWeaponShoot
 	private GameObject muzzleGameObject;
 	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
-		//Debug.Log(bulletGameObject);
-		
 		if (!bulletGameObject) CreateFlame(shootPoint, rotation);
 		return bulletGameObject;
 	}
@@ -35,7 +33,6 @@ public class AlligatorShoot : AWeaponShoot
 	
 	public override void StopShoot()
 	{
-		//bulletGameObject.transform.GetChild(0).GetComponent<LineRenderer>().SetPosition(1, Vector3.zero);
 		Destroy(bulletGameObject);
 		Destroy(muzzleGameObject);
 	}

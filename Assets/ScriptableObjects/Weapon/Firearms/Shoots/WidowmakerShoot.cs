@@ -14,20 +14,28 @@ public class WidowmakerShoot : AWeaponShoot
 	[Tooltip("Оружие")]
 	private Weapon weapon;
 #pragma warning restore 0649
+
+	private GameObject bulletGameObject;
 	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
-		if (weapon && bullet) {
-			Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
-			return Instantiate(bullet, shootPoint, rotation);
+		if (!bulletGameObject && weapon.IsReady)
+		{
+			CreateBullet(shootPoint, rotation);
+			weapon.IsReady = false;
 		}
-    
-		Debug.Log("Оружие или пуля не найдены скрипт LightstoneShoot");
-    
-		return null;
+		return bulletGameObject;
 	}
             
 	public override void StopShoot()
 	{
-		throw new System.NotImplementedException();
+		//Destroy(bulletGameObject);
+	}
+
+	private void CreateBullet(Vector3 _shootPoint, Quaternion _rotation)
+	{
+		if (weapon && bullet) {
+			Instantiate(weapon.VFXShoot, _shootPoint, _rotation);
+			bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
+		} else Debug.Log("Оружие или пуля не найдены скрипт WidowmakerShoot");
 	}
 }

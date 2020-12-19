@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3289610664929576573}
   - component: {fileID: 5704341750503904907}
   - component: {fileID: 8205045868325325014}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 9063597124257105318}
   - component: {fileID: 5672792412121713684}
   - component: {fileID: 2433509495958438571}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: WidowmakerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 8515091621828097736}
   - component: {fileID: 1914735067932297902}
   - component: {fileID: 6945618722762076191}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9727,7 +9727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6222012576064773168}
   - component: {fileID: 3398188522404819363}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9866,7 +9866,7 @@ GameObject:
   - component: {fileID: 7141698504213732445}
   - component: {fileID: 5533775555800922546}
   - component: {fileID: 9122988247439166723}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

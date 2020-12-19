@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3289610664929576573}
   - component: {fileID: 5704341750503904907}
   - component: {fileID: 8205045868325325014}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 9063597124257105318}
   - component: {fileID: -986157686596336984}
   - component: {fileID: 5672792412121713684}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: AxeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +4914,7 @@ GameObject:
   - component: {fileID: 8515091621828097736}
   - component: {fileID: 1914735067932297902}
   - component: {fileID: 6945618722762076191}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9726,7 +9726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3142602440562300273}
   - component: {fileID: 2050582866722688459}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

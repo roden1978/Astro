@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2499095146054216917}
   - component: {fileID: 4048550982568828265}
   - component: {fileID: 5970473256235592689}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: LoudcricketBullet
   m_TagString: playerBullet
   m_Icon: {fileID: 0}
