@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2499095146054216917}
   power: 0.2
-  lifeTime: 1.5
+  lifeTime: 1
   gun: {fileID: 11400000, guid: ed7e64535f7432b4d87b5491f8c358e8, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 503adb573759ec447a2e57dd123d350f,
     type: 3}

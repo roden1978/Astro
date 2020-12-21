@@ -7,6 +7,7 @@ public class AxeBullet : MonoBehaviour
 #pragma warning disable 0649
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float power;
+    [SerializeField] float lifetime;
     [SerializeField] Weapon gun;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
@@ -26,7 +27,7 @@ public class AxeBullet : MonoBehaviour
 		    
             Debug.Log("shootDirection " + shootDirection);
 		    
-            coroutine = Die(0.8f);
+            coroutine = Die(lifetime);
             StartCoroutine(coroutine);
         }
 	    

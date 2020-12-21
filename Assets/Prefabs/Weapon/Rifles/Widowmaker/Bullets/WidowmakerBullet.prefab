@@ -4901,8 +4901,10 @@ MonoBehaviour:
   rb: {fileID: 5672792412121713684}
   power: 0.1
   lifetime: 3
+  radius: 1
+  distance: 10
   gun: {fileID: 11400000, guid: 9a5a593282aa52a408dc995061072054, type: 2}
-  vfxCollision: {fileID: 3066600329688807935, guid: 4909774db785241439888c06d266323c,
+  vfxCollision: {fileID: 3066600329688807935, guid: 53223d214dbdd674c9b476a8dc46c8a1,
     type: 3}
 --- !u!1 &6708795741705332039
 GameObject:

@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2499095146054216917}
   power: 0.23
+  lifetime: 1
   gun: {fileID: 11400000, guid: 9552dc9571253d045b6d3f465a6356b6, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 52cca577e50173247a2cf2e05e93339a,
     type: 3}

@@ -9,6 +9,8 @@ public class WidowmakerBullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float power;
     [SerializeField] float lifetime;
+    [SerializeField] float radius;
+    [SerializeField] float distance;
     [SerializeField] Weapon gun;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
@@ -18,25 +20,25 @@ public class WidowmakerBullet : MonoBehaviour
     private Vector3 shootDirection;
     private bool isCollision;
 
-    private CapsuleCollider2D cc;
+    //private CapsuleCollider2D cc;
 
     private RaycastHit2D[] hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        cc = transform.GetComponent<CapsuleCollider2D>();
+        //cc = transform.GetComponent<CapsuleCollider2D>();
         if (gun)
         {
+            
             shootDirection = gun.TargetPoint - gun.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-            //Vector2 circleDirection = new Vector2(gun.TargetPoint.x * 2, gun.TargetPoint.y) - new Vector2(gun.ShootPoint.x * 2, gun.ShootPoint.y);
-            //Debug.Log("shootDirection " + shootDirection);
-            hit = Physics2D.CircleCastAll(gun.ShootPoint, 1.0f, shootDirection, 10,
+            hit = Physics2D.CircleCastAll(gun.ShootPoint, radius, shootDirection, distance,
                 1 << LayerMask.NameToLayer("Enemy"));
             coroutine = Die(lifetime);
             StartCoroutine(coroutine);
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)
@@ -51,6 +53,7 @@ public class WidowmakerBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+   
     private void OnDestroy()
     {
         gun.IsReady = true;

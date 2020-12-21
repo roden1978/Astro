@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class WidowmakerShoot : AWeaponShoot
 #pragma warning restore 0649
 
 	private GameObject bulletGameObject;
+	
+
 	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
 		if (!bulletGameObject && weapon.IsReady)
@@ -38,4 +41,6 @@ public class WidowmakerShoot : AWeaponShoot
 			bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
 		} else Debug.Log("Оружие или пуля не найдены скрипт WidowmakerShoot");
 	}
+	
+	
 }
