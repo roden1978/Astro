@@ -31,7 +31,7 @@ MonoBehaviour:
   - {fileID: 8189842988503263001, guid: b499fb25e2768f546bd509b2a71f9165, type: 3}
   - {fileID: 7724273436936203643, guid: 121a4522b77b5a441aa5f4c26ebef27d, type: 3}
   - {fileID: 2844874290443249779, guid: f61ae715344402f4bbfcfc62795ffe6b, type: 3}
-  currentWeaponName: Stardust
+  currentWeaponName: Axe
   jumpButton: {fileID: 395307187950563157, guid: 33a36c3401501e647ae029c1d9793f58,
     type: 3}
   crouchButton: {fileID: 8716844014535294174, guid: 39c6c59a80c05984b8b76b5d6d55e05c,

@@ -15,25 +15,25 @@ public class AlligatorShoot : AWeaponShoot
 	[Tooltip("Оружие")]
 	private Weapon weapon;
 #pragma warning restore 0649
-	private GameObject bulletGameObject;
+	private GameObject laserGameObject;
 	private GameObject muzzleGameObject;
 	public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
 	{
-		if (!bulletGameObject) CreateFlame(shootPoint, rotation);
-		return bulletGameObject;
+		if (!laserGameObject) CreateLaser(shootPoint, rotation);
+		return laserGameObject;
 	}
 
-	private void CreateFlame(Vector3 _shootPoint, Quaternion _rotation)
+	private void CreateLaser(Vector3 _shootPoint, Quaternion _rotation)
 	{
 		if (weapon && bullet) {
 			muzzleGameObject = Instantiate(weapon.VFXShoot, _shootPoint, weapon.ShootPointRotation);
-			bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
+			laserGameObject =  Instantiate(bullet, _shootPoint, _rotation);
 		}else Debug.Log("Оружие или пуля не найдены скрипт AlligatorShoot");
 	}
 	
 	public override void StopShoot()
 	{
-		Destroy(bulletGameObject);
+		Destroy(laserGameObject);
 		Destroy(muzzleGameObject);
 	}
 }

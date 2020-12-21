@@ -89,19 +89,19 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AgressorShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Alligator/AlligatorBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Agressor/AgressorBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -178,7 +178,8 @@
       <workItem from="1608265492624" duration="6455000" />
       <workItem from="1608286982547" duration="851000" />
       <workItem from="1608354919679" duration="5873000" />
-      <workItem from="1608524590972" duration="3982000" />
+      <workItem from="1608524590972" duration="4631000" />
+      <workItem from="1608550901282" duration="6590000" />
     </task>
     <servers />
   </component>
