@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
     private Player player;
 
     [SerializeField] [Tooltip("Максимальноу ускорение при хотьбе")]
-    private float maxVelocity;
+    private float maxWalkVelocity;
+
+    [SerializeField] [Tooltip("Максимальноу ускорение при беге")]
+    private float maxRunVelocity;
 
     [SerializeField] [Tooltip("Сила прыжка")]
     float jumpForce;
@@ -33,12 +36,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("Джойстик для управления игроком")]
     private Joystick viewJoystick;
 
+    [SerializeField] [Tooltip("Мертвая зона джойстика")]
+    private float joystickDelay;
+
     [SerializeField] bool keyboardController;
     [SerializeField] bool uiController;
 
 #pragma warning restore 0649
 
     private Vector2 direction;
+    private float maxVelocity;
     private Vector2 joystickDirection;
     private Vector2 keyboardDirection;
 
@@ -87,7 +94,6 @@ public class PlayerController : MonoBehaviour
         weaponIndex = 0;
         uiRunButton = false;
 
-
         InitWeapon();
         wc = currentWeapon.GetComponent<WeaponController>();
 
@@ -127,7 +133,7 @@ public class PlayerController : MonoBehaviour
         keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
 
-        if (joystickDirection.x != 0 || keyboardDirection.x != 0)
+        if (Mathf.Abs(joystickDirection.x) > joystickDelay || keyboardDirection.x != 0)
         {
             if (keyboardDirection.x != 0)
             {
@@ -150,7 +156,7 @@ public class PlayerController : MonoBehaviour
             if (walk)
             {
                 walk = false;
-                
+
                 Debug.Log($"walk = {walk}");
             }
 
@@ -184,11 +190,12 @@ public class PlayerController : MonoBehaviour
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay; 
+            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
             if (shootDelay > 0)
                 InvokeRepeating("Shoot", shootDelay, shootDelay);
             else Shoot();
-        } else if (Input.GetKeyUp(KeyCode.LeftControl))
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
             if (shootDelay > 0) CancelInvoke("Shoot");
@@ -223,7 +230,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isWalkingAnimation)
             {
-                maxVelocity = 2.0f;
+                maxVelocity = maxWalkVelocity;
                 animator.SetBool("walk", true);
                 isWalkingAnimation = true;
                 Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
@@ -237,7 +244,6 @@ public class PlayerController : MonoBehaviour
                 isWalkingAnimation = false;
                 Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
             }
-            
         }
     }
 
@@ -247,26 +253,23 @@ public class PlayerController : MonoBehaviour
         {
             if (!isRunningAnimation)
             {
-                maxVelocity = 5.0f;
+                maxVelocity = maxRunVelocity;
                 animator.SetBool("run", true);
                 isRunningAnimation = true;
                 Debug.Log($"isRunningAnimation = {isRunningAnimation}");
             }
-
         }
         else
         {
             if (isRunningAnimation)
             {
                 animator.SetBool("run", false);
-                            isRunningAnimation = false;
-                            Debug.Log($"isRunningAnimation = {isRunningAnimation}");
+                isRunningAnimation = false;
+                Debug.Log($"isRunningAnimation = {isRunningAnimation}");
             }
         }
     }
 
-
-   
 
     public void Shoot()
     {
@@ -362,8 +365,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        
-        if(direction.x != 0 && !crouch)
+        if (direction.x != 0 && !crouch)
         {
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
         }
@@ -415,7 +417,6 @@ public class PlayerController : MonoBehaviour
                 crouch = true;
                 isCrouchAnimation = true;
             }
-            
         }
         else
         {
@@ -425,18 +426,17 @@ public class PlayerController : MonoBehaviour
                 crouch = false;
                 isCrouchAnimation = false;
             }
-            
         }
     }
 
     private void VelocityControl()
     {
-        if ((direction.x > 0) && playerRb2D.velocity.x > maxVelocity)
+        if (direction.x > 0 && playerRb2D.velocity.x > maxVelocity)
         {
             playerRb2D.velocity = new Vector2(maxVelocity, playerRb2D.velocity.y);
         }
 
-        if ((direction.x < 0) && playerRb2D.velocity.x < -maxVelocity)
+        if (direction.x < 0 && playerRb2D.velocity.x < -maxVelocity)
         {
             playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
         }
@@ -447,10 +447,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player is dead");
         }
+        
+        if (crouch) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
     }
 
 
-   
     public bool Ground
     {
         set => isGround = value;

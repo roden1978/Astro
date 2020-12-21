@@ -10175,6 +10175,21 @@ PrefabInstance:
       propertyPath: viewJoystick
       value: 
       objectReference: {fileID: 418262522}
+    - target: {fileID: 1355233939751362764, guid: 824b9bdacdeedd94299bbd06d7002f83,
+        type: 3}
+      propertyPath: joystickDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355233939751362764, guid: 824b9bdacdeedd94299bbd06d7002f83,
+        type: 3}
+      propertyPath: maxRunVelocity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355233939751362764, guid: 824b9bdacdeedd94299bbd06d7002f83,
+        type: 3}
+      propertyPath: maxWalkVelocity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1876576944066500504, guid: 824b9bdacdeedd94299bbd06d7002f83,
         type: 3}
       propertyPath: m_LocalRotation.z
