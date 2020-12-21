@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8826866942138383152}
   - component: {fileID: 2441249211085530062}
   - component: {fileID: 2499095146054216917}
-  - component: {fileID: 4703937403112038160}
   - component: {fileID: 1214985462692919389}
-  m_Layer: 8
+  - component: {fileID: 4048550982568828265}
+  m_Layer: 11
   m_Name: StardustBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5898792233668249317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.048, y: 0.366, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.272, y: 0.1166, z: 0}
+  m_LocalScale: {x: 0.43330547, y: 0.41711435, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,10 +72,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1040204295
-  m_SortingLayer: 3
+  m_SortingLayer: -1
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: bfcaa00806682e84985753509fa7a99e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 3656481783356544310, guid: ab1db338b941c464e9dfbfbfbde439af,
+    type: 3}
+  m_Color: {r: 0, g: 0.84622765, b: 1, a: 0.8862745}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,38 +101,12 @@ Rigidbody2D:
   m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &4703937403112038160
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5898792233668249317}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.001271978, y: 0.0012719184}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.19025871, y: 0.04779741}
-  m_EdgeRadius: 0
 --- !u!114 &1214985462692919389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,5 +120,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2499095146054216917}
-  power: 0.5
+  power: 0.23
+  lifetime: 1
   gun: {fileID: 11400000, guid: 9552dc9571253d045b6d3f465a6356b6, type: 2}
+  vfxCollision: {fileID: 3066600329688807935, guid: 52cca577e50173247a2cf2e05e93339a,
+    type: 3}
+--- !u!70 &4048550982568828265
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898792233668249317}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0150379995, y: -0.0008473097}
+  m_Size: {x: 0.51391816, y: 0.21239175}
+  m_Direction: 1

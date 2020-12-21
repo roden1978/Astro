@@ -20,13 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Trail.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Trail.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Widowmaker01.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Widowmaker01.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Widowmaker.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Widowmaker.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_WidowmakerBullets_Collision.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_WidowmakerBullets_Collision.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Bullets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Bullets/WidowmakerBullet.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Bullets/WidowmakerBullet.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapon/widowmaker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Weapon/widowmaker.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Run.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Run.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Lighting01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/ParticleEffects/Lighting01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_BloodthornBullets_Collision.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_BloodthornBullets_Collision.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShaderMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/LigthstoneShaderMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/Widowmaker.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/Widowmaker.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerShoot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerShoot.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,37 +60,48 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AgressorShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AxeShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LoudcricketShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/SoulbreakerShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Loudcricket/LoudcricketBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/SoulbreakerShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LightstoneShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LoudcricketShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AxeShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AgressorShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Alligator/AlligatorBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Agressor/AgressorBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WidowmakerShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
       </list>
     </option>
   </component>
@@ -134,6 +163,22 @@
       <workItem from="1606283328752" duration="15065000" />
       <workItem from="1606363111625" duration="11663000" />
       <workItem from="1606627979336" duration="7909000" />
+      <workItem from="1606971937509" duration="5002000" />
+      <workItem from="1607144898951" duration="1696000" />
+      <workItem from="1607147352451" duration="1240000" />
+      <workItem from="1607498131569" duration="2813000" />
+      <workItem from="1607749885413" duration="5780000" />
+      <workItem from="1607781830213" duration="8988000" />
+      <workItem from="1607918780941" duration="8012000" />
+      <workItem from="1608004193127" duration="6347000" />
+      <workItem from="1608093541913" duration="14177000" />
+      <workItem from="1608126404965" duration="3319000" />
+      <workItem from="1608183831555" duration="8818000" />
+      <workItem from="1608213238298" duration="1020000" />
+      <workItem from="1608265492624" duration="6455000" />
+      <workItem from="1608286982547" duration="851000" />
+      <workItem from="1608354919679" duration="5873000" />
+      <workItem from="1608524590972" duration="3982000" />
     </task>
     <servers />
   </component>
@@ -159,6 +204,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1606974618810">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606974618810" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

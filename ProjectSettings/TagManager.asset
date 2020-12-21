@@ -9,6 +9,7 @@ TagManager:
   - weapon
   - enemie
   - enemyWeapon
+  - playerBullet
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
   - name: BG
     uniqueID: 1898390145
     locked: 0
+  - name: Bullets
+    uniqueID: 3254763001
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -54,7 +58,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 553993089
-    locked: 0
-  - name: Bullets
-    uniqueID: 3254763001
     locked: 0

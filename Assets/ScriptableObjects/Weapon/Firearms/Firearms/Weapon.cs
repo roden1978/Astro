@@ -24,42 +24,46 @@ public class Weapon : ScriptableObject
 	[Tooltip("Скрипт обработки выстрела")]
 	private AWeaponShoot weaponShoot;
 	
+	[SerializeField]
+	[Tooltip("Визуальный эффект выстрела")]
+	private GameObject vfxShoot;
+	
+	[SerializeField]
+	[Tooltip("Задержка перед следующим выстрелом (одиночные выстрелы 0)")]
+	private float shootDelay;
+	
 	#pragma warning restore 0649
 	
 	private Vector3 shootPoint; //точка вылета пули
 	private Quaternion shootPointRotation;
 	private Vector3 targetPoint; // направление вылета пули
-	
+
+	private bool isReady = true;
 
 	public void Shoot()
 	{
 		weaponShoot.Shoot(shootPoint, shootPointRotation);
 	}
+	public void StopShoot()
+	{
+		weaponShoot.StopShoot();
+	}
 	
 	
 	public float RightArmLockPositionUp {
-		get {
-			return rightArmLockPositionUp;
-		}
+		get => rightArmLockPositionUp;
 	}
 	
 	public float RightArmLockPositionDown 
 	{
-		get
-		{
-			return rightArmLockPositionDown;
-		}
+		get => rightArmLockPositionDown;
 	}
 	
 	public Vector3 ShootPoint 
 	{
-		get {
-			return shootPoint;
-		}
+		get => shootPoint;
 		
-		set{
-			shootPoint = value;
-		}
+		set => shootPoint = value;
 	}
 
 	public Quaternion ShootPointRotation
@@ -70,16 +74,27 @@ public class Weapon : ScriptableObject
 
 	public Vector3 TargetPoint 
 	{
-		get {
-			return targetPoint;
-		}
+		get => targetPoint;
 		
-		set {
-			targetPoint = value;
-		}
+		set => targetPoint = value;
 	}
-	
 
+	public GameObject VFXShoot
+	{
+		get => vfxShoot;
+	}
+
+	public float ShootDelay
+	{
+		get => shootDelay;
+		set => shootDelay = value;
+	}
+
+	public bool IsReady
+	{
+		get => isReady;
+		set => isReady = value;
+	}
 }
 
 enum WeaponNames {

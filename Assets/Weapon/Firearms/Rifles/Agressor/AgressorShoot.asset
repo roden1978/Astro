@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06af28ae0ee2844484d4a21caece2a8, type: 3}
   m_Name: AgressorShoot
   m_EditorClassIdentifier: 
+  bullet: {fileID: 5377763815999680660, guid: 395eb128162c06f4990bb8158e578663, type: 3}
+  weapon: {fileID: 11400000, guid: 4aa9e833ffb22f44da1e70f79d9d5ac2, type: 2}

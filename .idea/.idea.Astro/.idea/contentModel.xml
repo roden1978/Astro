@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.103026945.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Денис\Documents\Unity\Astro" t="IncludeRecursive">
+    <e p="C:\Unity\Astro" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -20,6 +18,9 @@
         </e>
         <e p="Camera" t="Include">
           <e p="CameraFollow.cs" t="Include" />
+        </e>
+        <e p="Common" t="Include">
+          <e p="UniFPSCounter.cs" t="Include" />
         </e>
         <e p="Enemies" t="Include">
           <e p="AliensHumanoid" t="Include">
@@ -157,6 +158,14 @@
             </e>
           </e>
         </e>
+        <e p="Prefabs" t="Include">
+          <e p="ParticleEffects" t="Include">
+            <e p="Firearms" t="Include">
+              <e p="DestroyVFX.cs" t="Include" />
+              <e p="MuzzleController.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="ScriptableObjects" t="Include">
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
@@ -196,10 +205,34 @@
               </e>
             </e>
             <e p="Rifles" t="Include">
+              <e p="Agressor" t="Include">
+                <e p="AgressorBullet.cs" t="Include" />
+              </e>
+              <e p="Alligator" t="Include">
+                <e p="AlligatorBullet.cs" t="Include" />
+              </e>
+              <e p="Axe" t="Include">
+                <e p="AxeBullet.cs" t="Include" />
+              </e>
+              <e p="Bloodthorn" t="Include">
+                <e p="BloodthornBullet.cs" t="Include" />
+              </e>
+              <e p="Lightstone" t="Include">
+                <e p="LightstoneBullet.cs" t="Include" />
+              </e>
+              <e p="Loudcricket" t="Include">
+                <e p="LoudcricketBullet.cs" t="Include" />
+              </e>
+              <e p="Soulbreaker" t="Include">
+                <e p="SoulbreakerBullet.cs" t="Include" />
+              </e>
               <e p="Stardust" t="Include">
                 <e p="Bullets" t="Include">
                   <e p="StardustBullet.cs" t="Include" />
                 </e>
+              </e>
+              <e p="Widowmaker" t="Include">
+                <e p="WidowmakerBullet.cs" t="Include" />
               </e>
             </e>
             <e p="WeaponController.cs" t="Include" />
@@ -212,5 +245,7 @@
       <e p="ScriptInspector.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.1217478256.00" t="ExcludeRecursive" />
   </component>
 </project>

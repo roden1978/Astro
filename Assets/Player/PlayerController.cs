@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private bool crouch;
+    private bool isCrouchAnimation;
     private bool run;
     private bool isRunningAnimation;
     private bool walk;
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         crouch = false;
+        isCrouchAnimation = false;
         uiCrouchButton = false;
         run = false;
         walk = false;
@@ -182,7 +184,15 @@ public class PlayerController : MonoBehaviour
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            wc.Shoot();
+            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay; 
+            if (shootDelay > 0)
+                InvokeRepeating("Shoot", shootDelay, shootDelay);
+            else Shoot();
+        } else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
+            if (shootDelay > 0) CancelInvoke("Shoot");
+            else StopShoot();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -263,6 +273,11 @@ public class PlayerController : MonoBehaviour
         wc.Shoot();
     }
 
+    public void StopShoot()
+    {
+        wc.StopShoot();
+    }
+
     private void FixedUpdate()
     {
         KeyboardJump();
@@ -270,7 +285,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    public void InitWeapon()
+    private void InitWeapon()
     {
         int count = 0;
         if (player.CurrentWeaponName != "")
@@ -294,7 +309,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
             player.CurrentWeaponName = player.Weapons[weaponIndex].name;
             weaponIndex++;
         }
@@ -305,7 +320,7 @@ public class PlayerController : MonoBehaviour
         int weaponCount = player.Weapons.Count;
         if (currentWeapon) Destroy(currentWeapon);
 
-        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform) as GameObject;
+        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
         if (currentWeapon)
         {
             wc = currentWeapon.GetComponent<WeaponController>();
@@ -347,7 +362,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //if ((walk || run) && !crouch) //
+        
         if(direction.x != 0 && !crouch)
         {
             playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
@@ -394,13 +409,23 @@ public class PlayerController : MonoBehaviour
     {
         if (uiCrouchButton)
         {
-            animator.SetBool("crouch", true);
-            crouch = true;
+            if (!isCrouchAnimation)
+            {
+                animator.SetBool("crouch", true);
+                crouch = true;
+                isCrouchAnimation = true;
+            }
+            
         }
         else
         {
-            animator.SetBool("crouch", false);
-            crouch = false;
+            if (isCrouchAnimation)
+            {
+                animator.SetBool("crouch", false);
+                crouch = false;
+                isCrouchAnimation = false;
+            }
+            
         }
     }
 
@@ -417,6 +442,11 @@ public class PlayerController : MonoBehaviour
         }
 
         if (direction.x == 0) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
+
+        if (Mathf.Abs(playerRb2D.velocity.y) >= 12)
+        {
+            Debug.Log("Player is dead");
+        }
     }
 
 
@@ -459,6 +489,11 @@ public class PlayerController : MonoBehaviour
     {
         get => uiRunButton;
         set => uiRunButton = value;
+    }
+
+    public WeaponController getWC
+    {
+        get => wc;
     }
 
     private void MovingRightArm()

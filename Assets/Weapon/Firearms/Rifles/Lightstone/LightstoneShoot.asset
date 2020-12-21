@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb713e3b66ab27e4f953c76c1f97476b, type: 3}
   m_Name: LightstoneShoot
   m_EditorClassIdentifier: 
+  bullet: {fileID: 6276581132515821955, guid: 7afc851836fd64f4cbbb675944522e9b, type: 3}
+  weapon: {fileID: 11400000, guid: df3ccb0f1016ebb4b9b93f0dc2a94222, type: 2}

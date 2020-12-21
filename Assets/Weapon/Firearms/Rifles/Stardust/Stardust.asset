@@ -17,3 +17,6 @@ MonoBehaviour:
   rightArmLockPositionUp: 0.15
   rightArmLockPositionDown: -0.15
   weaponShoot: {fileID: 11400000, guid: 769008c206adaa247a4f7eadfc7a5040, type: 2}
+  vfxShoot: {fileID: 3066600329688807935, guid: 991a0854eb1974f4dac3530b3ff5eda0,
+    type: 3}
+  shootDelay: 0
