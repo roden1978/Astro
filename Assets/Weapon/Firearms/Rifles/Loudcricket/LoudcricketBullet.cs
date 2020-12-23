@@ -22,7 +22,7 @@ public class LoudcricketBullet : MonoBehaviour
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
         if (gun){
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
+            shootDirection = (new Vector3(gun.TargetPoint.x, gun.TargetPoint.y + Random.Range(-0.05f, 0.05f), gun.TargetPoint.z)) - gun.ShootPoint;
             rb.AddForce(shootDirection * (power + Random.Range(-0.02f, 0.02f)), ForceMode2D.Impulse);
 		    
             Debug.Log("shootDirection " + shootDirection);
@@ -35,12 +35,8 @@ public class LoudcricketBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        if (!hitObject.CompareTag("playerBullet"))
-        {
             Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
             Destroy(gameObject);
-        }
-            
     }
     private IEnumerator Die(float time)
     {

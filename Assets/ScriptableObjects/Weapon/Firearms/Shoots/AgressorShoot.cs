@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Agressor Shoot", menuName = "Weapons/Firearms/Shoot/Agressor Shoot")]
+//[CreateAssetMenu(fileName = "New Agressor Shoot", menuName = "Weapons/Firearms/Shoot/Agressor Shoot")]
 public class AgressorShoot : AWeaponShoot
 {
 #pragma warning disable 0649

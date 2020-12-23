@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Loudcricket Shoot", menuName = "Weapons/Firearms/Shoot/Loudcricket Shoot")]
+//[CreateAssetMenu(fileName = "New Loudcricket Shoot", menuName = "Weapons/Firearms/Shoot/Loudcricket Shoot")]
 public class LoudcricketShoot : AWeaponShoot
 {
 #pragma warning disable 0649
@@ -14,7 +14,6 @@ public class LoudcricketShoot : AWeaponShoot
     {
         if (weapon && bullet)
         {
-            shootPoint = new Vector3(shootPoint.x, shootPoint.y + Random.Range(-0.1f, 0.1f), shootPoint.z);
             Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
             return Instantiate(bullet, shootPoint, rotation);
         }

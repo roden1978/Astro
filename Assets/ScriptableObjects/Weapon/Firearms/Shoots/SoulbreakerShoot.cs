@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Soulbreaker Shoot", menuName = "Weapons/Firearms/Shoot/Soulbreaker Shoot")]
+//[CreateAssetMenu(fileName = "New Soulbreaker Shoot", menuName = "Weapons/Firearms/Shoot/Soulbreaker Shoot")]
 public class SoulbreakerShoot : AWeaponShoot
 {
 #pragma warning disable 0649

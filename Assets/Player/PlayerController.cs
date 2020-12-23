@@ -320,46 +320,49 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeWeapon()
     {
-        int weaponCount = player.Weapons.Count;
-        if (currentWeapon) Destroy(currentWeapon);
-
-        currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
-        if (currentWeapon)
+        if (!wc.Weapon.IsShooting)
         {
-            wc = currentWeapon.GetComponent<WeaponController>();
-            currentWeapon.name = player.Weapons[weaponIndex].name;
-            player.CurrentWeaponName = currentWeapon.name;
-            rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+            int weaponCount = player.Weapons.Count;
+            if (currentWeapon) Destroy(currentWeapon);
 
-            if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
-            else Debug.Log("rightArmWeaponPoint false");
-
-            rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
-                .Find("boneRightWrist").Find("right");
-
-            if (rightWeaponPoint && rightArmWeaponPoint)
+            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
+            if (currentWeapon)
             {
-                rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-                Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
-                          rightWeaponPoint.position);
-                Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+                wc = currentWeapon.GetComponent<WeaponController>();
+                currentWeapon.name = player.Weapons[weaponIndex].name;
+                player.CurrentWeaponName = currentWeapon.name;
+                rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+
+                if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
+                else Debug.Log("rightArmWeaponPoint false");
+
+                rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
+                    .Find("boneRightWrist").Find("right");
+
+                if (rightWeaponPoint && rightArmWeaponPoint)
+                {
+                    rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+                    Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
+                              rightWeaponPoint.position);
+                    Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+                }
+                else Debug.Log("rightArmWeaponPoint not found");
+
+                rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
+                rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+
+                Debug.Log($"{currentWeapon.name} index {weaponIndex}");
+                if (weaponIndex == weaponCount - 1)
+                {
+                    weaponIndex = -1;
+                }
+
+                weaponIndex++;
             }
-            else Debug.Log("rightArmWeaponPoint not found");
-
-            rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-            rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
-
-            Debug.Log($"{currentWeapon.name} index {weaponIndex}");
-            if (weaponIndex == weaponCount - 1)
+            else
             {
-                weaponIndex = -1;
+                Debug.Log("Weapon not change, weapon not found");
             }
-
-            weaponIndex++;
-        }
-        else
-        {
-            Debug.Log("Weapon not change, weapon not found");
         }
     }
 
@@ -457,6 +460,7 @@ public class PlayerController : MonoBehaviour
         set => isGround = value;
     }
 
+   
 
     public Vector2 Direction
     {
