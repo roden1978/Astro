@@ -39,12 +39,13 @@ public class Weapon : ScriptableObject
 	private Vector3 targetPoint; // направление вылета пули
 
 	private bool isReady = true;
-	private bool isShooting = false;
+	private bool isFire = false;
 
 	public void Shoot()
 	{
 		weaponShoot.Shoot(shootPoint, shootPointRotation);
 	}
+	
 	public void StopShoot()
 	{
 		weaponShoot.StopShoot();
@@ -97,10 +98,10 @@ public class Weapon : ScriptableObject
 		set => isReady = value;
 	}
 	
-	public bool IsShooting
+	public bool IsFire
 	{
-		get => isShooting;
-		set => isShooting = value;
+		get => isFire;
+		set => isFire = value;
 	}
 	
 	public string Name 

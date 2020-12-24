@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7183764b7a149408e8dcca58814fcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 259a32900989ae844a4e21e6ec5f277e, type: 3}
   m_Name: AlligatorShoot
   m_EditorClassIdentifier: 
   bullet: {fileID: 5377763815999680660, guid: 78fc4a05a71d06e4887ebed3aef9974d, type: 3}

@@ -320,7 +320,8 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeWeapon()
     {
-        if (!wc.Weapon.IsShooting)
+        Debug.Log(wc.Weapon.IsFire);
+        if (!wc.Weapon.IsFire)
         {
             int weaponCount = player.Weapons.Count;
             if (currentWeapon) Destroy(currentWeapon);

@@ -30,15 +30,15 @@ public class WeaponShoot : AWeaponShoot
             case "LightStone":
                 Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
                 Instantiate(bullet, shootPoint, rotation);
-                weapon.IsShooting = true;
-                break;
+                weapon.IsFire = true;
+                return null;
             case "Agressor":
             case "Alligator":
             case "BloodThorn":
                 if (!bulletGameObject)
                 {
                     Create(shootPoint, rotation);
-                    weapon.IsShooting = true;
+                    weapon.IsFire = true;
                 }
                 return bulletGameObject;
             case "SoulBreaker":
@@ -48,27 +48,30 @@ public class WeaponShoot : AWeaponShoot
                     Instantiate(bullet, shootPoint, rotation );
                 }
 
-                weapon.IsShooting = true;
-                break;
+                weapon.IsFire = true;
+                return null;
             case "WidowMaker":
                 if (!bulletGameObject && weapon.IsReady)
                 {
                     Create(shootPoint, rotation);
                     weapon.IsReady = false;
-                    weapon.IsShooting = true;
+                    weapon.IsFire = true;
                 }
                 return bulletGameObject;
             default: return null;
         }
 
-        return null;
     }
 
     public override void StopShoot()
     {
-        if (weapon.IsShooting) weapon.IsShooting = false;
-        Destroy(bulletGameObject);
-        Destroy(muzzleGameObject);
+        weapon.IsFire = false;
+        if (weapon.IsReady)
+        {
+            Destroy(bulletGameObject);
+            Destroy(muzzleGameObject);
+        }
+        
     }
     
     private void Create(Vector3 _shootPoint, Quaternion _rotation)
