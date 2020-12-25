@@ -39,7 +39,7 @@ public class Weapon : ScriptableObject
 	private Vector3 targetPoint; // направление вылета пули
 
 	private bool isReady = true;
-	private bool isFire = false;
+	private bool isShooting;
 
 	public void Shoot()
 	{
@@ -98,10 +98,10 @@ public class Weapon : ScriptableObject
 		set => isReady = value;
 	}
 	
-	public bool IsFire
+	public bool IsShooting
 	{
-		get => isFire;
-		set => isFire = value;
+		get => isShooting;
+		set => isShooting = value;
 	}
 	
 	public string Name 

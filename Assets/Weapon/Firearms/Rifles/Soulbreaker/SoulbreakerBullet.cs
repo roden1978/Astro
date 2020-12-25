@@ -35,8 +35,9 @@ public class SoulbreakerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-            Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+        if (hitObject.CompareTag("playerBullet")) return;
+        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
     private IEnumerator Die(float time)
     {

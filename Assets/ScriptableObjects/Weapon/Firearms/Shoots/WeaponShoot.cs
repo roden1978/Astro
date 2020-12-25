@@ -28,9 +28,9 @@ public class WeaponShoot : AWeaponShoot
             case "Axe":
             case "LoudCricket":
             case "LightStone":
-                Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
+                Instantiate(weapon.VFXShoot, shootPoint, rotation);
                 Instantiate(bullet, shootPoint, rotation);
-                weapon.IsFire = true;
+                weapon.IsShooting = true;
                 return null;
             case "Agressor":
             case "Alligator":
@@ -38,24 +38,24 @@ public class WeaponShoot : AWeaponShoot
                 if (!bulletGameObject)
                 {
                     Create(shootPoint, rotation);
-                    weapon.IsFire = true;
+                    weapon.IsShooting = true;
                 }
                 return bulletGameObject;
             case "SoulBreaker":
-                Instantiate(weapon.VFXShoot, shootPoint, weapon.ShootPointRotation);
+                Instantiate(weapon.VFXShoot, shootPoint, rotation);
                 for (int i = 0; i <= 2; i++)
                 {
-                    Instantiate(bullet, shootPoint, rotation );
+                    Instantiate(bullet, shootPoint, rotation);
                 }
 
-                weapon.IsFire = true;
+                weapon.IsShooting = true;
                 return null;
             case "WidowMaker":
                 if (!bulletGameObject && weapon.IsReady)
                 {
                     Create(shootPoint, rotation);
                     weapon.IsReady = false;
-                    weapon.IsFire = true;
+                    weapon.IsShooting = true;
                 }
                 return bulletGameObject;
             default: return null;
@@ -65,18 +65,18 @@ public class WeaponShoot : AWeaponShoot
 
     public override void StopShoot()
     {
-        weapon.IsFire = false;
+        weapon.IsShooting = false;
         if (weapon.IsReady)
         {
             Destroy(bulletGameObject);
             Destroy(muzzleGameObject);
         }
-        
+
     }
     
     private void Create(Vector3 _shootPoint, Quaternion _rotation)
     { 
-        muzzleGameObject = Instantiate(weapon.VFXShoot, _shootPoint, weapon.ShootPointRotation);
+        muzzleGameObject = Instantiate(weapon.VFXShoot, _shootPoint, _rotation);
         bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
     }
 }

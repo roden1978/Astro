@@ -198,7 +198,11 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
-            if (shootDelay > 0) CancelInvoke("Shoot");
+            if (shootDelay > 0)
+            {
+                CancelInvoke("Shoot");
+                wc.Weapon.IsShooting = false;
+            }
             else StopShoot();
         }
 
@@ -320,8 +324,8 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeWeapon()
     {
-        Debug.Log(wc.Weapon.IsFire);
-        if (!wc.Weapon.IsFire)
+        Debug.Log(wc.Weapon.IsShooting);
+        if (!wc.Weapon.IsShooting)
         {
             int weaponCount = player.Weapons.Count;
             if (currentWeapon) Destroy(currentWeapon);

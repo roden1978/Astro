@@ -32,7 +32,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 	    if (shootDelay > 0)
 	    {
-		    playerController.getWC.Weapon.IsFire = false;
+		    playerController.getWC.Weapon.IsShooting = false;
 		    CancelInvoke("Shoot");
 	    }
 	    else playerController.StopShoot();
