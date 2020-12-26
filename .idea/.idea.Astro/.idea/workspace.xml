@@ -43,8 +43,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -60,14 +60,12 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Alligator/AlligatorBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Agressor/AgressorBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Loudcricket/LoudcricketBullet.cs" />
@@ -82,11 +80,14 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AlligatorShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BloodthornShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/StardustShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Soulbreaker/SoulbreakerBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Guns/DesertEagle/Bullets/Bullet.cs" />
       </list>
     </option>
   </component>
@@ -169,6 +170,7 @@
       <workItem from="1608718573803" duration="6992000" />
       <workItem from="1608803279723" duration="2966000" />
       <workItem from="1608884121815" duration="4472000" />
+      <workItem from="1608973331270" duration="5332000" />
     </task>
     <servers />
   </component>

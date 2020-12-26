@@ -4,51 +4,39 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	#pragma warning disable 0649
+#pragma warning disable 0649
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] float power;
-	[SerializeField] Weapon gun;
-	#pragma warning restore 0649
+	[SerializeField] float lifetime;
+	[SerializeField] Weapon weapon;
+	[SerializeField] GameObject vfxCollision;
+#pragma warning restore 0649
 	
-	//private GameObject gun;
-    private IEnumerator coroutine;
+	private IEnumerator coroutine;
 	private Vector3 shootDirection;
-    // Start is called before the first frame update
-void Start()
-    {
+
+	private CapsuleCollider2D cc;
+	void Start()
+	{
+		cc = transform.GetComponent<CapsuleCollider2D>();
+		if (weapon){
+			
+			shootDirection = weapon.TargetPoint - weapon.ShootPoint;
+			rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
+		    coroutine = Die(lifetime);
+			StartCoroutine(coroutine);
+		}
 	    
-	   
-	    //gun = GameObject.Find("gun(Clone)");
-	    
-	    if (gun){
-		    shootDirection = gun.TargetPoint - gun.ShootPoint;
-		    rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-		    
-		    Debug.Log("shootDirection " + shootDirection);
-		    
-		    coroutine = Die(1.5f);
-		    StartCoroutine(coroutine);
-	    }
-	    
-    }
+	}
 
-    private void OnTriggerEnter2D(Collider2D hitObject)
-    {
-        Debug.Log(hitObject.name);
-	    Destroy(gameObject);    
-    }
-
-    private void Update()
-    {
-       
-    }
-
-    private IEnumerator Die(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
-    }
-    
-
-
+	private void OnTriggerEnter2D(Collider2D hitObject)
+	{
+		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
+		Destroy(gameObject);    
+	}
+	private IEnumerator Die(float time)
+	{
+		yield return new WaitForSeconds(time);
+		Destroy(gameObject);
+	}
 }

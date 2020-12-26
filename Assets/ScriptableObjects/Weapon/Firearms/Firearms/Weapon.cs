@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,9 @@ public class Weapon : ScriptableObject
 	[SerializeField]
 	[Tooltip("Задержка перед следующим выстрелом (одиночные выстрелы 0)")]
 	private float shootDelay;
+	
+	[SerializeField]
+	private new WeaponTypes weaponTypes;
 	
 	#pragma warning restore 0649
 	
@@ -108,11 +112,13 @@ public class Weapon : ScriptableObject
 	{
 		get => name.ToString();
 	}
+
+	public string WeaponTypes => weaponTypes.ToString();
 }
 
 enum WeaponNames {
 	None,
-	Agressor,
+	Aggressor,
 	Alligator,
 	Axe,
 	BloodThorn,
@@ -122,4 +128,12 @@ enum WeaponNames {
 	SoulBreaker,
 	StarDust,
 	WidowMaker
+}
+
+enum WeaponTypes
+{
+	Guns,
+	LaserAndFlamethrowers,
+	Shootguns,
+	WMD //weapons of mass destruction
 }

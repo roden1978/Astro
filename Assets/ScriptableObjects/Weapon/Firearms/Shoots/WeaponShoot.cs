@@ -13,54 +13,10 @@ public class WeaponShoot : AWeaponShoot
     private GameObject bulletGameObject;
     private GameObject muzzleGameObject;
     
-    public override GameObject Shoot(Vector3 shootPoint, Quaternion rotation)
+    public override void Shoot(Vector3 shootPoint, Quaternion rotation)
     {
-        if (!weapon || !bullet)
-        {
-            Debug.Log("Оружие или пуля не найдены скрипт WeaponShoot");
-            return null;
-        }
-
-        switch (weapon.Name)
-        {
-            case "DesertEagle":
-            case "StarDust":
-            case "Axe":
-            case "LoudCricket":
-            case "LightStone":
-                Instantiate(weapon.VFXShoot, shootPoint, rotation);
-                Instantiate(bullet, shootPoint, rotation);
-                weapon.IsShooting = true;
-                return null;
-            case "Agressor":
-            case "Alligator":
-            case "BloodThorn":
-                if (!bulletGameObject)
-                {
-                    Create(shootPoint, rotation);
-                    weapon.IsShooting = true;
-                }
-                return bulletGameObject;
-            case "SoulBreaker":
-                Instantiate(weapon.VFXShoot, shootPoint, rotation);
-                for (int i = 0; i <= 2; i++)
-                {
-                    Instantiate(bullet, shootPoint, rotation);
-                }
-
-                weapon.IsShooting = true;
-                return null;
-            case "WidowMaker":
-                if (!bulletGameObject && weapon.IsReady)
-                {
-                    Create(shootPoint, rotation);
-                    weapon.IsReady = false;
-                    weapon.IsShooting = true;
-                }
-                return bulletGameObject;
-            default: return null;
-        }
-
+        if (!weapon || !bullet) return;
+        Shooting(weapon.WeaponTypes, shootPoint, rotation);
     }
 
     public override void StopShoot()
@@ -73,6 +29,41 @@ public class WeaponShoot : AWeaponShoot
         }
 
     }
+
+    private void Shooting(string weaponType, Vector3 shootPoint, Quaternion rotation)
+    {
+        switch (weaponType)
+        {
+            case "Guns":
+                Instantiate(weapon.VFXShoot, shootPoint, rotation);
+                Instantiate(bullet, shootPoint, rotation);
+                weapon.IsShooting = true;
+                break;
+            case "LaserAndFlamethrowers":
+                if (!bulletGameObject)
+                {
+                    Create(shootPoint, rotation);
+                    weapon.IsShooting = true;
+                }
+                break;
+            case "Shootguns":
+                Instantiate(weapon.VFXShoot, shootPoint, rotation);
+                for (int i = 0; i <= 2; i++)
+                {
+                    Instantiate(bullet, shootPoint, rotation);
+                }
+                weapon.IsShooting = true;
+                break;
+            case "WMD":
+                if (!bulletGameObject && weapon.IsReady)
+                {
+                    Create(shootPoint, rotation);
+                    weapon.IsReady = false;
+                    weapon.IsShooting = true;
+                }
+                break;
+        }
+    }
     
     private void Create(Vector3 _shootPoint, Quaternion _rotation)
     { 
@@ -80,17 +71,3 @@ public class WeaponShoot : AWeaponShoot
         bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
     }
 }
-
-/*
-None,
-	Agressor,
-	Alligator,
-	Axe,
-	BloodThorn,
-	DesertEagle,
-	LightStone,
-	LoudCricket,
-	SoulBreaker,
-	StarDust,
-	WidowMaker
-	*/

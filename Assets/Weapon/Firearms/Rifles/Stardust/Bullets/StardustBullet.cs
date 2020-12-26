@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class StardustBullet : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class StardustBullet : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float power;
     [SerializeField] float lifetime;
-    [SerializeField] Weapon gun;
+    [SerializeField] Weapon weapon;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 	
@@ -21,8 +22,8 @@ public class StardustBullet : MonoBehaviour
     void Start()
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
-        if (gun){
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
+        if (weapon){
+            shootDirection = weapon.TargetPoint - weapon.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
 		    
             Debug.Log("shootDirection " + shootDirection);
@@ -35,7 +36,7 @@ public class StardustBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
+        if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
         Destroy(gameObject);    
     }
     private IEnumerator Die(float time)
