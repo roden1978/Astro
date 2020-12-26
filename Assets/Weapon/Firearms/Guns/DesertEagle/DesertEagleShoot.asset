@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259a32900989ae844a4e21e6ec5f277e, type: 3}
   m_Name: DesertEagleShoot
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  weapon: {fileID: 0}
+  bullet: {fileID: 1642875657553581448, guid: 024c153f89f17ba49a55474f97a609dc, type: 3}
+  weapon: {fileID: 11400000, guid: 0c8cc8f1a4b4ec2478279841549f3dcf, type: 2}

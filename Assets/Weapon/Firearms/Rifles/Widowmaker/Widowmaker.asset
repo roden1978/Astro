@@ -20,3 +20,4 @@ MonoBehaviour:
   vfxShoot: {fileID: 3066600329688807935, guid: 4cfe525f0b556154a97e3ed19bdca5fb,
     type: 3}
   shootDelay: 0
+  weaponTypes: 3

@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class AgressorBullet : MonoBehaviour
+public class Laser : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] Weapon gun;
@@ -19,7 +22,6 @@ public class AgressorBullet : MonoBehaviour
     {
         isCollision = false;
         beam = transform.GetChild(0);
-        //Debug.Log($"Beam = {beam}  {beam.name}");
         lineRenderer = beam.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(1, Vector3.zero);
         lineRenderer.SetPosition(0, Vector3.zero);
@@ -33,15 +35,16 @@ public class AgressorBullet : MonoBehaviour
         float distance = lineRenderer.GetPosition(1).x;
         Vector3 direction = gun.TargetPoint - gun.ShootPoint;
         hit = Physics2D.Raycast(gun.ShootPoint, direction, distance);
-
+        
         if (hit.collider)
         {
-            lineRenderer.SetPosition(1, new Vector3(hit.distance, 0, 0));
+            lineRenderer.SetPosition(1,new Vector3(hit.distance, 0, 0));
             if (!isCollision)
             {
                 collisionEffect = Instantiate(vfxCollision, hit.point, Quaternion.identity);
                 isCollision = true;
             }
+            
         }
         else if (lineRenderer.GetPosition(1).x < maxLaserLenght)
         {

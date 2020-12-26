@@ -4823,11 +4823,11 @@ GameObject:
   m_Component:
   - component: {fileID: 814131651781854683}
   - component: {fileID: 9063597124257105318}
-  - component: {fileID: -986157686596336984}
+  - component: {fileID: -8157216360920255607}
   - component: {fileID: 5672792412121713684}
   m_Layer: 11
   m_Name: AxeBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4865,7 +4865,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0025389567, y: -0.002539397}
   m_Size: {x: 0.15660524, y: 0.15152453}
   m_Direction: 1
---- !u!114 &-986157686596336984
+--- !u!114 &-8157216360920255607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4874,13 +4874,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6276581132515821955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a7231676ec3d049b6726e72458ca17, type: 3}
+  m_Script: {fileID: 11500000, guid: fd1db6ad2cb992a478bcb1b4b9e6a6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5672792412121713684}
   power: 0.5
   lifetime: 1
-  gun: {fileID: 11400000, guid: 57eacad6c8f198249a0ba8167211b07a, type: 2}
+  weapon: {fileID: 11400000, guid: 57eacad6c8f198249a0ba8167211b07a, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 38bfc34b4a22ff84e9bea45a1b2be9bc,
     type: 3}
 --- !u!50 &5672792412121713684
@@ -5124,7 +5124,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 1, g: 0, b: 0.8608513, a: 1}
       maxColor: {r: 1, g: 0, b: 0.8675709, a: 1}
       maxGradient:
@@ -5187,9 +5187,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.4
-      minScalar: 1
+      minMaxState: 3
+      scalar: 0.8
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5240,7 +5240,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5293,7 +5293,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -6199,7 +6199,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1

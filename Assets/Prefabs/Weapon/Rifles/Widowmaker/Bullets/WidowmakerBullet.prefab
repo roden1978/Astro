@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 2433509495958438571}
   m_Layer: 11
   m_Name: WidowmakerBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4903,7 +4903,7 @@ MonoBehaviour:
   lifetime: 3
   radius: 1
   distance: 10
-  gun: {fileID: 11400000, guid: 9a5a593282aa52a408dc995061072054, type: 2}
+  weapon: {fileID: 11400000, guid: 9a5a593282aa52a408dc995061072054, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 53223d214dbdd674c9b476a8dc46c8a1,
     type: 3}
 --- !u!1 &6708795741705332039

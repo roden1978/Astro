@@ -188,43 +188,12 @@
         </e>
         <e p="Weapon" t="Include">
           <e p="Firearms" t="Include">
-            <e p="Guns" t="Include">
-              <e p="DesertEagle" t="Include">
-                <e p="Bullets" t="Include">
-                  <e p="Bullet.cs" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="Rifles" t="Include">
-              <e p="Agressor" t="Include">
-                <e p="AgressorBullet.cs" t="Include" />
-              </e>
-              <e p="Alligator" t="Include">
-                <e p="AlligatorBullet.cs" t="Include" />
-              </e>
-              <e p="Axe" t="Include">
-                <e p="AxeBullet.cs" t="Include" />
-              </e>
-              <e p="Bloodthorn" t="Include">
-                <e p="BloodthornBullet.cs" t="Include" />
-              </e>
-              <e p="Lightstone" t="Include">
-                <e p="LightstoneBullet.cs" t="Include" />
-              </e>
-              <e p="Loudcricket" t="Include">
-                <e p="LoudcricketBullet.cs" t="Include" />
-              </e>
-              <e p="Soulbreaker" t="Include">
-                <e p="SoulbreakerBullet.cs" t="Include" />
-              </e>
-              <e p="Stardust" t="Include">
-                <e p="Bullets" t="Include">
-                  <e p="StardustBullet.cs" t="Include" />
-                </e>
-              </e>
-              <e p="Widowmaker" t="Include">
-                <e p="WidowmakerBullet.cs" t="Include" />
-              </e>
+            <e p="BulletsScripts" t="Include">
+              <e p="Bullet.cs" t="Include" />
+              <e p="Flamethrower.cs" t="Include" />
+              <e p="Laser.cs" t="Include" />
+              <e p="Mashinegun.cs" t="Include" />
+              <e p="WMD.cs" t="Include" />
             </e>
             <e p="WeaponController.cs" t="Include" />
           </e>

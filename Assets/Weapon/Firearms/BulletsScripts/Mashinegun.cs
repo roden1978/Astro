@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeBullet : MonoBehaviour
+public class Mashinegun : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float power;
-    [SerializeField] float lifetime;
-    [SerializeField] Weapon gun;
+    [SerializeField] float bulletNoise;
+    [SerializeField] float powerNoise;
+    [SerializeField] Weapon weapon;
     [SerializeField] GameObject vfxCollision;
+    [SerializeField] float lifetime;
 #pragma warning restore 0649
 	
-    //private GameObject gun;
     private IEnumerator coroutine;
     private Vector3 shootDirection;
-
     private CapsuleCollider2D cc;
-    // Start is called before the first frame update
     void Start()
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
-        if (gun){
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
-            rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-		    
-            Debug.Log("shootDirection " + shootDirection);
-		    
+        if (weapon){
+            shootDirection = (new Vector3(weapon.TargetPoint.x, weapon.TargetPoint.y + Random.Range(-bulletNoise, bulletNoise), weapon.TargetPoint.z)) - weapon.ShootPoint;
+            rb.AddForce(shootDirection * (power + Random.Range(-powerNoise, powerNoise)), ForceMode2D.Impulse);
             coroutine = Die(lifetime);
             StartCoroutine(coroutine);
         }
@@ -35,8 +31,9 @@ public class AxeBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
+        if (hitObject.CompareTag("playerBullet")) return;
         Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-        Destroy(gameObject);    
+        Destroy(gameObject);
     }
     private IEnumerator Die(float time)
     {

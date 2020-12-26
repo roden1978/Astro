@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WidowmakerBullet : MonoBehaviour
+public class WMD : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] Rigidbody2D rb;
@@ -11,29 +11,23 @@ public class WidowmakerBullet : MonoBehaviour
     [SerializeField] float lifetime;
     [SerializeField] float radius;
     [SerializeField] float distance;
-    [SerializeField] Weapon gun;
+    [SerializeField] Weapon weapon;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 
-    //private GameObject gun;
     private IEnumerator coroutine;
     private Vector3 shootDirection;
     private bool isCollision;
-
-    //private CapsuleCollider2D cc;
-
     private RaycastHit2D[] hit;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //cc = transform.GetComponent<CapsuleCollider2D>();
-        if (gun)
+        if (weapon)
         {
             
-            shootDirection = gun.TargetPoint - gun.ShootPoint;
+            shootDirection = weapon.TargetPoint - weapon.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-            hit = Physics2D.CircleCastAll(gun.ShootPoint, radius, shootDirection, distance,
+            hit = Physics2D.CircleCastAll(weapon.ShootPoint, radius, shootDirection, distance,
                 1 << LayerMask.NameToLayer("Enemy"));
             coroutine = Die(lifetime);
             StartCoroutine(coroutine);
@@ -56,7 +50,7 @@ public class WidowmakerBullet : MonoBehaviour
    
     private void OnDestroy()
     {
-        gun.IsReady = true;
+        weapon.IsReady = true;
         if (isCollision)
         {
             foreach (var obj in hit)

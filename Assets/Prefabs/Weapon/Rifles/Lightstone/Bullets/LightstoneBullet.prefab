@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 814131651781854683}
   - component: {fileID: 9063597124257105318}
   - component: {fileID: 5672792412121713684}
-  - component: {fileID: 1871294191460315952}
+  - component: {fileID: 6333850481472470306}
   m_Layer: 11
   m_Name: LightstoneBullet
   m_TagString: Untagged
@@ -4884,7 +4884,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1871294191460315952
+--- !u!114 &6333850481472470306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4893,13 +4893,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6276581132515821955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90d28fd9d3f96c41939745b60a2ef4c, type: 3}
+  m_Script: {fileID: 11500000, guid: fd1db6ad2cb992a478bcb1b4b9e6a6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5672792412121713684}
   power: 0.2
   lifetime: 1
-  gun: {fileID: 11400000, guid: df3ccb0f1016ebb4b9b93f0dc2a94222, type: 2}
+  weapon: {fileID: 11400000, guid: df3ccb0f1016ebb4b9b93f0dc2a94222, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 9b052bebd48b4aa469c41959bd048857,
     type: 3}
 --- !u!1 &6708795741705332039
