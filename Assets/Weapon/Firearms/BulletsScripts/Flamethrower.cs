@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BloodthornBullet : MonoBehaviour
+public class Flamethrower : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField] Weapon gun;
+    [SerializeField] Weapon weapon;
     [SerializeField] float minSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float maxFlameLifeTime;
@@ -49,8 +49,8 @@ public class BloodthornBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = gun.ShootPoint;
-        transform.rotation = gun.ShootPointRotation;
+        transform.position = weapon.ShootPoint;
+        transform.rotation = weapon.ShootPointRotation;
 
         flameLifeTime = Random.Range(minFlameLifeTime, maxFlameLifeTime);
 
@@ -58,8 +58,8 @@ public class BloodthornBullet : MonoBehaviour
 
         float distance = flameLifeTime * speed;
         
-        Vector3 direction = gun.TargetPoint - gun.ShootPoint;
-        hit = Physics2D.Raycast(gun.ShootPoint, direction, distance + 0.1f);
+        Vector3 direction = weapon.TargetPoint - weapon.ShootPoint;
+        hit = Physics2D.Raycast(weapon.ShootPoint, direction, distance + 0.1f);
         
         if (hit.collider)
         {

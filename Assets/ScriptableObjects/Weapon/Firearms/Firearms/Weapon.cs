@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,9 @@ public class Weapon : ScriptableObject
 	[Tooltip("Задержка перед следующим выстрелом (одиночные выстрелы 0)")]
 	private float shootDelay;
 	
+	[SerializeField]
+	private new WeaponTypes weaponTypes;
+	
 	#pragma warning restore 0649
 	
 	private Vector3 shootPoint; //точка вылета пули
@@ -39,11 +43,13 @@ public class Weapon : ScriptableObject
 	private Vector3 targetPoint; // направление вылета пули
 
 	private bool isReady = true;
+	private bool isShooting;
 
 	public void Shoot()
 	{
 		weaponShoot.Shoot(shootPoint, shootPointRotation);
 	}
+	
 	public void StopShoot()
 	{
 		weaponShoot.StopShoot();
@@ -95,11 +101,24 @@ public class Weapon : ScriptableObject
 		get => isReady;
 		set => isReady = value;
 	}
+	
+	public bool IsShooting
+	{
+		get => isShooting;
+		set => isShooting = value;
+	}
+	
+	public string Name 
+	{
+		get => name.ToString();
+	}
+
+	public string WeaponTypes => weaponTypes.ToString();
 }
 
 enum WeaponNames {
 	None,
-	Agressor,
+	Aggressor,
 	Alligator,
 	Axe,
 	BloodThorn,
@@ -109,4 +128,12 @@ enum WeaponNames {
 	SoulBreaker,
 	StarDust,
 	WidowMaker
+}
+
+enum WeaponTypes
+{
+	Guns,
+	LaserAndFlamethrowers,
+	Shootguns,
+	WMD //weapons of mass destruction
 }

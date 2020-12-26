@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb713e3b66ab27e4f953c76c1f97476b, type: 3}
+  m_Script: {fileID: 11500000, guid: 259a32900989ae844a4e21e6ec5f277e, type: 3}
   m_Name: LightstoneShoot
   m_EditorClassIdentifier: 
   bullet: {fileID: 6276581132515821955, guid: 7afc851836fd64f4cbbb675944522e9b, type: 3}

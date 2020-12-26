@@ -4900,7 +4900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5672792412121713684}
   power: 0.5
-  gun: {fileID: 11400000, guid: d59a33c513468984e800a11c9e532534, type: 2}
+  bulletNoise: 0.03
+  powerNoise: 0.1
+  weapon: {fileID: 11400000, guid: d59a33c513468984e800a11c9e532534, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 4fb0040ad13ec4b4781db881c5d60be2,
     type: 3}
   lifetime: 1

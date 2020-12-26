@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2441249211085530062}
   - component: {fileID: 2499095146054216917}
   - component: {fileID: 4048550982568828265}
-  - component: {fileID: 5970473256235592689}
+  - component: {fileID: -2314421766220235459}
   m_Layer: 11
   m_Name: LoudcricketBullet
   m_TagString: playerBullet
@@ -123,7 +123,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0150379995, y: -0.0008473097}
   m_Size: {x: 0.51391816, y: 0.21239175}
   m_Direction: 1
---- !u!114 &5970473256235592689
+--- !u!114 &-2314421766220235459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,12 +132,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5898792233668249317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a354a540e283984297229c3e1110e2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0763b6cd55a63484ba61fa456f515be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2499095146054216917}
-  power: 0.2
-  lifeTime: 1
-  gun: {fileID: 11400000, guid: ed7e64535f7432b4d87b5491f8c358e8, type: 2}
+  power: 0.25
+  bulletNoise: 0.05
+  powerNoise: 0.01
+  weapon: {fileID: 11400000, guid: ed7e64535f7432b4d87b5491f8c358e8, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 503adb573759ec447a2e57dd123d350f,
     type: 3}
+  lifetime: 1

@@ -4879,7 +4879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64222a280b6b33e48bd6ab478bceb921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: a875867966c08b74ebfd9ac437e74286, type: 2}
+  weapon: {fileID: 11400000, guid: a875867966c08b74ebfd9ac437e74286, type: 2}
   minSpeed: 5
   maxSpeed: 6
   maxFlameLifeTime: 1.5
