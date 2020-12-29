@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7351098892194240448}
   - component: {fileID: 1776110678498939455}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 8994634958953453916}
   - component: {fileID: 163282807371534330}
   - component: {fileID: 5016115712332743359}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 553993089
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
@@ -4952,7 +4952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968498672845038242}
   - component: {fileID: 3963592308082429139}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: vfx_WidowmakerBullets_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5000,7 +5000,7 @@ GameObject:
   - component: {fileID: 3517585153868496445}
   - component: {fileID: 3531295152109387504}
   - component: {fileID: 371090877437645472}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9832,7 +9832,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 553993089
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0

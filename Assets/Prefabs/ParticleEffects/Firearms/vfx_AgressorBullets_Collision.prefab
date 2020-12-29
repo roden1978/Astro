@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8994634958953453916}
   - component: {fileID: 163282807371534330}
   - component: {fileID: 5016115712332743359}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,9 +4842,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 553993089
-  m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingLayerID: -1040204295
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4879,7 +4879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968498672845038242}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: vfx_AgressorBullets_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4913,7 +4913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7341546947550968575}
   - component: {fileID: 7872572955468635689}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4952,7 +4952,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0.8683319, a: 1}
   m_Intensity: 2
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000f9bdffc17110e2cb
+  m_ApplyToSortingLayers: f9bdffc17110e2cba9d0d5ff
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -4986,7 +4986,7 @@ GameObject:
   - component: {fileID: 5438782304649076231}
   - component: {fileID: 8915769969920832570}
   - component: {fileID: 6676028869520019607}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9817,9 +9817,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 553993089
-  m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingLayerID: -1040204295
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

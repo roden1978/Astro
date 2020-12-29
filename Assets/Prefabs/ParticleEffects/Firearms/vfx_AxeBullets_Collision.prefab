@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8994634958953453916}
   - component: {fileID: 163282807371534330}
   - component: {fileID: 5016115712332743359}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,9 +4842,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 553993089
-  m_SortingLayer: 2
-  m_SortingOrder: 3
+  m_SortingLayerID: -1040204295
+  m_SortingLayer: 4
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4880,7 +4880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968498672845038242}
   - component: {fileID: 3963592308082429139}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: vfx_AxeBullets_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4926,7 +4926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6581266656083316871}
   - component: {fileID: 1588913744786608500}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4965,7 +4965,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0.8913307, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000007110e2cb
+  m_ApplyToSortingLayers: 7110e2cba9d0d5ff
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
