@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3793924057397462603}
   - component: {fileID: 6878676237352176615}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968498672845038242}
   - component: {fileID: 3963592308082429139}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: vfx_LightstoneBullets_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 6063151191590656721}
   - component: {fileID: 6987173947191577481}
   - component: {fileID: 287471296439936738}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,8 +4960,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1040204295
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
