@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Turrets.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Turrets/eggTurret.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Turrets/eggTurret.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Turrets/turret01.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Turrets/turret01.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +168,7 @@
       <workItem from="1608973331270" duration="8179000" />
       <workItem from="1609660422140" duration="1585000" />
       <workItem from="1610508990477" duration="207000" />
+      <workItem from="1610685758088" duration="1606000" />
     </task>
     <servers />
   </component>
