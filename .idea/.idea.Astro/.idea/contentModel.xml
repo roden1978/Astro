@@ -22,11 +22,31 @@
           <e p="CameraFollow.cs" t="Include" />
         </e>
         <e p="Common" t="Include">
+          <e p="Behaviour" t="Include">
+            <e p="BaseFlip.cs" t="Include" />
+            <e p="IFlipable.cs" t="Include" />
+          </e>
           <e p="UniFPSCounter.cs" t="Include" />
         </e>
         <e p="Enemies" t="Include">
+          <e p="AEnemy.cs" t="Include" />
           <e p="AliensHumanoid" t="Include">
             <e p="AliensController.cs" t="Include" />
+          </e>
+          <e p="BaseEnemy.cs" t="Include" />
+          <e p="Behaviour" t="Include">
+            <e p="Attack" t="Include">
+              <e p="BaseAttack.cs" t="Include" />
+              <e p="IAttackable.cs" t="Include" />
+            </e>
+            <e p="Chase" t="Include">
+              <e p="BaseChase.cs" t="Include" />
+              <e p="IChaseble.cs" t="Include" />
+            </e>
+            <e p="Patrol" t="Include">
+              <e p="BasePatrol.cs" t="Include" />
+              <e p="IPatrolable.cs" t="Include" />
+            </e>
           </e>
           <e p="Slimes" t="Include">
             <e p="SlimeController.cs" t="Include" />

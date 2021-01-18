@@ -20,6 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Common/Behaviour.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/States.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -36,13 +60,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/WeaponChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
@@ -83,6 +114,17 @@
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Shootgun.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" />
       </list>
     </option>
   </component>
@@ -169,6 +211,7 @@
       <workItem from="1609660422140" duration="1585000" />
       <workItem from="1610508990477" duration="207000" />
       <workItem from="1610685758088" duration="1606000" />
+      <workItem from="1610941055919" duration="13043000" />
     </task>
     <servers />
   </component>
@@ -194,9 +237,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1606974618810">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="606" y="275" key="RiderGenerateDialog" timestamp="1610945016788">
+      <screen x="0" y="0" width="1600" height="1170" />
     </state>
+    <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1610945016788" />
     <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606974618810" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
       <screen x="0" y="0" width="1920" height="1040" />
