@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class BasePatrol : ScriptableObject, IPatrolable
+[CreateAssetMenu(fileName = "New Ground Patrol", menuName = "Enemies/Behaviour/GroundPatrol")]
+public class GroundPatrol : ScriptableObject, IPatrolable
 {
     [SerializeField]
     [Tooltip("Дистанция патрулирования")]
@@ -9,6 +9,5 @@ public class BasePatrol : ScriptableObject, IPatrolable
 
     public void Patrol()
     {
-        throw new System.NotImplementedException();
     }
 }

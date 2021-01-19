@@ -44,11 +44,12 @@
               <e p="IChaseble.cs" t="Include" />
             </e>
             <e p="Patrol" t="Include">
-              <e p="BasePatrol.cs" t="Include" />
+              <e p="GroundPatrol.cs" t="Include" />
               <e p="IPatrolable.cs" t="Include" />
             </e>
           </e>
           <e p="Slimes" t="Include">
+            <e p="Idle.cs" t="Include" />
             <e p="SlimeController.cs" t="Include" />
           </e>
         </e>

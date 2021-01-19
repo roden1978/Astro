@@ -268,7 +268,7 @@ public class SlimeController : MonoBehaviour
 	
 	private void StartMoveAnimation(){
 		if(isGround && !isOnAnimationMove){
-			animator.SetBool("isSliming", true);
+			//animator.SetBool("isSliming", true);
 			animator.SetBool("isAttack", false);
 			isOnAnimationMove = true;
 			//Debug.Log("Start Moving Animation");

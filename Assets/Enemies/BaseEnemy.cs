@@ -11,10 +11,10 @@ public class BaseEnemy : AEnemy
     
     public BaseEnemy()
     {
-        attackBehaviour = new BaseAttack();
-        patrolBehaviour = new BasePatrol();
+        //attackBehaviour = new BaseAttack();
+        //patrolBehaviour = new GroundPatrol();
 
-        isAlive = true;
+        //isAlive = true;
     }
 
     public void ChangeAttackBehaviour(IAttackable newAttackBehaviour)
