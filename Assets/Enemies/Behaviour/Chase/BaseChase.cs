@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 [CreateAssetMenu(fileName = "New Chase", menuName = "Enemies/Behaviour/Chase")]
-public class BaseChase : ScriptableObject, IChaseble
+public class BaseChase : ScriptableObject, IHauntingable
 {
-    public void Chase()
+	public void Haunting()
     {
         throw new System.NotImplementedException();
     }

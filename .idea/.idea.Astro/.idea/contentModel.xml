@@ -41,11 +41,26 @@
             </e>
             <e p="Chase" t="Include">
               <e p="BaseChase.cs" t="Include" />
-              <e p="IChaseble.cs" t="Include" />
+              <e p="IHauntingable.cs" t="Include" />
+            </e>
+            <e p="Defend" t="Include">
+              <e p="IDefendable.cs" t="Include" />
+            </e>
+            <e p="Flip" t="Include">
+              <e p="IRotatable.cs" t="Include" />
+            </e>
+            <e p="Ground" t="Include">
+              <e p="IGroundable.cs" t="Include" />
+            </e>
+            <e p="Hurd" t="Include">
+              <e p="IHurdable.cs" t="Include" />
             </e>
             <e p="Patrol" t="Include">
-              <e p="GroundPatrol.cs" t="Include" />
               <e p="IPatrolable.cs" t="Include" />
+              <e p="SlimePatrol.cs" t="Include" />
+            </e>
+            <e p="Retreat" t="Include">
+              <e p="IRetreatingable.cs" t="Include" />
             </e>
           </e>
           <e p="Slimes" t="Include">
