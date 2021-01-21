@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRotatable
+public interface IGroundable
 {
-	void Rotate();
+	bool CheckGround(Collider2D collider, int layerMask);
 }

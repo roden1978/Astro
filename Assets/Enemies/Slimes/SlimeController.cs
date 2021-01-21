@@ -7,7 +7,11 @@ public class SlimeController : MonoBehaviour
 	#pragma warning disable 0649
 	[SerializeField]
 	[Tooltip("Физическое тело")]
-    private Rigidbody2D rb;
+	private Rigidbody2D rb;
+    
+	[SerializeField]
+	[Tooltip("Коллайдер земли")]
+	private Collider2D collider;
     
 	[SerializeField]
 	[Tooltip("Скорость при патрулировании")]
@@ -60,6 +64,7 @@ public class SlimeController : MonoBehaviour
 	
 	private SpriteRenderer sr;
 	
+	
 	private bool movingRight = true;
 	private bool chill = false;
 	private bool angry = false;
@@ -87,6 +92,7 @@ public class SlimeController : MonoBehaviour
 	    Physics2D.queriesStartInColliders = false;
 	    
 	    SpriteRendererFind();
+	    
 	    
     }
     
@@ -204,6 +210,17 @@ public class SlimeController : MonoBehaviour
             isGround = value;
         }
     }
+    
+	public bool MovingRight {
+		get => movingRight;
+	set => movingRight = value;
+	}
+	
+	public Rigidbody2D GetRigidBody
+	{
+		get => rb;
+		set => rb = value;
+	}
     
 	private void Chill()
 	{

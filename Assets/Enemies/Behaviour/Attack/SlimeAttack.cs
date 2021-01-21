@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Attack", menuName = "Enemies/Behaviour/Attack")]
-public class BaseAttack : ScriptableObject, IAttackable
+[CreateAssetMenu(fileName = "New Slime Attack", menuName = "Enemies/Behaviour/Attack/Slime")]
+public class SlimeAttack : ScriptableObject, IAttackable
 {
     [SerializeField]
     [Tooltip("Дистанция при которой начинается атака")]
