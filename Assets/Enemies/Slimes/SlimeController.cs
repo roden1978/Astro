@@ -1,10 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
-	#pragma warning disable 0649
+	[SerializeField]
+	[Tooltip("Физическое тело")]
+	private Rigidbody2D rb;
+    
+	[SerializeField]
+	[Tooltip("Коллайдер земли")]
+	private Collider2D groundCollider;
+	
+	[SerializeField]
+	private SlimeEnemy slimeEnemy;
+
+	public GameObject player;
+	
+	private bool movingRight = true;
+
+	
+	public bool MovingRight {
+		get => movingRight;
+		set => movingRight = value;
+	}
+	
+	public Rigidbody2D GetRigidBody
+	{
+		get => rb;
+		private set => rb = value;
+	}
+
+	public Collider2D GroundCollider
+	{
+		get => groundCollider;
+		private set => groundCollider = value;
+	}
+
+	public SlimeEnemy SlimeEnemy
+	{
+		get => slimeEnemy;
+		private set => slimeEnemy = value;
+	}
+
+	/*#pragma warning disable 0649
 	[SerializeField]
 	[Tooltip("Физическое тело")]
 	private Rigidbody2D rb;
@@ -406,6 +443,6 @@ public class SlimeController : MonoBehaviour
 				}
 			}
 		}
-	}
+	}*/
 	
 }

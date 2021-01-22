@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4252ddb98456240468780e20ddc339b6, type: 3}
-  m_Name: SlimePatrol
+  m_Script: {fileID: 11500000, guid: c92b9641bb133c5478eade70559082f8, type: 3}
+  m_Name: SlimeEnemy
   m_EditorClassIdentifier: 
-  patrolDistance: 3
+  isAlive: 1
+  player: {fileID: 5055538608133943192, guid: 824b9bdacdeedd94299bbd06d7002f83, type: 3}

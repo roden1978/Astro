@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Slime Enemy", menuName = "Enemies/Enemy/Slime")]
 public class SlimeEnemy : AEnemy
@@ -13,26 +11,26 @@ public class SlimeEnemy : AEnemy
 	[Tooltip("Игрок")]
 	private GameObject player;
 	
-	private SlimeController enemysObject;
+	//private SlimeController enemysObject;
+	
 	private Collider2D collider;
 	
-	private IRotatable rotateBehaviour;
-	private IGroundable groundCheckBehaviour;
-    
-	public SlimeEnemy(SlimeController enemysObject)
-    {
-	    attackBehaviour = new SlimeAttack();
-	    patrolBehaviour = new SlimePatrol();
-	    rotateBehaviour = new Rotate();
-	    groundCheckBehaviour = new Ground();
-	    
-	    enemysObject = enemysObject;
-	    
-	    collider = enemysObject.GetComponent<BoxCollider2D>();
-        isAlive = true;
-    }
+	
 
-    public void ChangeAttackBehaviour(IAttackable newAttackBehaviour)
+	
+	private void OnEnable()
+	{
+		attackBehaviour = new SlimeAttack();
+		patrolBehaviour = new SlimePatrol();
+		hautBehaviour = new SlimeChase();
+		rotateBehaviour = new Rotate();
+		groundCheckBehaviour = new Ground();
+	    
+		//collider = enemysObject.GetComponent<BoxCollider2D>();
+		isAlive = true;
+	}
+
+	public void ChangeAttackBehaviour(IAttackable newAttackBehaviour)
     {
         attackBehaviour = newAttackBehaviour;
     }
@@ -51,14 +49,21 @@ public class SlimeEnemy : AEnemy
     {
         patrolBehaviour.Patrol();
     }
+
+    public override void Chase()
+    {
+	    hautBehaviour.Haunting();
+    }
+
     
-	public void Flip(){
-		rotateBehaviour.CharacterRotate(enemysObject.transform, enemysObject.MovingRight);
+	public override void Flip(){
+		//rotateBehaviour.CharacterRotate(enemysObject.transform, enemysObject.MovingRight);
 	}
 	
-	public bool GetGround ()
+	public override bool GroundCheck ()
 	{
 		return groundCheckBehaviour.CheckGround(collider, 1 << LayerMask.NameToLayer("Ground"));
 	}
-    
+
+	public GameObject Player => player;
 }

@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Slime Attack", menuName = "Enemies/Behaviour/Attack/Slime")]
-public class SlimeAttack : ScriptableObject, IAttackable
+//[CreateAssetMenu(fileName = "New Slime Attack", menuName = "Enemies/Behaviour/Attack/Slime")]
+public class SlimeAttack : IAttackable
 {
-    [SerializeField]
-    [Tooltip("Дистанция при которой начинается атака")]
     private float attackDistance;
     public void Attack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Attack");
     }
 }

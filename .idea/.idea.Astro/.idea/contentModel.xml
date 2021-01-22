@@ -23,8 +23,14 @@
         </e>
         <e p="Common" t="Include">
           <e p="Behaviour" t="Include">
-            <e p="BaseFlip.cs" t="Include" />
-            <e p="IFlipable.cs" t="Include" />
+            <e p="Flip" t="Include">
+              <e p="IRotatable.cs" t="Include" />
+              <e p="Rotate.cs" t="Include" />
+            </e>
+            <e p="Ground" t="Include">
+              <e p="Ground.cs" t="Include" />
+              <e p="IGroundable.cs" t="Include" />
+            </e>
           </e>
           <e p="UniFPSCounter.cs" t="Include" />
         </e>
@@ -33,24 +39,17 @@
           <e p="AliensHumanoid" t="Include">
             <e p="AliensController.cs" t="Include" />
           </e>
-          <e p="BaseEnemy.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="Attack" t="Include">
-              <e p="BaseAttack.cs" t="Include" />
               <e p="IAttackable.cs" t="Include" />
+              <e p="SlimeAttack.cs" t="Include" />
             </e>
             <e p="Chase" t="Include">
-              <e p="BaseChase.cs" t="Include" />
               <e p="IHauntingable.cs" t="Include" />
+              <e p="SlimeChase.cs" t="Include" />
             </e>
             <e p="Defend" t="Include">
               <e p="IDefendable.cs" t="Include" />
-            </e>
-            <e p="Flip" t="Include">
-              <e p="IRotatable.cs" t="Include" />
-            </e>
-            <e p="Ground" t="Include">
-              <e p="IGroundable.cs" t="Include" />
             </e>
             <e p="Hurd" t="Include">
               <e p="IHurdable.cs" t="Include" />
@@ -63,8 +62,12 @@
               <e p="IRetreatingable.cs" t="Include" />
             </e>
           </e>
+          <e p="SlimeEnemy.cs" t="Include" />
           <e p="Slimes" t="Include">
+            <e p="Chase.cs" t="Include" />
+            <e p="FSMSlime.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
+            <e p="Patrol.cs" t="Include" />
             <e p="SlimeController.cs" t="Include" />
           </e>
         </e>

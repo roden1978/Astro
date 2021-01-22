@@ -20,29 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IHauntingable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IHauntingable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Defend.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Defend/IDefendable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Defend/IDefendable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Flip/IRotatable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Flip/IRotatable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Ground/IGroundable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Ground/IGroundable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Hurd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Hurd/IHurdable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Hurd/IHurdable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Retreat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Retreat/IRetreatingable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Retreat/IRetreatingable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/GroundPatrol.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/GroundPatrol.cs.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Slimes/Idle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/Idle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/Slimes/slime.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/Slimes/slime.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,25 +58,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
-        <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Agressor/AgressorBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
@@ -109,7 +100,6 @@
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" />
@@ -117,9 +107,18 @@
         <option value="$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" />
         <option value="$PROJECT_DIR$/Assets/Idle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Idle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" />
       </list>
     </option>
   </component>
@@ -209,6 +208,7 @@
       <workItem from="1610941055919" duration="13043000" />
       <workItem from="1611027168077" duration="5139000" />
       <workItem from="1611144302787" duration="587000" />
+      <workItem from="1611300756682" duration="9720000" />
     </task>
     <servers />
   </component>

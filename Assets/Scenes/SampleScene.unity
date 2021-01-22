@@ -24606,6 +24606,17 @@ PrefabInstance:
       propertyPath: collider
       value: 
       objectReference: {fileID: 1879689621}
+    - target: {fileID: 2127105383330730710, guid: c6286535191418f45b54a36743b4fe17,
+        type: 3}
+      propertyPath: slimeEnemy
+      value: 
+      objectReference: {fileID: 11400000, guid: 73038db21358b1e4cb86a7566beba8bb,
+        type: 2}
+    - target: {fileID: 2127105383330730710, guid: c6286535191418f45b54a36743b4fe17,
+        type: 3}
+      propertyPath: groundCollider
+      value: 
+      objectReference: {fileID: 1879689621}
     - target: {fileID: 5831863479158633813, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
       propertyPath: m_Name
