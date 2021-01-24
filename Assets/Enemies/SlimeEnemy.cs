@@ -8,10 +8,13 @@ public class SlimeEnemy : AEnemy
 	private bool isAlive;
 	
 	[SerializeField]
-	[Tooltip("Игрок")]
-	private GameObject player;
+	[Tooltip("Объект врага")]
+	private GameObject enemy;
+
+	[SerializeField] [Tooltip("Сила атаки")]
+	private float force;
 	
-	//private SlimeController enemysObject;
+	private SlimeController slimeController;
 	
 	private Collider2D collider;
 	
@@ -22,11 +25,12 @@ public class SlimeEnemy : AEnemy
 	{
 		attackBehaviour = new SlimeAttack();
 		patrolBehaviour = new SlimePatrol();
-		hautBehaviour = new SlimeChase();
+		hautBehaviour = new SlimeChase(enemy);
 		rotateBehaviour = new Rotate();
 		groundCheckBehaviour = new Ground();
 	    
-		//collider = enemysObject.GetComponent<BoxCollider2D>();
+		slimeController = enemy.GetComponent<SlimeController>();
+		collider = slimeController.GroundCollider;
 		isAlive = true;
 	}
 
@@ -57,7 +61,7 @@ public class SlimeEnemy : AEnemy
 
     
 	public override void Flip(){
-		//rotateBehaviour.CharacterRotate(enemysObject.transform, enemysObject.MovingRight);
+		rotateBehaviour.CharacterRotate(enemy.transform, slimeController.MovingRight);
 	}
 	
 	public override bool GroundCheck ()
@@ -65,5 +69,6 @@ public class SlimeEnemy : AEnemy
 		return groundCheckBehaviour.CheckGround(collider, 1 << LayerMask.NameToLayer("Ground"));
 	}
 
-	public GameObject Player => player;
+	public GameObject GetEnemyGameObject => enemy;
+	public float Force => force;
 }

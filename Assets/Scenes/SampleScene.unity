@@ -24559,7 +24559,7 @@ PrefabInstance:
     - target: {fileID: 1265961548194584895, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 1265961548194584895, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
@@ -24603,20 +24603,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127105383330730710, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
-      propertyPath: collider
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1879689621}
-    - target: {fileID: 2127105383330730710, guid: c6286535191418f45b54a36743b4fe17,
-        type: 3}
-      propertyPath: slimeEnemy
-      value: 
-      objectReference: {fileID: 11400000, guid: 73038db21358b1e4cb86a7566beba8bb,
-        type: 2}
-    - target: {fileID: 2127105383330730710, guid: c6286535191418f45b54a36743b4fe17,
-        type: 3}
-      propertyPath: groundCollider
-      value: 
-      objectReference: {fileID: 1879689621}
+      objectReference: {fileID: 660642975}
     - target: {fileID: 5831863479158633813, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
       propertyPath: m_Name
@@ -24624,12 +24613,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6286535191418f45b54a36743b4fe17, type: 3}
---- !u!61 &1879689621 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2127105383330730711, guid: c6286535191418f45b54a36743b4fe17,
-    type: 3}
-  m_PrefabInstance: {fileID: 1879689620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042114307
 GameObject:
   m_ObjectHideFlags: 0

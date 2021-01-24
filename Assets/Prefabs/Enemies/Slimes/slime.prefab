@@ -223,7 +223,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -874377103
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -7175657342706036556, guid: 17527888aa126884caf3ec668007b342,
     type: 3}
@@ -475,16 +475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2127105383330730709}
-  speed: 2
-  attackSpeed: 4
-  patrolDistance: 3
-  attackDistance: 1
-  stopAngryDistance: 3
-  maxJumpVelocity: 5
-  maxBackVelocity: 5
-  jumpForce: 5
-  rayDistance: 0.6
-  backForce: 1
+  groundCollider: {fileID: 2127105383330730711}
+  slimeEnemy: {fileID: 11400000, guid: 73038db21358b1e4cb86a7566beba8bb, type: 2}
+  player: {fileID: 0}
 --- !u!1 &6109176792740855927
 GameObject:
   m_ObjectHideFlags: 0

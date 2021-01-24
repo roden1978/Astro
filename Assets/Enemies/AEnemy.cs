@@ -10,8 +10,13 @@ public abstract class AEnemy: ScriptableObject
     
     public abstract void Attack();
     public abstract void Patrol();
-    public abstract void Chase();
-    public abstract void Flip();
+    public virtual void Chase(){}
+    public virtual void Flip(){}
+    
+    public virtual void Haut(){}
 
-    public abstract bool GroundCheck();
+    public virtual bool GroundCheck()
+    {
+        return false;
+    }
 }

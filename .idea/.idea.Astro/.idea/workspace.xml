@@ -57,18 +57,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Bloodthorn/BloodthornBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Axe/AxeBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Lightstone/LightstoneBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Widowmaker/WidowmakerBullet.cs" />
@@ -109,16 +100,17 @@
         <option value="$PROJECT_DIR$/Assets/Idle.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Idle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IHauntingable.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
       </list>
     </option>
   </component>
@@ -209,6 +201,8 @@
       <workItem from="1611027168077" duration="5139000" />
       <workItem from="1611144302787" duration="587000" />
       <workItem from="1611300756682" duration="9720000" />
+      <workItem from="1611378098884" duration="8958000" />
+      <workItem from="1611404736128" duration="726000" />
     </task>
     <servers />
   </component>

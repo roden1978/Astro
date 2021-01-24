@@ -37,6 +37,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9faa600c197d1e4989d0d0cb5cbdb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  slimeController: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1102 &-8040436798889344580
 AnimatorState:
   serializedVersion: 5
@@ -102,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bd1da91cd4139489b8bf4c4a2511f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  slimeController: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1107 &-7006104917103696174
 AnimatorStateMachine:
   serializedVersion: 5
@@ -145,6 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bc641ed71e13144a4ed6e8ddc63ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  slimeController: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1102 &-6026252001014753321
 AnimatorState:
   serializedVersion: 5
@@ -220,7 +229,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: d0db80ad6ce4b614f98bb1014806da6b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

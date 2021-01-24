@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
@@ -14,10 +15,26 @@ public class SlimeController : MonoBehaviour
 	private SlimeEnemy slimeEnemy;
 
 	public GameObject player;
+	private Animator animator;
 	
 	private bool movingRight = true;
 
-	
+	private void Start()
+	{
+		animator = gameObject.GetComponent<Animator>();
+		//rb = gameObject.GetComponent<Rigidbody2D>();
+	}
+
+	private void Update()
+	{
+		CheckDistance();
+		//rb.AddForce(Vector2.up * slimeEnemy.Force, ForceMode2D.Impulse);
+	}
+
+	void CheckDistance()
+	{
+		animator.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
+	}
 	public bool MovingRight {
 		get => movingRight;
 		set => movingRight = value;

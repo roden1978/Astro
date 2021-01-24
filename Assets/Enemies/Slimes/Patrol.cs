@@ -7,13 +7,17 @@ public class Patrol : FSMSlime
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Enemy.Patrol();
+        base.OnStateEnter(animator, stateInfo, layerIndex);
+        //Debug.Log("Enemy link patrol" + enemy);
+        enemy.Patrol();
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      animator.SetFloat("distance", Vector3.Distance(animator.gameObject.transform.position, slimeController.player.transform.position));  
+        
+        //animator.SetFloat("distance", Vector3.Distance(animator.gameObject.transform.position, player.transform.position));  
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
