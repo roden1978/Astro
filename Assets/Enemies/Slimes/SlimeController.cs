@@ -14,7 +14,7 @@ public class SlimeController : MonoBehaviour
 	[SerializeField]
 	private SlimeEnemy slimeEnemy;
 
-	public GameObject player;
+	private GameObject player;
 	private Animator animator;
 	
 	private bool movingRight = true;
@@ -23,12 +23,24 @@ public class SlimeController : MonoBehaviour
 	{
 		animator = gameObject.GetComponent<Animator>();
 		//rb = gameObject.GetComponent<Rigidbody2D>();
+		player = GameObject.FindWithTag("Player");
 	}
 
 	private void Update()
 	{
 		CheckDistance();
+		Chase();
 		//rb.AddForce(Vector2.up * slimeEnemy.Force, ForceMode2D.Impulse);
+	}
+
+	public void Chase()
+	{
+		slimeEnemy.Chase();
+	}
+
+	public void Patrol()
+	{
+		slimeEnemy.Patrol();
 	}
 
 	void CheckDistance()
@@ -57,6 +69,8 @@ public class SlimeController : MonoBehaviour
 		get => slimeEnemy;
 		private set => slimeEnemy = value;
 	}
+
+	public GameObject Player => player;
 
 	/*#pragma warning disable 0649
 	[SerializeField]
@@ -461,5 +475,5 @@ public class SlimeController : MonoBehaviour
 			}
 		}
 	}*/
-	
+
 }

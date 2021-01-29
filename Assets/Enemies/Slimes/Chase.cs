@@ -8,12 +8,13 @@ public class Chase : FSMSlime
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
+        Debug.Log("Chase");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       enemy.Chase();
+       //slimeController.Chase();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

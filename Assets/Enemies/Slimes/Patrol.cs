@@ -9,7 +9,7 @@ public class Patrol : FSMSlime
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         //Debug.Log("Enemy link patrol" + enemy);
-        enemy.Patrol();
+        slimeController.Patrol();
         
     }
 
@@ -17,7 +17,7 @@ public class Patrol : FSMSlime
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
-        //animator.SetFloat("distance", Vector3.Distance(animator.gameObject.transform.position, player.transform.position));  
+        animator.SetFloat("distance", Vector3.Distance(animator.gameObject.transform.position, player.transform.position));  
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

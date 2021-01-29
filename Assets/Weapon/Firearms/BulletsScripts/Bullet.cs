@@ -12,19 +12,17 @@ public class Bullet : MonoBehaviour
 	[SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 	
-	private IEnumerator coroutine;
 	private Vector3 shootDirection;
 
-	private CapsuleCollider2D cc;
+	private Collider2D cc;
 	void Start()
 	{
 		cc = transform.GetComponent<CapsuleCollider2D>();
-		if (weapon){
-			
-			shootDirection = weapon.TargetPoint - weapon.ShootPoint;
+		if (weapon)
+		{
+			shootDirection = weapon.TargetPoint.DirectionTo(weapon.ShootPoint); 
 			rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-		    coroutine = Die(lifetime);
-			StartCoroutine(coroutine);
+			Destroy(gameObject, lifetime);
 		}
 	    
 	}
@@ -33,10 +31,5 @@ public class Bullet : MonoBehaviour
 	{
 		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
 		Destroy(gameObject);    
-	}
-	private IEnumerator Die(float time)
-	{
-		yield return new WaitForSeconds(time);
-		Destroy(gameObject);
 	}
 }

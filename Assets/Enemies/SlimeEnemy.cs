@@ -24,8 +24,8 @@ public class SlimeEnemy : AEnemy
 	private void OnEnable()
 	{
 		attackBehaviour = new SlimeAttack();
-		patrolBehaviour = new SlimePatrol();
-		hautBehaviour = new SlimeChase(enemy);
+		patrolBehaviour = new SlimePatrol(enemy);
+		hauntBehaviour = new SlimeChase(enemy);
 		rotateBehaviour = new Rotate();
 		groundCheckBehaviour = new Ground();
 	    
@@ -56,7 +56,7 @@ public class SlimeEnemy : AEnemy
 
     public override void Chase()
     {
-	    hautBehaviour.Haunting();
+	    hauntBehaviour.Haunting();
     }
 
     

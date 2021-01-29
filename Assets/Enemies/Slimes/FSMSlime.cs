@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FSMSlime : StateMachineBehaviour
 {
-	public SlimeEnemy enemy;
+	//public SlimeEnemy enemy;
 	public SlimeController slimeController;
 	public GameObject player;
 
@@ -11,9 +11,9 @@ public class FSMSlime : StateMachineBehaviour
 	{
 		slimeController = animator.gameObject.GetComponent<SlimeController>();
 		//Debug.Log("Enemy controller " + slimeController);
-		enemy = slimeController.SlimeEnemy;
+		//enemy = slimeController.SlimeEnemy;
 		//Debug.Log("Enemy link " + enemy);
-		player = slimeController.player;
+		player = slimeController.Player;
 	}
 
 	//public AEnemy Enemy => enemy;

@@ -6,14 +6,14 @@ public abstract class AEnemy: ScriptableObject
     protected IPatrolable patrolBehaviour;
     protected IRotatable rotateBehaviour;
     protected IGroundable groundCheckBehaviour;
-    protected IHauntingable hautBehaviour;
+    protected IHauntingable hauntBehaviour;
     
     public abstract void Attack();
     public abstract void Patrol();
     public virtual void Chase(){}
     public virtual void Flip(){}
     
-    public virtual void Haut(){}
+    public virtual void Haunt(){}
 
     public virtual bool GroundCheck()
     {

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAlive: 1
   enemy: {fileID: 5831863479158633813, guid: c6286535191418f45b54a36743b4fe17, type: 3}
-  force: 15.06
+  force: 1

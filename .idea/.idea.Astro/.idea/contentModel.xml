@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Unity\Astro" t="IncludeRecursive">
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.850747599.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\Unity\Astro" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -30,6 +32,7 @@
               <e p="IGroundable.cs" t="Include" />
             </e>
           </e>
+          <e p="Extensions.cs" t="Include" />
           <e p="UniFPSCounter.cs" t="Include" />
         </e>
         <e p="Enemies" t="Include">
@@ -37,6 +40,7 @@
           <e p="AliensHumanoid" t="Include">
             <e p="AliensController.cs" t="Include" />
           </e>
+          <e p="BaseState.cs" t="Include" />
           <e p="Behaviour" t="Include">
             <e p="Attack" t="Include">
               <e p="IAttackable.cs" t="Include" />
@@ -60,6 +64,9 @@
               <e p="IRetreatingable.cs" t="Include" />
             </e>
           </e>
+          <e p="ChaseState.cs" t="Include" />
+          <e p="PatrolState.cs" t="Include" />
+          <e p="Slime.cs" t="Include" />
           <e p="SlimeEnemy.cs" t="Include" />
           <e p="Slimes" t="Include">
             <e p="Chase.cs" t="Include" />
@@ -68,6 +75,7 @@
             <e p="Patrol.cs" t="Include" />
             <e p="SlimeController.cs" t="Include" />
           </e>
+          <e p="StateMashine.cs" t="Include" />
         </e>
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
@@ -244,7 +252,5 @@
       <e p="ScriptInspector.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.1217478256.00" t="ExcludeRecursive" />
   </component>
 </project>
