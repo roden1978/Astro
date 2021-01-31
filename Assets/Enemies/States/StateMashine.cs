@@ -9,6 +9,7 @@ public class StateMashine : MonoBehaviour
     private Dictionary<System.Type, BaseState> _availableStates;
     public BaseState CurrentState { get; private set; }
     public BaseState PrevState { get; private set; }
+    
     public event Action<BaseState> OnStateChanged;
 
     public void SetStates(Dictionary<System.Type, BaseState> states)
@@ -24,11 +25,10 @@ public class StateMashine : MonoBehaviour
         }
 
         var nextState = CurrentState?.Tick();
-        //var prevState = CurrentState?.GetCurrentStateType();
 
         if (nextState != null && nextState.GetType() != CurrentState?.GetType())
         {
-            SavePrevState(CurrentState?.GetCurrentStateType());
+            PrevState = _availableStates[CurrentState?.GetCurrentStateType()];
             SwitchToNewState(nextState);
         }
     }
@@ -44,8 +44,4 @@ public class StateMashine : MonoBehaviour
         get => PrevState.GetType();
     }
     
-    private void SavePrevState(System.Type prevState)
-    {
-        PrevState = _availableStates[prevState];
-    }
 }

@@ -24546,6 +24546,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5572315116901607308, guid: c6286535191418f45b54a36743b4fe17,
+        type: 3}
+      propertyPath: SlimeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 87bf4f887643115488d967f56f27fd08,
+        type: 2}
     - target: {fileID: 1265961548194584895, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
       propertyPath: m_RootOrder

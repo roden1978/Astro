@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class Extensions
 {
@@ -12,5 +10,10 @@ public static class Extensions
    public static void VelocityControl(this Rigidbody2D rb, float maxVelocity)
    {
       rb.velocity = new Vector2(maxVelocity, rb.velocity.y);
+   }
+
+   public static bool PlayerSideDetect(this Slime slime, Transform transform)
+   {
+      return slime.player.transform.position.x > transform.position.x;
    }
 }

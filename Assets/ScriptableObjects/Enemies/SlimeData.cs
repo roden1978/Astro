@@ -3,8 +3,8 @@
 public class SlimeData : ScriptableObject
 {
     [SerializeField]
-    [Tooltip("Скорость при патрулировании")]
-    private float speed;
+    [Tooltip("Сила прикладываемая к телу при патрулировании")]
+    public float force;
     
     [SerializeField]
     [Tooltip("Скорость при погоне за игроком")]

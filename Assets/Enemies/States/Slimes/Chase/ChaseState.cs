@@ -18,8 +18,25 @@ public class ChaseState : BaseState
             Debug.Log("Patrol");
             return typeof(PatrolState);
         }
+
+        if (_slime.PlayerSideDetect(transform) != _slime.MovingRight)
+        {
+            return typeof(FlipState);
+        }
+        
+        if (_slime.MovingRight)
+        {
+            rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
+        }
+        else 
+        {
+            rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+        }
+        
+        
         return null;
     }
+    
 
     public override System.Type GetCurrentStateType()
     {

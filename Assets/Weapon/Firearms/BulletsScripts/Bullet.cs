@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 		cc = transform.GetComponent<CapsuleCollider2D>();
 		if (weapon)
 		{
-			shootDirection = weapon.TargetPoint.DirectionTo(weapon.ShootPoint); 
+			shootDirection = weapon.ShootPoint.DirectionTo(weapon.TargetPoint); 
 			rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
 			Destroy(gameObject, lifetime);
 		}

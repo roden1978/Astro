@@ -16,7 +16,9 @@ public class FlipState : BaseState
     {
         _prevState = _slime.GetComponent<StateMashine>().GetPrevState;
 
-        Debug.Log(_prevState);
+        _slime.MovingRight = !_slime.MovingRight;
+        transform.Rotate(0f, 180f, 0f);
+        
         return _prevState;
     }
 

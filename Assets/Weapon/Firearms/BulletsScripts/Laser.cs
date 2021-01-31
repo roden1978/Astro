@@ -34,7 +34,7 @@ public class Laser : MonoBehaviour
         transform.rotation = weapon.ShootPointRotation;
 
         float distance = lineRenderer.GetPosition(1).x;
-        Vector3 direction = weapon.TargetPoint.DirectionTo(weapon.ShootPoint);
+        Vector3 direction = weapon.ShootPoint.DirectionTo(weapon.TargetPoint);
         hit = Physics2D.Raycast(weapon.ShootPoint, direction, distance);
         
         if (hit.collider)

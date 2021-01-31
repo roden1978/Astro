@@ -8,6 +8,8 @@ public class Slime : MonoBehaviour
     
     private bool movingRight = true;
     public GameObject player { get; private set; }
+    public SlimeData SlimeData;
+    public Vector3 startPosition;
 
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
@@ -17,6 +19,16 @@ public class Slime : MonoBehaviour
         InitializeStateMashine();
     }
 
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(startPosition, new Vector3(startPosition.x, startPosition.y + 3, 0));
+    }
 
     private void InitializeStateMashine()
     {

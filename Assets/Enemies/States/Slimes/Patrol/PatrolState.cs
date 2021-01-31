@@ -20,16 +20,29 @@ public class PatrolState : BaseState
 
     public override System.Type Tick()
     {
+        if (_slime.MovingRight)
+        {
+            rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
+        }
+        else 
+        {
+            rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+        }
+        
+        if(transform.position.x > _slime.startPosition.x + patrolDistance && _slime.MovingRight)
+        {
+            return typeof(FlipState);
+        }
+        
+        if (transform.position.x < _slime.startPosition.x - patrolDistance && !_slime.MovingRight)
+        {
+            return typeof(FlipState);
+        }
         
         if (Vector2.Distance(_slime.transform.position, _slime.player.transform.position) < patrolDistance)
         {
-            //Debug.Log("Flip state");
-            return typeof(FlipState);
+            return typeof(ChaseState);
         }
-        //Debug.Log("Patrol state");
-        rigidbody2D.AddForce(Vector2.right * 0.5f, ForceMode2D.Force);
-        
-        rigidbody2D.VelocityControl(maxVelocity);
         
         return null;
     }

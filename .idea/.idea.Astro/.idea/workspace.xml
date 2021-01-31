@@ -102,23 +102,23 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/ChaseState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/SlimeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/BaseState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/StateMashine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/PatrolState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slime.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Common/FlipState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
       </list>
     </option>
   </component>
@@ -216,6 +216,7 @@
       <workItem from="1611911421917" duration="6547000" />
       <workItem from="1611980004859" duration="23000" />
       <workItem from="1611980050945" duration="12756000" />
+      <workItem from="1612067266787" duration="9293000" />
     </task>
     <servers />
   </component>
