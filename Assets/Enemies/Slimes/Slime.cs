@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Slime : MonoBehaviour
@@ -9,10 +7,12 @@ public class Slime : MonoBehaviour
     private bool movingRight = true;
     public GameObject player { get; private set; }
     public SlimeData SlimeData;
+    public Collider2D groundCollider;
     public Vector3 startPosition;
 
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
+    private Animator animator;
 
     private void Awake()
     {
@@ -22,6 +22,12 @@ public class Slime : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
     }
 
     private void OnDrawGizmos() 
@@ -36,7 +42,8 @@ public class Slime : MonoBehaviour
         {
             {typeof(PatrolState), new PatrolState(this)},
             {typeof(ChaseState), new ChaseState(this)},
-            {typeof(FlipState), new FlipState(this)}
+            {typeof(FlipState), new FlipState(this)},
+            {typeof(AttackState), new AttackState(this)}
         };
         
         GetComponent<StateMashine>().SetStates(states);
@@ -51,5 +58,10 @@ public class Slime : MonoBehaviour
     {
         get => movingRight;
         set => movingRight = value;
+    }
+
+    public bool CheckGround()
+    {
+        return groundCollider.IsTouchingLayers(1 << LayerMask.NameToLayer("Ground"));
     }
 }

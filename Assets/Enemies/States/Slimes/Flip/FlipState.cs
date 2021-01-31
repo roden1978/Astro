@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FlipState : BaseState
+﻿public class FlipState : BaseState
 {
     private Slime _slime;
     private System.Type _prevState;

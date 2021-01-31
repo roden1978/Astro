@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb01be68037db0e45a1566b18dc40753, type: 3}
   m_Name: SlimeData
   m_EditorClassIdentifier: 
-  force: 0.2
-  attackSpeed: 0
-  patrolDistance: 0
-  attackDistance: 0
-  stopAngryDistance: 0
-  maxJumpVelocity: 0
-  maxBackVelocity: 0
-  jumpForce: 0
+  force: 0.25
+  patrolDistance: 3
+  attackDistance: 2
+  stopChaseDistance: 4
+  jumpForce: 0.2

@@ -6588,6 +6588,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &402393228 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2127105383330730711, guid: c6286535191418f45b54a36743b4fe17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879689620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &418262521 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -24552,6 +24558,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 87bf4f887643115488d967f56f27fd08,
         type: 2}
+    - target: {fileID: -5572315116901607308, guid: c6286535191418f45b54a36743b4fe17,
+        type: 3}
+      propertyPath: groundCollider
+      value: 
+      objectReference: {fileID: 402393228}
     - target: {fileID: 1265961548194584895, guid: c6286535191418f45b54a36743b4fe17,
         type: 3}
       propertyPath: m_RootOrder

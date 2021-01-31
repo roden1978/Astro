@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PatrolState : BaseState
 {
     private Slime _slime;
-
-    private float patrolDistance = 3f;
-    private float maxVelocity = 1;
     
     public PatrolState(Slime slime) : base(slime.gameObject)
     {
@@ -29,17 +24,17 @@ public class PatrolState : BaseState
             rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
         }
         
-        if(transform.position.x > _slime.startPosition.x + patrolDistance && _slime.MovingRight)
+        if(transform.position.x > _slime.startPosition.x + _slime.SlimeData.patrolDistance && _slime.MovingRight)
         {
             return typeof(FlipState);
         }
         
-        if (transform.position.x < _slime.startPosition.x - patrolDistance && !_slime.MovingRight)
+        if (transform.position.x < _slime.startPosition.x - _slime.SlimeData.patrolDistance && !_slime.MovingRight)
         {
             return typeof(FlipState);
         }
         
-        if (Vector2.Distance(_slime.transform.position, _slime.player.transform.position) < patrolDistance)
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) < _slime.SlimeData.patrolDistance)
         {
             return typeof(ChaseState);
         }

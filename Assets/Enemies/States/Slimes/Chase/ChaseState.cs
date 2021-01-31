@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ChaseState : BaseState
 {
     private Slime _slime;
-    private float chaseDistance = 4;
     public ChaseState(Slime slime) : base(slime.gameObject)
     {
         _slime = slime;
@@ -13,9 +10,8 @@ public class ChaseState : BaseState
 
     public override System.Type Tick()
     {
-        if (Vector2.Distance(_slime.transform.position, _slime.player.transform.position) > chaseDistance)
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.SlimeData.stopChaseDistance)
         {
-            Debug.Log("Patrol");
             return typeof(PatrolState);
         }
 
@@ -31,6 +27,11 @@ public class ChaseState : BaseState
         else 
         {
             rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+        }
+        
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) < _slime.SlimeData.attackDistance)
+        {
+            return typeof(AttackState);
         }
         
         
