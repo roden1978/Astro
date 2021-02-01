@@ -20,14 +20,25 @@ public class ChaseState : BaseState
             return typeof(FlipState);
         }
         
-        if (_slime.MovingRight)
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.SlimeData.maxVelocity + _slime.SlimeData.maxVelocity / 2)
+        {
+            if (_slime.MovingRight)
+            {
+                rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
+            }
+            else
+            {
+                rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+            }
+        }
+        /*if (_slime.MovingRight)
         {
             rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
         }
         else 
         {
             rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
-        }
+        }*/
         
         if (Vector2.Distance(transform.position, _slime.player.transform.position) < _slime.SlimeData.attackDistance)
         {

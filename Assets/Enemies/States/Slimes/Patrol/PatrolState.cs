@@ -15,13 +15,16 @@ public class PatrolState : BaseState
 
     public override System.Type Tick()
     {
-        if (_slime.MovingRight)
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.SlimeData.maxVelocity)
         {
-            rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
-        }
-        else 
-        {
-            rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+            if (_slime.MovingRight)
+            {
+                rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
+            }
+            else
+            {
+                rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+            }
         }
         
         if(transform.position.x > _slime.startPosition.x + _slime.SlimeData.patrolDistance && _slime.MovingRight)

@@ -21,4 +21,8 @@ public class SlimeData : ScriptableObject
     [SerializeField]
     [Tooltip("Сила прыжка")]
     public float jumpForce;
+    
+    [SerializeField]
+    [Tooltip("Максимальное ускорение движения")]
+    public float maxVelocity;
 }
