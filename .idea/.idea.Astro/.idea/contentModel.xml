@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.850747599.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\Unity\Astro" t="IncludeRecursive">
+    <e p="C:\Unity\Astro" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -64,6 +62,7 @@
             <e p="StateMashine.cs" t="Include" />
             <e p="Turrets" t="Include">
               <e p="Patrol" t="Include">
+                <e p="ChangeRotateDirectionState.cs" t="Include" />
                 <e p="TurretPatrolState.cs" t="Include" />
               </e>
             </e>
@@ -282,5 +281,7 @@
       <e p="Sirenix.OdinInspector.Modules.UnityMathematics.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.1217478256.00" t="ExcludeRecursive" />
   </component>
 </project>

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Turret : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Turret : MonoBehaviour
 
     public Transform turretHead;
     public TurretSettings turretSettings;
+    private float upDirection;
     
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
@@ -18,17 +20,11 @@ public class Turret : MonoBehaviour
         InitializeStateMashine();
     }
 
-    /*private void Start()
+    private void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (gameObject.transform.GetChild(i).name == "head")
-            {
-                turretHead = gameObject.transform.GetChild(i);
-            }
-        }
-        
-    }*/
+        upDirection = Random.Range(-1, 1);
+        if (UpDirection == 0) UpDirection = 1;
+    }
 
     /*private void OnDrawGizmos() 
     {
@@ -40,7 +36,8 @@ public class Turret : MonoBehaviour
     {
         states = new Dictionary<System.Type, BaseState>()
         {
-            {typeof(TurretPatrolState), new TurretPatrolState(this)}
+            {typeof(TurretPatrolState), new TurretPatrolState(this)},
+            {typeof(ChangeRotateDirectionState), new ChangeRotateDirectionState(this)}
         };
         
         GetComponent<StateMashine>().SetStates(states);
@@ -49,5 +46,11 @@ public class Turret : MonoBehaviour
     public void SetTarget(GameObject target)
     {
         player = target;
+    }
+
+    public float UpDirection
+    {
+        get => upDirection;
+        set => upDirection = value;
     }
 }

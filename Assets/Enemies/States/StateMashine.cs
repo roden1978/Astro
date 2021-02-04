@@ -22,14 +22,19 @@ public class StateMashine : MonoBehaviour
         {
             CurrentState = _availableStates.Values.First();
         }
-
+                
         var nextState = CurrentState?.Tick();
-
+        
         if (nextState != null && nextState.GetType() != CurrentState?.GetType())
         {
             PrevState = _availableStates[CurrentState?.GetCurrentStateType()];
             SwitchToNewState(nextState);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        CurrentState?.FixedTick();
     }
 
     private void SwitchToNewState(System.Type nextState)

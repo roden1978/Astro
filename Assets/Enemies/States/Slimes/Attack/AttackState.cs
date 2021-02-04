@@ -15,18 +15,21 @@ public class AttackState : BaseState
         {
             return typeof(FlipState);
         }
-			
-        if(_slime.CheckGround())
-        {
-            rigidbody2D.AddForce(Vector2.up * _slime.SlimeData.jumpForce, ForceMode2D.Impulse);
-        }
-
+		
         if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.SlimeData.attackDistance)
         {
             return typeof(ChaseState);
         }
         
         return null;
+    }
+
+    public override void FixedTick()
+    {
+        if(_slime.CheckGround())
+        {
+            rigidbody2D.AddForce(Vector2.up * _slime.SlimeData.jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     public override System.Type GetCurrentStateType()

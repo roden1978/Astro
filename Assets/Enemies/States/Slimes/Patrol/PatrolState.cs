@@ -15,17 +15,7 @@ public class PatrolState : BaseState
 
     public override System.Type Tick()
     {
-        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.SlimeData.maxVelocity)
-        {
-            if (_slime.MovingRight)
-            {
-                rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
-            }
-            else
-            {
-                rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
-            }
-        }
+        
         
         if(transform.position.x > _slime.startPosition.x + _slime.SlimeData.patrolDistance && _slime.MovingRight)
         {
@@ -43,6 +33,21 @@ public class PatrolState : BaseState
         }
         
         return null;
+    }
+
+    public override void FixedTick()
+    {
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.SlimeData.maxVelocity)
+        {
+            if (_slime.MovingRight)
+            {
+                rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.force, ForceMode2D.Force);
+            }
+            else
+            {
+                rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.force, ForceMode2D.Force);
+            }
+        }
     }
 
     public override System.Type GetCurrentStateType()

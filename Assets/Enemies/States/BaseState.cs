@@ -14,5 +14,6 @@ public abstract class BaseState
     }
 
     public abstract System.Type Tick();
+    public virtual void FixedTick(){}
     public abstract System.Type GetCurrentStateType();
 }

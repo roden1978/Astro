@@ -7,11 +7,6 @@ public static class Extensions
       return Vector3.Normalize(target - origin);
    }
 
-   public static void VelocityControl(this Rigidbody2D rb, float maxVelocity)
-   {
-      rb.velocity = new Vector2(maxVelocity, rb.velocity.y);
-   }
-
    public static bool PlayerSideDetect(this Slime slime, Transform transform)
    {
       return slime.player.transform.position.x > transform.position.x;

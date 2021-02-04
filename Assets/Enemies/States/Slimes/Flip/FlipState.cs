@@ -10,7 +10,7 @@
 
     public override System.Type Tick()
     {
-        _prevState = _slime.GetComponent<StateMashine>().GetPrevState;
+        if (_prevState == null) _prevState = _slime.GetComponent<StateMashine>().GetPrevState;
 
         _slime.MovingRight = !_slime.MovingRight;
         transform.Rotate(0f, 180f, 0f);

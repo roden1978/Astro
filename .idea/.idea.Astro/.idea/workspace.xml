@@ -166,14 +166,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/Turrets/Turret.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/TurretSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Stardust/Bullets/StardustBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Guns/DesertEagle/Bullets/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Alligator/AlligatorBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
@@ -208,22 +206,23 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/PatrolState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slime.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Common/FlipState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/TurretPatrol.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/PatrolState.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/TurretSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Turrets/Turret.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/TurretPatrolState.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/TurretSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" />
       </list>
     </option>
   </component>
@@ -323,6 +322,8 @@
       <workItem from="1611980050945" duration="12756000" />
       <workItem from="1612067266787" duration="9293000" />
       <workItem from="1612167723691" duration="5703000" />
+      <workItem from="1612324724730" duration="5054000" />
+      <workItem from="1612415394983" duration="2668000" />
     </task>
     <servers />
   </component>
@@ -348,11 +349,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="606" y="275" key="RiderGenerateDialog" timestamp="1612179275854">
-      <screen x="0" y="0" width="1600" height="1170" />
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1612325549262">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1612179275854" />
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612087902812" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612325549262" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
