@@ -4,25 +4,61 @@ public class SlimeData : ScriptableObject
 {
     [SerializeField]
     [Tooltip("Сила прикладываемая к телу при патрулировании")]
-    public float force;
+    private float force;
     
     [SerializeField]
     [Tooltip("Дистанция патрулирования")]
-    public float patrolDistance;
+    private float patrolDistance;
 	
     [SerializeField]
     [Tooltip("Дистанция при которой начинается атака")]
-    public float attackDistance;
+    private float attackDistance;
 	
     [SerializeField]
     [Tooltip("Дистанция при которой завершается погоня")]
-    public float stopChaseDistance;
+    private float stopChaseDistance;
 	
     [SerializeField]
     [Tooltip("Сила прыжка")]
-    public float jumpForce;
+    private float jumpForce;
     
     [SerializeField]
     [Tooltip("Максимальное ускорение движения")]
-    public float maxVelocity;
+    private float maxVelocity;
+
+    public float Force
+    {
+	    get => force;
+	    set => force = value;
+    }
+
+    public float PatrolDistance
+    {
+	    get => patrolDistance;
+	    set => patrolDistance = value;
+    }
+
+    public float AttackDistance
+    {
+	    get => attackDistance;
+	    set => attackDistance = value;
+    }
+
+    public float StopChaseDistance
+    {
+	    get => stopChaseDistance;
+	    set => stopChaseDistance = value;
+    }
+
+    public float JumpForce
+    {
+	    get => jumpForce;
+	    set => jumpForce = value;
+    }
+
+    public float GetMaxVelocity
+    {
+	    get => maxVelocity;
+	    set => maxVelocity = value;
+    }
 }

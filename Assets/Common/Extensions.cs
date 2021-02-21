@@ -7,8 +7,13 @@ public static class Extensions
       return Vector3.Normalize(target - origin);
    }
 
-   public static bool PlayerSideDetect(this Slime slime, Transform transform)
+   public static bool PlayerSideDetect(this Slime slime, Transform transform) //bad
    {
       return slime.player.transform.position.x > transform.position.x;
+   }
+
+   public static bool GroundCheck(this Collider2D collider2D, string layerName)
+   {
+      return collider2D.IsTouchingLayers(1 << LayerMask.NameToLayer(layerName));
    }
 }

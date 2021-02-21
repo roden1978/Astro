@@ -46,7 +46,7 @@ public class Slime : MonoBehaviour
             {typeof(AttackState), new AttackState(this)}
         };
         
-        GetComponent<StateMashine>().SetStates(states);
+         StateMashine.SetStates(states);
     }
 
     public void SetTarget(GameObject target)
@@ -59,9 +59,5 @@ public class Slime : MonoBehaviour
         get => movingRight;
         set => movingRight = value;
     }
-
-    public bool CheckGround()
-    {
-        return groundCollider.IsTouchingLayers(1 << LayerMask.NameToLayer("Ground"));
-    }
+    
 }
