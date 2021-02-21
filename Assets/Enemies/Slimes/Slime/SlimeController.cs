@@ -1,13 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
-	#pragma warning disable 0649
+	
+	/*#pragma warning disable 0649
 	[SerializeField]
 	[Tooltip("Физическое тело")]
-    private Rigidbody2D rb;
+	private Rigidbody2D rb;
+    
+	[SerializeField]
+	[Tooltip("Коллайдер земли")]
+	private Collider2D collider;
     
 	[SerializeField]
 	[Tooltip("Скорость при патрулировании")]
@@ -60,6 +64,7 @@ public class SlimeController : MonoBehaviour
 	
 	private SpriteRenderer sr;
 	
+	
 	private bool movingRight = true;
 	private bool chill = false;
 	private bool angry = false;
@@ -87,6 +92,7 @@ public class SlimeController : MonoBehaviour
 	    Physics2D.queriesStartInColliders = false;
 	    
 	    SpriteRendererFind();
+	    
 	    
     }
     
@@ -205,6 +211,17 @@ public class SlimeController : MonoBehaviour
         }
     }
     
+	public bool MovingRight {
+		get => movingRight;
+	set => movingRight = value;
+	}
+	
+	public Rigidbody2D GetRigidBody
+	{
+		get => rb;
+		set => rb = value;
+	}
+    
 	private void Chill()
 	{
 		if(transform.position.x > startPosition.x + patrolDistance && movingRight)
@@ -268,7 +285,7 @@ public class SlimeController : MonoBehaviour
 	
 	private void StartMoveAnimation(){
 		if(isGround && !isOnAnimationMove){
-			animator.SetBool("isSliming", true);
+			//animator.SetBool("isSliming", true);
 			animator.SetBool("isAttack", false);
 			isOnAnimationMove = true;
 			//Debug.Log("Start Moving Animation");
@@ -389,6 +406,6 @@ public class SlimeController : MonoBehaviour
 				}
 			}
 		}
-	}
-	
+	}*/
+
 }

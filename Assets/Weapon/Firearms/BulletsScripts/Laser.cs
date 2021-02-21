@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Laser : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField] Weapon gun;
+    [FormerlySerializedAs("gun")] [SerializeField] Weapon weapon;
     [SerializeField] float laserSpeed;
     [SerializeField] float maxLaserLenght;
     [SerializeField] GameObject vfxCollision;
@@ -29,12 +30,12 @@ public class Laser : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = gun.ShootPoint;
-        transform.rotation = gun.ShootPointRotation;
+        transform.position = weapon.ShootPoint;
+        transform.rotation = weapon.ShootPointRotation;
 
         float distance = lineRenderer.GetPosition(1).x;
-        Vector3 direction = gun.TargetPoint - gun.ShootPoint;
-        hit = Physics2D.Raycast(gun.ShootPoint, direction, distance);
+        Vector3 direction = weapon.ShootPoint.DirectionTo(weapon.TargetPoint);
+        hit = Physics2D.Raycast(weapon.ShootPoint, direction, distance);
         
         if (hit.collider)
         {

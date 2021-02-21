@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.850747599.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\Unity\Astro" t="IncludeRecursive">
+    <e p="C:\Unity\Astro" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -22,6 +20,17 @@
           <e p="CameraFollow.cs" t="Include" />
         </e>
         <e p="Common" t="Include">
+          <e p="Behaviour" t="Include">
+            <e p="Flip" t="Include">
+              <e p="IRotatable.cs" t="Include" />
+              <e p="Rotate.cs" t="Include" />
+            </e>
+            <e p="Ground" t="Include">
+              <e p="Ground.cs" t="Include" />
+              <e p="IGroundable.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Extensions.cs" t="Include" />
           <e p="UniFPSCounter.cs" t="Include" />
         </e>
         <e p="Enemies" t="Include">
@@ -29,7 +38,37 @@
             <e p="AliensController.cs" t="Include" />
           </e>
           <e p="Slimes" t="Include">
-            <e p="SlimeController.cs" t="Include" />
+            <e p="Slime" t="Include">
+              <e p="SlimeController.cs" t="Include" />
+            </e>
+            <e p="Slime.cs" t="Include" />
+          </e>
+          <e p="States" t="Include">
+            <e p="BaseState.cs" t="Include" />
+            <e p="Slimes" t="Include">
+              <e p="Attack" t="Include">
+                <e p="AttackState.cs" t="Include" />
+              </e>
+              <e p="Chase" t="Include">
+                <e p="ChaseState.cs" t="Include" />
+              </e>
+              <e p="Flip" t="Include">
+                <e p="FlipState.cs" t="Include" />
+              </e>
+              <e p="Patrol" t="Include">
+                <e p="PatrolState.cs" t="Include" />
+              </e>
+            </e>
+            <e p="StateMashine.cs" t="Include" />
+            <e p="Turrets" t="Include">
+              <e p="Patrol" t="Include">
+                <e p="ChangeRotateDirectionState.cs" t="Include" />
+                <e p="TurretPatrolState.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Turrets" t="Include">
+            <e p="Turret.cs" t="Include" />
           </e>
         </e>
         <e p="Joystick Pack" t="Include">
@@ -159,6 +198,34 @@
               </e>
             </e>
           </e>
+          <e p="Sirenix" t="Include">
+            <e p="Odin Inspector" t="Include">
+              <e p="Modules" t="Include">
+                <e p="Unity.Mathematics" t="Include">
+                  <e p="manifest.txt" t="Include" />
+                  <e p="MathematicsDrawers.cs" t="Include" />
+                  <e p="Sirenix.OdinInspector.Modules.UnityMathematics.asmdef" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="AssemblyImportSettingsAutomation.cs" t="Include" />
+                  <e p="BuildAOTAutomation.cs" t="Include" />
+                  <e p="EnsureOdinInspectorDefine.cs" t="Include" />
+                  <e p="FixBrokenUnityObjectWrapperDrawer.cs" t="Include" />
+                  <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.asmdef" t="Include" />
+                  <e p="SyncListDrawer.cs" t="Include" />
+                  <e p="SyncVarAttributeDrawer.cs" t="Include" />
+                  <e p="Vector2IntMinMaxAttributeDrawer.cs" t="Include" />
+                  <e p="VectorIntDrawers.cs" t="Include" />
+                  <e p="VectorIntPropertyResolvers.cs" t="Include" />
+                </e>
+                <e p="SerializedNetworkBehaviour.cs" t="Include" />
+                <e p="Sirenix.OdinInspector.CompatibilityLayer.asmdef" t="Include" />
+                <e p="VectorIntFormatters.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Prefabs" t="Include">
           <e p="ParticleEffects" t="Include">
@@ -169,6 +236,10 @@
           </e>
         </e>
         <e p="ScriptableObjects" t="Include">
+          <e p="Enemies" t="Include">
+            <e p="SlimeData.cs" t="Include" />
+            <e p="TurretSettings.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
             <e p="Player.cs" t="Include" />
           </e>
@@ -205,7 +276,12 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="ScriptInspector.csproj" t="IncludeRecursive" />
+      <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
+      <e p="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" t="IncludeRecursive" />
+      <e p="Sirenix.OdinInspector.Modules.UnityMathematics.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.1217478256.00" t="ExcludeRecursive" />
   </component>
 </project>
