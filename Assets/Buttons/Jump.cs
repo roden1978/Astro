@@ -5,12 +5,12 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField]
     private GameObject player;
-    private PlayerController playerController;
+    private Player playerController;
     public void OnPointerDown(PointerEventData eventData)
     {
         if(gameObject.name == "JumpButton")
         {
-            playerController.Jump(); //SetDirection(new Vector2(playerController.GetDirection().x, 1));
+            //playerController.Jump(); //SetDirection(new Vector2(playerController.GetDirection().x, 1));
 
             //print("jump" + playerController.GetDirection());
         }
@@ -28,7 +28,7 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // Start is called before the first frame update
     void Start()
     {
-	    playerController = player.GetComponent<PlayerController>();
+	    playerController = player.GetComponent<Player>();
 	    
 	    if (!playerController){
 	    	print ("Jump script Player not found");

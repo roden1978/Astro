@@ -7,7 +7,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	[SerializeField]
     private GameObject player;
     
-    private PlayerController playerController;
+    private Player playerController;
     private float shootDelay;
     
     public void OnPointerDown(PointerEventData eventData)
@@ -40,7 +40,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Start()
     {
-	    playerController = player.GetComponent<PlayerController>();
+	    playerController = player.GetComponent<Player>();
     }
 
 }

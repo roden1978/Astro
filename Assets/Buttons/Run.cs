@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Run : MonoBehaviour, IPointerDownHandler
 {
-	private PlayerController playerController;
+	private Player playerController;
 	private Image image;
 	public void OnPointerDown(PointerEventData eventData)
 	{
@@ -18,7 +18,7 @@ public class Run : MonoBehaviour, IPointerDownHandler
 	{
 		try
 		{
-			playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+			playerController = GameObject.FindWithTag("Player").GetComponent<Player>();
 		}
 		catch (Exception e)
 		{

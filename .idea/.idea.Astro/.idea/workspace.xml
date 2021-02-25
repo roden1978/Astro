@@ -167,28 +167,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Guns/DesertEagle/Bullets/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Rifles/Alligator/AlligatorBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Shootgun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/BaseAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Behaviour/BaseFlip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IChaseble.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/IAttackable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Behaviour/IFlipable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/BaseChase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Idle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/BasePatrol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/BaseEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Idle.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IHauntingable.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" />
@@ -215,14 +199,31 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/TurretPatrolState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/FireState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" />
       </list>
     </option>
   </component>
@@ -326,6 +327,10 @@
       <workItem from="1612415394983" duration="2668000" />
       <workItem from="1613881962636" duration="64000" />
       <workItem from="1613882054065" duration="3536000" />
+      <workItem from="1613888275480" duration="6302000" />
+      <workItem from="1613969589291" duration="14689000" />
+      <workItem from="1614056854481" duration="7138000" />
+      <workItem from="1614226546028" duration="9365000" />
     </task>
     <servers />
   </component>
@@ -351,20 +356,15 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1612325549262">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1613994139949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1612179275854" />
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612325549262" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613994139949" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="384" y="186" key="SettingsEditor/0.0.1600.1170@0.0.1600.1170" timestamp="1605081641086" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605936607839" />
-    <state x="392" y="317" key="Vcs.Push.Dialog.v2" timestamp="1605154442009">
-      <screen x="0" y="0" width="1600" height="1170" />
-    </state>
-    <state x="392" y="317" key="Vcs.Push.Dialog.v2/0.0.1600.1170@0.0.1600.1170" timestamp="1605154442009" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606194133567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

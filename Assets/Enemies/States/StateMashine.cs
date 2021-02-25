@@ -37,9 +37,10 @@ public class StateMashine : MonoBehaviour
         CurrentState?.FixedTick();
     }
 
-    private void SwitchToNewState(System.Type nextState)
+    public void SwitchToNewState(System.Type nextState)
     {
         CurrentState = _availableStates[nextState];
+        Debug.Log($"Current state {CurrentState}");
         OnStateChanged?.Invoke(CurrentState);
     }
 

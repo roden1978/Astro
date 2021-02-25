@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Player", menuName = "Players/Player")]
-public class Player : ScriptableObject
+public class PlayerSettings : ScriptableObject
 {
 	#pragma warning disable 0649
 	[SerializeField] [Tooltip("Имя игрока")]

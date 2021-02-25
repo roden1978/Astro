@@ -8,11 +8,12 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
     // Start is called before the first frame update
     [SerializeField]
     private GameObject player;
-    private PlayerController playerController;
+    private Player playerController;
     private Image image;
     public void OnPointerDown(PointerEventData eventData)
     {
-       playerController.UICrouchButton = playerController && !playerController.UICrouchButton;
+       //playerController.UICrouchButton = playerController && !playerController.UICrouchButton;
+       //playerController.StateMashine.SwitchToNewState(typeof(CrouchState));
        image.color = playerController.UICrouchButton ? Color.green : Color.white;
     }
 
@@ -22,7 +23,7 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
     {
         try
         {
-            playerController = player.GetComponent<PlayerController>();
+            playerController = player.GetComponent<Player>();
         }
         catch (Exception e)
         {

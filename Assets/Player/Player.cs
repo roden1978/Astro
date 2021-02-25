@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] [Tooltip("Ссылка на SO игрока")]
-    private Player player;
+    private PlayerSettings playerSettings;
 
     [SerializeField] [Tooltip("Максимальноу ускорение при хотьбе")]
     private float maxWalkVelocity;
@@ -38,11 +40,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] [Tooltip("Мертвая зона джойстика")]
     private float joystickDelay;
+    
+    [SerializeField] [Tooltip("Коллайдер земли")]
+    private Collider2D groundCollider2D;
+
 
     [SerializeField] bool keyboardController;
     [SerializeField] bool uiController;
 
 #pragma warning restore 0649
+    
+    //-----------------------------------------
+    public StateMashine StateMashine => GetComponent<StateMashine>();
+    private bool movingRight;
+    public bool ground;
+    private Dictionary<System.Type, BaseState> states;
+    //-----------------------------------------
 
     private Vector2 direction;
     private float maxVelocity;
@@ -57,17 +70,9 @@ public class PlayerController : MonoBehaviour
     private float rightArmLockPositionUp;
     private float rightArmLockPositionDown;
 
-    private Rigidbody2D playerRb2D;
-
-    private Animator animator;
-    private bool crouch;
-    private bool isCrouchAnimation;
-    private bool run;
-    private bool isRunningAnimation;
-    private bool walk;
-    private bool isWalkingAnimation;
-    private bool isGround;
-    private bool uiRunButton;
+    public Animator animator;
+  
+     bool uiRunButton;
     private bool uiCrouchButton;
 
     private WeaponController wc;
@@ -79,28 +84,35 @@ public class PlayerController : MonoBehaviour
     private int weaponIndex;
 
 
+    private void Awake()
+    {
+        InitializeStateMashine();
+    }
+    private void InitializeStateMashine()
+    {
+        states = new Dictionary<System.Type, BaseState>()
+        {
+            {typeof(IdleState), new IdleState(this)},
+            {typeof(MoveState), new MoveState(this)},
+            {typeof(RunState), new RunState(this)},
+            {typeof(JumpState), new JumpState(this)},
+            {typeof(CrouchState), new CrouchState(this)},
+            {typeof(PlayerFlipState), new PlayerFlipState(this)}
+        };
+        
+        StateMashine.SetStates(states);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        crouch = false;
-        isCrouchAnimation = false;
-        uiCrouchButton = false;
-        run = false;
-        walk = false;
-        isWalkingAnimation = false;
-        isGround = true;
-        playerRb2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        movingRight = true;
+       animator = GetComponent<Animator>();
         weaponIndex = 0;
-        uiRunButton = false;
 
         InitWeapon();
         wc = currentWeapon.GetComponent<WeaponController>();
 
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
-
-        if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
-        else Debug.Log("rightArmWeaponPoint false");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
             .Find("boneRightWrist").Find("right");
@@ -113,26 +125,25 @@ public class PlayerController : MonoBehaviour
         {
             rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
         }
-        else Debug.Log("rightArmWeaponPoint not found");
+        //else Debug.Log("rightArmWeaponPoint not found");
     }
 
-
-    // Update is called once per frame
+   
     void Update()
     {
         ReadDeviceDirections();
-        VelocityControl();
+        //ground = GroundCollider2D.GroundCheck("Ground");
+        
         MovingRightArm();
-        Walk();
-        Run();
     }
-
+    
     private void ReadDeviceDirections()
     {
         //Считываем нажатие клавиш управления на клавиатуре и изменение положения джойстика
-        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0f);
         joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
-
+        //Debug.Log(Input.GetKeyDown(KeyCode.W));
+        
         if (Mathf.Abs(joystickDirection.x) > joystickDelay || keyboardDirection.x != 0)
         {
             if (keyboardDirection.x != 0)
@@ -144,49 +155,24 @@ public class PlayerController : MonoBehaviour
             {
                 direction.x = joystickDirection.x;
             }
-
-            if (!walk && !run)
-            {
-                walk = true;
-                Debug.Log($"walk = {walk}");
-            }
         }
         else
         {
-            if (walk)
-            {
-                walk = false;
-
-                Debug.Log($"walk = {walk}");
-            }
-
-            if (run)
-            {
-                run = false;
-                Debug.Log($"run = {run}");
-            }
-
             ResetX();
         }
-
-        if (keyboardDirection.y != 0)
-        {
-            if (keyboardDirection.y != 0)
-            {
-                direction.y = keyboardDirection.y;
-            }
-
-            if (keyboardDirection.y < 0 && !crouch)
-            {
-                uiCrouchButton = !uiCrouchButton;
-                crouch = true;
-            }
-        }
-        else
-        {
-            ResetY();
-        }
-
+        
+      //  if (Input.GetKeyDown(KeyCode.W))
+      //  {
+            direction.y = keyboardDirection.y = Input.GetKeyDown(KeyCode.W) ? 1 : 0;
+       //     Debug.Log("Jump");
+      //  }
+       // else
+       // {
+       //     Input.ResetInputAxes();
+        //}
+        
+        
+        
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -216,64 +202,8 @@ public class PlayerController : MonoBehaviour
             //GrenadeThrow();
         }
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || uiRunButton) && direction.x != 0)
-        {
-            if (!run)
-            {
-                run = true;
-                walk = false;
-                Debug.Log($"run = {run}");
-            }
-        }
-        else if (run) run = false;
+       
     }
-
-    private void Walk()
-    {
-        if (walk)
-        {
-            if (!isWalkingAnimation)
-            {
-                maxVelocity = maxWalkVelocity;
-                animator.SetBool("walk", true);
-                isWalkingAnimation = true;
-                Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
-            }
-        }
-        else
-        {
-            if (isWalkingAnimation)
-            {
-                animator.SetBool("walk", false);
-                isWalkingAnimation = false;
-                Debug.Log($"isWalkingAnimation = {isWalkingAnimation}");
-            }
-        }
-    }
-
-    private void Run()
-    {
-        if (run)
-        {
-            if (!isRunningAnimation)
-            {
-                maxVelocity = maxRunVelocity;
-                animator.SetBool("run", true);
-                isRunningAnimation = true;
-                Debug.Log($"isRunningAnimation = {isRunningAnimation}");
-            }
-        }
-        else
-        {
-            if (isRunningAnimation)
-            {
-                animator.SetBool("run", false);
-                isRunningAnimation = false;
-                Debug.Log($"isRunningAnimation = {isRunningAnimation}");
-            }
-        }
-    }
-
 
     public void Shoot()
     {
@@ -285,30 +215,23 @@ public class PlayerController : MonoBehaviour
         wc.StopShoot();
     }
 
-    private void FixedUpdate()
-    {
-        KeyboardJump();
-        Crouch();
-        Move();
-    }
-
     private void InitWeapon()
     {
         int count = 0;
-        if (player.CurrentWeaponName != "")
+        if (playerSettings.CurrentWeaponName != "")
         {
-            foreach (var weapon in player.Weapons)
+            foreach (var weapon in playerSettings.Weapons)
             {
-                if (weapon.name == player.CurrentWeaponName)
+                if (weapon.name == playerSettings.CurrentWeaponName)
                 {
                     currentWeapon = Instantiate(weapon, weaponPoint.transform);
-                    player.CurrentWeaponName = weapon.name;
-                    weaponIndex = count == player.Weapons.Count - 1 ? 0 : count + 1;
-                    Debug.Log($"weaponIndex {player.Weapons.Count} count {count}");
+                    playerSettings.CurrentWeaponName = weapon.name;
+                    weaponIndex = count == playerSettings.Weapons.Count - 1 ? 0 : count + 1;
+                    //Debug.Log($"weaponIndex {playerSettings.Weapons.Count} count {count}");
                 }
                 else
                 {
-                    Debug.Log("Error weapon Init");
+                    //Debug.Log("Error weapon Init");
                 }
 
                 count++;
@@ -316,8 +239,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
-            player.CurrentWeaponName = player.Weapons[weaponIndex].name;
+            currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
+            playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
             weaponIndex++;
         }
     }
@@ -327,19 +250,19 @@ public class PlayerController : MonoBehaviour
         Debug.Log(wc.Weapon.IsShooting);
         if (!wc.Weapon.IsShooting)
         {
-            int weaponCount = player.Weapons.Count;
+            int weaponCount = playerSettings.Weapons.Count;
             if (currentWeapon) Destroy(currentWeapon);
 
-            currentWeapon = Instantiate(player.Weapons[weaponIndex], weaponPoint.transform);
+            currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
             if (currentWeapon)
             {
                 wc = currentWeapon.GetComponent<WeaponController>();
-                currentWeapon.name = player.Weapons[weaponIndex].name;
-                player.CurrentWeaponName = currentWeapon.name;
+                currentWeapon.name = playerSettings.Weapons[weaponIndex].name;
+                playerSettings.CurrentWeaponName = currentWeapon.name;
                 rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
-                if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
-                else Debug.Log("rightArmWeaponPoint false");
+                /*if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
+                else Debug.Log("rightArmWeaponPoint false");*/
 
                 rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
                     .Find("boneRightWrist").Find("right");
@@ -347,16 +270,16 @@ public class PlayerController : MonoBehaviour
                 if (rightWeaponPoint && rightArmWeaponPoint)
                 {
                     rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-                    Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
-                              rightWeaponPoint.position);
-                    Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+                    //Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
+                    //          rightWeaponPoint.position);
+                    //Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
                 }
-                else Debug.Log("rightArmWeaponPoint not found");
+                //else Debug.Log("rightArmWeaponPoint not found");
 
                 rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
                 rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
 
-                Debug.Log($"{currentWeapon.name} index {weaponIndex}");
+                //Debug.Log($"{currentWeapon.name} index {weaponIndex}");
                 if (weaponIndex == weaponCount - 1)
                 {
                     weaponIndex = -1;
@@ -366,106 +289,23 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Weapon not change, weapon not found");
+                //Debug.Log("Weapon not change, weapon not found");
             }
         }
-    }
-
-    private void Move()
-    {
-        if (direction.x != 0 && !crouch)
-        {
-            playerRb2D.AddForce(new Vector2(force.x * direction.x, 0.0f), ForceMode2D.Force);
-        }
-    }
-
-    private void KeyboardJump()
-    {
-        if (direction.y > 0 && prevKeyboardY != 1)
-        {
-            prevKeyboardY = direction.y;
-            Jump();
-        }
-    }
-
-    public void Jump()
-    {
-        if (isGround && !uiCrouchButton)
-        {
-            animator.SetTrigger("jump");
-            playerRb2D.AddForce(new Vector2(0.0f, jumpForce), ForceMode2D.Impulse);
-        }
-        else
-        {
-            uiCrouchButton = false;
-            crouch = false;
-        }
-    }
-
-    public void GrenadeThrow()
-    {
-        rightArm.transform.localPosition = new Vector3(0,
-            rightArm.transform.localPosition.y, rightArm.transform.localPosition.z);
-        animator.SetTrigger("throw");
-    }
-
-    public void RestoreArmPosition()
-    {
-        //rightArm.transform.localPosition = new Vector3(Rarm.x, leftArm.transform.position.y, Rarm.z);
-        Debug.Log($"LarmY {leftArm.transform.position.y}");
-    }
-
-    public void Crouch()
-    {
-        if (uiCrouchButton)
-        {
-            if (!isCrouchAnimation)
-            {
-                animator.SetBool("crouch", true);
-                crouch = true;
-                isCrouchAnimation = true;
-            }
-        }
-        else
-        {
-            if (isCrouchAnimation)
-            {
-                animator.SetBool("crouch", false);
-                crouch = false;
-                isCrouchAnimation = false;
-            }
-        }
-    }
-
-    private void VelocityControl()
-    {
-        if (direction.x > 0 && playerRb2D.velocity.x > maxVelocity)
-        {
-            playerRb2D.velocity = new Vector2(maxVelocity, playerRb2D.velocity.y);
-        }
-
-        if (direction.x < 0 && playerRb2D.velocity.x < -maxVelocity)
-        {
-            playerRb2D.velocity = new Vector2(-maxVelocity, playerRb2D.velocity.y);
-        }
-
-        if (direction.x == 0) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
-
-        if (Mathf.Abs(playerRb2D.velocity.y) >= 12)
-        {
-            Debug.Log("Player is dead");
-        }
-        
-        if (crouch) playerRb2D.velocity = new Vector2(0, playerRb2D.velocity.y);
-    }
-
-
-    public bool Ground
-    {
-        set => isGround = value;
     }
 
    
+    public Collider2D GroundCollider2D
+    {
+        get => groundCollider2D;
+        set => groundCollider2D = value;
+    }
+
+    public Vector2 Force
+    {
+        get => force;
+        set => force = value;
+    }
 
     public Vector2 Direction
     {
@@ -483,6 +323,17 @@ public class PlayerController : MonoBehaviour
         direction.y = prevKeyboardY = 0;
     }
 
+    public float MaxWalkVelocity
+    {
+        get => maxWalkVelocity;
+        set => maxWalkVelocity = value;
+    }
+
+    public float MaxRunVelocity
+    {
+        get => maxRunVelocity;
+        set => maxRunVelocity = value;
+    }
 
     public bool UICrouchButton
     {
@@ -504,6 +355,14 @@ public class PlayerController : MonoBehaviour
     public WeaponController getWC
     {
         get => wc;
+    }
+
+    public float JumpForce => jumpForce;
+
+    public bool MovingRight
+    {
+        get => movingRight;
+        set => movingRight = value;
     }
 
     private void MovingRightArm()

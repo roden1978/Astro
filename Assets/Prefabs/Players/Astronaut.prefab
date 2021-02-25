@@ -1863,9 +1863,8 @@ GameObject:
   - component: {fileID: 1355233939751362761}
   - component: {fileID: 1355233939751362760}
   - component: {fileID: 1355233939751362805}
-  - component: {fileID: 1355233939751362766}
-  - component: {fileID: 1355233939751362767}
   - component: {fileID: 1355233939751362764}
+  - component: {fileID: 660642981}
   m_Layer: 8
   m_Name: Astronaut
   m_TagString: Player
@@ -2018,30 +2017,6 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 0.046855927, b: 1, a: 1}
     showGizmo: 1
---- !u!114 &1355233939751362766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5055538608133943192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34aba7fefa16b7d4380883b68b10cf79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1355233939751362767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5055538608133943192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3b26b6c13e95741a48bbd027e42210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1355233939751362764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2054,11 +2029,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a49aa11f2ca3ca43872b8b6d4492370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 7a520c1fbfe5980438668805e4fee9d7, type: 2}
+  playerSettings: {fileID: 11400000, guid: 7a520c1fbfe5980438668805e4fee9d7, type: 2}
   maxWalkVelocity: 2
   maxRunVelocity: 5
   jumpForce: 10
-  force: {x: 50, y: 0}
+  force: {x: 200, y: 0}
   rightArm: {fileID: 1355233938665848327}
   leftArm: {fileID: 1355233938647813895}
   weaponPoint: {fileID: 1355233938519310352}
@@ -2067,8 +2042,22 @@ MonoBehaviour:
     type: 3}
   viewJoystick: {fileID: 0}
   joystickDelay: 0.3
+  groundCollider2D: {fileID: 1355233939751362761}
   keyboardController: 0
   uiController: 0
+  animator: {fileID: 0}
+--- !u!114 &660642981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055538608133943192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cad937c5b4cb8e4fa5250ab88da42c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5686710566827852679
 GameObject:
   m_ObjectHideFlags: 0

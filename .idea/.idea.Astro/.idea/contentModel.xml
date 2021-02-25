@@ -45,6 +45,15 @@
           </e>
           <e p="States" t="Include">
             <e p="BaseState.cs" t="Include" />
+            <e p="Player" t="Include">
+              <e p="CrouchState.cs" t="Include" />
+              <e p="FireState.cs" t="Include" />
+              <e p="IdleState.cs" t="Include" />
+              <e p="JumpState.cs" t="Include" />
+              <e p="MoveState.cs" t="Include" />
+              <e p="PlayerFlipState.cs" t="Include" />
+              <e p="RunState.cs" t="Include" />
+            </e>
             <e p="Slimes" t="Include">
               <e p="Attack" t="Include">
                 <e p="AttackState.cs" t="Include" />
@@ -96,9 +105,7 @@
         </e>
         <e p="MouseLook.cs" t="Include" />
         <e p="Player" t="Include">
-          <e p="Flip.cs" t="Include" />
-          <e p="GroundDetect.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -241,7 +248,7 @@
             <e p="TurretSettings.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
-            <e p="Player.cs" t="Include" />
+            <e p="PlayerSettings.cs" t="Include" />
           </e>
           <e p="Weapon" t="Include">
             <e p="Ammo" t="Include">
