@@ -46,14 +46,16 @@ public class RunState : BaseState
             return typeof(PlayerFlipState);
         }
         
+        Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxRunVelocity)
+            rigidbody2D.AddForce(force, ForceMode2D.Force);
+        
         return null;
     }
 
     public override void FixedTick()
     {
-        Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
-        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxRunVelocity)
-            rigidbody2D.AddForce(force, ForceMode2D.Force);
+        
     }
 
     public override System.Type GetCurrentStateType()

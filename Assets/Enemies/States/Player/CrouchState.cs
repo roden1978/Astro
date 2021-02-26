@@ -17,7 +17,7 @@ public class CrouchState : BaseState
         
         if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
         
-        if (_player.Direction.y > 0)
+        if ((int) _player.Direction.y == 1)
         {
             _player.animator.SetBool("crouch", false);
             return _prevState;

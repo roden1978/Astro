@@ -30,7 +30,7 @@ public class MoveState : BaseState
             return typeof(IdleState);  
         }
 
-        if (_player.Direction.y > 0 && _player.GroundCollider2D.GroundCheck("Ground"))
+        if ((int)_player.Direction.y == 1)
         {
             _player.animator.SetTrigger("jump");
             return typeof(JumpState);
@@ -54,18 +54,23 @@ public class MoveState : BaseState
         {
             return typeof(PlayerFlipState);
         }
+
+        /*if (_player.Direction.x != 0)
+        {*/
+            
+        //}
         return null;
     }
 
     public override void FixedTick()
     {
         Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
-        
-        //Debug.Log($"Direction X {force}");
-        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxWalkVelocity)
-        {
-            rigidbody2D.AddForce(force, ForceMode2D.Force);
-        }
+                
+                    //Debug.Log($"Direction X {force}");
+                    if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxWalkVelocity)
+                    {
+                        rigidbody2D.AddForce(force, ForceMode2D.Force);
+                    }
         
     }
 

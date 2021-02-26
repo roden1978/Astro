@@ -158,18 +158,19 @@ public class Player : MonoBehaviour
         }
         else
         {
-            ResetX();
+           ResetX();
         }
         
-      //  if (Input.GetKeyDown(KeyCode.W))
-      //  {
-            direction.y = keyboardDirection.y = Input.GetKeyDown(KeyCode.W) ? 1 : 0;
-       //     Debug.Log("Jump");
-      //  }
-       // else
-       // {
-       //     Input.ResetInputAxes();
-        //}
+        /*if (keyboardDirection.y != 0)
+        {*/
+            direction.y = Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0;
+            //direction.y = Input.GetKeyDown(KeyCode.S) ? -1 : 0;
+
+        /*}
+       else
+        {
+            ResetY();
+        }*/
         
         
         
