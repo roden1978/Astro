@@ -40,3 +40,4 @@ MonoBehaviour:
     type: 3}
   runButton: {fileID: 6412117964946485039, guid: 03da4a4044a4d1c4687130c73f858c77,
     type: 3}
+  joystick: {fileID: 0}

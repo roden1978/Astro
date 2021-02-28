@@ -45,19 +45,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/IController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/KeyboardController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Attack/SlimeAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/IHauntingable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/SlimePatrol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Patrol/IPatrolable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Patrol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Chase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
@@ -87,21 +83,27 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/FireState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/KeyboardController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/Canva.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/JoystickController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/IController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
       </list>
     </option>
@@ -211,6 +213,8 @@
       <workItem from="1614056854481" duration="7138000" />
       <workItem from="1614226546028" duration="9365000" />
       <workItem from="1614329944373" duration="6882000" />
+      <workItem from="1614401177917" duration="13614000" />
+      <workItem from="1614489771394" duration="10309000" />
     </task>
     <servers />
   </component>
@@ -236,11 +240,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1613994139949">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1614413223540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1612179275854" />
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613994139949" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614413223540" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605936607839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

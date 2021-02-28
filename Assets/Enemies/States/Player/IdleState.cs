@@ -18,25 +18,27 @@ public class IdleState : BaseState
             _player.animator.SetBool("walk", true);
             return typeof(MoveState);  
         }
+        
 
         if ((int) _player.Direction.y == 1)
         {
             _player.animator.SetTrigger("jump");
-            //_player.isCanJump = false;
             return typeof(JumpState); 
         }
 
 
-        if ((int)_player.Direction.y == -1)
+        if ((int)_player.Direction.y == -1 || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             return typeof(CrouchState);
         }
         
-        /*if (_player.GroundCollider2D.GroundCheck("Ground"))
+        if (_player.Direction.x == 0)
         {
-            _player.isCanJump = true;
-        }*/
+            _player.animator.SetBool("walk", false);
+            _player.animator.SetBool("run", false);
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);  
+        }
         
         return null;
     }

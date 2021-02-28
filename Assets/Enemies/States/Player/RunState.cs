@@ -20,14 +20,33 @@ public class RunState : BaseState
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
             return typeof(IdleState);  
         }
+
+        /*if (!_player.Run || !_player.UIRunButton)
+        {
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            return typeof(IdleState);
+        }*/
         
-        if (_player.Direction.y > 0)
+        if (!_player.Run && !_player.UIRunButton)
+        {
+            _player.animator.SetBool("run", false);
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+           return typeof(MoveState);
+        } 
+        
+        /*if (!_player.Run && !_player.UIRunButton)
+        {
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            return typeof(IdleState);
+        }*/
+        
+        if ((int)_player.Direction.y == 1)
         {
             _player.animator.SetTrigger("jump");
             return typeof(JumpState);
         }
         
-        if ((int)_player.Direction.y == -1)
+        if ((int)_player.Direction.y == -1  || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             _player.animator.SetBool("walk", false);
@@ -46,16 +65,19 @@ public class RunState : BaseState
             return typeof(PlayerFlipState);
         }
         
-        Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
-        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxRunVelocity)
-            rigidbody2D.AddForce(force, ForceMode2D.Force);
+        
         
         return null;
     }
 
     public override void FixedTick()
     {
-        
+        Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxRunVelocity)
+        {
+            rigidbody2D.AddForce(force, ForceMode2D.Force);
+        }
+                    
     }
 
     public override System.Type GetCurrentStateType()

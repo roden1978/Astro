@@ -13,14 +13,11 @@ public class MoveState : BaseState
 
     public override System.Type Tick()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (_player.Run || _player.UIRunButton)
         {
-            _player.animator.SetBool("walk", false);
             _player.animator.SetBool("run", true);
-            //_player.animator.SetBool("crouch", false);
             return typeof(RunState);
         }
-        
         
         if (_player.Direction.x == 0)
         {
@@ -36,7 +33,7 @@ public class MoveState : BaseState
             return typeof(JumpState);
         }
 
-        if ((int)_player.Direction.y == -1)
+        if ((int)_player.Direction.y == -1  || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             _player.animator.SetBool("walk", false);
@@ -65,12 +62,12 @@ public class MoveState : BaseState
     public override void FixedTick()
     {
         Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
-                
-                    //Debug.Log($"Direction X {force}");
-                    if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxWalkVelocity)
-                    {
-                        rigidbody2D.AddForce(force, ForceMode2D.Force);
-                    }
+
+        //Debug.Log($"Direction X {force}");
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxWalkVelocity)
+        {
+            rigidbody2D.AddForce(force, ForceMode2D.Force);
+        }
         
     }
 

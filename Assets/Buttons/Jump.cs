@@ -21,7 +21,7 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (gameObject.name == "JumpButton")
         {
-            playerController.Direction = new Vector2(playerController.Direction.x, 0);
+            playerController.Direction = new Vector2(playerController.Direction.x, 1);
         }
     }
 
@@ -37,9 +37,4 @@ public class Jump : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	    }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

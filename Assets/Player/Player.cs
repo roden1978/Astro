@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] [Tooltip("Ссылка на SO игрока")]
-    private PlayerSettings playerSettings;
+    public PlayerSettings playerSettings;
 
     [SerializeField] [Tooltip("Максимальноу ускорение при хотьбе")]
     private float maxWalkVelocity;
@@ -44,25 +44,20 @@ public class Player : MonoBehaviour
     [SerializeField] [Tooltip("Коллайдер земли")]
     private Collider2D groundCollider2D;
 
-
-    [SerializeField] bool keyboardController;
-    [SerializeField] bool uiController;
-
 #pragma warning restore 0649
     
     //-----------------------------------------
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private bool movingRight;
-    public bool ground;
+    private bool run;
+    private bool uiRunButton;
+    private bool uiCrouchButton;
     private Dictionary<System.Type, BaseState> states;
     //-----------------------------------------
 
     private Vector2 direction;
     private float maxVelocity;
     private Vector2 joystickDirection;
-    private Vector2 keyboardDirection;
-
-    private float prevKeyboardY;
 
     private float leftArmLockPositionUp = 0.15f;
     private float leftArmLockPositionDown = -0.15f;
@@ -71,9 +66,6 @@ public class Player : MonoBehaviour
     private float rightArmLockPositionDown;
 
     public Animator animator;
-  
-     bool uiRunButton;
-    private bool uiCrouchButton;
 
     private WeaponController wc;
 
@@ -125,54 +117,23 @@ public class Player : MonoBehaviour
         {
             rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
         }
-        //else Debug.Log("rightArmWeaponPoint not found");
     }
 
    
     void Update()
     {
-        ReadDeviceDirections();
-        //ground = GroundCollider2D.GroundCheck("Ground");
-        
+        KeyboardReadDirections();
+        JoystickReadDirections();
         MovingRightArm();
     }
-    
-    private void ReadDeviceDirections()
+
+    private void KeyboardReadDirections()
     {
-        //Считываем нажатие клавиш управления на клавиатуре и изменение положения джойстика
-        keyboardDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0f);
-        joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
-        //Debug.Log(Input.GetKeyDown(KeyCode.W));
         
-        if (Mathf.Abs(joystickDirection.x) > joystickDelay || keyboardDirection.x != 0)
-        {
-            if (keyboardDirection.x != 0)
-            {
-                direction.x = keyboardDirection.x;
-            }
-
-            if (joystickDirection.x != 0)
-            {
-                direction.x = joystickDirection.x;
-            }
-        }
-        else
-        {
-           ResetX();
-        }
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), 
+            Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
         
-        /*if (keyboardDirection.y != 0)
-        {*/
-            direction.y = Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0;
-            //direction.y = Input.GetKeyDown(KeyCode.S) ? -1 : 0;
-
-        /*}
-       else
-        {
-            ResetY();
-        }*/
-        
-        
+        run = !uiRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         
         //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -202,10 +163,18 @@ public class Player : MonoBehaviour
         {
             //GrenadeThrow();
         }
-
-       
     }
 
+    private void JoystickReadDirections()
+    {
+        joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+        
+        if (Mathf.Abs(joystickDirection.x) > joystickDelay)
+        {
+            direction.x = joystickDirection.x;
+        }
+    }
+   
     public void Shoot()
     {
         wc.Shoot();
@@ -228,11 +197,6 @@ public class Player : MonoBehaviour
                     currentWeapon = Instantiate(weapon, weaponPoint.transform);
                     playerSettings.CurrentWeaponName = weapon.name;
                     weaponIndex = count == playerSettings.Weapons.Count - 1 ? 0 : count + 1;
-                    //Debug.Log($"weaponIndex {playerSettings.Weapons.Count} count {count}");
-                }
-                else
-                {
-                    //Debug.Log("Error weapon Init");
                 }
 
                 count++;
@@ -248,7 +212,6 @@ public class Player : MonoBehaviour
 
     public void ChangeWeapon()
     {
-        Debug.Log(wc.Weapon.IsShooting);
         if (!wc.Weapon.IsShooting)
         {
             int weaponCount = playerSettings.Weapons.Count;
@@ -257,13 +220,10 @@ public class Player : MonoBehaviour
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
             if (currentWeapon)
             {
-                wc = currentWeapon.GetComponent<WeaponController>();
+                //wc = currentWeapon.GetComponent<WeaponController>();
                 currentWeapon.name = playerSettings.Weapons[weaponIndex].name;
                 playerSettings.CurrentWeaponName = currentWeapon.name;
                 rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
-
-                /*if (rightArmWeaponPoint) Debug.Log("rightArmWeaponPoint ok");
-                else Debug.Log("rightArmWeaponPoint false");*/
 
                 rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
                     .Find("boneRightWrist").Find("right");
@@ -271,16 +231,11 @@ public class Player : MonoBehaviour
                 if (rightWeaponPoint && rightArmWeaponPoint)
                 {
                     rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-                    //Debug.Log("rightArmWeaponPoint " + rightArmWeaponPoint.position + "rightWeaponPoint " +
-                    //          rightWeaponPoint.position);
-                    //Debug.Log("Pos " + (rightArmWeaponPoint.position - rightWeaponPoint.position));
+                   
                 }
-                //else Debug.Log("rightArmWeaponPoint not found");
-
                 rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
                 rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
 
-                //Debug.Log($"{currentWeapon.name} index {weaponIndex}");
                 if (weaponIndex == weaponCount - 1)
                 {
                     weaponIndex = -1;
@@ -290,11 +245,39 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Weapon not change, weapon not found");
+                Debug.Log("Weapon not change, weapon not found");
             }
         }
     }
+    private void MovingRightArm()
+    {
+        Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
+        Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
 
+        Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,
+            joystickDirection.y * .5f,
+            leftArmLocalPosition.z);
+
+
+        Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
+            joystickDirection.y * .5f,
+            rightArmLocalPosition.z);
+
+        if (currentPositionLeftArm.y >= leftArmLockPositionDown
+            && currentPositionLeftArm.y <= leftArmLockPositionUp)
+        {
+            leftArm.transform.localPosition = currentPositionLeftArm;
+        }
+
+
+        if (currentPositionRightArm.y >= rightArmLockPositionDown
+            && currentPositionRightArm.y <= rightArmLockPositionUp)
+        {
+            var localPosition = rightArm.transform.localPosition;
+            localPosition = new Vector3(localPosition.x, currentPositionRightArm.y, localPosition.z);
+            rightArm.transform.localPosition = localPosition;
+        }
+    }
    
     public Collider2D GroundCollider2D
     {
@@ -312,16 +295,6 @@ public class Player : MonoBehaviour
     {
         get => direction;
         set => direction = value;
-    }
-
-    private void ResetX()
-    {
-        direction.x = 0;
-    }
-
-    private void ResetY()
-    {
-        direction.y = prevKeyboardY = 0;
     }
 
     public float MaxWalkVelocity
@@ -352,6 +325,12 @@ public class Player : MonoBehaviour
         get => uiRunButton;
         set => uiRunButton = value;
     }
+    
+    public bool Run
+    {
+        get => run;
+        set => run = value;
+    }
 
     public WeaponController getWC
     {
@@ -366,32 +345,4 @@ public class Player : MonoBehaviour
         set => movingRight = value;
     }
 
-    private void MovingRightArm()
-    {
-        Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
-        Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
-
-        Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,
-            joystickDirection.y * .5f,
-            leftArmLocalPosition.z);
-
-
-        Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
-            joystickDirection.y * .5f,
-            rightArmLocalPosition.z);
-
-        if (currentPositionLeftArm.y >= leftArmLockPositionDown
-            && currentPositionLeftArm.y <= leftArmLockPositionUp)
-        {
-            leftArm.transform.localPosition = currentPositionLeftArm;
-        }
-
-
-        if (currentPositionRightArm.y >= rightArmLockPositionDown
-            && currentPositionRightArm.y <= rightArmLockPositionUp)
-        {
-            rightArm.transform.localPosition = new Vector3(rightArm.transform.localPosition.x,
-                currentPositionRightArm.y, rightArm.transform.localPosition.z);
-        }
-    }
 }

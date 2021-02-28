@@ -7,6 +7,7 @@ public class Run : MonoBehaviour, IPointerDownHandler
 {
 	private Player playerController;
 	private Image image;
+	
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		playerController.UIRunButton = playerController && !playerController.UIRunButton;

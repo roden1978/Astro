@@ -12,7 +12,7 @@ public class Crouch : MonoBehaviour, IPointerDownHandler
     private Image image;
     public void OnPointerDown(PointerEventData eventData)
     {
-       //playerController.UICrouchButton = playerController && !playerController.UICrouchButton;
+       playerController.UICrouchButton = playerController && !playerController.UICrouchButton;
        //playerController.StateMashine.SwitchToNewState(typeof(CrouchState));
        image.color = playerController.UICrouchButton ? Color.green : Color.white;
     }

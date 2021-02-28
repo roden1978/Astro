@@ -16,23 +16,20 @@ public class CrouchState : BaseState
     {
         
         if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
-        
-        if ((int) _player.Direction.y == 1)
+        //UI
+        /*if (!_player.UICrouchButton)
+        {
+            _player.animator.SetBool("crouch", false);
+            return _prevState;
+        }*/
+       
+        //keyboard
+        if (!_player.UICrouchButton && (int) _player.Direction.y == 1 || (int) _player.Direction.y == -1)
         {
             _player.animator.SetBool("crouch", false);
             return _prevState;
         }
         
-        if (_player.Direction.x < 0 && _player.MovingRight)
-        {
-            return typeof(PlayerFlipState);
-        }
-
-        if (_player.Direction.x > 0 && !_player.MovingRight)
-        {
-            return typeof(PlayerFlipState);
-        }
-       
         return null;
     }
 
