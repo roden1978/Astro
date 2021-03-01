@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RunState : BaseState
 {
@@ -20,12 +18,6 @@ public class RunState : BaseState
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
             return typeof(IdleState);  
         }
-
-        /*if (!_player.Run || !_player.UIRunButton)
-        {
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-            return typeof(IdleState);
-        }*/
         
         if (!_player.Run && !_player.UIRunButton)
         {
@@ -33,20 +25,14 @@ public class RunState : BaseState
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
            return typeof(MoveState);
         } 
-        
-        /*if (!_player.Run && !_player.UIRunButton)
-        {
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-            return typeof(IdleState);
-        }*/
-        
-        if ((int)_player.Direction.y == 1)
+      
+        if (_player.Direction.y == 1.0f)
         {
             _player.animator.SetTrigger("jump");
             return typeof(JumpState);
         }
         
-        if ((int)_player.Direction.y == -1  || _player.UICrouchButton)
+        if (_player.Direction.y == -1.0f  || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             _player.animator.SetBool("walk", false);
@@ -64,8 +50,6 @@ public class RunState : BaseState
         {
             return typeof(PlayerFlipState);
         }
-        
-        
         
         return null;
     }

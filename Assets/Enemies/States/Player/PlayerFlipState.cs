@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerFlipState : BaseState
+﻿public class PlayerFlipState : BaseState
 {
     private Player _player;
     private System.Type _prevState;

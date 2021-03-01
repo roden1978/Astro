@@ -23,12 +23,26 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Quit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Quit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Run.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Run.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/IController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/IController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/KeyboardController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/KeyboardController.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UIController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UIController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/astronaut13piece_small.psb.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,16 +59,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/IController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/KeyboardController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/FSMSlime.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Behaviour/Chase/SlimeChase.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/SlimeEnemy.cs" />
@@ -83,27 +94,28 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/FireState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/KeyboardController.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Canva.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/JoystickController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/IController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Run.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Quit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/RunState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
       </list>
     </option>
@@ -215,6 +227,9 @@
       <workItem from="1614329944373" duration="6882000" />
       <workItem from="1614401177917" duration="13614000" />
       <workItem from="1614489771394" duration="10309000" />
+      <workItem from="1614574760430" duration="175000" />
+      <workItem from="1614575095780" duration="4316000" />
+      <workItem from="1614587803250" duration="4601000" />
     </task>
     <servers />
   </component>

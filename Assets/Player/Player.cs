@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 #pragma warning disable 0649
     [SerializeField] [Tooltip("Ссылка на SO игрока")]
-    public PlayerSettings playerSettings;
+    private PlayerSettings playerSettings;
 
     [SerializeField] [Tooltip("Максимальноу ускорение при хотьбе")]
     private float maxWalkVelocity;
@@ -15,16 +14,16 @@ public class Player : MonoBehaviour
     private float maxRunVelocity;
 
     [SerializeField] [Tooltip("Сила прыжка")]
-    float jumpForce;
+    private float jumpForce;
 
     [SerializeField] [Tooltip("Сила используемая для движения игрока")]
-    Vector2 force;
+    private Vector2 force;
 
     [SerializeField] [Tooltip("Объект используемый для упарвления правой рукой")]
-    GameObject rightArm;
+    private GameObject rightArm;
 
     [SerializeField] [Tooltip("Объект используемый для управления левой рукой")]
-    GameObject leftArm;
+    private GameObject leftArm;
 
     [SerializeField] [Tooltip("Точка крепления оружия")]
     private GameObject weaponPoint;
@@ -46,21 +45,16 @@ public class Player : MonoBehaviour
 
 #pragma warning restore 0649
     
-    //-----------------------------------------
-    public StateMashine StateMashine => GetComponent<StateMashine>();
-    private bool movingRight;
+    private StateMashine StateMashine => GetComponent<StateMashine>();
     private bool run;
-    private bool uiRunButton;
-    private bool uiCrouchButton;
     private Dictionary<System.Type, BaseState> states;
-    //-----------------------------------------
 
     private Vector2 direction;
     private float maxVelocity;
     private Vector2 joystickDirection;
 
-    private float leftArmLockPositionUp = 0.15f;
-    private float leftArmLockPositionDown = -0.15f;
+    private readonly float leftArmLockPositionUp = 0.15f;
+    private readonly float leftArmLockPositionDown = -0.15f;
 
     private float rightArmLockPositionUp;
     private float rightArmLockPositionDown;
@@ -71,7 +65,6 @@ public class Player : MonoBehaviour
 
     private Transform rightArmWeaponPoint;
     private Transform rightWeaponPoint;
-    private Vector3 Rarm;
 
     private int weaponIndex;
 
@@ -97,8 +90,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movingRight = true;
-       animator = GetComponent<Animator>();
+        MovingRight = true;
+        animator = GetComponent<Animator>();
         weaponIndex = 0;
 
         InitWeapon();
@@ -133,9 +126,8 @@ public class Player : MonoBehaviour
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), 
             Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
         
-        run = !uiRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        run = !UIRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         
-        //Считываем нажатие Ctrl для выстрела
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
@@ -174,17 +166,13 @@ public class Player : MonoBehaviour
             direction.x = joystickDirection.x;
         }
     }
+
+    public void Jump() => direction.y = 1;
    
-    public void Shoot()
-    {
-        wc.Shoot();
-    }
-
-    public void StopShoot()
-    {
-        wc.StopShoot();
-    }
-
+    public void Shoot() => wc.Shoot();
+    
+    public void StopShoot() => wc.StopShoot();
+    
     private void InitWeapon()
     {
         int count = 0;
@@ -220,7 +208,6 @@ public class Player : MonoBehaviour
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
             if (currentWeapon)
             {
-                //wc = currentWeapon.GetComponent<WeaponController>();
                 currentWeapon.name = playerSettings.Weapons[weaponIndex].name;
                 playerSettings.CurrentWeaponName = currentWeapon.name;
                 rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
@@ -255,13 +242,10 @@ public class Player : MonoBehaviour
         Vector3 rightArmLocalPosition = rightArm.transform.localPosition;
 
         Vector3 currentPositionLeftArm = new Vector3(leftArmLocalPosition.x,
-            joystickDirection.y * .5f,
-            leftArmLocalPosition.z);
-
+            joystickDirection.y * .5f, leftArmLocalPosition.z);
 
         Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
-            joystickDirection.y * .5f,
-            rightArmLocalPosition.z);
+            joystickDirection.y * .5f, rightArmLocalPosition.z);
 
         if (currentPositionLeftArm.y >= leftArmLockPositionDown
             && currentPositionLeftArm.y <= leftArmLockPositionUp)
@@ -279,70 +263,15 @@ public class Player : MonoBehaviour
         }
     }
    
-    public Collider2D GroundCollider2D
-    {
-        get => groundCollider2D;
-        set => groundCollider2D = value;
-    }
-
-    public Vector2 Force
-    {
-        get => force;
-        set => force = value;
-    }
-
-    public Vector2 Direction
-    {
-        get => direction;
-        set => direction = value;
-    }
-
-    public float MaxWalkVelocity
-    {
-        get => maxWalkVelocity;
-        set => maxWalkVelocity = value;
-    }
-
-    public float MaxRunVelocity
-    {
-        get => maxRunVelocity;
-        set => maxRunVelocity = value;
-    }
-
-    public bool UICrouchButton
-    {
-        get => uiCrouchButton;
-        set => uiCrouchButton = value;
-    }
-
-    public GameObject WeaponPoint
-    {
-        get => weaponPoint;
-    }
-
-    public bool UIRunButton
-    {
-        get => uiRunButton;
-        set => uiRunButton = value;
-    }
-    
-    public bool Run
-    {
-        get => run;
-        set => run = value;
-    }
-
-    public WeaponController getWC
-    {
-        get => wc;
-    }
-
+    public Collider2D GroundCollider2D => groundCollider2D;
+    public Vector2 Force => force;
+    public Vector2 Direction => direction;
+    public float MaxWalkVelocity => maxWalkVelocity;
+    public float MaxRunVelocity => maxRunVelocity;
+    public bool UICrouchButton { get; set; }
+    public bool UIRunButton { get; set; }
+    public bool Run => run;
+    public WeaponController GetWeaponController => wc;
     public float JumpForce => jumpForce;
-
-    public bool MovingRight
-    {
-        get => movingRight;
-        set => movingRight = value;
-    }
-
+    public bool MovingRight { get; set; }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class IdleState : BaseState
 {
@@ -20,14 +18,14 @@ public class IdleState : BaseState
         }
         
 
-        if ((int) _player.Direction.y == 1)
+        if (_player.Direction.y == 1.0f)
         {
             _player.animator.SetTrigger("jump");
             return typeof(JumpState); 
         }
 
 
-        if ((int)_player.Direction.y == -1 || _player.UICrouchButton)
+        if (_player.Direction.y == -1.0f || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             return typeof(CrouchState);

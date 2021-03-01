@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Run : MonoBehaviour, IPointerDownHandler
 {
-	private Player playerController;
+	private Player player;
 	private Image image;
 	
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		playerController.UIRunButton = playerController && !playerController.UIRunButton;
-		image.color = playerController.UIRunButton ? Color.green : Color.white;
+		player.UIRunButton = player && !player.UIRunButton;
+		image.color = player.UIRunButton ? Color.green : Color.white;
 	}
 
 	// Start is called before the first frame update
@@ -19,7 +19,7 @@ public class Run : MonoBehaviour, IPointerDownHandler
 	{
 		try
 		{
-			playerController = GameObject.FindWithTag("Player").GetComponent<Player>();
+			player = GameObject.FindWithTag("Player").GetComponent<Player>();
 		}
 		catch (Exception e)
 		{
@@ -36,9 +36,5 @@ public class Run : MonoBehaviour, IPointerDownHandler
 			Debug.Log(e);
 			throw;
 		}
-		
-		
-		//print(!playerController ? "Run script Player not found" : "Run script Player found");
-		//print(!image ? "Run script Image not found" : "Run script Image found");
 	}
 }

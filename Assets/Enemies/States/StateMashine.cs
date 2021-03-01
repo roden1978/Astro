@@ -9,7 +9,7 @@ public class StateMashine : MonoBehaviour
     public BaseState CurrentState { get; private set; }
     public BaseState PrevState { get; private set; }
     
-    public event Action<BaseState> OnStateChanged;
+    //public event Action<BaseState> OnStateChanged;
 
     public void SetStates(Dictionary<System.Type, BaseState> states)
     {
@@ -40,8 +40,7 @@ public class StateMashine : MonoBehaviour
     public void SwitchToNewState(System.Type nextState)
     {
         CurrentState = _availableStates[nextState];
-        Debug.Log($"Current state {CurrentState}");
-        OnStateChanged?.Invoke(CurrentState);
+        //OnStateChanged?.Invoke(CurrentState);
     }
 
     public System.Type GetPrevState

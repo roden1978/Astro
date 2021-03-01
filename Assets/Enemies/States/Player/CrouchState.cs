@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CrouchState : BaseState
+﻿public class CrouchState : BaseState
 {
     private Player _player;
     private System.Type _prevState;
@@ -17,18 +13,18 @@ public class CrouchState : BaseState
         
         if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
         //UI
-        /*if (!_player.UICrouchButton)
-        {
-            _player.animator.SetBool("crouch", false);
-            return _prevState;
-        }*/
-       
-        //keyboard
-        if (!_player.UICrouchButton && (int) _player.Direction.y == 1 || (int) _player.Direction.y == -1)
+        if (!_player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", false);
             return _prevState;
         }
+       
+        //keyboard
+        /*if (!_player.UICrouchButton && (int) _player.Direction.y == 1 || (int) _player.Direction.y == -1)
+        {
+            _player.animator.SetBool("crouch", false);
+            return _prevState;
+        }*/
         
         return null;
     }

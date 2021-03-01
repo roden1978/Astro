@@ -1,22 +1,18 @@
-﻿using System;
-using UnityEngine.EventSystems;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-	[SerializeField]
-    private GameObject player;
-    
-    private Player playerController;
+	private Player player;
     private float shootDelay;
     
     public void OnPointerDown(PointerEventData eventData)
     {
-	    if (playerController)
+	    if (player)
 	    {
-		    shootDelay = playerController.getWC.Weapon.ShootDelay <= 0 ? 0 : playerController.getWC.Weapon.ShootDelay; 
+		    shootDelay = player.GetWeaponController.Weapon.ShootDelay <= 0 ? 0 : player.GetWeaponController.Weapon.ShootDelay; 
 		    if (shootDelay > 0)
-				InvokeRepeating("Shoot", shootDelay, shootDelay);
+				InvokeRepeating("Shoot", 0, shootDelay);
 		    else Shoot();
 	    }
 	    
@@ -24,7 +20,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Shoot()
     {
-	    playerController.Shoot();
+	    player.Shoot();
     }
     
 
@@ -32,15 +28,15 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 	    if (shootDelay > 0)
 	    {
-		    playerController.getWC.Weapon.IsShooting = false;
+		    player.GetWeaponController.Weapon.IsShooting = false;
 		    CancelInvoke("Shoot");
 	    }
-	    else playerController.StopShoot();
+	    else player.StopShoot();
     }
 
     private void Start()
     {
-	    playerController = player.GetComponent<Player>();
+	    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
 }

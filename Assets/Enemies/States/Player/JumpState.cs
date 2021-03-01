@@ -16,24 +16,12 @@ public class JumpState : BaseState
         
         if (_player.GroundCollider2D.GroundCheck("Ground"))
         {
-            //Debug.Log("Jump");
             Vector2 force = Vector2.up * _player.JumpForce;
             rigidbody2D.AddForce(force, ForceMode2D.Impulse);
             return _prevState;
         }
 
         return null;
-    }
-
-    public override void FixedTick()
-    {
-        /*if (_player.GroundCollider2D.GroundCheck("Ground"))
-        {
-            Debug.Log("Jump");
-            Vector2 force = Vector2.up * _player.JumpForce;
-            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-        }*/
-            
     }
 
     public override System.Type GetCurrentStateType()

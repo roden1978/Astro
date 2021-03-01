@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveState : BaseState
 {
@@ -27,13 +25,13 @@ public class MoveState : BaseState
             return typeof(IdleState);  
         }
 
-        if ((int)_player.Direction.y == 1)
+        if (_player.Direction.y == 1.0f)
         {
             _player.animator.SetTrigger("jump");
             return typeof(JumpState);
         }
 
-        if ((int)_player.Direction.y == -1  || _player.UICrouchButton)
+        if (_player.Direction.y == -1.0f  || _player.UICrouchButton)
         {
             _player.animator.SetBool("crouch", true);
             _player.animator.SetBool("walk", false);
@@ -52,10 +50,6 @@ public class MoveState : BaseState
             return typeof(PlayerFlipState);
         }
 
-        /*if (_player.Direction.x != 0)
-        {*/
-            
-        //}
         return null;
     }
 
@@ -63,7 +57,6 @@ public class MoveState : BaseState
     {
         Vector2 force = new Vector2(_player.Force.x * _player.Direction.x, 0.0f);
 
-        //Debug.Log($"Direction X {force}");
         if (Mathf.Abs(rigidbody2D.velocity.x) < _player.MaxWalkVelocity)
         {
             rigidbody2D.AddForce(force, ForceMode2D.Force);
