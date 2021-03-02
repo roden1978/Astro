@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Player", menuName = "Players/Player")]
-public class Player : ScriptableObject
+public class PlayerSettings : ScriptableObject
 {
 	#pragma warning disable 0649
 	[SerializeField] [Tooltip("Имя игрока")]
@@ -49,6 +49,9 @@ public class Player : ScriptableObject
 	
 	[SerializeField] [Tooltip("Кнопка бега")]
 	public Button runButton;
+
+	[SerializeField] [Tooltip("Джойстик")]
+	public Joystick joystick;
 	/*	
 	[SerializeField] [Tooltip("Верхняя точка движения левой руки вверх (по умолчанию 0.15)")]
 	private float leftArmLockPositionUp; // default 0.15f;

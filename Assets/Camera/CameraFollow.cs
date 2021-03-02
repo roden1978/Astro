@@ -16,19 +16,19 @@ public class CameraFollow : MonoBehaviour
     private float playerOffset;
     
     private Vector3 currentPosition;
-    private Flip flip;
+    private Player player;
     private bool playerFlip;
 
     private void Start()
     {
-        flip = target.GetComponent<Flip>();
+        player = target.GetComponent<Player>();
         playerFlip = false;
         currentPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
-        if (flip.IsFacingLeft && offset.x > 0 && !playerFlip)
+        /*if (flip.IsFacingLeft && offset.x > 0 && !playerFlip)
         {
             currentPosition = target.position;
             playerFlip = true;
@@ -41,7 +41,22 @@ public class CameraFollow : MonoBehaviour
         float distance = Vector3.Distance(currentPosition, target.position);
         
         if (flip.IsFacingLeft && offset.x > 0 && distance >= playerOffset) FlipCamera();
-        if (!flip.IsFacingLeft && offset.x < 0 && distance >= playerOffset) FlipCamera();
+        if (!flip.IsFacingLeft && offset.x < 0 && distance >= playerOffset) FlipCamera();*/
+        
+        if (!player.MovingRight && offset.x > 0 && !playerFlip)
+        {
+            currentPosition = target.position;
+            playerFlip = true;
+        }
+        if (player.MovingRight && offset.x < 0  && !playerFlip)
+        {
+            currentPosition = target.position;
+            playerFlip = true;
+        }
+        float distance = Vector3.Distance(currentPosition, target.position);
+        
+        if (!player.MovingRight && offset.x > 0 && distance >= playerOffset) FlipCamera();
+        if (player.MovingRight && offset.x < 0 && distance >= playerOffset) FlipCamera();
         
         
         Vector3 desiredPosition = target.position + offset;

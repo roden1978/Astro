@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcb3807e3b850a04b9c17355114c923e, type: 3}
-  m_Name: Player
+  m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   name: Astronaut
   imagePlayer: {fileID: 0}
@@ -40,3 +40,4 @@ MonoBehaviour:
     type: 3}
   runButton: {fileID: 6412117964946485039, guid: 03da4a4044a4d1c4687130c73f858c77,
     type: 3}
+  joystick: {fileID: 0}

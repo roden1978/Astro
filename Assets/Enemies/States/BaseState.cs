@@ -5,10 +5,10 @@ public abstract class BaseState
     protected GameObject gameObject;
     protected Transform transform;
     protected Rigidbody2D rigidbody2D;
-    
-    public BaseState(GameObject gameObject)
+
+    protected BaseState(GameObject _gameObject)
     {
-        this.gameObject = gameObject;
+        gameObject = _gameObject;
         transform = gameObject.transform;
         rigidbody2D = gameObject.transform.GetComponent<Rigidbody2D>();
     }

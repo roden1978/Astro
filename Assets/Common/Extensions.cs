@@ -14,6 +14,6 @@ public static class Extensions
 
    public static bool GroundCheck(this Collider2D collider2D, string layerName)
    {
-      return collider2D.IsTouchingLayers(1 << LayerMask.NameToLayer(layerName));
+      return collider2D.IsTouchingLayers(LayerMask.GetMask(layerName));
    }
 }
