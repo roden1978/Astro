@@ -1,4 +1,5 @@
-﻿using UnityEngine.EventSystems;
+﻿using System;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -34,9 +35,8 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	    else player.StopShoot();
     }
 
-    private void Start()
+    private void Update()
     {
-	    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+	    if(!player) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
-
 }

@@ -18,6 +18,7 @@ public class JumpState : BaseState
         {
             Vector2 force = Vector2.up * _player.JumpForce;
             rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+            _player.UIJumpButton = false;
             return _prevState;
         }
 

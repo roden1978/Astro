@@ -28,6 +28,7 @@ public class StateMashine : MonoBehaviour
         if (nextState != null && nextState.GetType() != CurrentState?.GetType())
         {
             PrevState = _availableStates[CurrentState?.GetCurrentStateType()];
+            
             SwitchToNewState(nextState);
         }
     }
@@ -40,6 +41,7 @@ public class StateMashine : MonoBehaviour
     public void SwitchToNewState(System.Type nextState)
     {
         CurrentState = _availableStates[nextState];
+        Debug.Log(CurrentState);
         //OnStateChanged?.Invoke(CurrentState);
     }
 

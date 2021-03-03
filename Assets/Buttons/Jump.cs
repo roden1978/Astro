@@ -1,19 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Jump : MonoBehaviour, IPointerUpHandler
+public class Jump : MonoBehaviour, IPointerDownHandler
 {
    private Player player;
-   
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        player.Jump();
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    }
+   public void OnPointerDown(PointerEventData eventData)
+   {
+       if(!player) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       player.UIJumpButton = true;
+   }
 
 }

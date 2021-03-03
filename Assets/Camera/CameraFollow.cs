@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Объект за которым следит камера")]
-    private Transform target;
+    private GameObject target;
     [SerializeField]
     [Tooltip("Скорость перемещения камеры")]
     private float smoothSpeed;
@@ -21,45 +21,34 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        player = target.GetComponent<Player>();
         playerFlip = false;
         currentPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
-        /*if (flip.IsFacingLeft && offset.x > 0 && !playerFlip)
+        if (target == null)
         {
-            currentPosition = target.position;
-            playerFlip = true;
+            target = GameObject.FindGameObjectWithTag("Player");
+            player = target.GetComponent<Player>();
         }
-        if (!flip.IsFacingLeft && offset.x < 0  && !playerFlip)
-        {
-            currentPosition = target.position;
-            playerFlip = true;
-        }
-        float distance = Vector3.Distance(currentPosition, target.position);
-        
-        if (flip.IsFacingLeft && offset.x > 0 && distance >= playerOffset) FlipCamera();
-        if (!flip.IsFacingLeft && offset.x < 0 && distance >= playerOffset) FlipCamera();*/
-        
         if (!player.MovingRight && offset.x > 0 && !playerFlip)
         {
-            currentPosition = target.position;
+            currentPosition = target.transform.position;
             playerFlip = true;
         }
         if (player.MovingRight && offset.x < 0  && !playerFlip)
         {
-            currentPosition = target.position;
+            currentPosition = target.transform.position;
             playerFlip = true;
         }
-        float distance = Vector3.Distance(currentPosition, target.position);
+        float distance = Vector3.Distance(currentPosition, target.transform.position);
         
         if (!player.MovingRight && offset.x > 0 && distance >= playerOffset) FlipCamera();
         if (player.MovingRight && offset.x < 0 && distance >= playerOffset) FlipCamera();
         
         
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 desiredPosition = target.transform.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
     }
