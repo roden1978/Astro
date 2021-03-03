@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] [Tooltip("Мертвая зона джойстика")]
     private float joystickDelay;
-    
+
     [SerializeField] [Tooltip("Коллайдер земли")]
     private Collider2D groundCollider2D;
 
 #pragma warning restore 0649
-    
+
     private StateMashine StateMashine => GetComponent<StateMashine>();
     private bool run;
     private Dictionary<System.Type, BaseState> states;
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
     {
         InitializeStateMashine();
     }
+
     private void InitializeStateMashine()
     {
         states = new Dictionary<System.Type, BaseState>()
@@ -84,9 +85,10 @@ public class Player : MonoBehaviour
             {typeof(CrouchState), new CrouchState(this)},
             {typeof(PlayerFlipState), new PlayerFlipState(this)}
         };
-        
+
         StateMashine.SetStates(states);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
         }
     }
 
-   
+
     void Update()
     {
         KeyboardReadDirections();
@@ -122,12 +124,13 @@ public class Player : MonoBehaviour
 
     private void KeyboardReadDirections()
     {
-        
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), 
-            Input.GetKeyDown(KeyCode.W) ? 1 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
-        
+
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"),
+            Input.GetKeyDown(KeyCode.W) || UIJumpButton ? 1 
+                : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
+
         run = !UIRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        
+
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
@@ -160,15 +163,13 @@ public class Player : MonoBehaviour
     private void JoystickReadDirections()
     {
         joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
-        
+
         if (Mathf.Abs(joystickDirection.x) > joystickDelay)
         {
             direction.x = joystickDirection.x;
         }
     }
 
-    public void Jump() => direction.y = 1;
-   
     public void Shoot() => wc.Shoot();
     
     public void StopShoot() => wc.StopShoot();
@@ -270,6 +271,7 @@ public class Player : MonoBehaviour
     public float MaxRunVelocity => maxRunVelocity;
     public bool UICrouchButton { get; set; }
     public bool UIRunButton { get; set; }
+    public bool UIJumpButton { get; set; }
     public bool Run => run;
     public WeaponController GetWeaponController => wc;
     public float JumpForce => jumpForce;
