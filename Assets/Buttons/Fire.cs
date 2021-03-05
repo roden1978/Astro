@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 	    if (player)
 	    {
-		    shootDelay = player.GetWeaponController.Weapon.ShootDelay <= 0 ? 0 : player.GetWeaponController.Weapon.ShootDelay; 
+		    shootDelay = player.Weapon.WeaponSettings.ShootDelay <= 0 ? 0 : player.Weapon.WeaponSettings.ShootDelay; 
 		    if (shootDelay > 0)
 				InvokeRepeating("Shoot", 0, shootDelay);
 		    else Shoot();
@@ -29,7 +29,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
 	    if (shootDelay > 0)
 	    {
-		    player.GetWeaponController.Weapon.IsShooting = false;
+		    player.Weapon.WeaponSettings.IsShooting = false;
 		    CancelInvoke("Shoot");
 	    }
 	    else player.StopShoot();

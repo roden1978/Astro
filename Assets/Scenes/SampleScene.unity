@@ -13149,7 +13149,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13292,7 +13292,6 @@ MonoBehaviour:
   playerPrefab: {fileID: 5055538608133943192, guid: 824b9bdacdeedd94299bbd06d7002f83,
     type: 3}
   playerStartPoint: {fileID: 1337573872}
-  canvasPrefab: {fileID: 0}
 --- !u!1 &1659000762
 GameObject:
   m_ObjectHideFlags: 0

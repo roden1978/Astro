@@ -1,30 +1,29 @@
 ﻿using UnityEngine;
 
-public class WeaponController: MonoBehaviour
+public class Weapon: MonoBehaviour
 {
     #pragma warning disable 0649
 	[SerializeField] [Tooltip("Точка выстрела")] Transform shootPoint; // shoot point
 	
 	[SerializeField] [Tooltip("Точка направления стрельбы")]Transform targetPoint; // target point
 
-	[SerializeField] Weapon weapon;
+	[SerializeField] WeaponSettings weaponSettings;
 	#pragma warning restore 0649
-	
-	
+
     // Start is called before the first frame update
     void Start()
     {
-	    weapon.ShootPoint = shootPoint.position;
-	    weapon.TargetPoint = targetPoint.position;
-	    weapon.ShootPointRotation = shootPoint.rotation;
+	    weaponSettings.ShootPoint = shootPoint.position;
+	    weaponSettings.TargetPoint = targetPoint.position;
+	    weaponSettings.ShootPointRotation = shootPoint.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-	    weapon.ShootPoint = shootPoint.position;
-	    weapon.TargetPoint = targetPoint.position;
-	    weapon.ShootPointRotation = shootPoint.rotation;
+	    weaponSettings.ShootPoint = shootPoint.position;
+	    weaponSettings.TargetPoint = targetPoint.position;
+	    weaponSettings.ShootPointRotation = shootPoint.rotation;
 	  
 	    if(shootPoint)
 	    {
@@ -36,12 +35,12 @@ public class WeaponController: MonoBehaviour
 
     public void Shoot()
     {
-	    weapon.Shoot();
+	    weaponSettings.Shoot();
     }
     public void StopShoot()
     {
-	    weapon.StopShoot();
+	    weaponSettings.StopShoot();
     }
    
-	public Weapon Weapon => weapon;
+	public WeaponSettings WeaponSettings => weaponSettings;
 }

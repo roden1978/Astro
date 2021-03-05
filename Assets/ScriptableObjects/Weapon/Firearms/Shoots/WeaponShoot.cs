@@ -7,7 +7,7 @@ public class WeaponShoot : AWeaponShoot
 #pragma warning disable 0649
     [SerializeField] [Tooltip("Пуля")] private GameObject bullet;
 
-    [SerializeField] [Tooltip("Оружие")] private Weapon weapon;
+    [SerializeField] [Tooltip("Оружие")] private WeaponSettings weapon;
 #pragma warning restore 0649
     
     private GameObject bulletGameObject;
@@ -16,7 +16,7 @@ public class WeaponShoot : AWeaponShoot
     public override void Shoot(Vector3 shootPoint, Quaternion rotation)
     {
         if (!weapon || !bullet) return;
-        Shooting(weapon.WeaponTypes, shootPoint, rotation);
+        //Shooting(weapon.WeaponTypes, shootPoint, rotation);
     }
 
     public override void StopShoot()
@@ -25,7 +25,7 @@ public class WeaponShoot : AWeaponShoot
         if (weapon.IsReady)
         {
             Destroy(bulletGameObject);
-            Destroy(muzzleGameObject);
+            //Destroy(muzzleGameObject);
         }
 
     }
@@ -35,7 +35,7 @@ public class WeaponShoot : AWeaponShoot
         switch (weaponType)
         {
             case "Guns":
-                Instantiate(weapon.VFXShoot, shootPoint, rotation);
+                //Instantiate(weapon.VFXShoot, shootPoint, rotation);
                 Instantiate(bullet, shootPoint, rotation);
                 weapon.IsShooting = true;
                 break;
@@ -47,7 +47,7 @@ public class WeaponShoot : AWeaponShoot
                 }
                 break;
             case "Shootguns":
-                Instantiate(weapon.VFXShoot, shootPoint, rotation);
+                //Instantiate(weapon.VFXShoot, shootPoint, rotation);
                 for (int i = 0; i <= 2; i++)
                 {
                     Instantiate(bullet, shootPoint, rotation);
@@ -67,7 +67,7 @@ public class WeaponShoot : AWeaponShoot
     
     private void Create(Vector3 _shootPoint, Quaternion _rotation)
     { 
-        muzzleGameObject = Instantiate(weapon.VFXShoot, _shootPoint, _rotation);
+        //muzzleGameObject = Instantiate(weapon.VFXShoot, _shootPoint, _rotation);
         bulletGameObject =  Instantiate(bullet, _shootPoint, _rotation);
     }
 }

@@ -11,7 +11,7 @@ public class WMD : MonoBehaviour
     [SerializeField] float lifetime;
     [SerializeField] float radius;
     [SerializeField] float distance;
-    [SerializeField] Weapon weapon;
+    [SerializeField] WeaponSettings weapon;
     [SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 

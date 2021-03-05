@@ -231,7 +231,7 @@
           <e p="ParticleEffects" t="Include">
             <e p="Firearms" t="Include">
               <e p="DestroyVFX.cs" t="Include" />
-              <e p="MuzzleController.cs" t="Include" />
+              <e p="Muzzle.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -250,7 +250,7 @@
             </e>
             <e p="Firearms" t="Include">
               <e p="Firearms" t="Include">
-                <e p="Weapon.cs" t="Include" />
+                <e p="WeaponSettings.cs" t="Include" />
               </e>
               <e p="Shoots" t="Include">
                 <e p="AWeaponShoot.cs" t="Include" />
@@ -268,7 +268,7 @@
               <e p="Mashinegun.cs" t="Include" />
               <e p="WMD.cs" t="Include" />
             </e>
-            <e p="WeaponController.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
         </e>
       </e>

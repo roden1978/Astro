@@ -34,9 +34,6 @@ public class Player : MonoBehaviour
     [SerializeField] [Tooltip("Стартовое оружие")]
     private GameObject initialWeapon;
 
-    [SerializeField] [Tooltip("Джойстик для управления игроком")]
-    private Joystick viewJoystick;
-
     [SerializeField] [Tooltip("Мертвая зона джойстика")]
     private float joystickDelay;
 
@@ -48,20 +45,20 @@ public class Player : MonoBehaviour
     private StateMashine StateMashine => GetComponent<StateMashine>();
     private bool run;
     private Dictionary<System.Type, BaseState> states;
-
+    private Joystick joystick;
     private Vector2 direction;
     private float maxVelocity;
     private Vector2 joystickDirection;
 
-    private readonly float leftArmLockPositionUp = 0.15f;
-    private readonly float leftArmLockPositionDown = -0.15f;
+    private const float LEFT_ARM_LOCK_POSITION_UP = 0.15f;
+    private const float LEFT_ARM_LOCK_POSITION_DOWN = -0.15f;
 
     private float rightArmLockPositionUp;
     private float rightArmLockPositionDown;
 
     public Animator animator;
 
-    private WeaponController wc;
+    private Weapon weapon;
 
     private Transform rightArmWeaponPoint;
     private Transform rightWeaponPoint;
@@ -95,17 +92,17 @@ public class Player : MonoBehaviour
         MovingRight = true;
         animator = GetComponent<Animator>();
         weaponIndex = 0;
-
+        joystick = FindObjectOfType<Joystick>();
         InitWeapon();
-        wc = currentWeapon.GetComponent<WeaponController>();
+        weapon = playerSettings.CurrentWeapon.GetComponent<Weapon>();
 
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
             .Find("boneRightWrist").Find("right");
 
-        rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-        rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+        rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
+        rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
 
 
         if (rightWeaponPoint && rightArmWeaponPoint)
@@ -133,18 +130,18 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
+            float shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
             if (shootDelay > 0)
                 InvokeRepeating("Shoot", shootDelay, shootDelay);
             else Shoot();
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
+            float shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
             if (shootDelay > 0)
             {
                 CancelInvoke("Shoot");
-                wc.Weapon.IsShooting = false;
+                weapon.WeaponSettings.IsShooting = false;
             }
             else StopShoot();
         }
@@ -162,7 +159,7 @@ public class Player : MonoBehaviour
 
     private void JoystickReadDirections()
     {
-        joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+        joystickDirection = new Vector2(joystick.Horizontal, joystick.Vertical);
 
         if (Mathf.Abs(joystickDirection.x) > joystickDelay)
         {
@@ -170,9 +167,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Shoot() => wc.Shoot();
+    public void Shoot() => weapon.Shoot();
     
-    public void StopShoot() => wc.StopShoot();
+    public void StopShoot() => weapon.StopShoot();
     
     private void InitWeapon()
     {
@@ -194,14 +191,15 @@ public class Player : MonoBehaviour
         else
         {
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
-            playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+            //playerSettings.CurrentWeapon = currentWeapon;
+            playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;//playerSettings.Weapons[weaponIndex].name;
             weaponIndex++;
         }
     }
 
     public void ChangeWeapon()
     {
-        if (!wc.Weapon.IsShooting)
+        if (!weapon.WeaponSettings.IsShooting)
         {
             int weaponCount = playerSettings.Weapons.Count;
             if (currentWeapon) Destroy(currentWeapon);
@@ -209,8 +207,8 @@ public class Player : MonoBehaviour
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
             if (currentWeapon)
             {
-                currentWeapon.name = playerSettings.Weapons[weaponIndex].name;
-                playerSettings.CurrentWeaponName = currentWeapon.name;
+                playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+                //playerSettings.CurrentWeapon = currentWeapon;
                 rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
                 rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
@@ -221,8 +219,8 @@ public class Player : MonoBehaviour
                     rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
                    
                 }
-                rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-                rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+                rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
+                rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
 
                 if (weaponIndex == weaponCount - 1)
                 {
@@ -248,8 +246,8 @@ public class Player : MonoBehaviour
         Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
             joystickDirection.y * .5f, rightArmLocalPosition.z);
 
-        if (currentPositionLeftArm.y >= leftArmLockPositionDown
-            && currentPositionLeftArm.y <= leftArmLockPositionUp)
+        if (currentPositionLeftArm.y >= LEFT_ARM_LOCK_POSITION_DOWN
+            && currentPositionLeftArm.y <= LEFT_ARM_LOCK_POSITION_UP)
         {
             leftArm.transform.localPosition = currentPositionLeftArm;
         }
@@ -273,7 +271,7 @@ public class Player : MonoBehaviour
     public bool UIRunButton { get; set; }
     public bool UIJumpButton { get; set; }
     public bool Run => run;
-    public WeaponController GetWeaponController => wc;
+    public Weapon Weapon => weapon;
     public float JumpForce => jumpForce;
     public bool MovingRight { get; set; }
 }

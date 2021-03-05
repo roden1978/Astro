@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 public class Laser : MonoBehaviour
 {
 #pragma warning disable 0649
-    [FormerlySerializedAs("gun")] [SerializeField] Weapon weapon;
+    [FormerlySerializedAs("gun")] [SerializeField] WeaponSettings weapon;
     [SerializeField] float laserSpeed;
     [SerializeField] float maxLaserLenght;
     [SerializeField] GameObject vfxCollision;
