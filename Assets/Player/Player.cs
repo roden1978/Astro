@@ -80,7 +80,8 @@ public class Player : MonoBehaviour
             {typeof(RunState), new RunState(this)},
             {typeof(JumpState), new JumpState(this)},
             {typeof(CrouchState), new CrouchState(this)},
-            {typeof(PlayerFlipState), new PlayerFlipState(this)}
+            {typeof(PlayerFlipState), new PlayerFlipState(this)},
+            {typeof(ChangeWeaponState), new ChangeWeaponState(this)}
         };
 
         StateMashine.SetStates(states);
@@ -148,7 +149,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeWeapon();
+            IsChangeWeapon = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -182,6 +183,7 @@ public class Player : MonoBehaviour
                 {
                     currentWeapon = Instantiate(weapon, weaponPoint.transform);
                     playerSettings.CurrentWeaponName = weapon.name;
+                    playerSettings.CurrentWeapon = currentWeapon;
                     weaponIndex = count == playerSettings.Weapons.Count - 1 ? 0 : count + 1;
                 }
 
@@ -191,50 +193,45 @@ public class Player : MonoBehaviour
         else
         {
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
-            //playerSettings.CurrentWeapon = currentWeapon;
+            playerSettings.CurrentWeapon = currentWeapon;
             playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;//playerSettings.Weapons[weaponIndex].name;
             weaponIndex++;
         }
     }
 
-    public void ChangeWeapon()
+    public GameObject ChangeWeapon()
     {
-        if (!weapon.WeaponSettings.IsShooting)
-        {
-            int weaponCount = playerSettings.Weapons.Count;
             if (currentWeapon) Destroy(currentWeapon);
-
-            currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
-            if (currentWeapon)
-            {
-                playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
-                //playerSettings.CurrentWeapon = currentWeapon;
-                rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
-
-                rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
-                    .Find("boneRightWrist").Find("right");
-
-                if (rightWeaponPoint && rightArmWeaponPoint)
-                {
-                    rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
-                   
-                }
-                rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
-                rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
-
-                if (weaponIndex == weaponCount - 1)
-                {
-                    weaponIndex = -1;
-                }
-
-                weaponIndex++;
-            }
-            else
-            {
-                Debug.Log("Weapon not change, weapon not found");
-            }
-        }
+            return Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
     }
+
+    public void SetupNewWeapon()
+    {
+        int weaponCount = playerSettings.Weapons.Count;
+        
+        playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+        playerSettings.CurrentWeapon = currentWeapon;
+        rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+
+        rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
+            .Find("boneRightWrist").Find("right");
+
+        if (rightWeaponPoint && rightArmWeaponPoint)
+        {
+            rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+                   
+        }
+        rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
+        rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
+
+        if (weaponIndex == weaponCount - 1)
+        {
+            weaponIndex = -1;
+        }
+
+        weaponIndex++;
+    }
+
     private void MovingRightArm()
     {
         Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
@@ -261,6 +258,7 @@ public class Player : MonoBehaviour
             rightArm.transform.localPosition = localPosition;
         }
     }
+    
    
     public Collider2D GroundCollider2D => groundCollider2D;
     public Vector2 Force => force;
@@ -270,8 +268,13 @@ public class Player : MonoBehaviour
     public bool UICrouchButton { get; set; }
     public bool UIRunButton { get; set; }
     public bool UIJumpButton { get; set; }
+    
+    public bool IsChangeWeapon { get; set; }
     public bool Run => run;
-    public Weapon Weapon => weapon;
+    public Weapon Weapon { get; set;}
     public float JumpForce => jumpForce;
     public bool MovingRight { get; set; }
+    public PlayerSettings PlayerSettings => playerSettings;
+
+    public GameObject CurrentWeapon { get; set; }
 }

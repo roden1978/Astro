@@ -21,7 +21,7 @@ public class WeaponSettings : ScriptableObject
 	
 	[SerializeField]
 	[Tooltip("Визуальный эффект выстрела")]
-	private GameObject vfxShoot;
+	private GameObject muzzleVFX;
 	
 	[SerializeField]
 	[Tooltip("Задержка перед следующим выстрелом (одиночные выстрелы 0)")]
@@ -33,18 +33,6 @@ public class WeaponSettings : ScriptableObject
 	
 	#pragma warning restore 0649
 
-	public void Shoot()
-	{
-		weaponShoot.Shoot(ShootPoint, ShootPointRotation);
-		Instantiate(vfxShoot, ShootPoint, ShootPointRotation);
-	}
-	
-	public void StopShoot()
-	{
-		weaponShoot.StopShoot();
-	}
-	
-	
 	public float RightArmLockPositionUp => rightArmLockPositionUp;
 	public float RightArmLockPositionDown => rightArmLockPositionDown; 
 	public Vector3 ShootPoint { get; set; }
@@ -53,7 +41,9 @@ public class WeaponSettings : ScriptableObject
 	public float ShootDelay => shootDelay;
 	public bool IsReady { get; set; } = true;
 	public bool IsShooting { get; set; }
-
 	public GameObject BulletPrefab => bulletPrefab;
+
+	public GameObject MuzzleVFX => muzzleVFX;
+	public AWeaponShoot WeaponShoot => weaponShoot;
 }
 

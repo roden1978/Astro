@@ -85,24 +85,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/TurretPatrolState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Flip/FlipState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/FireState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
@@ -126,8 +118,6 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/AppStart.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
@@ -136,12 +126,25 @@
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/Muzzle.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/IShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BaseShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/BaseShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/AWeaponShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LasersAndFlamethrowers.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LasersAndFlamethrowersShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
       </list>
     </option>
@@ -260,6 +263,8 @@
       <workItem from="1614747187116" duration="1407000" />
       <workItem from="1614755068037" duration="8309000" />
       <workItem from="1614920709009" duration="14543000" />
+      <workItem from="1614949702902" duration="1959000" />
+      <workItem from="1615005394939" duration="9618000" />
     </task>
     <servers />
   </component>
@@ -285,10 +290,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="606" y="275" key="RiderGenerateDialog" timestamp="1614926612944">
-      <screen x="0" y="0" width="1600" height="1170" />
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1615012038784">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1614926612944" />
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614413223540" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615012038784" />
   </component>
 </project>

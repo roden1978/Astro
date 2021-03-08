@@ -9,7 +9,6 @@ public class Weapon: MonoBehaviour
 
 	[SerializeField] WeaponSettings weaponSettings;
 	#pragma warning restore 0649
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +34,12 @@ public class Weapon: MonoBehaviour
 
     public void Shoot()
     {
-	    weaponSettings.Shoot();
+	    weaponSettings.WeaponShoot.Shoot(weaponSettings.MuzzleVFX,weaponSettings.BulletPrefab, 
+		    weaponSettings.ShootPoint, weaponSettings.ShootPointRotation);
     }
     public void StopShoot()
     {
-	    weaponSettings.StopShoot();
+	    weaponSettings.WeaponShoot.StopShoot();
     }
    
 	public WeaponSettings WeaponSettings => weaponSettings;

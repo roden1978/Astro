@@ -37,6 +37,8 @@ public class IdleState : BaseState
             _player.animator.SetBool("run", false);
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);  
         }
+
+        if (_player.IsChangeWeapon) return typeof(ChangeWeaponState);
         
         return null;
     }

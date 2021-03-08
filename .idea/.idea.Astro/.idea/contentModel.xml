@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.850747599.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\Unity\Astro" t="IncludeRecursive">
+    <e p="C:\Unity\Astro" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -38,15 +36,6 @@
           </e>
           <e p="States" t="Include">
             <e p="BaseState.cs" t="Include" />
-            <e p="Player" t="Include">
-              <e p="CrouchState.cs" t="Include" />
-              <e p="FireState.cs" t="Include" />
-              <e p="IdleState.cs" t="Include" />
-              <e p="JumpState.cs" t="Include" />
-              <e p="MoveState.cs" t="Include" />
-              <e p="PlayerFlipState.cs" t="Include" />
-              <e p="RunState.cs" t="Include" />
-            </e>
             <e p="Slimes" t="Include">
               <e p="Attack" t="Include">
                 <e p="AttackState.cs" t="Include" />
@@ -99,6 +88,16 @@
         <e p="MouseLook.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="Player.cs" t="Include" />
+          <e p="PlayerStates" t="Include">
+            <e p="ChangeWeaponState.cs" t="Include" />
+            <e p="CrouchState.cs" t="Include" />
+            <e p="FireState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="JumpState.cs" t="Include" />
+            <e p="MoveState.cs" t="Include" />
+            <e p="PlayerFlipState.cs" t="Include" />
+            <e p="RunState.cs" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -254,7 +253,11 @@
               </e>
               <e p="Shoots" t="Include">
                 <e p="AWeaponShoot.cs" t="Include" />
+                <e p="GunsShoot.cs" t="Include" />
+                <e p="LasersAndFlamethrowersShoot.cs" t="Include" />
+                <e p="ShootgunsShoot.cs" t="Include" />
                 <e p="WeaponShoot.cs" t="Include" />
+                <e p="WMDShoot.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -281,5 +284,7 @@
       <e p="Sirenix.OdinInspector.Modules.UnityMathematics.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astro.1217478256.00" t="ExcludeRecursive" />
   </component>
 </project>

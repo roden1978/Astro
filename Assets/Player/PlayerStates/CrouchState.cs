@@ -25,7 +25,7 @@
             _player.animator.SetBool("crouch", false);
             return _prevState;
         }*/
-        
+        if (_player.IsChangeWeapon) return typeof(ChangeWeaponState);
         return null;
     }
 
