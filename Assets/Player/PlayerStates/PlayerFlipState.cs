@@ -1,20 +1,20 @@
 ﻿public class PlayerFlipState : BaseState
 {
-    private Player _player;
-    private System.Type _prevState;
+    private readonly Player player;
+    private System.Type prevState;
     
     public PlayerFlipState(Player player) : base(player.gameObject)
     {
-        _player = player;
+        this.player = player;
     }
 
     public override System.Type Tick()
     {
-        if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
-        _player.MovingRight = !_player.MovingRight;
+        if (prevState == null) prevState = player.GetComponent<StateMashine>().GetPrevState;
+        player.MovingRight = !player.MovingRight;
         transform.Rotate(0f, 180f, 0f);
         
-        return _prevState;
+        return prevState;
     }
 
     public override System.Type GetCurrentStateType()

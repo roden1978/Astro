@@ -20,56 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290002d1-cd97-42f2-ab9c-9aeeceb097c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Players/Player.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Players/Player.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/StopShootState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Astro/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Fire.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Common/AppStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Common/AppStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buttons/Jump.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/Muzzle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/Muzzle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Agressor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Agressor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Alligator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Alligator.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Axe.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Bloodthorn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Bloodthorn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Gun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Gun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Lightstone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Lightstone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Loudcricket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Loudcricket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Soulbreaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Soulbreaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Stardust.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Stardust.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Widowmaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/vfx_Muzzle_Widowmaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Players/Astroman.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Players/Astroman.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Players/Astronaut.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Players/Astronaut.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/FireState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/FireState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/JumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/MoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/MoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/PlayerFlipState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/PlayerFlipState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/DesertEagle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Guns/DesertEagle/DesertEagle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Agressor/Agressor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Agressor/Agressor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Alligator/Alligator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Alligator/Alligator.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Axe/Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Axe/Axe.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bloodthorn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Bloodthorn/Bloodthorn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Lightstone/Lightstone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Lightstone/Lightstone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Loudcricket/Loudcricket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Loudcricket/Loudcricket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Soulbreaker/Soulbreaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Soulbreaker/Soulbreaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Stardust/Stardust.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Stardust/Stardust.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Widowmaker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Rifles/Widowmaker/Widowmaker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WeaponShoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapon/Firearms/Guns/DesertEagle/DesetEagle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapon/Firearms/Guns/DesertEagle/DesetEagle.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,21 +53,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerStates/StopShootState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Player/Flip.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/GroundDetect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Common/Extensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/KeyboardController.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/Canva.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/JoystickController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/IController.cs" />
@@ -114,7 +74,6 @@
         <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/StateMashine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/AppStart.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
@@ -125,7 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/Muzzle.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/IShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Player/PlayerSettings.cs" />
@@ -140,12 +98,19 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/MoveState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/ChangeWeaponState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/PlayerFlipState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/FireState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Jump.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/StartShootState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/StopShootState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/JumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Buttons/Fire.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" />
       </list>
     </option>
   </component>
@@ -265,6 +230,8 @@
       <workItem from="1614920709009" duration="14543000" />
       <workItem from="1614949702902" duration="1959000" />
       <workItem from="1615005394939" duration="9618000" />
+      <workItem from="1615266075503" duration="9495000" />
+      <workItem from="1615350520636" duration="7460000" />
     </task>
     <servers />
   </component>

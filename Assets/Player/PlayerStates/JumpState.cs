@@ -2,26 +2,30 @@
 
 public class JumpState : BaseState
 {
-    private Player _player;
-    private System.Type _prevState;
+    private readonly Player player;
+    private System.Type prevState;
     
     public JumpState(Player player) : base(player.gameObject)
     {
-        _player = player;
+        this.player = player;
     }
 
     public override System.Type Tick()
     {
-        if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
+        if (prevState == null) prevState = player.GetComponent<StateMashine>().GetPrevState;
         
-        if (_player.GroundCollider2D.GroundCheck("Ground"))
+        if (player.GroundCollider2D.GroundCheck("Ground"))
         {
-            Vector2 force = Vector2.up * _player.JumpForce;
+            var force = Vector2.up * player.JumpForce;
             rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-            _player.UIJumpButton = false;
-            return _prevState;
+            player.UIJumpButton = false;
+            return prevState;
         }
-
+        if (player.IsChangeWeapon && !player.IsPlayerShooting) return typeof(ChangeWeaponState);
+        
+        if (player.UIStartShoot) return typeof(StartShootState);
+        if (player.UIStopShoot) return typeof(StopShootState);
+        
         return null;
     }
 

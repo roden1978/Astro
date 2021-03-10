@@ -1,31 +1,35 @@
 ﻿public class CrouchState : BaseState
 {
-    private Player _player;
-    private System.Type _prevState;
+    private readonly Player player;
+    private System.Type prevState;
     
     public CrouchState(Player player) : base(player.gameObject)
     {
-        _player = player;
+        this.player = player;
     }
 
     public override System.Type Tick()
     {
         
-        if (_prevState == null) _prevState = _player.GetComponent<StateMashine>().GetPrevState;
+        if (prevState == null) prevState = player.GetComponent<StateMashine>().GetPrevState;
         //UI
-        if (!_player.UICrouchButton)
+        if (!player.UICrouchButton)
         {
-            _player.animator.SetBool("crouch", false);
-            return _prevState;
+            player.animator.SetBool("crouch", false);
+            return prevState;
         }
        
         //keyboard
-        /*if (!_player.UICrouchButton && (int) _player.Direction.y == 1 || (int) _player.Direction.y == -1)
+        /*if (!player.UICrouchButton && (int) player.Direction.y == 1 || (int) player.Direction.y == -1)
         {
-            _player.animator.SetBool("crouch", false);
-            return _prevState;
+            player.animator.SetBool("crouch", false);
+            return prevState;
         }*/
-        if (_player.IsChangeWeapon) return typeof(ChangeWeaponState);
+        
+        if (player.IsChangeWeapon && !player.IsPlayerShooting) return typeof(ChangeWeaponState);
+        
+        if (player.UIStartShoot) return typeof(StartShootState);
+        if (player.UIStopShoot) return typeof(StopShootState);
         return null;
     }
 

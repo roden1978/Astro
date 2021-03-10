@@ -28,9 +28,6 @@ public class Player : MonoBehaviour
     [SerializeField] [Tooltip("Точка крепления оружия")]
     private GameObject weaponPoint;
 
-    [SerializeField] [Tooltip("Текущее оружие")]
-    private GameObject currentWeapon;
-
     [SerializeField] [Tooltip("Стартовое оружие")]
     private GameObject initialWeapon;
 
@@ -48,6 +45,7 @@ public class Player : MonoBehaviour
     private Joystick joystick;
     private Vector2 direction;
     private float maxVelocity;
+    private float shootDelay;
     private Vector2 joystickDirection;
 
     private const float LEFT_ARM_LOCK_POSITION_UP = 0.15f;
@@ -57,7 +55,7 @@ public class Player : MonoBehaviour
     private float rightArmLockPositionDown;
 
     public Animator animator;
-
+    private GameObject currentWeapon;
     private Weapon weapon;
 
     private Transform rightArmWeaponPoint;
@@ -81,7 +79,9 @@ public class Player : MonoBehaviour
             {typeof(JumpState), new JumpState(this)},
             {typeof(CrouchState), new CrouchState(this)},
             {typeof(PlayerFlipState), new PlayerFlipState(this)},
-            {typeof(ChangeWeaponState), new ChangeWeaponState(this)}
+            {typeof(ChangeWeaponState), new ChangeWeaponState(this)},
+            {typeof(StartShootState), new StartShootState(this)},
+            {typeof(StopShootState), new StopShootState(this)}
         };
 
         StateMashine.SetStates(states);
@@ -128,34 +128,45 @@ public class Player : MonoBehaviour
                 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
 
         run = !UIRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
+        
+        shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
+        
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            float shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
-            if (shootDelay > 0)
-                InvokeRepeating("Shoot", shootDelay, shootDelay);
-            else Shoot();
+            UIStartShoot = true;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            float shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
-            if (shootDelay > 0)
-            {
-                CancelInvoke("Shoot");
-                weapon.WeaponSettings.IsShooting = false;
-            }
-            else StopShoot();
+            UIStopShoot = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            IsChangeWeapon = true;
+            if(!IsPlayerShooting) IsChangeWeapon = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             //GrenadeThrow();
         }
+    }
+
+    public void StartingShoot()
+    {
+        if (shootDelay > 0)
+            InvokeRepeating(nameof(Shoot), 0f, shootDelay);
+        else Shoot();
+    }
+
+    public void StoppingShoot()
+    {
+        if (shootDelay > 0)
+        {
+            CancelInvoke(nameof(Shoot));
+            weapon.WeaponSettings.IsShooting = false;
+        }
+        else StopShoot();
     }
 
     private void JoystickReadDirections()
@@ -168,9 +179,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Shoot() => weapon.Shoot();
+    private void Shoot() => weapon.Shoot();
     
-    public void StopShoot() => weapon.StopShoot();
+    private void StopShoot() => weapon.StopShoot();
     
     private void InitWeapon()
     {
@@ -194,23 +205,23 @@ public class Player : MonoBehaviour
         {
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
             playerSettings.CurrentWeapon = currentWeapon;
-            playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;//playerSettings.Weapons[weaponIndex].name;
+            playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
             weaponIndex++;
         }
     }
 
-    public GameObject ChangeWeapon()
+   
+    public void ChangeWeapon()
     {
-            if (currentWeapon) Destroy(currentWeapon);
-            return Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
-    }
-
-    public void SetupNewWeapon()
-    {
-        int weaponCount = playerSettings.Weapons.Count;
         
-        playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+        if (currentWeapon) Destroy(currentWeapon);
+        currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
+        
+        int weaponCount = playerSettings.Weapons.Count;
+        weapon = currentWeapon.GetComponent<Weapon>();
         playerSettings.CurrentWeapon = currentWeapon;
+        playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+        
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
@@ -268,13 +279,11 @@ public class Player : MonoBehaviour
     public bool UICrouchButton { get; set; }
     public bool UIRunButton { get; set; }
     public bool UIJumpButton { get; set; }
-    
+    public bool UIStartShoot { get; set; }
+    public bool UIStopShoot { get; set; }
+    public bool IsPlayerShooting { get; set; }
     public bool IsChangeWeapon { get; set; }
     public bool Run => run;
-    public Weapon Weapon { get; set;}
     public float JumpForce => jumpForce;
     public bool MovingRight { get; set; }
-    public PlayerSettings PlayerSettings => playerSettings;
-
-    public GameObject CurrentWeapon { get; set; }
 }

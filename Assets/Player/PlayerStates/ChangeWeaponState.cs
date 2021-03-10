@@ -1,8 +1,9 @@
-﻿public class ChangeWeaponState : BaseState
+﻿using UnityEngine;
+
+public class ChangeWeaponState : BaseState
 {
     private Player player;
     private System.Type prevState;
-
     public ChangeWeaponState(Player player) : base(player.gameObject)
     {
         this.player = player;
@@ -12,18 +13,21 @@
     {
         if (prevState == null) prevState = player.GetComponent<StateMashine>().GetPrevState;
 
-        player.CurrentWeapon = player.ChangeWeapon();
-        
-        if (player.CurrentWeapon)
+        player.ChangeWeapon();
+        //Debug.Log($"Current weapon {currentWeapon}");
+        /*if (currentWeapon)
         {
+            player.CurrentWeapon = currentWeapon;
             player.Weapon = player.CurrentWeapon.GetComponent<Weapon>();
-            player.SetupNewWeapon();
             player.IsChangeWeapon = false;
+            player.SetupNewWeapon();
 
             return prevState;
         }
         
-        return null;
+        return null;*/
+        player.IsChangeWeapon = false;
+        return prevState;
         
     }
 

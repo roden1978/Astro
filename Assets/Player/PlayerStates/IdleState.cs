@@ -2,43 +2,46 @@
 
 public class IdleState : BaseState
 {
-    private Player _player;
+    private readonly Player player;
 
     public IdleState(Player player) : base(player.gameObject)
     {
-        _player = player;
+        this.player = player;
     }
 
     public override System.Type Tick()
     {
-        if (_player.Direction.x != 0)
+        if (player.Direction.x != 0)
         {
-            _player.animator.SetBool("walk", true);
+            player.animator.SetBool("walk", true);
             return typeof(MoveState);  
         }
         
 
-        if (_player.Direction.y == 1.0f)
+        if (player.Direction.y == 1.0f)
         {
-            _player.animator.SetTrigger("jump");
+            player.animator.SetTrigger("jump");
             return typeof(JumpState); 
         }
 
 
-        if (_player.Direction.y == -1.0f || _player.UICrouchButton)
+        if (player.Direction.y == -1.0f || player.UICrouchButton)
         {
-            _player.animator.SetBool("crouch", true);
+            player.animator.SetBool("crouch", true);
             return typeof(CrouchState);
         }
         
-        if (_player.Direction.x == 0)
+        if (player.Direction.x == 0)
         {
-            _player.animator.SetBool("walk", false);
-            _player.animator.SetBool("run", false);
+            player.animator.SetBool("walk", false);
+            player.animator.SetBool("run", false);
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);  
         }
 
-        if (_player.IsChangeWeapon) return typeof(ChangeWeaponState);
+        if (player.IsChangeWeapon && !player.IsPlayerShooting) return typeof(ChangeWeaponState);
+      
+        if (player.UIStartShoot) return typeof(StartShootState);
+        if (player.UIStopShoot) return typeof(StopShootState);
         
         return null;
     }
