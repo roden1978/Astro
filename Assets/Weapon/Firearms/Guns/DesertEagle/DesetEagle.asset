@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6489c3129c51a945acd4cab59a5005a, type: 3}
   m_Name: DesetEagle
   m_EditorClassIdentifier: 
-  name: 5
   image: {fileID: 21300000, guid: 4e2445cd2b62e8c4798cb29b31a92999, type: 3}
   rightArmLockPositionUp: 0.15
   rightArmLockPositionDown: -0.15
-  weaponShoot: {fileID: 11400000, guid: ac38e75e8b4d49947b68dd64d906c2ce, type: 2}
-  vfxShoot: {fileID: 3066600329688807935, guid: e0e2d269ae5d0a84eb8c4e946a50f4b5,
+  weaponShoot: {fileID: 11400000, guid: 01d9d05b36ee4fd4f82a05690d9ba25a, type: 2}
+  muzzleVFX: {fileID: 3066600329688807935, guid: e0e2d269ae5d0a84eb8c4e946a50f4b5,
     type: 3}
   shootDelay: 0
-  weaponTypes: 0
+  bulletPrefab: {fileID: 1642875657553581448, guid: 024c153f89f17ba49a55474f97a609dc,
+    type: 3}

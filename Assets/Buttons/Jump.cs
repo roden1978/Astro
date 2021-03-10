@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Jump : MonoBehaviour, IPointerDownHandler
@@ -7,8 +8,11 @@ public class Jump : MonoBehaviour, IPointerDownHandler
 
    public void OnPointerDown(PointerEventData eventData)
    {
-       if(!player) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
        player.UIJumpButton = true;
    }
 
+   private void Update()
+   {
+       if(!player) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+   }
 }

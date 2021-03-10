@@ -28,14 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] [Tooltip("Точка крепления оружия")]
     private GameObject weaponPoint;
 
-    [SerializeField] [Tooltip("Текущее оружие")]
-    private GameObject currentWeapon;
-
     [SerializeField] [Tooltip("Стартовое оружие")]
     private GameObject initialWeapon;
-
-    [SerializeField] [Tooltip("Джойстик для управления игроком")]
-    private Joystick viewJoystick;
 
     [SerializeField] [Tooltip("Мертвая зона джойстика")]
     private float joystickDelay;
@@ -48,20 +42,21 @@ public class Player : MonoBehaviour
     private StateMashine StateMashine => GetComponent<StateMashine>();
     private bool run;
     private Dictionary<System.Type, BaseState> states;
-
+    private Joystick joystick;
     private Vector2 direction;
     private float maxVelocity;
+    private float shootDelay;
     private Vector2 joystickDirection;
 
-    private readonly float leftArmLockPositionUp = 0.15f;
-    private readonly float leftArmLockPositionDown = -0.15f;
+    private const float LEFT_ARM_LOCK_POSITION_UP = 0.15f;
+    private const float LEFT_ARM_LOCK_POSITION_DOWN = -0.15f;
 
     private float rightArmLockPositionUp;
     private float rightArmLockPositionDown;
 
     public Animator animator;
-
-    private WeaponController wc;
+    private GameObject currentWeapon;
+    private Weapon weapon;
 
     private Transform rightArmWeaponPoint;
     private Transform rightWeaponPoint;
@@ -83,7 +78,10 @@ public class Player : MonoBehaviour
             {typeof(RunState), new RunState(this)},
             {typeof(JumpState), new JumpState(this)},
             {typeof(CrouchState), new CrouchState(this)},
-            {typeof(PlayerFlipState), new PlayerFlipState(this)}
+            {typeof(PlayerFlipState), new PlayerFlipState(this)},
+            {typeof(ChangeWeaponState), new ChangeWeaponState(this)},
+            {typeof(StartShootState), new StartShootState(this)},
+            {typeof(StopShootState), new StopShootState(this)}
         };
 
         StateMashine.SetStates(states);
@@ -95,17 +93,17 @@ public class Player : MonoBehaviour
         MovingRight = true;
         animator = GetComponent<Animator>();
         weaponIndex = 0;
-
+        joystick = FindObjectOfType<Joystick>();
         InitWeapon();
-        wc = currentWeapon.GetComponent<WeaponController>();
+        weapon = playerSettings.CurrentWeapon.GetComponent<Weapon>();
 
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
             .Find("boneRightWrist").Find("right");
 
-        rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-        rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
+        rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
+        rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
 
 
         if (rightWeaponPoint && rightArmWeaponPoint)
@@ -130,28 +128,22 @@ public class Player : MonoBehaviour
                 : Input.GetKeyDown(KeyCode.S) ? -1 : 0);
 
         run = !UIRunButton && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
+        
+        shootDelay = weapon.WeaponSettings.ShootDelay <= 0 ? 0 : weapon.WeaponSettings.ShootDelay;
+        
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
-            if (shootDelay > 0)
-                InvokeRepeating("Shoot", shootDelay, shootDelay);
-            else Shoot();
+            UIStartShoot = true;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            float shootDelay = wc.Weapon.ShootDelay <= 0 ? 0 : wc.Weapon.ShootDelay;
-            if (shootDelay > 0)
-            {
-                CancelInvoke("Shoot");
-                wc.Weapon.IsShooting = false;
-            }
-            else StopShoot();
+            UIStopShoot = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeWeapon();
+            if(!IsPlayerShooting) IsChangeWeapon = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -160,9 +152,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void StartingShoot()
+    {
+        if (shootDelay > 0)
+            InvokeRepeating(nameof(Shoot), 0f, shootDelay);
+        else Shoot();
+    }
+
+    public void StoppingShoot()
+    {
+        if (shootDelay > 0)
+        {
+            CancelInvoke(nameof(Shoot));
+            weapon.WeaponSettings.IsShooting = false;
+        }
+        else StopShoot();
+    }
+
     private void JoystickReadDirections()
     {
-        joystickDirection = new Vector2(viewJoystick.Horizontal, viewJoystick.Vertical);
+        joystickDirection = new Vector2(joystick.Horizontal, joystick.Vertical);
 
         if (Mathf.Abs(joystickDirection.x) > joystickDelay)
         {
@@ -170,9 +179,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Shoot() => wc.Shoot();
+    private void Shoot() => weapon.Shoot();
     
-    public void StopShoot() => wc.StopShoot();
+    private void StopShoot() => weapon.StopShoot();
     
     private void InitWeapon()
     {
@@ -185,6 +194,7 @@ public class Player : MonoBehaviour
                 {
                     currentWeapon = Instantiate(weapon, weaponPoint.transform);
                     playerSettings.CurrentWeaponName = weapon.name;
+                    playerSettings.CurrentWeapon = currentWeapon;
                     weaponIndex = count == playerSettings.Weapons.Count - 1 ? 0 : count + 1;
                 }
 
@@ -194,49 +204,45 @@ public class Player : MonoBehaviour
         else
         {
             currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
+            playerSettings.CurrentWeapon = currentWeapon;
             playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
             weaponIndex++;
         }
     }
 
+   
     public void ChangeWeapon()
     {
-        if (!wc.Weapon.IsShooting)
+        
+        if (currentWeapon) Destroy(currentWeapon);
+        currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
+        
+        int weaponCount = playerSettings.Weapons.Count;
+        weapon = currentWeapon.GetComponent<Weapon>();
+        playerSettings.CurrentWeapon = currentWeapon;
+        playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
+        
+        rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
+
+        rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
+            .Find("boneRightWrist").Find("right");
+
+        if (rightWeaponPoint && rightArmWeaponPoint)
         {
-            int weaponCount = playerSettings.Weapons.Count;
-            if (currentWeapon) Destroy(currentWeapon);
-
-            currentWeapon = Instantiate(playerSettings.Weapons[weaponIndex], weaponPoint.transform);
-            if (currentWeapon)
-            {
-                currentWeapon.name = playerSettings.Weapons[weaponIndex].name;
-                playerSettings.CurrentWeaponName = currentWeapon.name;
-                rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
-
-                rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
-                    .Find("boneRightWrist").Find("right");
-
-                if (rightWeaponPoint && rightArmWeaponPoint)
-                {
-                    rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
+            rightArm.transform.position += rightArmWeaponPoint.position - rightWeaponPoint.position;
                    
-                }
-                rightArmLockPositionUp = wc.Weapon.RightArmLockPositionUp;
-                rightArmLockPositionDown = wc.Weapon.RightArmLockPositionDown;
-
-                if (weaponIndex == weaponCount - 1)
-                {
-                    weaponIndex = -1;
-                }
-
-                weaponIndex++;
-            }
-            else
-            {
-                Debug.Log("Weapon not change, weapon not found");
-            }
         }
+        rightArmLockPositionUp = weapon.WeaponSettings.RightArmLockPositionUp;
+        rightArmLockPositionDown = weapon.WeaponSettings.RightArmLockPositionDown;
+
+        if (weaponIndex == weaponCount - 1)
+        {
+            weaponIndex = -1;
+        }
+
+        weaponIndex++;
     }
+
     private void MovingRightArm()
     {
         Vector3 leftArmLocalPosition = leftArm.transform.localPosition;
@@ -248,8 +254,8 @@ public class Player : MonoBehaviour
         Vector3 currentPositionRightArm = new Vector3(rightArmLocalPosition.x,
             joystickDirection.y * .5f, rightArmLocalPosition.z);
 
-        if (currentPositionLeftArm.y >= leftArmLockPositionDown
-            && currentPositionLeftArm.y <= leftArmLockPositionUp)
+        if (currentPositionLeftArm.y >= LEFT_ARM_LOCK_POSITION_DOWN
+            && currentPositionLeftArm.y <= LEFT_ARM_LOCK_POSITION_UP)
         {
             leftArm.transform.localPosition = currentPositionLeftArm;
         }
@@ -263,6 +269,7 @@ public class Player : MonoBehaviour
             rightArm.transform.localPosition = localPosition;
         }
     }
+    
    
     public Collider2D GroundCollider2D => groundCollider2D;
     public Vector2 Force => force;
@@ -272,8 +279,11 @@ public class Player : MonoBehaviour
     public bool UICrouchButton { get; set; }
     public bool UIRunButton { get; set; }
     public bool UIJumpButton { get; set; }
+    public bool UIStartShoot { get; set; }
+    public bool UIStopShoot { get; set; }
+    public bool IsPlayerShooting { get; set; }
+    public bool IsChangeWeapon { get; set; }
     public bool Run => run;
-    public WeaponController GetWeaponController => wc;
     public float JumpForce => jumpForce;
     public bool MovingRight { get; set; }
 }

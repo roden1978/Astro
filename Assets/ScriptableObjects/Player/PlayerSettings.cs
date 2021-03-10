@@ -50,15 +50,8 @@ public class PlayerSettings : ScriptableObject
 	[SerializeField] [Tooltip("Кнопка бега")]
 	public Button runButton;
 
-	[SerializeField] [Tooltip("Джойстик")]
-	public Joystick joystick;
-	/*	
-	[SerializeField] [Tooltip("Верхняя точка движения левой руки вверх (по умолчанию 0.15)")]
-	private float leftArmLockPositionUp; // default 0.15f;
-	
-	[SerializeField] [Tooltip("Нижняя точка движения левой руки вниз (по умолчанию -0.15)")]
-	private float leftArmLockPositionDown; // default -0.15f;
-	*/
+	[SerializeField] [Tooltip("Текущее оружие")]
+	private GameObject currentWeapon;
 	#pragma warning restore 0649
 	
 
@@ -107,6 +100,12 @@ public class PlayerSettings : ScriptableObject
 	{
 		get => alive;
 		set => alive = value;
+	}
+
+	public GameObject CurrentWeapon
+	{
+		get => currentWeapon;
+		set => currentWeapon = value;
 	}
 
 	public string CurrentWeaponName

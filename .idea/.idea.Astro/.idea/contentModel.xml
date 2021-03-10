@@ -38,15 +38,6 @@
           </e>
           <e p="States" t="Include">
             <e p="BaseState.cs" t="Include" />
-            <e p="Player" t="Include">
-              <e p="CrouchState.cs" t="Include" />
-              <e p="FireState.cs" t="Include" />
-              <e p="IdleState.cs" t="Include" />
-              <e p="JumpState.cs" t="Include" />
-              <e p="MoveState.cs" t="Include" />
-              <e p="PlayerFlipState.cs" t="Include" />
-              <e p="RunState.cs" t="Include" />
-            </e>
             <e p="Slimes" t="Include">
               <e p="Attack" t="Include">
                 <e p="AttackState.cs" t="Include" />
@@ -99,6 +90,17 @@
         <e p="MouseLook.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="Player.cs" t="Include" />
+          <e p="PlayerStates" t="Include">
+            <e p="ChangeWeaponState.cs" t="Include" />
+            <e p="CrouchState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="JumpState.cs" t="Include" />
+            <e p="MoveState.cs" t="Include" />
+            <e p="PlayerFlipState.cs" t="Include" />
+            <e p="RunState.cs" t="Include" />
+            <e p="StartShootState.cs" t="Include" />
+            <e p="StopShootState.cs" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -231,7 +233,7 @@
           <e p="ParticleEffects" t="Include">
             <e p="Firearms" t="Include">
               <e p="DestroyVFX.cs" t="Include" />
-              <e p="MuzzleController.cs" t="Include" />
+              <e p="Muzzle.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -250,11 +252,15 @@
             </e>
             <e p="Firearms" t="Include">
               <e p="Firearms" t="Include">
-                <e p="Weapon.cs" t="Include" />
+                <e p="WeaponSettings.cs" t="Include" />
               </e>
               <e p="Shoots" t="Include">
                 <e p="AWeaponShoot.cs" t="Include" />
+                <e p="GunsShoot.cs" t="Include" />
+                <e p="LasersAndFlamethrowersShoot.cs" t="Include" />
+                <e p="ShootgunsShoot.cs" t="Include" />
                 <e p="WeaponShoot.cs" t="Include" />
+                <e p="WMDShoot.cs" t="Include" />
               </e>
             </e>
           </e>
@@ -268,7 +274,7 @@
               <e p="Mashinegun.cs" t="Include" />
               <e p="WMD.cs" t="Include" />
             </e>
-            <e p="WeaponController.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
         </e>
       </e>

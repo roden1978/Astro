@@ -9,7 +9,7 @@ public class Mashinegun : MonoBehaviour
     [SerializeField] float power;
     [SerializeField] float bulletNoise;
     [SerializeField] float powerNoise;
-    [SerializeField] Weapon weapon;
+    [SerializeField] WeaponSettings weapon;
     [SerializeField] GameObject vfxCollision;
     [SerializeField] float lifetime;
 #pragma warning restore 0649

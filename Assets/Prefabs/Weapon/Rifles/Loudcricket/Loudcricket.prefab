@@ -133,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 553993089
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 28524aa182e225d4c92c159e0a09c43b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 6957000533536737726}
   targetPoint: {fileID: 767575152733320603}
-  weapon: {fileID: 11400000, guid: ed7e64535f7432b4d87b5491f8c358e8, type: 2}
+  weaponSettings: {fileID: 11400000, guid: ed7e64535f7432b4d87b5491f8c358e8, type: 2}
 --- !u!1 &8402236805620171238
 GameObject:
   m_ObjectHideFlags: 0

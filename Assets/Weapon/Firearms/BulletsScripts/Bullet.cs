@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class Bullet : MonoBehaviour
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] float power;
 	[SerializeField] float lifetime;
-	[SerializeField] Weapon weapon;
+	[SerializeField] WeaponSettings weapon;
 	[SerializeField] GameObject vfxCollision;
 #pragma warning restore 0649
 	

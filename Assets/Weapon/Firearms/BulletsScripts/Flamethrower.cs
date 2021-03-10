@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 public class Flamethrower : MonoBehaviour
 {
 #pragma warning disable 0649
-    [SerializeField] Weapon weapon;
+    [SerializeField] WeaponSettings weapon;
     [SerializeField] float minSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float maxFlameLifeTime;

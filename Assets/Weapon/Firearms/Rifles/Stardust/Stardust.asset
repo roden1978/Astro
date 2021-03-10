@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6489c3129c51a945acd4cab59a5005a, type: 3}
   m_Name: Stardust
   m_EditorClassIdentifier: 
-  name: 9
   image: {fileID: 21300000, guid: 049ef69681ddd5f47a3be5bb7bed561e, type: 3}
   rightArmLockPositionUp: 0.15
   rightArmLockPositionDown: -0.15
-  weaponShoot: {fileID: 11400000, guid: 2a6ae17cb940cbd4aaea812bdff78baf, type: 2}
-  vfxShoot: {fileID: 3066600329688807935, guid: 991a0854eb1974f4dac3530b3ff5eda0,
+  weaponShoot: {fileID: 11400000, guid: 01d9d05b36ee4fd4f82a05690d9ba25a, type: 2}
+  muzzleVFX: {fileID: 3066600329688807935, guid: 991a0854eb1974f4dac3530b3ff5eda0,
     type: 3}
   shootDelay: 0
+  bulletPrefab: {fileID: 5898792233668249317, guid: 9913580d8104dee45958cdcc235f0481,
+    type: 3}
