@@ -11,6 +11,7 @@ TagManager:
   - enemyWeapon
   - playerBullet
   - canvas
+  - objectPooler
   layers:
   - Default
   - TransparentFX

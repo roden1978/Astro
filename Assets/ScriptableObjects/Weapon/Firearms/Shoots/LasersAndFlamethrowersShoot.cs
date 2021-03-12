@@ -1,25 +1,48 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New LasersAndFlamethrowersShoot", menuName = "Weapons/Shoots/LasersAndFlamethrowersShoot")]
 public class LasersAndFlamethrowersShoot : AWeaponShoot
 {
+    private ObjectPooler objectPooler;
+    private Queue<GameObject> currentPool;
+    
     private GameObject bulletGameObject;
     private GameObject muzzleGameObject;
     
     public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
     {
-        if (!bulletGameObject)
+        if(!objectPooler)
         {
-            bulletGameObject =  Instantiate(bullet, shootPoint, rotation);
-            muzzleGameObject = Instantiate(muzzleVFXPrefab, shootPoint, rotation);
-        } 
-            
-    }
+            objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
 
+            foreach (var pool in objectPooler.PoolDictionary)
+            {
+                if (pool.Value.Count != 0)
+                {
+                    currentPool = pool.Value;
+                }
+            }
+        }
+
+        bulletGameObject = currentPool.Dequeue();
+        if (!bullet.activeInHierarchy)
+        {
+            bulletGameObject.transform.position = shootPoint;
+            bulletGameObject.transform.rotation = rotation;
+            bulletGameObject.SetActive(true);
+        }
+        currentPool.Enqueue(bulletGameObject);
+        if (!muzzleGameObject)
+        {
+            muzzleGameObject = Instantiate(muzzleVFXPrefab, shootPoint, rotation); 
+        } 
+    }
+   
     public override void StopShoot()
     {
-        Destroy(bulletGameObject);
+        bulletGameObject.SetActive(false);
         Destroy(muzzleGameObject);
     }
 

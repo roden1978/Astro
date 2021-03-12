@@ -55,7 +55,12 @@ public class Laser : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
+    {
+        Destroy(collisionEffect);
+    }*/
+
+    private void OnDisable()
     {
         Destroy(collisionEffect);
     }

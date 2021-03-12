@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 4843389490644401591}
   m_Layer: 11
   m_Name: BloodthornBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

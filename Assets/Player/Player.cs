@@ -37,9 +37,11 @@ public class Player : MonoBehaviour
     [SerializeField] [Tooltip("Коллайдер земли")]
     private Collider2D groundCollider2D;
 
+    
 #pragma warning restore 0649
 
     private StateMashine StateMashine => GetComponent<StateMashine>();
+    private ObjectPooler objectPooler;
     private bool run;
     private Dictionary<System.Type, BaseState> states;
     private Joystick joystick;
@@ -96,7 +98,10 @@ public class Player : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
         InitWeapon();
         weapon = playerSettings.CurrentWeapon.GetComponent<Weapon>();
-
+        objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        //objectPooler.CreatePoolDictionary(playerSettings.Weapons);
+        //objectPooler.FillPool(playerSettings.CurrentWeaponName, weapon.WeaponSettings.BulletPrefab);
+        
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
@@ -222,6 +227,8 @@ public class Player : MonoBehaviour
         playerSettings.CurrentWeapon = currentWeapon;
         playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
         
+        objectPooler.FillPool(playerSettings.CurrentWeaponName, weapon.WeaponSettings.BulletPrefab);
+        
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 
         rightWeaponPoint = transform.Find("bone_1").Find("bone_2").Find("bone_19").Find("bone_20")
@@ -286,4 +293,6 @@ public class Player : MonoBehaviour
     public bool Run => run;
     public float JumpForce => jumpForce;
     public bool MovingRight { get; set; }
+    public PlayerSettings PlayerSettings => playerSettings;
+    public GameObject CurrentWeapon => currentWeapon;
 }

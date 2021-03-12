@@ -88,6 +88,7 @@
           </e>
         </e>
         <e p="MouseLook.cs" t="Include" />
+        <e p="ObjectPooler.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="Player.cs" t="Include" />
           <e p="PlayerStates" t="Include">
