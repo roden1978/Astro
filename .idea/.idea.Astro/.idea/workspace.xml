@@ -56,9 +56,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerStates/StopShootState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Enemies/States/Turrets/Patrol/ChangeRotateDirectionState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -105,15 +104,15 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/CrouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerStates/RunState.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/ObjectPooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LasersAndFlamethrowersShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
-        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObjectPooler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
       </list>
     </option>
   </component>
@@ -238,6 +237,7 @@
       <workItem from="1615443489075" duration="11548000" />
       <workItem from="1615521422864" duration="7638000" />
       <workItem from="1615534941372" duration="8953000" />
+      <workItem from="1615695605867" duration="5306000" />
     </task>
     <servers />
   </component>

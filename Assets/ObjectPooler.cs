@@ -20,21 +20,11 @@ public class ObjectPooler : MonoBehaviour
     {
         bulletAmount = 20;
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
-    }
 
-    private void Update()
-    {
-        if (!player)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            bulletPrefab = player.CurrentWeapon.GetComponent<Weapon>().WeaponSettings.BulletPrefab;
-            CreatePoolDictionary(player.PlayerSettings.Weapons);
-            FillPool(player.PlayerSettings.CurrentWeaponName, bulletPrefab);
-            /*foreach (var dic in poolDictionary)
-            {
-                Debug.Log($"Name {dic.Key}, Queue {dic.Value.Count}");
-            }*/
-        }
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        bulletPrefab = player.CurrentWeapon.GetComponent<Weapon>().WeaponSettings.BulletPrefab;
+        CreatePoolDictionary(player.PlayerSettings.Weapons);
+        FillPool(player.PlayerSettings.CurrentWeaponName, bulletPrefab);
     }
 
     public void FillPool(string weaponName, GameObject bullet)

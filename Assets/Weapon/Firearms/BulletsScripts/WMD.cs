@@ -43,6 +43,7 @@ public class WMD : MonoBehaviour
         isCollision = true;
         gameObject.SetActive(false);
         //Destroy(gameObject);
+        OnDestroy();
     }
 
     private void Destroy()

@@ -10,42 +10,37 @@ public class WMDShoot : AWeaponShoot
 
     private GameObject bulletGameObject;
     private GameObject muzzleGameObject;
-
+    
     public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
     {
-        if (!objectPooler)
+        if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        
+        foreach (var pool in objectPooler.PoolDictionary)
         {
-            objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
-
-            foreach (var pool in objectPooler.PoolDictionary)
+            if (pool.Value.Count != 0)
             {
-                if (pool.Value.Count != 0)
-                {
-                    currentPool = pool.Value;
-                }
+                currentPool = pool.Value;
             }
         }
 
-        if (!bulletGameObject )
+
+        if (!bulletGameObject)
         {
             bulletGameObject = currentPool.Dequeue();
-            
         }
 
-        if (!bulletGameObject.activeInHierarchy)
+        if (bulletGameObject && !bulletGameObject.activeInHierarchy)
         {
             bulletGameObject.transform.position = shootPoint;
             bulletGameObject.transform.rotation = rotation;
             bulletGameObject.SetActive(true);
-            
+
             currentPool.Enqueue(bulletGameObject);
             if (!muzzleGameObject)
             {
                 muzzleGameObject = Instantiate(muzzleVFXPrefab, shootPoint, rotation);
             }
         }
-
-        
     }
     /*public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,25 +9,24 @@ public class ShootgunsShoot : AWeaponShoot
     private ObjectPooler objectPooler;
     private Queue<GameObject> currentPool;
 
+   
+
     public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
     {
-        if (!objectPooler)
-        {
-            objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
-
-            foreach (var pool in objectPooler.PoolDictionary)
+        if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        
+       foreach (var pool in objectPooler.PoolDictionary)
             {
                 if (pool.Value.Count != 0)
                 {
                     currentPool = pool.Value;
                 }
             }
-        }
-
+        
         for (int i = 0; i <= 2; i++)
         {
             var obj = currentPool.Dequeue();
-            if (!bullet.activeInHierarchy)
+            if (obj && !bullet.activeInHierarchy)
             {
                 obj.transform.position = shootPoint;
                 obj.transform.rotation = rotation;
@@ -37,7 +37,7 @@ public class ShootgunsShoot : AWeaponShoot
         }
 
         //Instantiate(bullet, shootPoint, rotation);
-        //Instantiate(muzzleVFXPrefab, shootPoint, rotation);
+        Instantiate(muzzleVFXPrefab, shootPoint, rotation);
     }
 
    
