@@ -227,7 +227,8 @@ public class Player : MonoBehaviour
         playerSettings.CurrentWeapon = currentWeapon;
         playerSettings.CurrentWeaponName = playerSettings.Weapons[weaponIndex].name;
         
-        objectPooler.FillPool(playerSettings.CurrentWeaponName, weapon.WeaponSettings.BulletPrefab);
+        objectPooler.FillPool(playerSettings.CurrentWeaponName, weapon.WeaponSettings.BulletPrefab, objectPooler.BulletPoolDictionary, objectPooler.BulletAmount);
+        objectPooler.FillPool(playerSettings.CurrentWeaponName, weapon.WeaponSettings.MuzzleVFX, objectPooler.MuzzlePoolDictionary, objectPooler.MuzzleAmount);
         
         rightArmWeaponPoint = currentWeapon.transform.Find("rightArmPoint");
 

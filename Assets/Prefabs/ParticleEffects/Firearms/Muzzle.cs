@@ -11,4 +11,6 @@ public class Muzzle : MonoBehaviour
         transform.position = weaponSettings.ShootPoint;
         transform.rotation = weaponSettings.ShootPointRotation;
     }
+   
+  
 }

@@ -10,17 +10,30 @@ public class DestroyVFX : MonoBehaviour
     private IEnumerator coroutine;
     
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         coroutine = Die(delay);
         StartCoroutine(coroutine);
+    }*/
+    public void OnEnable()
+    {
+        Invoke("Destroy", delay);
     }
 
-    private IEnumerator Die(float _delay)
+    public void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+    private void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+    /*private IEnumerator Die(float _delay)
     {
         yield return new WaitForSeconds(_delay);
         Destroy(gameObject);
-    }
+    }*/
 
     public float Delay
     {

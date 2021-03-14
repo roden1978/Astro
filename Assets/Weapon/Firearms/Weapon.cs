@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Weapon: MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Weapon: MonoBehaviour
 
 	[SerializeField] WeaponSettings weaponSettings;
 	#pragma warning restore 0649
+	
+	private ObjectPooler objectPooler;
+	private Queue<GameObject> currentPool;
+	private GameObject obj;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +42,32 @@ public class Weapon: MonoBehaviour
     {
 	    weaponSettings.WeaponShoot.Shoot(weaponSettings.MuzzleVFX,weaponSettings.BulletPrefab, 
 		    weaponSettings.ShootPoint, weaponSettings.ShootPointRotation);
+	    
+	    if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        
+	    foreach (var pool in objectPooler.MuzzlePoolDictionary)
+	    {
+		    if (pool.Value.Count != 0)
+		    {
+			    currentPool = pool.Value;
+		    }
+	    }
+        
+	    obj = currentPool.Dequeue();
+            
+	    if (obj && !obj.activeInHierarchy)
+	    {
+		    obj.transform.position = weaponSettings.ShootPoint;
+		    obj.transform.rotation = weaponSettings.ShootPointRotation;
+		    obj.SetActive(true);
+	    }
+
+	    currentPool.Enqueue(obj);
     }
     public void StopShoot()
     {
 	    weaponSettings.WeaponShoot.StopShoot();
+	    obj.SetActive(false);
     }
    
 	public WeaponSettings WeaponSettings => weaponSettings;

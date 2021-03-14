@@ -15,7 +15,7 @@ public class ShootgunsShoot : AWeaponShoot
     {
         if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
         
-       foreach (var pool in objectPooler.PoolDictionary)
+       foreach (var pool in objectPooler.BulletPoolDictionary)
             {
                 if (pool.Value.Count != 0)
                 {
@@ -37,7 +37,7 @@ public class ShootgunsShoot : AWeaponShoot
         }
 
         //Instantiate(bullet, shootPoint, rotation);
-        Instantiate(muzzleVFXPrefab, shootPoint, rotation);
+        //Instantiate(muzzleVFXPrefab, shootPoint, rotation);
     }
 
    

@@ -10,14 +10,14 @@ public class LasersAndFlamethrowersShoot : AWeaponShoot
     private Queue<GameObject> currentPool;
 
     private GameObject bulletGameObject;
-    private GameObject muzzleGameObject;
+    //private GameObject muzzleGameObject;
 
     
     public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
     {
         if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
         
-        foreach (var pool in objectPooler.PoolDictionary)
+        foreach (var pool in objectPooler.BulletPoolDictionary)
         {
             if (pool.Value.Count != 0)
             {
@@ -36,15 +36,15 @@ public class LasersAndFlamethrowersShoot : AWeaponShoot
         }
 
         currentPool.Enqueue(bulletGameObject);
-        if (!muzzleGameObject)
+        /*if (!muzzleGameObject)
         {
             muzzleGameObject = Instantiate(muzzleVFXPrefab, shootPoint, rotation);
-        }
+        }*/
     }
 
     public override void StopShoot()
     {
         bulletGameObject.SetActive(false);
-        Destroy(muzzleGameObject);
+        //Destroy(muzzleGameObject);
     }
 }
