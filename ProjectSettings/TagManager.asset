@@ -12,6 +12,7 @@ TagManager:
   - playerBullet
   - canvas
   - objectPooler
+  - muzzle
   layers:
   - Default
   - TransparentFX
