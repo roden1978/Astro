@@ -29,8 +29,9 @@ public class ObjectPooler : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         
-        bulletPrefab = player.CurrentWeapon.GetComponent<Weapon>().WeaponSettings.BulletPrefab;
-        muzzlePrefab = player.CurrentWeapon.GetComponent<Weapon>().WeaponSettings.MuzzleVFX;
+        var weaponSettings = player.CurrentWeapon.GetComponent<Weapon>().WeaponSettings;
+        bulletPrefab = weaponSettings.BulletPrefab;
+        muzzlePrefab = weaponSettings.MuzzleVFX;
         
         CreatePoolDictionary(player.PlayerSettings.Weapons, bulletsPoolDictionary);
         FillPool(player.PlayerSettings.CurrentWeaponName, bulletPrefab, bulletsPoolDictionary, bulletAmount);
@@ -43,18 +44,10 @@ public class ObjectPooler : MonoBehaviour
     {
         var objectsForDelete = (GameObject[]) FindObjectsOfType(typeof(GameObject), true);
 
-        foreach (var obj in objectsForDelete)
-        {
-            if (obj.CompareTag(prefab.tag) && !prefab.CompareTag(null))
-              Destroy(obj);            
-        }
-        
-        foreach (var pool in dictionary)
-        {
-            if (pool.Value.Count > 0) pool.Value.Clear();
-        }
-
-        
+        foreach (var obj in objectsForDelete) if (obj.CompareTag(prefab.tag)) Destroy(obj);
+       
+        foreach (var pool in dictionary) if (pool.Value.Count > 0) pool.Value.Clear();
+       
         for (int i = 0; i < amount; i++)
         {
             var obj = Instantiate(prefab);

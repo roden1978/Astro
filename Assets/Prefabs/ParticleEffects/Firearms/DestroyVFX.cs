@@ -35,8 +35,5 @@ public class DestroyVFX : MonoBehaviour
         Destroy(gameObject);
     }*/
 
-    public float Delay
-    {
-        get => delay;
-    }
+   
 }

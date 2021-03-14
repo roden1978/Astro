@@ -63,7 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Player/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Buttons/Quit.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/CrouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/PlayerFlipState.cs" />
@@ -77,7 +76,6 @@
         <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/AppStart.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/IShoot.cs" />
@@ -104,16 +102,18 @@
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/Muzzle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/GunsShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/ShootgunsShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/WMDShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Shoots/LasersAndFlamethrowersShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyCollisionVFX.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPooler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyCollisionVFX.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/DestroyVFX.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Common/ObjectPooler.cs" />
       </list>
     </option>
   </component>
