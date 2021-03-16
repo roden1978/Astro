@@ -10,41 +10,27 @@ public class LasersAndFlamethrowersShoot : AWeaponShoot
     private Queue<GameObject> currentPool;
 
     private GameObject bulletGameObject;
-    //private GameObject muzzleGameObject;
 
     
-    public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
+    public override void Shoot(Vector3 shootPoint, Quaternion rotation)
     {
-        if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        if (!objectPooler) objectPooler = FindObjectOfType<ObjectPooler>();
         
-        foreach (var pool in objectPooler.BulletPoolDictionary)
-        {
-            if (pool.Value.Count != 0)
-            {
-                currentPool = pool.Value;
-            }
-
-            Debug.Log($"pool name= {pool.Key} pool Value count = {pool.Value.Count}");
-        }
-
-        bulletGameObject = currentPool.Dequeue();
-        if (bulletGameObject && !bullet.activeInHierarchy)
-        {
-            bulletGameObject.transform.position = shootPoint;
-            bulletGameObject.transform.rotation = rotation;
-            bulletGameObject.SetActive(true);
-        }
-
+        var currentDictionaryName = objectPooler.GetDictionaryNamesList[0];
+        
+        if(currentPool == null) currentPool = objectPooler.GetCurrentPool(currentDictionaryName);
+        bulletGameObject = objectPooler.GetPooledObject(currentDictionaryName);
+        
+        bulletGameObject.transform.position = shootPoint;
+        bulletGameObject.transform.rotation = rotation;
+        bulletGameObject.SetActive(true);
+        
         currentPool.Enqueue(bulletGameObject);
-        /*if (!muzzleGameObject)
-        {
-            muzzleGameObject = Instantiate(muzzleVFXPrefab, shootPoint, rotation);
-        }*/
+       
     }
 
     public override void StopShoot()
     {
         bulletGameObject.SetActive(false);
-        //Destroy(muzzleGameObject);
     }
 }

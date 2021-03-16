@@ -8,34 +8,22 @@ public class GunsShoot : AWeaponShoot
     private ObjectPooler objectPooler;
     private Queue<GameObject> currentPool;
     
-   
-    public override void Shoot(GameObject muzzleVFXPrefab, GameObject bullet, Vector3 shootPoint, Quaternion rotation)
+    public override void Shoot(Vector3 shootPoint, Quaternion rotation)
     {
-        if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+        if (!objectPooler) objectPooler = FindObjectOfType<ObjectPooler>();
         
-        foreach (var pool in objectPooler.BulletPoolDictionary)
-            {
-                if (pool.Value.Count != 0)
-                {
-                    currentPool = pool.Value;
-                }
-            }
+        var currentDictionaryName = objectPooler.GetDictionaryNamesList[0];
         
-            var obj = currentPool.Dequeue();
-            
-                if (obj && !obj.activeInHierarchy)
-                {
-                    obj.transform.position = shootPoint;
-                    obj.transform.rotation = rotation;
-                    obj.SetActive(true);
-                }
-
-                currentPool.Enqueue(obj);
-
-        //Instantiate(bullet, shootPoint, rotation);
-        //Instantiate(muzzleVFXPrefab, shootPoint, rotation);
+        if(currentPool == null) currentPool = objectPooler.GetCurrentPool(currentDictionaryName);
+        var bulletGameObject = objectPooler.GetPooledObject(currentDictionaryName);
+        
+        bulletGameObject.transform.position = shootPoint;
+        bulletGameObject.transform.rotation = rotation;
+        bulletGameObject.SetActive(true);
+        currentPool.Enqueue(bulletGameObject);
+       
     }
-
+   
     public override void StopShoot()
     {
     }

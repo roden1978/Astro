@@ -18,6 +18,6 @@ MonoBehaviour:
   weaponShoot: {fileID: 11400000, guid: 01d9d05b36ee4fd4f82a05690d9ba25a, type: 2}
   muzzleVFX: {fileID: 3066600329688807935, guid: 13d9d42d3974cfb429385cd87d847242,
     type: 3}
-  shootDelay: 0.3
+  shootDelay: 0.2
   bulletPrefab: {fileID: 6276581132515821955, guid: 97406a757745e2b408fadc0a786d47db,
     type: 3}

@@ -40,12 +40,11 @@ public class Weapon: MonoBehaviour
 
     public void Shoot()
     {
-	    weaponSettings.WeaponShoot.Shoot(weaponSettings.MuzzleVFX,weaponSettings.BulletPrefab, 
-		    weaponSettings.ShootPoint, weaponSettings.ShootPointRotation);
+	    weaponSettings.WeaponShoot.Shoot(weaponSettings.ShootPoint, weaponSettings.ShootPointRotation);
 	    
 	    if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
         
-	    foreach (var pool in objectPooler.MuzzlePoolDictionary)
+	    foreach (var pool in objectPooler.GetDictionary(objectPooler.GetDictionaryNamesList[1]))
 	    {
 		    if (pool.Value.Count != 0)
 		    {
