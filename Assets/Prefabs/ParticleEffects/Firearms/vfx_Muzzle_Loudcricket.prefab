@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 2657205884322687996}
   m_Layer: 11
   m_Name: vfx_Muzzle_Loudcricket
-  m_TagString: Untagged
+  m_TagString: muzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

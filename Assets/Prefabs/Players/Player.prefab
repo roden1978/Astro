@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 1355233939751362764}
   - component: {fileID: 660642981}
   m_Layer: 8
-  m_Name: Astronaut
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,12 +2037,11 @@ MonoBehaviour:
   rightArm: {fileID: 1355233938665848327}
   leftArm: {fileID: 1355233938647813895}
   weaponPoint: {fileID: 1355233938519310352}
-  currentWeapon: {fileID: 0}
   initialWeapon: {fileID: 8167248049189029295, guid: 2f8ff5f65959ca94ea515dd84abbe363,
     type: 3}
-  viewJoystick: {fileID: 0}
   joystickDelay: 0.3
   groundCollider2D: {fileID: 1355233939751362761}
+  objectPooler: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &660642981
 MonoBehaviour:

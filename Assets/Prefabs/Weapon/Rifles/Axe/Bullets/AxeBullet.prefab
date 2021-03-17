@@ -4878,7 +4878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5672792412121713684}
-  power: 0.5
+  power: 0.2
   lifetime: 1
   weapon: {fileID: 11400000, guid: 57eacad6c8f198249a0ba8167211b07a, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 38bfc34b4a22ff84e9bea45a1b2be9bc,

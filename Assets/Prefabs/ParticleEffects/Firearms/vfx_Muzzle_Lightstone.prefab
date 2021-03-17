@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: -397437140442735394}
   m_Layer: 11
   m_Name: vfx_Muzzle_Lightstone
-  m_TagString: Untagged
+  m_TagString: muzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

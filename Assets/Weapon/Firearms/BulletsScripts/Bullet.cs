@@ -16,18 +16,31 @@ public class Bullet : MonoBehaviour
 	void Start()
 	{
 		cc = transform.GetComponent<CapsuleCollider2D>();
+	}
+
+	public void OnEnable()
+	{
+		Invoke("Destroy", lifetime);
 		if (weapon)
 		{
 			shootDirection = weapon.ShootPoint.DirectionTo(weapon.TargetPoint); 
 			rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
-			Destroy(gameObject, lifetime);
 		}
-	    
+	}
+
+	public void OnDisable()
+	{
+		CancelInvoke();
+	}
+
+	private void Destroy()
+	{
+		gameObject.SetActive(false);
 	}
 
 	private void OnTriggerEnter2D(Collider2D hitObject)
 	{
 		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-		Destroy(gameObject);    
+		gameObject.SetActive(false);   
 	}
 }

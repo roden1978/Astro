@@ -22,35 +22,42 @@ public class WMD : MonoBehaviour
 
     void Start()
     {
+        
+        
+    }
+
+    private void OnEnable()
+    {
+        Invoke("Destroy", lifetime);
         if (weapon)
         {
-            
             shootDirection = weapon.TargetPoint - weapon.ShootPoint;
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
             hit = Physics2D.CircleCastAll(weapon.ShootPoint, radius, shootDirection, distance,
                 1 << LayerMask.NameToLayer("Enemy"));
-            coroutine = Die(lifetime);
-            StartCoroutine(coroutine);
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
         isCollision = true;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        OnDestroy();
     }
 
-    private IEnumerator Die(float time)
+    private void Destroy()
     {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+    
+    public void OnDisable()
+    {
+        CancelInvoke();
     }
 
    
     private void OnDestroy()
     {
-        weapon.IsReady = true;
         if (isCollision)
         {
             foreach (var obj in hit)

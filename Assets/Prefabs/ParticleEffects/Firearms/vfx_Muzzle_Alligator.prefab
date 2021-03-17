@@ -4882,7 +4882,7 @@ GameObject:
   - component: {fileID: 3773699005979549558}
   m_Layer: 11
   m_Name: vfx_Muzzle_Alligator
-  m_TagString: Untagged
+  m_TagString: muzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

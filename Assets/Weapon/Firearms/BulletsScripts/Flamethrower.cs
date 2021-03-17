@@ -43,7 +43,7 @@ public class Flamethrower : MonoBehaviour
         flameMain = flameBeamParticleSystem.main;
         smokeMain = smokeParticleSystem.main;
 
-        collisionEffectTime = vfxCollision.GetComponent<DestroyVFX>().Delay / 3;
+        collisionEffectTime = vfxCollision.GetComponent<DestroyCollisionVFX>().Delay / 3;
 
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4393408939498568895}
   m_Layer: 11
   m_Name: StardustBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1040204295
-  m_SortingLayer: -1
+  m_SortingLayer: 4
   m_SortingOrder: 100
   m_Sprite: {fileID: 3656481783356544310, guid: ab1db338b941c464e9dfbfbfbde439af,
     type: 3}

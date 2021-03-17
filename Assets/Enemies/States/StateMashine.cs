@@ -41,7 +41,7 @@ public class StateMashine : MonoBehaviour
     public void SwitchToNewState(System.Type nextState)
     {
         CurrentState = _availableStates[nextState];
-        Debug.Log(CurrentState);
+        //Debug.Log(CurrentState);
         //OnStateChanged?.Invoke(CurrentState);
     }
 

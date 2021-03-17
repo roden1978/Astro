@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 899857205479715649}
   m_Layer: 11
   m_Name: AgressorBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d65415932b1e44e92cbff51dd80248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 4aa9e833ffb22f44da1e70f79d9d5ac2, type: 2}
+  weapon: {fileID: 11400000, guid: 4aa9e833ffb22f44da1e70f79d9d5ac2, type: 2}
   laserSpeed: 30
   maxLaserLenght: 15
   vfxCollision: {fileID: 3066600329688807935, guid: f346d95d8fef70448afff3a07ba99317,
@@ -118,7 +118,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1040204295
-  m_SortingLayer: -1
+  m_SortingLayer: 4
   m_SortingOrder: 100
   m_Positions:
   - {x: 0, y: 0, z: 0}
