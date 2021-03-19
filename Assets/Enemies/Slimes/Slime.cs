@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime : AEnemy
 {
     
     private bool movingRight = true;
@@ -14,15 +15,19 @@ public class Slime : MonoBehaviour
     private Dictionary<System.Type, BaseState> states;
     private Animator animator;
 
-    private void Awake()
+    /*private void Awake()
     {
-        InitializeStateMashine();
-    }
+        
+    }*/
 
     private void Start()
     {
+        InitializeStateMashine();
         startPosition = transform.position;
         animator = GetComponent<Animator>();
+        health = SlimeData.MAXHealth;
+        
+        OnDamage.AddListener(TakeDamage);
     }
 
     private void Update()
@@ -59,5 +64,16 @@ public class Slime : MonoBehaviour
         get => movingRight;
         set => movingRight = value;
     }
-    
+
+    public override void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log($"Name = {gameObject.name} Health = {health}");
+        if(health <= 0) Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        OnDamage.RemoveListener(TakeDamage);
+    }
 }

@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public class Laser : MonoBehaviour
+public class Laser : ABullet
 {
 #pragma warning disable 0649
     [FormerlySerializedAs("gun")] [SerializeField] WeaponSettings weapon;
@@ -16,6 +17,7 @@ public class Laser : MonoBehaviour
     private LineRenderer lineRenderer;
     private RaycastHit2D hit;
     private GameObject collisionEffect;
+    private AEnemy enemy;
 
     private bool isCollision;
 
@@ -26,6 +28,8 @@ public class Laser : MonoBehaviour
         lineRenderer = beam.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(1, Vector3.zero);
         lineRenderer.SetPosition(0, Vector3.zero);
+        damage = weapon.Damage;
+        showEffect.AddListener(Play);
     }
 
     private void FixedUpdate()
@@ -42,10 +46,15 @@ public class Laser : MonoBehaviour
             lineRenderer.SetPosition(1,new Vector3(hit.distance, 0, 0));
             if (!isCollision)
             {
-                collisionEffect = Instantiate(vfxCollision, hit.point, Quaternion.identity);
-                isCollision = true;
+                showEffect?.Invoke();
             }
-            
+
+            if (hit.collider.gameObject.CompareTag("enemie"))
+            {
+                if(!enemy) enemy = hit.collider.gameObject.GetComponent<AEnemy>();
+                enemy.OnDamage?.Invoke(damage);
+            }
+               
         }
         else if (lineRenderer.GetPosition(1).x < maxLaserLenght)
         {
@@ -63,5 +72,11 @@ public class Laser : MonoBehaviour
     private void OnDisable()
     {
         Destroy(collisionEffect);
+    }
+
+    private void Play()
+    {
+        collisionEffect = Instantiate(vfxCollision, hit.point, Quaternion.identity);
+        isCollision = true;
     }
 }

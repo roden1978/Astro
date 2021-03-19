@@ -31,6 +31,10 @@ public class WeaponSettings : ScriptableObject
 	[Tooltip("Префаб пули")]
 	private GameObject bulletPrefab;
 	
+	[SerializeField]
+	[Tooltip("Префаб пули")]
+	private int damage;
+	
 	#pragma warning restore 0649
 
 	public float RightArmLockPositionUp => rightArmLockPositionUp;
@@ -42,8 +46,9 @@ public class WeaponSettings : ScriptableObject
 	public bool IsReady { get; set; } = true;
 	public bool IsShooting { get; set; }
 	public GameObject BulletPrefab => bulletPrefab;
-
 	public GameObject MuzzleVFX => muzzleVFX;
 	public AWeaponShoot WeaponShoot => weaponShoot;
+
+	public int Damage => damage;
 }
 

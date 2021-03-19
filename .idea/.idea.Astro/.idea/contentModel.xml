@@ -28,6 +28,7 @@
           <e p="UniFPSCounter.cs" t="Include" />
         </e>
         <e p="Enemies" t="Include">
+          <e p="AEnemy.cs" t="Include" />
           <e p="AliensHumanoid" t="Include">
             <e p="AliensController.cs" t="Include" />
           </e>
@@ -270,6 +271,7 @@
         <e p="Weapon" t="Include">
           <e p="Firearms" t="Include">
             <e p="BulletsScripts" t="Include">
+              <e p="ABullet.cs" t="Include" />
               <e p="Bullet.cs" t="Include" />
               <e p="Flamethrower.cs" t="Include" />
               <e p="Laser.cs" t="Include" />

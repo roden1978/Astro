@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class Flamethrower : MonoBehaviour
+public class Flamethrower : ABullet
 {
 #pragma warning disable 0649
     [SerializeField] WeaponSettings weapon;
@@ -19,6 +20,8 @@ public class Flamethrower : MonoBehaviour
     private ParticleSystem smokeParticleSystem;
     private ParticleSystem.MainModule flameMain;
     private ParticleSystem.MainModule smokeMain;
+
+    private AEnemy enemy;
     
     private RaycastHit2D hit;
     private RaycastHit2D lastHitPoint;
@@ -45,6 +48,9 @@ public class Flamethrower : MonoBehaviour
 
         collisionEffectTime = vfxCollision.GetComponent<DestroyCollisionVFX>().Delay / 3;
 
+        damage = weapon.Damage;
+        showEffect.AddListener(Play);
+
     }
 
     private void FixedUpdate()
@@ -66,10 +72,15 @@ public class Flamethrower : MonoBehaviour
             flameMain.startLifetime = smokeMain.startLifetime = hit.distance / speed;
             if (!isCollision) 
             {
-                Instantiate(vfxCollision, hit.point, Quaternion.identity);
-                isCollision = true;
-                time = Time.time;
+                showEffect?.Invoke();
             }
+
+            if (hit.collider.gameObject.CompareTag("enemie"))
+            {
+                if(!enemy) enemy = hit.collider.gameObject.GetComponent<AEnemy>();
+                enemy.OnDamage?.Invoke(damage);
+            }
+                
         }
         else
         {
@@ -83,5 +94,12 @@ public class Flamethrower : MonoBehaviour
             time = 0;
         }
 
+    }
+
+    private void Play()
+    {
+        Instantiate(vfxCollision, hit.point, Quaternion.identity);
+        isCollision = true;
+        time = Time.time;
     }
 }
