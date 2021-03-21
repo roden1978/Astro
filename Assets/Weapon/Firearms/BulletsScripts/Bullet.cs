@@ -24,7 +24,6 @@ public class Bullet : ABullet
 
 	public void OnEnable()
 	{
-		
 		Invoke("Destroy", lifetime);
 		if (weapon)
 		{
@@ -33,17 +32,9 @@ public class Bullet : ABullet
 		}
 	}
 
-	public void OnDisable()
-	{
-		CancelInvoke();
-		
-	}
+	public void OnDisable() { CancelInvoke(); }
 
-	private void Destroy()
-	{
-		//showEffect.RemoveListener(Play);
-		gameObject.SetActive(false);
-	}
+	private void Destroy() { gameObject.SetActive(false); }
 
 	private void OnTriggerEnter2D(Collider2D hitObject)
 	{
@@ -54,10 +45,9 @@ public class Bullet : ABullet
 			if(!enemy) enemy = hitObject.gameObject.GetComponent<AEnemy>();
 			enemy.OnDamage?.Invoke(damage);
 		}
-			
 	}
 
-	public void Play()
+	private void Play()
 	{
 		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
 		gameObject.SetActive(false);

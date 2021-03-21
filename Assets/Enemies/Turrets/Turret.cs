@@ -16,11 +16,6 @@ public class Turret : AEnemy
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
 
-    /*private void Awake()
-    {
-        
-    }*/
-
    private void Start()
     {
         InitializeStateMashine();
@@ -31,6 +26,13 @@ public class Turret : AEnemy
     }
 
 
+   public override void TakeDamage(int damage)
+   {
+       health -= damage;
+       Debug.Log($"Tag = {gameObject.tag} Health = {health}");
+       if(health <= 0) Destroy(gameObject);
+
+   }
     private void InitializeStateMashine()
     {
         states = new Dictionary<System.Type, BaseState>()
@@ -53,13 +55,7 @@ public class Turret : AEnemy
         set => upDirection = value;
     }
 
-    public override void TakeDamage(int damage)
-    {
-        health -= damage;
-        Debug.Log($"Tag = {gameObject.tag} Health = {health}");
-        if(health <= 0) Destroy(gameObject);
-
-    }
+    
 
     private void OnDestroy()
     {
