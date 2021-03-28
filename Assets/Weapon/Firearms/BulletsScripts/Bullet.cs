@@ -43,11 +43,11 @@ public class Bullet : ABullet
 		if (hitObject.gameObject.CompareTag("enemie"))
 		{
 			if(!enemy) enemy = hitObject.gameObject.GetComponent<AEnemy>();
-			enemy.OnDamage?.Invoke(damage);
+			enemy.onDamage?.Invoke(damage);
 		}
 	}
 
-	private void Play()
+	protected override void Play()
 	{
 		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
 		gameObject.SetActive(false);

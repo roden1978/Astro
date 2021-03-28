@@ -1,18 +1,26 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public abstract class AEnemy : MonoBehaviour
 {
    protected int health;
-   public UnityEvent<int> OnDamage;
-   
-   public abstract void TakeDamage(int damage);
+   public UnityEvent<int> onDamage;
 
-   protected void Awake()
+   protected virtual void TakeDamage(int damage)
    {
-      OnDamage = new UnityEvent<int>();
+      health -= damage;
+      Debug.Log($"Tag = {gameObject.tag} Health = {health}");
+      if(health <= 0) Destroy(gameObject);
+   }
+
+   private void Awake()
+   {
+      onDamage = new UnityEvent<int>();
+      onDamage.AddListener(TakeDamage);
+   }
+   
+   private void OnDestroy()
+   {
+      onDamage.RemoveListener(TakeDamage);
    }
 }

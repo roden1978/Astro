@@ -9,5 +9,8 @@ public abstract class ABullet : MonoBehaviour
     protected void Awake()
     {
         showEffect = new UnityEvent();
+        showEffect.AddListener(Play);
     }
+
+    protected virtual void Play(){}
 }

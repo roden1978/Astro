@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class Turret : AEnemy
@@ -19,20 +16,9 @@ public class Turret : AEnemy
    private void Start()
     {
         InitializeStateMashine();
-        upDirection = Random.Range(-1, 1);
-        if (UpDirection == 0) UpDirection = 1;
-        OnDamage.AddListener(TakeDamage);
         health = turretSettings.MaxHealth;
     }
 
-
-   public override void TakeDamage(int damage)
-   {
-       health -= damage;
-       Debug.Log($"Tag = {gameObject.tag} Health = {health}");
-       if(health <= 0) Destroy(gameObject);
-
-   }
     private void InitializeStateMashine()
     {
         states = new Dictionary<System.Type, BaseState>()
@@ -51,14 +37,12 @@ public class Turret : AEnemy
 
     public float UpDirection
     {
-        get => upDirection;
+        get
+        {
+            upDirection = Random.Range(-1, 1);
+            return upDirection == 0 ? 1 : upDirection;
+        }
         set => upDirection = value;
     }
-
     
-
-    private void OnDestroy()
-    {
-        OnDamage.RemoveListener(TakeDamage);
-    }
 }

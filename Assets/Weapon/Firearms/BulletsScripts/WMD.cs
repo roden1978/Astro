@@ -67,12 +67,12 @@ public class WMD : ABullet
                 {
                     Instantiate(vfxCollision, obj.collider.bounds.center, Quaternion.identity);
                     if(!enemy) enemy = obj.transform.gameObject.GetComponent<AEnemy>();
-                    enemy.OnDamage?.Invoke(damage);
+                    enemy.onDamage?.Invoke(damage);
                 }
             }
         }
 
         isCollision = false;
     }
-
+    
 }

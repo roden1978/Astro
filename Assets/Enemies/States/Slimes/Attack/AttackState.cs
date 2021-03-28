@@ -16,7 +16,7 @@ public class AttackState : BaseState
             return typeof(FlipState);
         }
 		
-        if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.SlimeData.AttackDistance)
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.slimeData.AttackDistance)
         {
             return typeof(ChaseState);
         }
@@ -27,7 +27,7 @@ public class AttackState : BaseState
     public override void FixedTick()
     {
        if (_slime.groundCollider.GroundCheck("Ground"))
-           rigidbody2D.AddForce(Vector2.up * _slime.SlimeData.JumpForce, ForceMode2D.Impulse);
+           rigidbody2D.AddForce(Vector2.up * _slime.slimeData.JumpForce, ForceMode2D.Impulse);
        
     }
 

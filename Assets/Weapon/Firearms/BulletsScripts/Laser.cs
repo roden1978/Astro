@@ -52,7 +52,7 @@ public class Laser : ABullet
             if (hit.collider.gameObject.CompareTag("enemie"))
             {
                 if(!enemy) enemy = hit.collider.gameObject.GetComponent<AEnemy>();
-                enemy.OnDamage?.Invoke(damage);
+                enemy.onDamage?.Invoke(damage);
             }
                
         }
@@ -74,7 +74,7 @@ public class Laser : ABullet
         Destroy(collisionEffect);
     }
 
-    private void Play()
+    protected override void Play()
     {
         collisionEffect = Instantiate(vfxCollision, hit.point, Quaternion.identity);
         isCollision = true;

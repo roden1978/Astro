@@ -50,7 +50,7 @@ public class Mashinegun : ABullet
         if (hitObject.gameObject.CompareTag("enemie"))
         {
             if(!enemy) enemy = hitObject.gameObject.GetComponent<AEnemy>();
-            enemy.OnDamage?.Invoke(damage);
+            enemy.onDamage?.Invoke(damage);
         }
             
     }
@@ -60,7 +60,7 @@ public class Mashinegun : ABullet
         gameObject.SetActive(false);
     }
 
-    private void Play()
+    protected override void Play()
     {
         Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
         gameObject.SetActive(false);

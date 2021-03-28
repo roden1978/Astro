@@ -76,9 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Buttons/Crouch.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/States/Player/JumpState.cs" />
         <option value="$PROJECT_DIR$/Assets/Common/AppStart.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/ParticleEffects/Firearms/MuzzleController.cs" />
@@ -118,15 +115,18 @@
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Enemies/SlimeData.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/ScriptableObjects/Weapon/Firearms/Firearms/WeaponSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Attack/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Chase/ChaseState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/States/Slimes/Patrol/PatrolState.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Slimes/Slime.cs" />
-        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/ABullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Turrets/Turret.cs" />
         <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Flamethrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Laser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/Mashinegun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/ABullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Weapon/Firearms/BulletsScripts/WMD.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/Turrets/Turret.cs" />
+        <option value="$PROJECT_DIR$/Assets/Enemies/AEnemy.cs" />
       </list>
     </option>
   </component>
@@ -257,6 +257,8 @@
       <workItem from="1616043170317" duration="13998000" />
       <workItem from="1616128680259" duration="14075000" />
       <workItem from="1616219849357" duration="2198000" />
+      <workItem from="1616303484363" duration="505000" />
+      <workItem from="1616304015817" duration="2584000" />
     </task>
     <servers />
   </component>
@@ -282,10 +284,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1615012038784">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1616303609607">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="275" key="RiderGenerateDialog/0.0.1600.1170@0.0.1600.1170" timestamp="1614926612944" />
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615012038784" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616303609607" />
   </component>
 </project>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Slime : AEnemy
@@ -7,27 +6,20 @@ public class Slime : AEnemy
     
     private bool movingRight = true;
     public GameObject player { get; private set; }
-    public SlimeData SlimeData;
+    public SlimeData slimeData;
     public Collider2D groundCollider;
     public Vector3 startPosition;
 
-    public StateMashine StateMashine => GetComponent<StateMashine>();
+    private StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
     private Animator animator;
-
-    /*private void Awake()
-    {
-        
-    }*/
 
     private void Start()
     {
         InitializeStateMashine();
         startPosition = transform.position;
         animator = GetComponent<Animator>();
-        health = SlimeData.MAXHealth;
-        
-        OnDamage.AddListener(TakeDamage);
+        health = slimeData.MAXHealth;
     }
 
     private void Update()
@@ -35,11 +27,11 @@ public class Slime : AEnemy
         animator.SetFloat("distance", Vector3.Distance(transform.position, player.transform.position));
     }
 
-    private void OnDrawGizmos() 
+    /*private void OnDrawGizmos() 
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(startPosition, new Vector3(startPosition.x, startPosition.y + 3, 0));
-    }
+    }*/
 
     private void InitializeStateMashine()
     {
@@ -65,15 +57,15 @@ public class Slime : AEnemy
         set => movingRight = value;
     }
 
-    public override void TakeDamage(int damage)
+    protected override void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= damage * 2;
         Debug.Log($"Name = {gameObject.name} Health = {health}");
         if(health <= 0) Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
-        OnDamage.RemoveListener(TakeDamage);
+        onDamage.RemoveListener(TakeDamage);
     }
 }

@@ -15,7 +15,7 @@ public class PatrolState : BaseState
 
     public override System.Type Tick()
     {
-        float pDistance = _slime.SlimeData.PatrolDistance;
+        float pDistance = _slime.slimeData.PatrolDistance;
         
         if(transform.position.x > _slime.startPosition.x + pDistance && _slime.MovingRight)
         {
@@ -37,9 +37,9 @@ public class PatrolState : BaseState
 
     public override void FixedTick()
     {
-        float force = _slime.SlimeData.Force;
+        float force = _slime.slimeData.Force;
         
-        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.SlimeData.GetMaxVelocity)
+        if (Mathf.Abs(rigidbody2D.velocity.x) < _slime.slimeData.GetMaxVelocity)
         {
             if (_slime.MovingRight)
             {

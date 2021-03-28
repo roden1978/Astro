@@ -10,7 +10,7 @@ public class ChaseState : BaseState
 
     public override System.Type Tick()
     {
-        if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.SlimeData.StopChaseDistance)
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) > _slime.slimeData.StopChaseDistance)
         {
             return typeof(PatrolState);
         }
@@ -20,7 +20,7 @@ public class ChaseState : BaseState
             return typeof(FlipState);
         }
                
-        if (Vector2.Distance(transform.position, _slime.player.transform.position) < _slime.SlimeData.AttackDistance)
+        if (Vector2.Distance(transform.position, _slime.player.transform.position) < _slime.slimeData.AttackDistance)
         {
             return typeof(AttackState);
         }
@@ -30,17 +30,17 @@ public class ChaseState : BaseState
 
     public override void FixedTick()
     {
-        float maxVelocity = _slime.SlimeData.GetMaxVelocity;
+        float maxVelocity = _slime.slimeData.GetMaxVelocity;
         
         if (Mathf.Abs(rigidbody2D.velocity.x) < maxVelocity + maxVelocity / 2)
         {
             if (_slime.MovingRight)
             {
-                rigidbody2D.AddForce(Vector2.right * _slime.SlimeData.Force, ForceMode2D.Force);
+                rigidbody2D.AddForce(Vector2.right * _slime.slimeData.Force, ForceMode2D.Force);
             }
             else
             {
-                rigidbody2D.AddForce(Vector2.left * _slime.SlimeData.Force, ForceMode2D.Force);
+                rigidbody2D.AddForce(Vector2.left * _slime.slimeData.Force, ForceMode2D.Force);
             }
         }
     }
