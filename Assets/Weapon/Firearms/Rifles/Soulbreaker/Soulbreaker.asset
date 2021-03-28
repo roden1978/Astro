@@ -21,3 +21,4 @@ MonoBehaviour:
   shootDelay: 0
   bulletPrefab: {fileID: 6276581132515821955, guid: e3236646091b94d46b4974291a30c818,
     type: 3}
+  damage: 5

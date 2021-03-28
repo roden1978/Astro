@@ -24,7 +24,10 @@ public class SlimeData : ScriptableObject
     
     [SerializeField]
     [Tooltip("Максимальное ускорение движения")]
-    private float maxVelocity;
+    private float maxVelocity; [SerializeField]
+    
+    [Tooltip("Максимальное значение здоровья")]
+    private int maxHealth;
 
     public float Force
     {
@@ -61,4 +64,6 @@ public class SlimeData : ScriptableObject
 	    get => maxVelocity;
 	    set => maxVelocity = value;
     }
+
+    public int MAXHealth => maxHealth;
 }

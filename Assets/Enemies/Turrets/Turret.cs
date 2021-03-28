@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Turret : MonoBehaviour
+public class Turret : AEnemy
 {
     public GameObject player { get; private set; }
 
@@ -15,22 +13,11 @@ public class Turret : MonoBehaviour
     public StateMashine StateMashine => GetComponent<StateMashine>();
     private Dictionary<System.Type, BaseState> states;
 
-    private void Awake()
+   private void Start()
     {
         InitializeStateMashine();
+        health = turretSettings.MaxHealth;
     }
-
-    private void Start()
-    {
-        upDirection = Random.Range(-1, 1);
-        if (UpDirection == 0) UpDirection = 1;
-    }
-
-    /*private void OnDrawGizmos() 
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(startPosition, new Vector3(startPosition.x, startPosition.y + 3, 0));
-    }*/
 
     private void InitializeStateMashine()
     {
@@ -50,7 +37,12 @@ public class Turret : MonoBehaviour
 
     public float UpDirection
     {
-        get => upDirection;
+        get
+        {
+            upDirection = Random.Range(-1, 1);
+            return upDirection == 0 ? 1 : upDirection;
+        }
         set => upDirection = value;
     }
+    
 }

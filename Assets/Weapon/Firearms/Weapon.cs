@@ -21,6 +21,16 @@ public class Weapon: MonoBehaviour
 	    weaponSettings.ShootPoint = shootPoint.position;
 	    weaponSettings.TargetPoint = targetPoint.position;
 	    weaponSettings.ShootPointRotation = shootPoint.rotation;
+	    
+	    if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
+	   
+	    foreach (var pool in objectPooler.GetDictionary(objectPooler.GetDictionaryNamesList[1]))
+	    {
+		    if (pool.Value.Count != 0)
+		    {
+			    currentPool = pool.Value;
+		    }
+	    }
     }
 
     // Update is called once per frame
@@ -42,16 +52,6 @@ public class Weapon: MonoBehaviour
     {
 	    weaponSettings.WeaponShoot.Shoot(weaponSettings.ShootPoint, weaponSettings.ShootPointRotation);
 	    
-	    if (!objectPooler) objectPooler = GameObject.FindGameObjectWithTag("objectPooler").GetComponent<ObjectPooler>();
-        
-	    foreach (var pool in objectPooler.GetDictionary(objectPooler.GetDictionaryNamesList[1]))
-	    {
-		    if (pool.Value.Count != 0)
-		    {
-			    currentPool = pool.Value;
-		    }
-	    }
-        
 	    obj = currentPool.Dequeue();
             
 	    if (obj && !obj.activeInHierarchy)

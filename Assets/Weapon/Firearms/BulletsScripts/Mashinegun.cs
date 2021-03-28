@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-public class Mashinegun : MonoBehaviour
+public class Mashinegun : ABullet
 {
 #pragma warning disable 0649
     [SerializeField] Rigidbody2D rb;
@@ -19,9 +21,13 @@ public class Mashinegun : MonoBehaviour
     private IEnumerator coroutine;
     private Vector3 shootDirection;
     private CapsuleCollider2D cc;
-    void Start()
+    private AEnemy enemy;
+    
+        void Start()
     {
         cc = transform.GetComponent<CapsuleCollider2D>();
+        damage = weapon.Damage;
+        showEffect.AddListener(Play);
     }
 
     private void OnEnable()
@@ -40,18 +46,24 @@ public class Mashinegun : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        if (hitObject.CompareTag("playerBullet")) return;
-        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-        gameObject.SetActive(false);
+        showEffect?.Invoke();
+        if (hitObject.gameObject.CompareTag("enemie"))
+        {
+            if(!enemy) enemy = hitObject.gameObject.GetComponent<AEnemy>();
+            enemy.onDamage?.Invoke(damage);
+        }
+            
     }
     
     private void Destroy()
     {
         gameObject.SetActive(false);
     }
-    /*private IEnumerator Destroy(float time)
+
+    protected override void Play()
     {
-        yield return new WaitForSeconds(time);
-        Destroy(gameObject);
-    }*/
+        Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+    }
+  
 }

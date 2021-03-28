@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
-public class Bullet : MonoBehaviour
+public class Bullet : ABullet
 {
 #pragma warning disable 0649
 	[SerializeField] Rigidbody2D rb;
@@ -8,14 +9,17 @@ public class Bullet : MonoBehaviour
 	[SerializeField] float lifetime;
 	[SerializeField] WeaponSettings weapon;
 	[SerializeField] GameObject vfxCollision;
+	
 #pragma warning restore 0649
 	
 	private Vector3 shootDirection;
-
 	private Collider2D cc;
+	private AEnemy enemy;
 	void Start()
 	{
 		cc = transform.GetComponent<CapsuleCollider2D>();
+		damage = weapon.Damage;
+		showEffect.AddListener(Play);
 	}
 
 	public void OnEnable()
@@ -28,19 +32,24 @@ public class Bullet : MonoBehaviour
 		}
 	}
 
-	public void OnDisable()
-	{
-		CancelInvoke();
-	}
+	public void OnDisable() { CancelInvoke(); }
 
-	private void Destroy()
-	{
-		gameObject.SetActive(false);
-	}
+	private void Destroy() { gameObject.SetActive(false); }
 
 	private void OnTriggerEnter2D(Collider2D hitObject)
 	{
+		showEffect?.Invoke();
+		Debug.Log($"HitObject = {hitObject.name}, Type = {hitObject.gameObject.GetType()}");
+		if (hitObject.gameObject.CompareTag("enemie"))
+		{
+			if(!enemy) enemy = hitObject.gameObject.GetComponent<AEnemy>();
+			enemy.onDamage?.Invoke(damage);
+		}
+	}
+
+	protected override void Play()
+	{
 		if (vfxCollision) Instantiate(vfxCollision, cc.transform.position, Quaternion.identity);
-		gameObject.SetActive(false);   
+		gameObject.SetActive(false);
 	}
 }

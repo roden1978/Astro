@@ -138,6 +138,34 @@ MonoBehaviour:
   rb: {fileID: 2499095146054216917}
   power: 0.23
   lifetime: 1
+  damage: 10
   weapon: {fileID: 11400000, guid: 9552dc9571253d045b6d3f465a6356b6, type: 2}
   vfxCollision: {fileID: 3066600329688807935, guid: 52cca577e50173247a2cf2e05e93339a,
     type: 3}
+  showEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 792199869, guid: 951babb5c0d2be24783b9ae84068edcf, type: 3}
+        m_TargetAssemblyTypeName: Turret, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: fd1db6ad2cb992a478bcb1b4b9e6a6fc, type: 3}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

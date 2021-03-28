@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WMD : MonoBehaviour
+public class WMD : ABullet
 {
 #pragma warning disable 0649
     [SerializeField] Rigidbody2D rb;
@@ -19,11 +19,11 @@ public class WMD : MonoBehaviour
     private Vector3 shootDirection;
     private bool isCollision;
     private RaycastHit2D[] hit;
+    private AEnemy enemy;
 
     void Start()
     {
-        
-        
+        damage = weapon.Damage;
     }
 
     private void OnEnable()
@@ -31,10 +31,11 @@ public class WMD : MonoBehaviour
         Invoke("Destroy", lifetime);
         if (weapon)
         {
-            shootDirection = weapon.TargetPoint - weapon.ShootPoint;
+            shootDirection = weapon.ShootPoint.DirectionTo(weapon.TargetPoint);
             rb.AddForce(shootDirection * power, ForceMode2D.Impulse);
             hit = Physics2D.CircleCastAll(weapon.ShootPoint, radius, shootDirection, distance,
                 1 << LayerMask.NameToLayer("Enemy"));
+            
         }
     }
 
@@ -62,11 +63,16 @@ public class WMD : MonoBehaviour
         {
             foreach (var obj in hit)
             {
-                Debug.Log(obj.collider.bounds.center);
-                Instantiate(vfxCollision, obj.collider.bounds.center, Quaternion.identity);
+                if (obj.transform.gameObject.CompareTag("enemie"))
+                {
+                    Instantiate(vfxCollision, obj.collider.bounds.center, Quaternion.identity);
+                    if(!enemy) enemy = obj.transform.gameObject.GetComponent<AEnemy>();
+                    enemy.onDamage?.Invoke(damage);
+                }
             }
         }
 
         isCollision = false;
     }
+    
 }

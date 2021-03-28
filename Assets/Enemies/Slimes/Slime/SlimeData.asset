@@ -18,3 +18,4 @@ MonoBehaviour:
   stopChaseDistance: 4
   jumpForce: 2.5
   maxVelocity: 2
+  maxHealth: 100

@@ -18,12 +18,12 @@ public class TurretPatrolState : BaseState
        
             _turret.turretHead.RotateAround(_turret.turretHead.position,
                 Vector3.forward,
-                _turret.turretSettings.rotateSpeed * Time.deltaTime * _turret.UpDirection);
+                _turret.turretSettings.RotateSpeed * Time.deltaTime * _turret.UpDirection);
         
-        if (_turret.turretHead.rotation.z >= _turret.turretSettings.maxRotateAngel)
+        if (_turret.turretHead.rotation.z >= _turret.turretSettings.MAXRotateAngel)
             return typeof(ChangeRotateDirectionState);
         
-        if (_turret.turretHead.rotation.z <= -_turret.turretSettings.maxRotateAngel)
+        if (_turret.turretHead.rotation.z <= -_turret.turretSettings.MAXRotateAngel)
             return typeof(ChangeRotateDirectionState);
         
         
